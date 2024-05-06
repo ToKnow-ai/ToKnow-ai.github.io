@@ -30,6 +30,11 @@ format:
       giscus:
         repo: ToKnow-ai/ToKnow-ai.github.io
         mapping: show-and-tell
-
+  # ipynb: default
+  # pdf: default
+filters:
+  - filters/open-ipynb.lua
+author: "Kabui Charles"
+toc: true
 
 

@@ -162,3 +162,5 @@ _site/
 .quarto/
 
 /.quarto/
+
+/.luarc.json
