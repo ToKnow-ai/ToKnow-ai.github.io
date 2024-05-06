@@ -1,19 +1,29 @@
 ---
 title: "About"
-image: profile.jpg
+image: images/logo.png
 about:
   template: jolla
   links:
     - icon: twitter
-      text: Twitter
-      href: https://twitter.com
+      text: Twitter - ToKnow.ai
+      href: https://twitter.com/ToKnow_ai
     - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com
+      text: LinkedIn - ToKnow.ai
+      href: https://linkedin.com/company/toknow-ai
     - icon: github
-      text: Github
-      href: https://github.com
-
+      text: Github - ToKnow.ai
+      href: https://github.com/ToKnow-ai
+    - icon: instagram
+      text: Instagram - ToKnow.ai
+      href: https://www.instagram.com/toknow.ai/
+    - icon: youtube
+      text: Youtube - ToKnow.ai
+      href: https://www.youtube.com/@ToKnow_ai
+    - icon: whatsapp
+      text: Whatsapp - ToKnow.ai
+      href: https://whatsapp.com/channel/0029VaYpIypEVccHzzLusU1p
+comments: false
+citation: false
 ---
 
-About this blog
+<b><u>ToKnow</u>.ai</b> aims <u>to</u> extract <u>know</u>ledge from information in order to generate valuable insights and intelligence.
