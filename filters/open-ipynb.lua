@@ -1,4 +1,6 @@
 -- Function to get commandline output
+---@param command string
+---@return string
 function get_std(command)
   local handle = assert(io.popen(command))
   local result = handle:read("*a")
@@ -7,16 +9,30 @@ function get_std(command)
 end
 
 -- Function to automatically encode and replace a substring
-local function autoEncodeReplace(original, pattern, replacement)
+---@param original string
+---@param pattern string
+---@param replacement string
+---@return string
+function autoEncodeReplace(original, pattern, replacement)
   local encodedPattern = pattern:gsub("[%p%c%s]", "%%%0") -- Escape special characters
   return original:gsub(encodedPattern, replacement)
 end
 
--- test ends with
-function ends_with_extension(str, ext)
+-- Function to check if string ends with ends with
+---@param str string
+---@param ext string
+---@return string
+function str_ends_with(str, ext)
   return string.sub(str, -#ext) == ext
 end
 
+-- Function to create a github link
+---@param repository string
+---@param branch string
+---@param notebook_path string
+---@param title string
+---@param badge_url string
+---@return string
 function create_link(repository, branch, notebook_path, title, badge_url)
   return 
     '<a \
@@ -27,9 +43,12 @@ function create_link(repository, branch, notebook_path, title, badge_url)
     </a>'
 end
 
-function Pandoc(doc)
+-- Function to add the open .ipynb buttons to HTML, you can also add a global method: function Pandoc(doc) { }
+---@param doc pandoc.Pandoc
+---@return pandoc.Pandoc
+function add_buttons(doc)
   local input_file = quarto.doc.input_file
-  if not ends_with_extension(input_file, ".ipynb") then
+  if not str_ends_with(input_file, ".ipynb") then
     return doc
   end
 
@@ -40,10 +59,14 @@ function Pandoc(doc)
   local branch = get_std("git rev-parse --abbrev-ref HEAD")
   local git_dir = get_std("git rev-parse --show-toplevel")
   local notebook_path = autoEncodeReplace(input_file, git_dir, "")
-  local link_html = create_link(repository, branch, notebook_path, 'Open in Colab', '../../images/badges/colab.svg')
+  local link_html = create_link(repository, branch, notebook_path, 'Open in Colab', '/images/badges/colab.svg')
   -- https://github.com/feynlee/code-insertion/blob/main/_extensions/code-insertion/code-insertion.lua
   link_blocks = pandoc.read(link_html, "html").blocks
   link_blocks:extend(doc.blocks)
   local new_doc = pandoc.Pandoc(link_blocks, doc.meta)
   return new_doc
 end
+
+return {{
+  Pandoc = add_buttons
+}}
