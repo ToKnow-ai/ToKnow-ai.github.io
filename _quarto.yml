@@ -1,6 +1,5 @@
 project:
   type: website
-
 website:
   title: "ToKnow.ai"
   site-url: https://toknow.ai
@@ -21,20 +20,5 @@ format:
   html:
     theme: cosmo
     css: styles.css
-
-    # footnotes-hover: true
-    citation: true
-    # appendix-style: default
-    # citation-location: margin
-    comments:
-      giscus:
-        repo: ToKnow-ai/ToKnow-ai.github.io
-        mapping: show-and-tell
-  # ipynb: default
-  # pdf: default
-filters:
-  - filters/open-ipynb.lua
-author: "Kabui Charles"
-toc: true
 
 

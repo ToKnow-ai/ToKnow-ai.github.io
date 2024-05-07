@@ -10,10 +10,6 @@ listing:
   filter-ui: false
 page-layout: full
 title-block-banner: true
-comments: false
-citation: false
-toc: false
-author: ''
 ---
 
 

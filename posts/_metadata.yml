@@ -6,3 +6,24 @@ freeze: true
 
 # Enable banner style title blocks
 title-block-banner: true
+categories: [tech]
+filters:
+  - ../filters/open-ipynb.lua
+author:
+  - name: Charles Kabui
+    id: charles@toknow.ai
+    email: charles@toknow.ai
+toc: true
+license: "GNU GENERAL PUBLIC LICENSE"
+format:
+  html:
+    citation: true
+    google-scholar: true
+    comments:
+      giscus:
+        repo: ToKnow-ai/ToKnow-ai.github.io
+        mapping: pathname
+        loading: lazy
+        category: Giscus Comments
+        category-id: giscus-comments
+# https://quarto.org/docs/authoring/front-matter.html

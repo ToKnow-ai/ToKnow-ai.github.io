@@ -22,9 +22,6 @@ about:
     - icon: whatsapp
       text: Whatsapp - ToKnow.ai
       href: https://whatsapp.com/channel/0029VaYpIypEVccHzzLusU1p
-comments: false
-citation: false
-author: ''
 ---
 
 <b><u>ToKnow</u>.ai</b> aims <u>to</u> extract <u>know</u>ledge from information in order to generate valuable insights and intelligence.
