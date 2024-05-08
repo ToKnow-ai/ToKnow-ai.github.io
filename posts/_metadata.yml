@@ -7,9 +7,9 @@ freeze: true
 # Enable banner style title blocks
 title-block-banner: true
 categories: [tech]
-filters:
-  - ../filters/metadata_title.lua
-  - ../filters/open_ipynb.lua
+# filters:
+#   - ../filters/metadata_title.lua
+#   - ../filters/open_ipynb.lua
 author:
   - name: Charles Kabui
     id: charles@toknow.ai
