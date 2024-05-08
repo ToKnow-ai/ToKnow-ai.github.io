@@ -15,8 +15,12 @@ author:
     id: charles@toknow.ai
     email: charles@toknow.ai
 toc: true
-license: "GNU GENERAL PUBLIC LICENSE" # [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/licenses/gpl-3.0.en.html)
+license:
+  text: GNU GENERAL PUBLIC LICENSE
+  type: open-access
+  url: https://www.gnu.org/licenses/gpl-3.0.en.html
 format:
+  pdf: default
   html:
     citation: true
     google-scholar: true
@@ -28,3 +32,5 @@ format:
         category: Giscus Comments
         category-id: giscus-comments
 # https://quarto.org/docs/authoring/front-matter.html
+filters:
+  - ../filters/open_ipynb.lua

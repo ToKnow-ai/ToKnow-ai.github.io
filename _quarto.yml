@@ -21,11 +21,11 @@ format:
     theme: cosmo
     css: styles.css
     link-external-newwindow: true
-copyright: 
-  holder: ToKnow.ai
-  year: 2008 # - add year automatically
-filters:
-  # - filters/metadata_title.lua
-  - filters/open_ipynb.lua
+    # code-links: 
+    #   - binder
+    #   - repo
+# copyright: 
+#   holder: ToKnow.ai
+#   year: 2008 # - add year automatically
 
 

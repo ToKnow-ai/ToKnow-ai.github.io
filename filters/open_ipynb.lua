@@ -130,7 +130,7 @@ local function add_buttons(doc)
   local pdf_link_html = create_github_link(repository, branch, notebook_path, 'Download as PDF', '/images/badges/pdf.svg')
 
   local links_html = 
-    '<div class="d-flex justify-content-around clearfix p-1 mb-3">'
+    '<div class="d-flex justify-content-evenly align-items-center flex-wrap clearfix p-1 mb-3">'
       .. colab_link_html
       .. binder_link_html
       .. github_link_html
@@ -140,6 +140,8 @@ local function add_buttons(doc)
 
   local body_blocks = quarto.utils.string_to_blocks(links_html)
   body_blocks:extend(doc.blocks)
+
+  quarto.log.debug('HTML:', quarto.doc.is_format('html'), ', PDF:', quarto.doc.is_format('pdf'), body_blocks)
 
   local new_doc = pandoc.Pandoc(body_blocks, doc.meta)
   return new_doc
