@@ -126,7 +126,7 @@ function add_buttons(doc)
   local repository_name = get_std("basename -s .git `git config --get remote.origin.url`")
   local repository = repository_username .. "/" .. repository_name
   local branch = get_std("git rev-parse --abbrev-ref HEAD")
-  local git_dir = get_std("git rev-parse --show-toplevel")
+  local git_dir = get_std("git rev-parse --show-toplevel") -- quarto.project.directory,offset,output_directory
   local notebook_path = autoEncodeReplace(input_file, git_dir, "")
 
   local colab_link_html = create_colab_link(repository, branch, notebook_path, 'Open in Colab', '/images/badges/colab.svg')
@@ -142,14 +142,15 @@ function add_buttons(doc)
   local deepnote_link_blocks = pandoc.read(deepnote_link_html, "html").blocks
   local pdf_link_blocks = pandoc.read(pdf_link_html, "html").blocks
 
-  local link_blocks = colab_link_blocks
-  link_blocks:extend(binder_link_blocks)
-  link_blocks:extend(github_link_blocks)
-  link_blocks:extend(deepnote_link_blocks)
-  link_blocks:extend(pdf_link_blocks)
-  link_blocks:extend(doc.blocks)
+  local body_blocks = pandoc.List:new{}
+  body_blocks:extend(colab_link_blocks)
+  body_blocks:extend(binder_link_blocks)
+  body_blocks:extend(github_link_blocks)
+  body_blocks:extend(deepnote_link_blocks)
+  body_blocks:extend(pdf_link_blocks)
+  body_blocks:extend(doc.blocks)
 
-  local new_doc = pandoc.Pandoc(link_blocks, doc.meta)
+  local new_doc = pandoc.Pandoc(body_blocks, doc.meta)
   return new_doc
 end
 

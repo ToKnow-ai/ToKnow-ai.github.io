@@ -8,13 +8,14 @@ freeze: true
 title-block-banner: true
 categories: [tech]
 filters:
-  - ../filters/open-ipynb.lua
+  - ../filters/metadata_title.lua
+  - ../filters/open_ipynb.lua
 author:
   - name: Charles Kabui
     id: charles@toknow.ai
     email: charles@toknow.ai
 toc: true
-license: "GNU GENERAL PUBLIC LICENSE"
+license: "GNU GENERAL PUBLIC LICENSE" # [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/licenses/gpl-3.0.en.html)
 format:
   html:
     citation: true

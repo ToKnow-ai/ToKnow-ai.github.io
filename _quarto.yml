@@ -20,5 +20,8 @@ format:
   html:
     theme: cosmo
     css: styles.css
+copyright: 
+  holder: ToKnow.ai
+  year: 2008 # - add year automatically
 
 
