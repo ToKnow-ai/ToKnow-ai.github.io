@@ -139,11 +139,11 @@ local function add_buttons(doc)
     '</div>'
 
   local body_blocks = pandoc.List:new{}
-  local html_blocks =  pandoc.read(links_html).blocks-- quarto.utils.string_to_blocks(links_html)
+  local html_blocks =  pandoc.read(links_html, 'html').blocks -- quarto.utils.string_to_blocks(links_html)
   body_blocks:extend(html_blocks)
   body_blocks:extend(doc.blocks)
 
-  quarto.log.debug('HTML:', quarto.doc.is_format('html'), ', PDF:', quarto.doc.is_format('pdf'), body_blocks)
+  quarto.log.debug('HTML:', quarto.doc.is_format('html'), ', PDF:', quarto.doc.is_format('pdf'), html_blocks)
 
   local new_doc = pandoc.Pandoc(body_blocks, doc.meta)
   return new_doc
