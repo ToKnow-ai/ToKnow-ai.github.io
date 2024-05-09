@@ -6,6 +6,8 @@ website:
   description: "ToKnow.ai aims to extract knowledge from information in order to generate valuable insights and intelligence."
   navbar:
     right:
+      - href: index.qmd
+        text: Posts
       - about.qmd
       - icon: github
         href: https://github.com/ToKnow-ai

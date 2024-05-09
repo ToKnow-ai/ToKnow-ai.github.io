@@ -22,6 +22,15 @@ about:
     - icon: whatsapp
       text: Whatsapp - ToKnow.ai
       href: https://whatsapp.com/channel/0029VaYpIypEVccHzzLusU1p
+    - icon: threads
+      text: Threads - ToKnow.ai
+      href: https://www.threads.net/@toknow.ai
+    - icon: tiktok
+      text: Tiktok - ToKnow.ai
+      href: https://www.tiktok.com/@toknow.ai
+
+
+      
 ---
 
 <b><u>ToKnow</u>.ai</b> aims <u>to</u> extract <u>know</u>ledge from information in order to generate valuable insights and intelligence.

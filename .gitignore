@@ -165,3 +165,4 @@ _site/
 
 /.luarc.json
 site_libs/
+posts/*/images/

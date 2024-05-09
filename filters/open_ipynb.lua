@@ -115,6 +115,8 @@ local function add_buttons(doc)
     return doc
   end
 
+  quarto.log.debug('input_file:', quarto.doc.input_file, ' output_file:', quarto.doc.output_file)
+
   local repository_username = "ToKnow-ai"
   -- https://stackoverflow.com/a/42543006
   local repository_name = get_std("basename -s .git `git config --get remote.origin.url`")
@@ -130,20 +132,25 @@ local function add_buttons(doc)
   local pdf_link_html = create_github_link(repository, branch, notebook_path, 'Download as PDF', '/images/badges/pdf.svg')
 
   local links_html = 
-    '<div class="d-flex justify-content-evenly align-items-center flex-wrap clearfix p-1 mb-3">'
+    '<div class="d-flex justify-content-evenly align-items-center flex-wrap clearfix p-1">'
       .. colab_link_html
       .. binder_link_html
       .. github_link_html
       .. deepnote_link_html
       .. pdf_link_html ..
     '</div>'
+  links_html = '<hr class="mt-1 mb-1 w-50 mx-auto"/>' .. links_html .. '<hr class="mt-1 mb-1 w-50 mx-auto"/>'
+
 
   local body_blocks = pandoc.List:new{}
-  local html_blocks =  pandoc.read(links_html, 'html').blocks -- quarto.utils.string_to_blocks(links_html)
-  body_blocks:extend(html_blocks)
+  if quarto.doc.is_format('pdf') then
+    local html_blocks =  pandoc.read(links_html, 'html').blocks
+    body_blocks:extend(html_blocks)
+  elseif quarto.doc.is_format('html') then
+    local html_blocks = quarto.utils.string_to_blocks(links_html)
+    body_blocks:extend(html_blocks)
+  end
   body_blocks:extend(doc.blocks)
-
-  quarto.log.debug('HTML:', quarto.doc.is_format('html'), ', PDF:', quarto.doc.is_format('pdf'), html_blocks)
 
   local new_doc = pandoc.Pandoc(body_blocks, doc.meta)
   return new_doc
