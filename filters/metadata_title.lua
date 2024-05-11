@@ -1,15 +1,5 @@
 local str_ends_with = require "utils.str_ends_with"
-
--- Function to create a Github link
--- https://github.com/feynlee/code-insertion/blob/c7aa90f63a176c40578f3e427c1898272f44b51c/_extensions/code-insertion/code-insertion.lua#L1
----@param file string
----@return string
-local function readFile(file)
-  local f = assert(io.open(file, "rb"))
-  local content = f:read("*all")
-  f:close()
-  return content
-end
+local read_file = require "utils.read_file"
 
 -- Helper function for file existence
 -- https://github.com/danmackinlay/quarto_tikz/blob/6cd699abf22c8b8fd34605dc071d5fcde343915c/_extensions/tikz/tikz.lua#L47
@@ -37,7 +27,7 @@ local function metadata_title(doc)
     return doc
   end
 
-  local yml_text = readFile(_metadata_yml)
+  local yml_text = read_file(_metadata_yml)
   local yml_doc = pandoc.read('---\n' .. yml_text .. '\n---', "markdown")
   local yml_doc_title = yml_doc.meta['title']
   
