@@ -1,9 +1,11 @@
 local str_ends_with = require "utils.str_ends_with"
+local video_div_walk = require "utils.video_div_walk"
 
 -- Function to extract base64 video
 ---@param block pandoc.CodeBlock
----@return pandoc.CodeBlock
-local function extract_base64_video(block)
+---@param video_src string
+---@return pandoc.CodeBlock|pandoc.List
+local function replace_base64_video_src(block, video_src)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
     return block
   end
@@ -16,9 +18,14 @@ local function extract_base64_video(block)
     return block
   end
   
-  return pandoc.CodeBlock("WE CANT SHOW A VIDEO HERE, GO TO YOUTUBE!")
+  video = pandoc.read("Please watch the video at <" .. video_src .. ">", 'markdown').blocks
+  return video
 end
 
 return {
-  ['CodeBlock'] = extract_base64_video
-} 
+  ---@param div pandoc.Div
+  ---@return pandoc.Div
+  Div = function (div)
+    return video_div_walk(div, 'CodeBlock', replace_base64_video_src)
+  end, 
+}

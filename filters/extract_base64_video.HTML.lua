@@ -1,9 +1,11 @@
 local str_ends_with = require "utils.str_ends_with"
+local video_div_walk = require "utils.video_div_walk"
 
--- Function to extract base64 video
+-- Function to replace base64 video with a youtube src
 ---@param block pandoc.RawBlock
----@return pandoc.RawBlock
-local function extract_base64_video(block)
+---@param video_src string
+---@return pandoc.RawBlock|pandoc.Blocks
+local function replace_base64_video_src(block, video_src)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
     return block
   end
@@ -19,13 +21,15 @@ local function extract_base64_video(block)
   if not (block.text:find('data:video/')) then
     return block
   end
-
-  quarto.log.debug(block)
   
-  video = quarto.utils.string_to_blocks("{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}")
+  video = quarto.utils.string_to_blocks("{{< video " .. video_src .. " >}}")
   return video
 end
 
 return {
-  ['RawBlock'] = extract_base64_video
-} 
+  ---@param div pandoc.Div
+  ---@return pandoc.Div
+  Div = function (div)
+    return video_div_walk(div, 'RawBlock', replace_base64_video_src)
+  end, 
+}
