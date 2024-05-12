@@ -1,5 +1,6 @@
 local str_ends_with = require "utils.str_ends_with"
 local read_file = require "utils.read_file"
+local ternary = require "utils.ternary"
 
 -- Function to encode string
 ---@param str string
@@ -119,15 +120,6 @@ end
 local function remove_extention(file_name)
   local file_name_without_ext = file_name:match("^(.+/.+)%..+$")
   return file_name_without_ext
-end
-
----Funtion to evaluate ternary operation - https://stackoverflow.com/a/5529577
----@param cond any - able value that will resolve to boolish
----@param T any
----@param F any
----@return any
-local function ternary (cond, T, F )
-  if cond then return T else return F end
 end
 
 -- Funtion to extract the metadata of a file, given a file_name

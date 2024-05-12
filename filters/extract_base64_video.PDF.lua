@@ -1,5 +1,5 @@
 local str_ends_with = require "utils.str_ends_with"
-local video_div_walk = require "utils.video_div_walk"
+local notebook_div_walk = require "utils.notebook_div_walk"
 
 -- Function to extract base64 video
 ---@param block pandoc.CodeBlock
@@ -26,6 +26,6 @@ return {
   ---@param div pandoc.Div
   ---@return pandoc.Div
   Div = function (div)
-    return video_div_walk(div, 'CodeBlock', replace_base64_video_src)
+    return notebook_div_walk('video-src', div, 'CodeBlock', replace_base64_video_src)
   end, 
 }
