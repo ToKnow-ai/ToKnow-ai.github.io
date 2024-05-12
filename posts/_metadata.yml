@@ -33,4 +33,12 @@ format:
   pdf: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
-  - ../filters/open_ipynb.lua
+  # - ../filters/open_ipynb.lua
+  - ../filters/extract_base64_video.PDF.lua
+  - ../filters/extract_base64_video.HTML.lua
+open-ipynb: 
+  repository: "ToKnow-ai/ToKnow-ai.github.io"
+  branch:
+    dev: "quarto-dev"
+    main: "main"
+

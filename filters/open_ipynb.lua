@@ -14,24 +14,14 @@ local function urlencode(str)
   return str
 end
 
--- Function to get readFile output
----@param command string
----@return string
-local function get_std(command)
-  local handle = assert(io.popen(command))
-  local result = handle:read("*a")
-  handle:close()
-  return result:sub(1, -2) -- Trim the trailing newline
-end
-
 -- Function to automatically encode and replace a substring
 ---@param original string
----@param pattern string
----@param replacement string
+---@param replace_pattern string
+---@param replace_with string
 ---@return string
-local function autoEncodeReplace(original, pattern, replacement)
-  local encodedPattern = pattern:gsub("[%p%c%s]", "%%%0") -- Escape special characters
-  return original:gsub(encodedPattern, replacement)
+local function replace_string(original, replace_pattern, replace_with)
+  local encoded_pattern = replace_pattern:gsub("[%p%c%s]", "%%%0")
+  return original:gsub(encoded_pattern, replace_with)
 end
 
 -- Function to create a Google Colab link
@@ -157,16 +147,16 @@ local function add_buttons(doc)
   if not str_ends_with(input_file, ".ipynb") then
     return doc
   end
-  
+
+  local is_prod = (not PANDOC_STATE.trace) -- quarto preview --trace
   local siteUrl = read_metadata(quarto.project.directory .. '/_quarto.yml')['website']['site-url']
   local pdf_output_file = remove_extention(quarto.doc.output_file:sub(#quarto.project.output_directory + 1)) .. '.pdf'
-  local repository_username = "ToKnow-ai"
-  -- https://stackoverflow.com/a/42543006
-  local repository_name = get_std("basename -s .git `git config --get remote.origin.url`")
-  local repository = repository_username .. "/" .. repository_name
-  local branch = get_std("git rev-parse --abbrev-ref HEAD")
-  local git_dir = get_std("git rev-parse --show-toplevel") -- quarto.project.directory,offset,output_directory
-  local notebook_path = autoEncodeReplace(input_file, git_dir, "")
+  local repository = pandoc.utils.stringify(doc.meta['open-ipynb']['repository'])
+  local branch = ternary(
+    is_prod, 
+    pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['dev']),
+    pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['main']))
+  local notebook_path = replace_string(input_file, quarto.project.directory, "")
 
   local colab_link_html = create_colab_link(repository, branch, notebook_path, 'Open in Colab', '/images/badges/colab.svg')
   local binder_link_html = create_binder_link(repository, branch, notebook_path, 'Open in Binder', '/images/badges/binder.svg')
@@ -174,7 +164,10 @@ local function add_buttons(doc)
   local deepnote_link_html = create_deepnote_link(repository, branch, notebook_path, 'Open in Deepnote', '/images/badges/deepnote.svg')
   local pdf_link_html = ternary(
     siteUrl,
-    create_PDF_link(pandoc.utils.stringify(siteUrl) .. pdf_output_file, 'Download as PDF', '/images/badges/pdf.svg'),
+    create_PDF_link(
+      ternary(is_prod, pandoc.utils.stringify(siteUrl), '') .. pdf_output_file, 
+      'Download as PDF', 
+      '/images/badges/pdf.svg'),
     '')
 
   local links_html = 
