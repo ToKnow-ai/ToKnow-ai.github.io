@@ -131,29 +131,26 @@ local function read_metadata(file_name)
   return yml_doc.meta
 end
 
+-- buttons_wrapper
+---@param html string
+---@return string
+local buttons_wrapper = function (html)
+  local links_html = 
+    '<div class="d-flex justify-content-center gap-3 align-items-center flex-wrap clearfix p-1">'
+      .. html ..
+    '</div>'
+  links_html = '<hr class="mt-1 mb-1 w-50 mx-auto"/>' .. links_html .. '<hr class="mt-1 mb-1 w-50 mx-auto"/>'
+  return links_html
+end
+
 -- Function to add the open .ipynb buttons to HTML, you can also add a global method: function Pandoc(doc) { }
 ---@param doc pandoc.Pandoc
 ---@return pandoc.Pandoc
-local function add_buttons(doc)
+local function post_action_buttons(doc)
   local input_file = quarto.doc.input_file
-  if not str_ends_with(input_file, ".ipynb") then
-    return doc
-  end
-
   local is_prod = (not PANDOC_STATE.trace) -- quarto preview --trace
   local siteUrl = read_metadata(quarto.project.directory .. '/_quarto.yml')['website']['site-url']
   local pdf_output_file = remove_extention(quarto.doc.output_file:sub(#quarto.project.output_directory + 1)) .. '.pdf'
-  local repository = pandoc.utils.stringify(doc.meta['open-ipynb']['repository'])
-  local branch = ternary(
-    is_prod, 
-    pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['dev']),
-    pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['main']))
-  local notebook_path = replace_string(input_file, quarto.project.directory, "")
-
-  local colab_link_html = create_colab_link(repository, branch, notebook_path, 'Open in Colab', '/images/badges/colab.svg')
-  local binder_link_html = create_binder_link(repository, branch, notebook_path, 'Open in Binder', '/images/badges/binder.svg')
-  local github_link_html = create_github_link(repository, branch, notebook_path, 'View on Github', '/images/badges/github.svg')
-  local deepnote_link_html = create_deepnote_link(repository, branch, notebook_path, 'Open in Deepnote', '/images/badges/deepnote.svg')
   local pdf_link_html = ternary(
     siteUrl,
     create_PDF_link(
@@ -161,17 +158,24 @@ local function add_buttons(doc)
       'Download as PDF', 
       '/images/badges/pdf.svg'),
     '')
+  local links_html = buttons_wrapper(pdf_link_html)
 
-  local links_html = 
-    '<div class="d-flex justify-content-evenly align-items-center flex-wrap clearfix p-1">'
-      .. colab_link_html
-      .. binder_link_html
-      .. github_link_html
-      .. deepnote_link_html
-      .. pdf_link_html ..
-    '</div>'
-  links_html = '<hr class="mt-1 mb-1 w-50 mx-auto"/>' .. links_html .. '<hr class="mt-1 mb-1 w-50 mx-auto"/>'
+  if str_ends_with(input_file, ".ipynb") then
+    local repository = pandoc.utils.stringify(doc.meta['open-ipynb']['repository'])
+    local branch = ternary(
+      is_prod, 
+      pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['dev']),
+      pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['main']))
+    local notebook_path = replace_string(input_file, quarto.project.directory, "")
 
+    local colab_link_html = create_colab_link(repository, branch, notebook_path, 'Open in Colab', '/images/badges/colab.svg')
+    local binder_link_html = create_binder_link(repository, branch, notebook_path, 'Open in Binder', '/images/badges/binder.svg')
+    local github_link_html = create_github_link(repository, branch, notebook_path, 'View on Github', '/images/badges/github.svg')
+    local deepnote_link_html = create_deepnote_link(repository, branch, notebook_path, 'Open in Deepnote', '/images/badges/deepnote.svg')
+    
+    links_html = buttons_wrapper(
+      colab_link_html .. binder_link_html .. github_link_html .. deepnote_link_html .. pdf_link_html)
+  end
 
   local body_blocks = pandoc.List:new{}
   if quarto.doc.is_format('pdf') then
@@ -193,5 +197,5 @@ end
 return {{
   -- https://quarto.org/docs/projects/binder.html#add-a-link-to-binder
   -- https://github.com/feynlee/code-insertion/blob/main/_extensions/code-insertion/code-insertion.lua
-  Pandoc = add_buttons
+  Pandoc = post_action_buttons
 }}

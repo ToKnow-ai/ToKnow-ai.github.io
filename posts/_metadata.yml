@@ -33,7 +33,7 @@ format:
   pdf: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
-  - ../filters/open_ipynb.lua
+  - ../filters/post_action_buttons.lua
   - ../filters/extract_base64_video.PDF.lua
   - ../filters/extract_base64_video.HTML.lua
   - ../filters/output_when_format.lua

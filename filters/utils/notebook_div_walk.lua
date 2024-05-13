@@ -61,11 +61,6 @@ end
 ---@param div_walk_callback function - a function that accepts a pandoc.Div and returns a pandoc.Div
 ---@return pandoc.Div
 local function notebook_div_walk(attribute_key, div, div_walk_callback)
-  local is_prod = (not PANDOC_STATE.trace) -- quarto preview --trace
-  if not is_prod then
-    return div
-  end
-
   local attribute_value = attributes_find(div.attr.attributes, attribute_key)
   if attribute_value then
     return div_walk_iterator(attribute_value, div, div_walk_callback)
