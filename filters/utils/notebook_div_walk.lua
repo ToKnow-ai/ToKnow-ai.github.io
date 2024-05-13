@@ -34,14 +34,33 @@ local function is_output_cell(div)
   return div.attr.classes:includes("cell-output")
 end
 
+---div_walk_iterator
+---@param attribute_value table<string, string>|string
+---@param div pandoc.Div
+---@param div_walk_callback function - a function that accepts a pandoc.Div and returns a pandoc.Div
+---@return pandoc.Div
+function div_walk_iterator(attribute_value, div, div_walk_callback)
+  if div and is_output_cell(div) then
+    div = div_walk_callback(div, attribute_value)
+  elseif div and #div.content > 0 then
+    div = div:walk{
+      ---@param inner_div pandoc.Div
+      ---@return pandoc.Div
+      Div = function (inner_div)
+        return div_walk_iterator(attribute_value, inner_div, div_walk_callback)
+      end, 
+    }
+  end
+  return div
+end
+
 -- Function to replace a base64 video with a youtube video
 -- #| video-src: "https://www.youtube.com/watch?v=kCc8FmEb1nY"
 ---@param attribute_key string|function
 ---@param div pandoc.Div
----@param walk_block 'RawBlock'|'CodeBlock'
----@param walk_block_callback function
+---@param div_walk_callback function - a function that accepts a pandoc.Div and returns a pandoc.Div
 ---@return pandoc.Div
-local function notebook_div_walk(attribute_key, div, walk_block, walk_block_callback)
+local function notebook_div_walk(attribute_key, div, div_walk_callback)
   local is_prod = (not PANDOC_STATE.trace) -- quarto preview --trace
   if not is_prod then
     return div
@@ -49,36 +68,7 @@ local function notebook_div_walk(attribute_key, div, walk_block, walk_block_call
 
   local attribute_value = attributes_find(div.attr.attributes, attribute_key)
   if attribute_value then
-    local walker = {
-      ---@param block pandoc.RawBlock|pandoc.CodeBlock
-      ---@return pandoc.RawBlock|pandoc.CodeBlock
-      [walk_block] = function (block)
-        return walk_block_callback(block, attribute_value)
-      end,  
-    }
-    
-    if is_output_cell(div) then
-      div = div:walk(walker)
-    else
-      -- This is a flag to ensure we duscard other output cells if more than one exist.
-      -- If we need more than one output cell, we will create a setting/config for that
-      local has_matched = false
-      div = div:walk{
-        ---@param inner_div pandoc.Div
-        ---@return pandoc.Div
-        Div = function (inner_div)
-          if is_output_cell(inner_div) then
-            if not has_matched then
-              has_matched = true
-              inner_div = inner_div:walk(walker)
-            else
-              inner_div = pandoc.Str ''
-            end
-          end
-          return inner_div
-        end, 
-      }
-    end
+    return div_walk_iterator(attribute_value, div, div_walk_callback)
   end
   return div
 end
