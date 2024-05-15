@@ -147,6 +147,8 @@ end
 ---@param doc pandoc.Pandoc
 ---@return pandoc.Pandoc
 local function post_action_buttons(doc)
+  
+
   local input_file = quarto.doc.input_file
   local is_prod = (not PANDOC_STATE.trace) -- quarto preview --trace
   local siteUrl = read_metadata(quarto.project.directory .. '/_quarto.yml')['website']['site-url']
@@ -161,6 +163,8 @@ local function post_action_buttons(doc)
   local links_html = buttons_wrapper(pdf_link_html)
 
   if str_ends_with(input_file, ".ipynb") then
+    quarto.log.debug(quarto.doc.is_format('pdf'), doc.blocks)
+
     local repository = pandoc.utils.stringify(doc.meta['open-ipynb']['repository'])
     local branch = ternary(
       is_prod, 
