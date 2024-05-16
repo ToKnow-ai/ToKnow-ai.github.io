@@ -38,11 +38,13 @@ format:
             \usepackage{fontawesome5}
             \usepackage{xcolor}
             \definecolor{youtubeColor}{HTML}{FF0000}
+            \usepackage{tikz}
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
   # - ../filters/post_action_buttons.lua
   - ../filters/replace_base64_video_src.lua
   # - ../filters/output_when_format.lua
+  - ../filters/print.lua
 open-ipynb: 
   repository: "ToKnow-ai/ToKnow-ai.github.io"
   branch:

@@ -20,27 +20,81 @@ local get_youtube_image = function(video_src)
 end
 
 local makeBox = function (text, url, icon, color)
-  local youtube_image = get_youtube_image(url)
-  if not youtube_image then
-    return pandoc.Div(pandoc.List({
-      pandoc.RawInline('latex', '\\begin{centering}\\begin{tcolorbox}[hbox,\ncolframe=lightgray,\ncolback=white]\n'),
-      pandoc.RawInline('latex', '\\textcolor{' .. color .. '}{{\\Large {' .. icon .. '}}} %'),
-      pandoc.Link(pandoc.RawInline("latex", '\\raisebox{0.1 em}{' .. text .. '}'), url),
-      pandoc.RawInline('latex', '\n\\end{tcolorbox}\\end{centering}\n\\vspace{1em}')
-    }))
-  else
-    local test_image = '/home/anon-b/Downloads/hqdefault.jpg'
+  local youtube_image_src = get_youtube_image(url)
+  if not youtube_image_src then
     local blocks = pandoc.RawInline(
       'latex',
       '\\href{' .. url .. '}{ \
-         \\begin{centering} \
-            \\begin{tcolorbox}[hbox,  colframe=' .. color .. ', colback=white] \
-              \\includegraphics[width=0.5\\textwidth]{' .. test_image .. ' } \
+          \\begin{centering} \
+            \\begin{tcolorbox}[\
+                hbox,\
+                colframe='.. color .. ',\
+                colback=white] \
+                { \\Large { \
+                    \\textcolor{' .. color .. '}{' .. icon .. '} \
+                    \\textbf{' .. text .. '} \
+                }} \
             \\end{tcolorbox}\
-        \\end{centering}\
-        \\vspace{1em} \
+          \\end{centering}\
       }')
     return pandoc.Div(blocks)
+  else
+    -- local test_image = '/home/anon-b/Downloads/hqdefault.jpg'
+    -- local blocks = pandoc.RawInline(
+    --   'latex',
+    --   '\\href{' .. url .. '}{ \
+    --       \\begin{centering} \
+    --       \\begin{tcolorbox}[\
+    --           hbox,\
+    --           colframe='.. color .. ',\
+    --           colback=white, \
+    --           left=0pt, right=0pt, top=0pt, bottom=0pt,\
+    --           title=' .. text ..', \
+    --           fonttitle=\\bfseries] \
+    --           \\begin{tikzpicture}\
+    --               \\node[inner sep = 0pt] (a) {\
+    --                   \\includegraphics[width=0.5\\textwidth]{' .. youtube_image_src .. '}\
+    --               };\
+    --               \\node[anchor=center] at (a.center) {\
+    --                   \\textcolor{' .. color .. '}{{\\fontsize{70}{0}\\selectfont {' .. icon .. '}}} \
+    --               };\
+    --           \\end{tikzpicture}\
+    --       \\end{tcolorbox}\
+    --   \\end{centering}\
+    --   }')
+    -- return pandoc.Div(blocks)
+
+    local block1 = pandoc.RawInline(
+      'latex',
+      '\\begin{centering} \
+          \\begin{tcolorbox}[\
+              hbox,\
+              colframe='.. color .. ',\
+              colback=white, \
+              left=0pt, right=0pt, top=0pt, bottom=0pt,\
+              title=' .. text ..', \
+              fonttitle=\\bfseries] \
+              \\begin{tikzpicture} \
+              \\node[inner sep = 0pt] (a) {')
+    local attrs = {
+      width = '50%'
+    }
+    local block2 = pandoc.Image('', youtube_image_src, '', attrs)
+    local block3 = pandoc.RawInline(
+      'latex',
+                      '};\
+                      \\node[anchor=center] at (a.center) {\
+                      \\textcolor{' .. color .. '}{{\\fontsize{70}{0}\\selectfont {' .. icon .. '}}} \
+                    };\
+                      \\end{tikzpicture}\
+          \\end{tcolorbox}\
+      \\end{centering}')
+
+    local div = pandoc.Div(pandoc.Link(pandoc.List{ block1, block2, block3 }, url))
+
+    quarto.log.debug('div', div)
+    
+    return div
   end
 end
 

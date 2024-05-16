@@ -167,3 +167,5 @@ _site/
 site_libs/
 posts/*/images/
 posts/*/index_files/
+posts/*/*.tex
+posts/*/*.html
