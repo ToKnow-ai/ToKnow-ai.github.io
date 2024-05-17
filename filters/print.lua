@@ -1,19 +1,21 @@
+return {
+  ---@param doc pandoc.Pandoc
+  Pandoc = function (doc)
+    local markdown_str = 'Please visit <https://example.com> to view the plot. {{< meta title >}}'
+    local blocks_1 = quarto.utils.string_to_blocks(markdown_str)
+    local blocks_2 = quarto.utils.string_to_inlines(markdown_str)
+    local blocks_3 = pandoc.read(markdown_str, 'markdown').blocks
 
-local str_ends_with = require "utils.str_ends_with"
-local notebook_special_comments_walker = require "utils.notebook_special_comments_walker"
-local is_output_cell = require "utils.is_output_cell"
+    doc.blocks:insert(pandoc.Header(1, 'quarto.utils.string_to_blocks'))
+    doc.blocks:insert(pandoc.Div(blocks_1))
+    
+    doc.blocks:insert(pandoc.Header(1, 'quarto.utils.string_to_inlines'))
+    doc.blocks:insert(pandoc.Div(blocks_2))
 
--- Function to add the open .ipynb buttons to HTML, you can also add a global method: function Pandoc(doc) { }
----@param video_src string
----@param block pandoc.Block
----@param meta_blocks pandoc.MetaBlocks
----@return pandoc.Block,pandoc.MetaBlocks
-local function post_action_buttons(video_src, block, meta_blocks)
-  if str_ends_with(quarto.doc.input_file, ".ipynb") then
-    quarto.log.debug(quarto.doc.input_file, quarto.doc.is_format('pdf'), video_src, block)
+    doc.blocks:insert(pandoc.Header(1, 'pandoc.read(markdown_str, "markdown").blocks'))
+    doc.blocks:insert(pandoc.Div(blocks_3))
+
+    return doc
   end
-  return block, meta_blocks
-end
-
-return notebook_special_comments_walker('video-src', post_action_buttons, is_output_cell)
+}
 

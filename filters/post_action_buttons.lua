@@ -1,6 +1,7 @@
 local str_ends_with = require "utils.str_ends_with"
 local read_file = require "utils.read_file"
 local ternary = require "utils.ternary"
+local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
 -- Function to encode string
 ---@param str string
@@ -163,8 +164,6 @@ local function post_action_buttons(doc)
   local links_html = buttons_wrapper(pdf_link_html)
 
   if str_ends_with(input_file, ".ipynb") then
-    quarto.log.debug(quarto.doc.is_format('pdf'), doc.blocks)
-
     local repository = pandoc.utils.stringify(doc.meta['open-ipynb']['repository'])
     local branch = ternary(
       is_prod, 
@@ -189,7 +188,7 @@ local function post_action_buttons(doc)
   elseif quarto.doc.is_format('html') then
     -- this just parses the raw HTML and returns pandoc.RawBlock and pandoc.RawInline, 
     --- which is not convertable to PDF, see: https://quarto.org/docs/visual-editor/technical.html#latex-and-html
-    local html_blocks = quarto.utils.string_to_blocks(links_html)
+    local html_blocks = quarto_pandoc_parse_str(links_html)
     body_blocks:extend(html_blocks)
   end
   body_blocks:extend(doc.blocks)

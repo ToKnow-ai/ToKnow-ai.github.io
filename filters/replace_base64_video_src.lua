@@ -1,6 +1,7 @@
 local str_ends_with = require "utils.str_ends_with"
 local notebook_special_comments_walker = require "utils.notebook_special_comments_walker"
 local is_output_cell = require "utils.is_output_cell"
+local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
 ---get_youtube_image
 ---@param video_src string
@@ -39,32 +40,10 @@ local makeBox = function (text, url, icon, color)
       }')
     return pandoc.Div(blocks)
   else
-    -- local test_image = '/home/anon-b/Downloads/hqdefault.jpg'
-    -- local blocks = pandoc.RawInline(
-    --   'latex',
-    --   '\\href{' .. url .. '}{ \
-    --       \\begin{centering} \
-    --       \\begin{tcolorbox}[\
-    --           hbox,\
-    --           colframe='.. color .. ',\
-    --           colback=white, \
-    --           left=0pt, right=0pt, top=0pt, bottom=0pt,\
-    --           title=' .. text ..', \
-    --           fonttitle=\\bfseries] \
-    --           \\begin{tikzpicture}\
-    --               \\node[inner sep = 0pt] (a) {\
-    --                   \\includegraphics[width=0.5\\textwidth]{' .. youtube_image_src .. '}\
-    --               };\
-    --               \\node[anchor=center] at (a.center) {\
-    --                   \\textcolor{' .. color .. '}{{\\fontsize{70}{0}\\selectfont {' .. icon .. '}}} \
-    --               };\
-    --           \\end{tikzpicture}\
-    --       \\end{tcolorbox}\
-    --   \\end{centering}\
-    --   }')
-    -- return pandoc.Div(blocks)
-
-    local block1 = pandoc.RawInline(
+    local pandoc_image_attributes = {
+      width = '50%' -- width=0.5\\textwidth
+    }
+    local latex_top_raw_block = pandoc.RawInline(
       'latex',
       '\\begin{centering} \
           \\begin{tcolorbox}[\
@@ -76,25 +55,22 @@ local makeBox = function (text, url, icon, color)
               fonttitle=\\bfseries] \
               \\begin{tikzpicture} \
               \\node[inner sep = 0pt] (a) {')
-    local attrs = {
-      width = '50%'
-    }
-    local block2 = pandoc.Image('', youtube_image_src, '', attrs)
-    local block3 = pandoc.RawInline(
+    -- \\includegraphics[width=0.5\\textwidth]{' .. youtube_image_src .. '}\
+    -- we have done this so that quarto can download the image, pandoc doesnt embend online images to pdf
+    local pandoc_image_block = pandoc.Image('', youtube_image_src, '', pandoc_image_attributes)
+    local latex_bottom_raw_block = pandoc.RawInline(
       'latex',
-                      '};\
-                      \\node[anchor=center] at (a.center) {\
-                      \\textcolor{' .. color .. '}{{\\fontsize{70}{0}\\selectfont {' .. icon .. '}}} \
-                    };\
-                      \\end{tikzpicture}\
+                '};\
+                \\node[anchor=center] at (a.center) {\
+                    \\textcolor{' .. color .. '}{{\\fontsize{70}{0}\\selectfont {' .. icon .. '}}} \
+                };\
+              \\end{tikzpicture}\
           \\end{tcolorbox}\
       \\end{centering}')
-
-    local div = pandoc.Div(pandoc.Link(pandoc.List{ block1, block2, block3 }, url))
-
-    quarto.log.debug('div', div)
-    
-    return div
+    return pandoc.Div(
+      pandoc.Link(
+        pandoc.List{ latex_top_raw_block, pandoc_image_block, latex_bottom_raw_block }, 
+        url))
   end
 end
 
@@ -103,7 +79,6 @@ end
 ---@return pandoc.Block
 local function pdf_src_block(video_src)
   local video = makeBox("Click to watch the video at Youtube.", video_src, "\\faYoutube", "youtubeColor")
-  -- video = pandoc.read("Please watch the video at <" .. video_src .. ">", 'markdown').blocks
   return video
 end
 
@@ -111,7 +86,7 @@ end
 ---@param video_src string
 ---@return pandoc.Block
 local function html_src_block(video_src)
-  local video = quarto.utils.string_to_blocks("{{< video " .. video_src .. " >}}")
+  local video = quarto_pandoc_parse_str("{{< video " .. video_src .. " >}}")
   return pandoc.Div(video)
 end
 

@@ -1,8 +1,8 @@
 local str_starts_with = require "utils.str_starts_with"
-local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 local str_ends_with = require "utils.str_ends_with"
 local notebook_special_comments_walker = require "utils.notebook_special_comments_walker"
 local is_output_cell = require "utils.is_output_cell"
+local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
 local format_with_template = 'output-when-format-'
 
@@ -12,8 +12,8 @@ local format_with_template = 'output-when-format-'
 -- A complement for: https://quarto.org/docs/authoring/conditional.html#format-matching
 -- Usage:   #|output-when-format: "{format}"              =>  #|output-when-format: "html"
 --          #|output-when-format-{format}: "{template}"   =>  #|output-when-format-pdf: "[text](link)"
----@param block pandoc.Block
 ---@param key_template_format table<"key"|"value", string>
+---@param block pandoc.Block
 ---@return pandoc.Block
 local function output_when_format(key_template_format, block)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
