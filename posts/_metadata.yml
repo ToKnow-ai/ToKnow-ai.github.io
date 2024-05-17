@@ -7,9 +7,6 @@ freeze: true
 # Enable banner style title blocks
 title-block-banner: true
 categories: [tech]
-# filters:
-#   - ../filters/metadata_title.lua
-#   - ../filters/open_ipynb.lua
 author:
   - name: Charles Kabui
     id: charles@toknow.ai
@@ -41,8 +38,8 @@ format:
             \usepackage{tikz}
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
-  # - ../filters/post_action_buttons.lua
-  # - ../filters/replace_base64_video_src.lua
+  - ../filters/post_action_buttons.lua
+  - ../filters/replace_base64_video_src.lua
   - ../filters/output_when_format.lua
 open-ipynb: 
   repository: "ToKnow-ai/ToKnow-ai.github.io"

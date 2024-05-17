@@ -1,5 +1,5 @@
 local str_ends_with = require "utils.str_ends_with"
-local special_comments = require "utils.notebook_special_comments_walker"
+local notebook_special_comments_walker = require "utils.notebook_special_comments_walker"
 local is_output_cell = require "utils.is_output_cell"
 local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
@@ -91,7 +91,7 @@ local function html_src_block(video_src)
 end
 
 -- Function to extract base64 video
----@param video_src string
+---@param video_src table<'key'|'value', string>
 ---@param block pandoc.Block
 ---@return pandoc.Block
 local function replace_base64_video_src(video_src, block)
@@ -100,14 +100,14 @@ local function replace_base64_video_src(video_src, block)
   end
   
   if quarto.doc.is_format('pdf') then
-    return pdf_src_block(video_src)
+    return pdf_src_block(video_src.value)
   end
 
   if quarto.doc.is_format('html') then
-    return html_src_block(video_src)
+    return html_src_block(video_src.value)
   end
   
   return block
 end
 
-return special_comments.notebook_special_comments_walker('video-src', replace_base64_video_src, is_output_cell)
+return notebook_special_comments_walker('video-src', replace_base64_video_src, is_output_cell)

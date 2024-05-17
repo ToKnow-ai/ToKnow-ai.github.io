@@ -1,27 +1,14 @@
 local ternary = require "utils.ternary"
 
--- Function to find and return an atribute
+-- Function to find and return an attribute {key,value}
 ---@param attributes table<string, string>
----@param key string|function - a string key of a function that returns bool-ish!
----                             The function accepts a key,value pair and their result is returned
----                             If a string key is passed, only the value is returned
----@return string|nil|table<string, string>
+---@param key string|function - a predicate that returns true
+---@return nil|table<string, string>
 local function attributes_find(attributes, key)
-  local predicate = ternary(
-    type(key) == "string",
-    ---@param k string
-    ---@return string|boolean
-    function (k, v)
-      if k == key then
-        return v
-      end
-      return false
-    end,
-    key)
+  local predicate = ternary(type(key) == "string", function (k) return k == key end, key)
   for k, v in pairs(attributes) do
-    local is_match = predicate(k, v)
-    if is_match then
-      return is_match
+    if predicate(k) then
+      return { ['key'] = k, ['value'] = v }
     end
   end
   return nil
@@ -56,6 +43,53 @@ local walk_callback_proxy = function (attribute_value, block, main_meta, walk_ca
   end
 end
 
+-- elements_walker
+---@param elements pandoc.List|pandoc.Blocks|pandoc.Inlines
+---@param get_and_update_meta function - function to get and update the main meta
+---@param attribute_value table<'key'|'value', string>|nil - the current attribute value
+---@param attribute_key function|string - a predicate to match the attribute key
+---@param walk_callback function - callback when an element is matched
+---@param children_predicate function|nil - an optional predicate function that matches the element itseld and its children
+---@return pandoc.List
+function elements_walker (elements, get_and_update_meta, attribute_value, attribute_key, walk_callback, children_predicate)
+  local new_elements = pandoc.List:new{}
+  if elements and #elements > 0 then
+    for _, element in ipairs(elements) do
+      attribute_value = attribute_value or get_attribute_value(element, attribute_key)
+      if attribute_value then
+        if children_predicate then
+          if children_predicate(element) then
+            local meta, update_meta = get_and_update_meta()
+            local new_element, new_meta = walk_callback_proxy(attribute_value, element, meta, walk_callback)
+            update_meta(new_meta)
+            if new_element then
+              new_elements:insert(new_element)
+            end
+          else
+            if element.content then
+              element.content = elements_walker(element.content, get_and_update_meta, attribute_value, attribute_key, walk_callback, children_predicate)
+            end
+            new_elements:insert(element)
+          end
+        else
+          local meta, update_meta = get_and_update_meta()
+          local new_element, new_meta = walk_callback_proxy(attribute_value, element, meta, walk_callback)
+          update_meta(new_meta)
+          if new_element then
+            new_elements:insert(new_element)
+          end
+        end
+      else
+        if element.content then
+          element.content = elements_walker(element.content, get_and_update_meta, attribute_value, attribute_key, walk_callback, children_predicate)
+        end
+        new_elements:insert(element)
+      end
+    end
+  end
+  return new_elements
+end
+
 -- Function to parse quarto special comments, such as:
 --        #| video-src: "https://www.youtube.com/watch?v=kCc8FmEb1nY"
 --        #| output-when-format: "{format}"
@@ -69,96 +103,21 @@ end
 local notebook_special_comments_walker = function(attribute_key, walk_callback, children_predicate)
   return {
     Pandoc = function(doc)
-      local main_meta = doc.meta
-
-      ---blocks_or_inlines_walker
-      ---@param elements pandoc.List
-      ---@param attribute_value table<'key'|'value', string>|nil
-      ---@return pandoc.List
-      elements_walker = function(elements, attribute_value)
-        local new_elements = pandoc.List:new{}
-        if elements and #elements > 0 then
-          for _, element in ipairs(elements) do
-            attribute_value = attribute_value or get_attribute_value(element, attribute_key)
-            if attribute_value then
-              if children_predicate then
-                if children_predicate(element) then
-                  quarto.log.debug('walk_callback_proxy', 'one')
-                  local new_element, new_meta = walk_callback_proxy(attribute_value, element, main_meta, walk_callback)
-                  main_meta = new_meta
-                  if new_element then
-                    new_elements:insert(new_element)
-                  end
-                else
-                  if element.content then
-                    element.content = elements_walker(element.content, attribute_value)
-                  end
-                  new_elements:insert(element)
-                end
-              else
-                quarto.log.debug('walk_callback_proxy', 'two')
-                local new_element, new_meta = walk_callback_proxy(attribute_value, element, main_meta, walk_callback)
-                main_meta = new_meta
-                if new_element then
-                  new_elements:insert(new_element)
-                end
-              end
-            else
-              if element.content then
-                element.content = elements_walker(element.content)
-              end
-              new_elements:insert(element)
-            end
-          end
+      local meta = doc.meta
+      local get_and_update_meta = function ()
+        return meta, function (updated_meta)
+          meta = updated_meta
         end
-        return new_elements
       end
+      local blocks = elements_walker(
+        doc.blocks, 
+        get_and_update_meta, 
+        nil, 
+        attribute_key, 
+        walk_callback, 
+        children_predicate)
 
-      local blocks = elements_walker(doc.blocks)
-
-      -- local new_doc = doc:walk{
-      --   ---@param blocks pandoc.Blocks
-      --   Blocks = function (blocks)
-      --     local new_blocks = pandoc.List:new{}
-      --     ---@param block pandoc.Block
-      --     for _, block in ipairs(blocks) do
-      --       local attribute_value = get_attribute_value(block, attribute_key)
-      --       if 'data-raw' == attribute_key then
-      --         quarto.log.debug('data-raw:block', attribute_value, block)
-      --       end
-      --       if attribute_value then
-      --         quarto.log.debug('attribute_value', attribute_value)
-      --         if children_predicate and block.walk then
-      --           local new_block = block:walk {
-      --             ---@param sub_blocks pandoc.Blocks
-      --             Blocks = function (sub_blocks)
-      --               local new_sub_blocks = pandoc.List:new{}
-      --               for _, sub_block in ipairs(sub_blocks) do
-      --                 if (children_predicate(sub_block)) then
-      --                   local new_sub_block, new_sub_block_meta = walk_callback_proxy(attribute_value, sub_block, main_meta, walk_callback)
-      --                   main_meta = new_sub_block_meta
-      --                   new_sub_blocks:insert(new_sub_block)
-      --                 else
-      --                   new_sub_blocks:insert(sub_block)
-      --                 end
-      --               end
-      --               return new_sub_blocks
-      --             end
-      --           }
-      --           new_blocks:insert(new_block)
-      --         else
-      --           local new_block, new_block_meta = walk_callback_proxy(attribute_value, block, main_meta, walk_callback)
-      --           main_meta = new_block_meta
-      --           new_blocks:insert(new_block)
-      --         end
-      --       else
-      --         new_blocks:insert(block)
-      --       end
-      --     end
-      --     return new_blocks
-      --   end
-      -- }
-      return pandoc.Pandoc(blocks, main_meta)
+      return pandoc.Pandoc(blocks, meta)
     end
   }
 end

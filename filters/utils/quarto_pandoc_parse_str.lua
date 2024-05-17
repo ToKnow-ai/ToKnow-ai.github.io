@@ -9,23 +9,16 @@ local notebook_special_comments_walker = require "utils.notebook_special_comment
 ---@return pandoc.Blocks
 local function quarto_pandoc_parse_str(template_str)
   local template_doc = pandoc.read(template_str, 'markdown')
-  -- quarto.log.debug('template_doc', template_doc)
-  local new_doc = template_doc:walk (notebook_special_comments_walker(
+  local new_doc = template_doc:walk(notebook_special_comments_walker(
     'data-raw',
-    ---@param data_raw string
-    ---@param block pandoc.Block
+    ---@param data_raw table<'key'|'value', string>
+    ---@param _ pandoc.Block
     ---@return pandoc.Blocks
-    function (data_raw, block)
-      -- if data_raw == 'meta' then
-      --   return block
-      -- end
-
-      quarto.log.debug('data_raw', data_raw, template_str, block)
-      return pandoc.Plain(data_raw)
+    function (data_raw, _)
+      return pandoc.Span(data_raw.value)
     end))
   local clean_template = pandoc.utils.stringify(new_doc)
   local blocks = quarto.utils.string_to_blocks(clean_template)
-  quarto.log.debug('clean_template', clean_template)
   return blocks
 end
 

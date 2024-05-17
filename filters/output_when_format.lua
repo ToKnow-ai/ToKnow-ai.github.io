@@ -27,7 +27,7 @@ local function output_when_format(key_template_format, block)
     if quarto.doc.is_format(format) then
       if template then
         -- This replaces the current block, if the format is matched!
-        template_blocks = quarto.utils.string_to_blocks(template) -- quarto_pandoc_parse_str(template)
+        template_blocks = quarto_pandoc_parse_str(template)
       end
     end
   else
@@ -42,13 +42,9 @@ end
 
 ---predicate
 ---@param k string - key from the div.attr.attributes: table<string, string>
----@param v string - value from the div.attr.attributes: table<string, string>
----@return table|boolean
-local function predicate(k, v)
-  if str_starts_with(k, 'output-when-format') then
-    return { ['key'] = k, ['value'] = v }
-  end
-  return false
+---@return boolean
+local function predicate(k)
+  return str_starts_with(k, 'output-when-format')
 end
 
 return notebook_special_comments_walker(predicate, output_when_format, is_output_cell)
