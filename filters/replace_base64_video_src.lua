@@ -1,5 +1,5 @@
 local str_ends_with = require "utils.str_ends_with"
-local notebook_special_comments_walker = require "utils.notebook_special_comments_walker"
+local special_comments = require "utils.notebook_special_comments_walker"
 local is_output_cell = require "utils.is_output_cell"
 local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
@@ -110,4 +110,4 @@ local function replace_base64_video_src(video_src, block)
   return block
 end
 
-return notebook_special_comments_walker('video-src', replace_base64_video_src, is_output_cell)
+return special_comments.notebook_special_comments_walker('video-src', replace_base64_video_src, is_output_cell)

@@ -45,6 +45,7 @@ local function create_colab_link(repository, branch, notebook_path, title, badge
 end
 
 -- Function to create a Binder link
+-- Also see: https://quarto.org/docs/projects/binder.html#add-a-link-to-binder
 ---@param repository string
 ---@param branch string
 ---@param notebook_path string
@@ -198,7 +199,5 @@ local function post_action_buttons(doc)
 end
 
 return {{
-  -- https://quarto.org/docs/projects/binder.html#add-a-link-to-binder
-  -- https://github.com/feynlee/code-insertion/blob/main/_extensions/code-insertion/code-insertion.lua
   Pandoc = post_action_buttons
 }}

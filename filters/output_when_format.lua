@@ -27,7 +27,7 @@ local function output_when_format(key_template_format, block)
     if quarto.doc.is_format(format) then
       if template then
         -- This replaces the current block, if the format is matched!
-        template_blocks = quarto_pandoc_parse_str(template)
+        template_blocks = quarto.utils.string_to_blocks(template) -- quarto_pandoc_parse_str(template)
       end
     end
   else
