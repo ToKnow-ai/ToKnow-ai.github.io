@@ -137,7 +137,7 @@ end
 ---@return string
 local buttons_wrapper = function (html)
   local links_html = 
-    '<div class="d-flex justify-content-center gap-3 align-items-center flex-wrap clearfix p-1">'
+    '<div class="d-flex justify-content-center gap-3 align-items-center flex-wrap clearfix p-1 post_action_buttons">'
       .. html ..
     '</div>'
   links_html = '<hr class="mt-1 mb-1 w-50 mx-auto"/>' .. links_html .. '<hr class="mt-1 mb-1 w-50 mx-auto"/>'
@@ -157,7 +157,7 @@ local function post_action_buttons(doc)
     create_PDF_link(
       ternary(is_prod, pandoc.utils.stringify(siteUrl), '') .. pdf_output_file, 
       'Download as PDF', 
-      '/images/badges/pdf.svg'),
+      '/images/badges/png/pdf.png'),
     '')
   local links_html = buttons_wrapper(pdf_link_html)
 
@@ -169,10 +169,10 @@ local function post_action_buttons(doc)
       pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['main']))
     local notebook_path = replace_string(input_file, quarto.project.directory, "")
 
-    local colab_link_html = create_colab_link(repository, branch, notebook_path, 'Open in Colab', '/images/badges/colab.svg')
-    local binder_link_html = create_binder_link(repository, branch, notebook_path, 'Open in Binder', '/images/badges/binder.svg')
-    local github_link_html = create_github_link(repository, branch, notebook_path, 'View on Github', '/images/badges/github.svg')
-    local deepnote_link_html = create_deepnote_link(repository, branch, notebook_path, 'Open in Deepnote', '/images/badges/deepnote.svg')
+    local colab_link_html = create_colab_link(repository, branch, notebook_path, 'Open in Colab', '/images/badges/png/colab.png')
+    local binder_link_html = create_binder_link(repository, branch, notebook_path, 'Open in Binder', '/images/badges/png/binder.png')
+    local github_link_html = create_github_link(repository, branch, notebook_path, 'View on Github', '/images/badges/png/github.png')
+    local deepnote_link_html = create_deepnote_link(repository, branch, notebook_path, 'Open in Deepnote', '/images/badges/png/deepnote.png')
     
     links_html = buttons_wrapper(
       colab_link_html .. binder_link_html .. github_link_html .. deepnote_link_html .. pdf_link_html)
