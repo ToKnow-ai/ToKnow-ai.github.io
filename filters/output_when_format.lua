@@ -29,6 +29,8 @@ local function output_when_format(key_template_format, block)
         -- This replaces the current block, if the format is matched!
         template_blocks = quarto_pandoc_parse_str(template)
       end
+    else
+      template_blocks:insert(block)
     end
   else
     format = template

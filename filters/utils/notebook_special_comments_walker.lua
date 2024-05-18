@@ -55,25 +55,25 @@ function elements_walker (elements, get_and_update_meta, attribute_value, attrib
   local new_elements = pandoc.List:new{}
   if elements and #elements > 0 then
     for _, element in ipairs(elements) do
-      attribute_value = attribute_value or get_attribute_value(element, attribute_key)
-      if attribute_value then
+      local attr_value = attribute_value or get_attribute_value(element, attribute_key)
+      if attr_value then
         if children_predicate then
           if children_predicate(element) then
             local meta, update_meta = get_and_update_meta()
-            local new_element, new_meta = walk_callback_proxy(attribute_value, element, meta, walk_callback)
+            local new_element, new_meta = walk_callback_proxy(attr_value, element, meta, walk_callback)
             update_meta(new_meta)
             if new_element then
               new_elements:insert(new_element)
             end
           else
             if element.content then
-              element.content = elements_walker(element.content, get_and_update_meta, attribute_value, attribute_key, walk_callback, children_predicate)
+              element.content = elements_walker(element.content, get_and_update_meta, attr_value, attribute_key, walk_callback, children_predicate)
             end
             new_elements:insert(element)
           end
         else
           local meta, update_meta = get_and_update_meta()
-          local new_element, new_meta = walk_callback_proxy(attribute_value, element, meta, walk_callback)
+          local new_element, new_meta = walk_callback_proxy(attr_value, element, meta, walk_callback)
           update_meta(new_meta)
           if new_element then
             new_elements:insert(new_element)
@@ -81,7 +81,7 @@ function elements_walker (elements, get_and_update_meta, attribute_value, attrib
         end
       else
         if element.content then
-          element.content = elements_walker(element.content, get_and_update_meta, attribute_value, attribute_key, walk_callback, children_predicate)
+          element.content = elements_walker(element.content, get_and_update_meta, nil, attribute_key, walk_callback, children_predicate)
         end
         new_elements:insert(element)
       end

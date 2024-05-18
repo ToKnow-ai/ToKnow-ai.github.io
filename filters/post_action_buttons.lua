@@ -1,7 +1,6 @@
 local str_ends_with = require "utils.str_ends_with"
 local read_file = require "utils.read_file"
 local ternary = require "utils.ternary"
-local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
 -- Function to encode string
 ---@param str string
@@ -182,12 +181,12 @@ local function post_action_buttons(doc)
   local body_blocks = pandoc.List:new{}
   if quarto.doc.is_format('pdf') then
     -- this is the same as `quarto pandoc index.html -o index.pdf`
-    local html_blocks =  pandoc.read(links_html, 'html').blocks
+    local html_blocks = pandoc.read(links_html, 'html').blocks
     body_blocks:extend(html_blocks)
   elseif quarto.doc.is_format('html') then
     -- this just parses the raw HTML and returns pandoc.RawBlock and pandoc.RawInline, 
     --- which is not convertable to PDF, see: https://quarto.org/docs/visual-editor/technical.html#latex-and-html
-    local html_blocks = quarto_pandoc_parse_str(links_html)
+    local html_blocks = quarto.utils.string_to_blocks(links_html)
     body_blocks:extend(html_blocks)
   end
   body_blocks:extend(doc.blocks)

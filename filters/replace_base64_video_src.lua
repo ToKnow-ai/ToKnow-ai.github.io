@@ -1,7 +1,6 @@
 local str_ends_with = require "utils.str_ends_with"
 local notebook_special_comments_walker = require "utils.notebook_special_comments_walker"
 local is_output_cell = require "utils.is_output_cell"
-local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
 ---get_youtube_image
 ---@param video_src string
@@ -86,7 +85,7 @@ end
 ---@param video_src string
 ---@return pandoc.Block
 local function html_src_block(video_src)
-  local video = quarto_pandoc_parse_str("{{< video " .. video_src .. " >}}")
+  local video = quarto.utils.string_to_blocks("{{< video " .. video_src .. " >}}")
   return pandoc.Div(video)
 end
 
@@ -98,6 +97,8 @@ local function replace_base64_video_src(video_src, block)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
     return block
   end
+
+  quarto.log.debug('block', block)
   
   if quarto.doc.is_format('pdf') then
     return pdf_src_block(video_src.value)
