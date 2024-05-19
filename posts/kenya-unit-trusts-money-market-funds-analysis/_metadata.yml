@@ -1,4 +1,3 @@
-description: "An analysis of money markey fuds in kenya"
 date: "2024-05-07"
 date-modified: "2024-05-10"
 keywords:
@@ -7,7 +6,9 @@ keywords:
   - unit-trusts
   - money-market-funds
   - MMF
-abstract: "start-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum-end"
 categories: 
   - kenya-unit-trusts
   - money-market-funds
+filters: 
+  # - ../../filters/print.lua
+  - ../../filters/section_name_start_end.lua

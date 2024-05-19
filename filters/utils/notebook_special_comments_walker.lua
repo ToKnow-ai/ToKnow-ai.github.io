@@ -1,31 +1,4 @@
-local ternary = require "utils.ternary"
-
--- Function to find and return an attribute {key,value}
----@param attributes table<string, string>
----@param key string|function - a predicate that returns true
----@return nil|table<string, string>
-local function attributes_find(attributes, key)
-  local predicate = ternary(type(key) == "string", function (k) return k == key end, key)
-  for k, v in pairs(attributes) do
-    if predicate(k) then
-      return { ['key'] = k, ['value'] = v }
-    end
-  end
-  return nil
-end
-
--- Function to get
----@param block pandoc.Block
----@param attribute_key string|function - a string key of a function that returns bool-ish!
----                             The function accepts a key,value pair and their result is returned
----                             If a string key is passed, only the value is returned
----@return table<'key'|'value', string>|nil
-local get_attribute_value = function(block, attribute_key)
-  if block.attr and block.attr.attributes then
-    return attributes_find(block.attr.attributes, attribute_key)
-  end
-  return nil
-end
+local attributes = require "utils.attributes"
 
 ---comment
 ---@param attribute_value boolean|string|table<string, string>
@@ -55,7 +28,7 @@ function elements_walker (elements, get_and_update_meta, attribute_value, attrib
   local new_elements = pandoc.List:new{}
   if elements and #elements > 0 then
     for _, element in ipairs(elements) do
-      local attr_value = attribute_value or get_attribute_value(element, attribute_key)
+      local attr_value = attribute_value or attributes.get_attribute_value(element, attribute_key)
       if attr_value then
         if children_predicate then
           if children_predicate(element) then

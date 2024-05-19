@@ -97,8 +97,6 @@ local function replace_base64_video_src(video_src, block)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
     return block
   end
-
-  quarto.log.debug('block', block)
   
   if quarto.doc.is_format('pdf') then
     return pdf_src_block(video_src.value)
