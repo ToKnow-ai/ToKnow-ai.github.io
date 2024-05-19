@@ -16,6 +16,10 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with: 
+          tinytex: true # https://github.com/quarto-dev/quarto-cli/discussions/3620#discussioncomment-4355980
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
@@ -23,5 +27,3 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with: 
-          tinytex: true # https://github.com/quarto-dev/quarto-cli/discussions/3620#discussioncomment-4355980
