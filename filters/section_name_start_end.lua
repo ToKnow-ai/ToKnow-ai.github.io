@@ -103,3 +103,25 @@ return {
     return pandoc.Pandoc(blocks, meta)
   end
 }
+
+
+
+-- -- Sample HTML comment
+-- local comment = "<!-- { ['section-name-start'] = 'description', same = 2 } -->"
+
+-- -- Define a pattern to capture the content inside the HTML comment
+-- local pattern = "<!%-%-%s*{(.-)}%s*%-%->"
+
+-- -- Extract the content inside the HTML comment
+-- local content = string.match(comment, pattern)
+
+-- print(content)
+
+-- local table = load("return { " .. content .. '}')()
+
+-- print(table)
+
+-- -- Print the resulting table to verify
+-- for k, v in pairs(table) do
+--     print(k, v)
+-- end

@@ -73,7 +73,7 @@ local function create_github_link(repository, branch, notebook_path, title, badg
   return 
     '<a \
       target="_blank" \
-      href="https://github.com/' .. repository .. '/blob/' .. branch .. '/' .. notebook_path .. '" \
+      href="https://github.com/' .. repository .. '/blob/' .. branch .. notebook_path .. '" \
       aria-label="' .. title .. '" \
       title="' .. title ..'">\
       <img src="' .. badge_url .. '" aria-label="' .. title .. '" title="' .. title .. '" />\
