@@ -30,7 +30,7 @@ format:
             \usepackage{xcolor}
             \definecolor{youtubeColor}{HTML}{FF0000}
             \usepackage{tikz}
-  ipynb: default
+  # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
   - ../filters/post_action_buttons.lua

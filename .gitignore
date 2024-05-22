@@ -163,9 +163,10 @@ _site/
 
 /.quarto/
 
-/.luarc.json
 site_libs/
 posts/*/images/
 posts/*/index_files/
 posts/*/*.tex
 posts/*/*.html
+
+/.luarc.json

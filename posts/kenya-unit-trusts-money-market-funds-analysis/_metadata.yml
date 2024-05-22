@@ -9,6 +9,6 @@ keywords:
 categories: 
   - kenya-unit-trusts
   - money-market-funds
-filters: 
+# filters: 
   # - ../../filters/print.lua
-  - ../../filters/section_name_start_end.lua
+  #   - ../../filters/section_name_start_end.lua

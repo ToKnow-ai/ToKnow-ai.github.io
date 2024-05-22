@@ -18,6 +18,13 @@ website:
       - icon: rss
         href: feed.xml
         aria-label: ToKnow.ai RSS
+  page-footer:
+    left: "Copyright © {{< year >}}, ToKnow.ai"
+    right: 
+      - text: "Terms of Service"
+        href: terms-of-service.qmd
+      - text: "License"
+        href: LICENSE
 format:
   html:
     theme: cosmo
@@ -25,11 +32,8 @@ format:
     link-external-newwindow: true
 execute:
   freeze: auto
-    # code-links: 
-    #   - binder
-    #   - repo
-# copyright: 
-#   holder: ToKnow.ai
-#   year: 2008 # - add year automatically
+shortcodes:
+    - filters/year.lua
+
 
 
