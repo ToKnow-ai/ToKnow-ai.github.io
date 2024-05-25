@@ -10,5 +10,6 @@ categories:
   - kenya-unit-trusts
   - money-market-funds
 filters: 
-  - ../../filters/print.lua
-  #   - ../../filters/section_name_start_end.lua
+  - at: pre-ast
+    path: ../../filters/section_name_start_end.lua
+subtitle: "This is a sub title"

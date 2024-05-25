@@ -41,4 +41,6 @@ open-ipynb:
   branch:
     dev: "quarto-dev"
     main: "main"
+ipynb-filters:
+    - ../filters/notebook_filter.py
 
