@@ -2,7 +2,27 @@ import sys
 from nbformat import NotebookNode, v4, write as nb_write
 import re
 import yaml
-import strip_markdown
+import mistune
+from bs4 import BeautifulSoup
+
+def get_html(markdown) -> BeautifulSoup:
+    html = mistune.create_markdown()(markdown)
+    return BeautifulSoup(html, features='html.parser')
+
+def parse_metadata_key(key: str, value: str):
+    options_pattern = r"\s*(.*?)\s*,\s*type=(.*)\s*"
+    type_match = re.findall(options_pattern, key, re.IGNORECASE)
+    if len(type_match) == 0:
+        return (key, get_html(value).get_text().replace("\n\n", "\n"))
+    (key, type) = type_match[0]
+    if type == 'date':
+        date_pattern = r'.*(\d{4}\s*-\s*\d{2}\s*-\s*\d{2}).*'
+        return (key, re.match(date_pattern, value, re.DOTALL).group(1))
+    elif type == 'array':
+        html = get_html(value)
+        list_items = html.find_all('li')
+        return (key, [item.get_text(strip=True) for item in list_items])
+    raise Exception(f"type({type}) is not in ['date', 'array']")
 
 def remove_lists(markdown_text):
     # Remove ordered lists
@@ -24,11 +44,12 @@ def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
         if cell and cell.cell_type == 'markdown':
             matches = re.findall(pattern, cell.source, re.DOTALL)
             skip_this_cell = False
-            for (metadata_key, meatadata_value) in matches:
-                meatadata_value = meatadata_value.strip()
-                if len(metadata_key) > 0 and len(meatadata_value) > 0:
+            for (metadata_key, metadata_value) in matches:
+                metadata_value = metadata_value.strip()
+                if len(metadata_key) > 0 and len(metadata_value) > 0:
+                    metadata_key, metadata_value = parse_metadata_key(metadata_key, metadata_value)
                     # html list in listings page spoils UI.
-                    metadata[metadata_key] = remove_lists(strip_markdown.strip_markdown(meatadata_value.replace("\n\n", "\n")))
+                    metadata[metadata_key] = metadata_value
                     skip_this_cell = True
             if skip_this_cell:
                 continue
