@@ -35,7 +35,9 @@ format:
 filters:
   - ../filters/post_action_buttons.lua
   - ../filters/replace_base64_video_src.lua
-  - ../filters/output_when_format.lua
+  - ../filters/no-empty-toc.lua
+  - at: post-render
+    path: ../filters/output_when_format.lua
 open-ipynb: 
   repository: "ToKnow-ai/ToKnow-ai.github.io"
   branch:
