@@ -3,6 +3,17 @@ from nbformat import NotebookNode, v4, write as nb_write
 import re
 import yaml
 
+def remove_lists(markdown_text):
+    # Remove ordered lists
+    markdown_text = re.sub(r'^\d+\.\s*', '', markdown_text, flags=re.MULTILINE)
+    
+    # Remove unordered lists
+    markdown_text = re.sub(r'^\*\s*', '', markdown_text, flags=re.MULTILINE)
+    markdown_text = re.sub(r'^\+\s*', '', markdown_text, flags=re.MULTILINE)
+    markdown_text = re.sub(r'^-\s*', '', markdown_text, flags=re.MULTILINE)
+    
+    return markdown_text
+
 def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
     new_cells = []
     metadata = {}
@@ -18,8 +29,8 @@ def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
                     if len(splits) > 2:
                         meatadata_value = splits[-1]
                         if len(meatadata_value) > 0 and len(meatadata_value.strip()) > 0:
-                          # double space spoils the index page!
-                          metadata[metadata_key] = meatadata_value.strip().replace("\n\n", "\n")
+                          # html list in listings page spoils UI.
+                          metadata[metadata_key] = remove_lists(meatadata_value.strip().replace("\n\n", "\n"))
                           continue
         new_cells.append(cell)
     if any(metadata):
