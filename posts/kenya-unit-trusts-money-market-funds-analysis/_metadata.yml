@@ -9,7 +9,4 @@ keywords:
 categories: 
   - kenya-unit-trusts
   - money-market-funds
-filters: 
-  - at: pre-ast
-    path: ../../filters/section_name_start_end.lua
 subtitle: "This is a sub title"

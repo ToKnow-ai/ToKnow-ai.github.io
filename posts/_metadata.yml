@@ -42,5 +42,5 @@ open-ipynb:
     dev: "quarto-dev"
     main: "main"
 ipynb-filters:
-    - ../filters/notebook_filter.py
+  - ../filters/notebook_filter.py
 

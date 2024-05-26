@@ -11,9 +11,6 @@ listing:
   filter-ui: true
 page-layout: full
 title-block-banner: true
-filters:
-  - at: post-render
-    path: filters/print.lua
 ---
 
 Disclaimer: /terms-of-service
