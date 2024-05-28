@@ -1,10 +1,9 @@
 from typing import Callable
-from pyppeteer import launch
 from pyppeteer.page import Page
 from PIL import Image
 import io
-import shutil
 import inspect
+from .get_browser import get_browser_page_async
 
 async def web_screenshot_async(
         url: str, 
@@ -13,17 +12,8 @@ async def web_screenshot_async(
         executable_path: str = None,
         width: int = 0,
         height: int = 0) -> Image.Image:
-    executable_path = executable_path or\
-                    shutil.which("google-chrome") or\
-                    shutil.which("chromium-browser") or\
-                    shutil.which("chromium")
-    # Launch a new browser instance
-    browser = await launch(headless=True, executablePath=executable_path)
-    # Open a new page
-    page = await browser.newPage()
-
-    # 0 makes it default height or default width
-    await page.setViewport({'width': width, 'height': height})
+    
+    page, browser = get_browser_page_async(executable_path, width = width, height = height)
     
     # Go to the specified URL
     await page.goto(url)
