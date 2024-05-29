@@ -13,7 +13,7 @@ async def web_screenshot_async(
         width: int = 0,
         height: int = 0) -> Image.Image:
     
-    page, browser = get_browser_page_async(executable_path, width = width, height = height)
+    page, browser = await get_browser_page_async(executable_path, width = width, height = height)
     
     # Go to the specified URL
     await page.goto(url)
