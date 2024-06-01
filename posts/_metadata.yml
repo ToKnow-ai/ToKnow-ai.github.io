@@ -45,4 +45,3 @@ open-ipynb:
     main: "main"
 ipynb-filters:
   - ../filters/notebook_filter.py
-
