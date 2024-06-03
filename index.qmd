@@ -11,6 +11,11 @@ listing:
   filter-ui: true
 page-layout: full
 title-block-banner: true
+categories:
+  - artificial intelligence
+  - data science
+  - security
+  - ideas
 ---
 
 :::{#posts-listing}

@@ -182,7 +182,9 @@ local function post_action_buttons(doc)
   if quarto.doc.is_format('pdf') then
     -- this is the same as `quarto pandoc index.html -o index.pdf`
     local html_blocks = pandoc.read(links_html, 'html').blocks
+    body_blocks:insert(pandoc.RawInline('latex', '\\begin{centering}'))
     body_blocks:extend(html_blocks)
+    body_blocks:insert(pandoc.RawInline('latex', '\\end{centering}'))
   elseif quarto.doc.is_format('html') then
     -- this just parses the raw HTML and returns pandoc.RawBlock and pandoc.RawInline, 
     --- which is not convertable to PDF, see: https://quarto.org/docs/visual-editor/technical.html#latex-and-html

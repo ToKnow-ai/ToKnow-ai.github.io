@@ -49,7 +49,10 @@ def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
                 if len(metadata_key) > 0 and len(metadata_value) > 0:
                     metadata_key, metadata_value = parse_metadata_key(metadata_key, metadata_value)
                     # html list in listings page spoils UI.
-                    metadata[metadata_key] = metadata_value
+                    metadata[metadata_key] = \
+                        metadata.get(metadata_key, []) + metadata_value \
+                            if isinstance(metadata_value, list) \
+                            else metadata_value
                     skip_this_cell = True
             if skip_this_cell:
                 continue
