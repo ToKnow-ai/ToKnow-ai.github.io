@@ -21,6 +21,9 @@ jobs:
         with: 
           tinytex: true # https://github.com/quarto-dev/quarto-cli/discussions/3620#discussioncomment-4355980
 
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
