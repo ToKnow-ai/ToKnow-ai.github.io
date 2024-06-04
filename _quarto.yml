@@ -27,7 +27,9 @@ website:
         href: LICENSE
 format:
   html:
-    theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
     css: styles.css
     link-external-newwindow: true
 execute:

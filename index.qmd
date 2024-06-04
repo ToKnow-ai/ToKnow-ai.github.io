@@ -1,6 +1,5 @@
 ---
 title: "Information <u>To Know</u>ledge"
-description: "<u>ToKnow</u>.ai aims <u>to</u> extract <u>know</u>ledge from information in order to generate valuable insights and intelligence."
 listing:
   id: posts-listing
   contents: posts
@@ -16,6 +15,9 @@ categories:
   - data science
   - security
   - ideas
+format:
+  html:
+    css: index.css
 ---
 
 :::{#posts-listing}
