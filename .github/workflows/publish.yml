@@ -21,9 +21,6 @@ jobs:
         with: 
           tinytex: true # https://github.com/quarto-dev/quarto-cli/discussions/3620#discussioncomment-4355980
 
-      - name: Installing TeX (if not installed by "tinytex=true")
-        run: quarto install tinytex
-
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:

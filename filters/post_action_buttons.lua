@@ -73,7 +73,7 @@ local function create_github_link(repository, branch, notebook_path, title, badg
   return 
     '<a \
       target="_blank" \
-      href="https://github.com/' .. repository .. '/blob/' .. branch .. '/' .. notebook_path .. '" \
+      href="https://github.com/' .. repository .. '/blob/' .. branch .. notebook_path .. '" \
       aria-label="' .. title .. '" \
       title="' .. title ..'">\
       <img src="' .. badge_url .. '" aria-label="' .. title .. '" title="' .. title .. '" />\
@@ -140,7 +140,7 @@ local buttons_wrapper = function (html)
     '<div class="d-flex justify-content-center gap-3 align-items-center flex-wrap clearfix p-1 post_action_buttons">'
       .. html ..
     '</div>'
-  links_html = '<hr class="mt-1 mb-1 w-50 mx-auto"/>' .. links_html .. '<hr class="mt-1 mb-1 w-50 mx-auto"/>'
+  links_html = '<hr class="mt-1 mb-1 w-50 mx-auto"/>' .. links_html .. '<hr class="mt-1 mb-1 w-50 mx-auto mb-5"/>'
   return links_html
 end
 
@@ -182,7 +182,9 @@ local function post_action_buttons(doc)
   if quarto.doc.is_format('pdf') then
     -- this is the same as `quarto pandoc index.html -o index.pdf`
     local html_blocks = pandoc.read(links_html, 'html').blocks
+    body_blocks:insert(pandoc.RawInline('latex', '\\begin{centering}'))
     body_blocks:extend(html_blocks)
+    body_blocks:insert(pandoc.RawInline('latex', '\\end{centering}'))
   elseif quarto.doc.is_format('html') then
     -- this just parses the raw HTML and returns pandoc.RawBlock and pandoc.RawInline, 
     --- which is not convertable to PDF, see: https://quarto.org/docs/visual-editor/technical.html#latex-and-html
