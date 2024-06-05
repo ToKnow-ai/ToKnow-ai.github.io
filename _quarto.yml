@@ -16,7 +16,7 @@ website:
         href: https://twitter.com/ToKnow_ai
         aria-label: Twitter - ToKnow.ai
       - icon: rss
-        href: feed.xml
+        href: index.xml
         aria-label: ToKnow.ai RSS
   page-footer:
     left: "Copyright © {{< year >}}, ToKnow.ai"
@@ -30,7 +30,7 @@ format:
     theme:
       light: flatly
       dark: darkly
-    css: styles.css
+    css: _styles.css
     link-external-newwindow: true
 execute:
   freeze: auto
