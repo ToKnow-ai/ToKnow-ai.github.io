@@ -27,7 +27,10 @@ jobs:
             echo "Git branch '$BRANCH' does not exist in the remote repository"
           fi
           git switch --orphan $BRANCH
-          git push -f --set-upstream origin $BRANCH
+          git rm -rf .
+          git add .
+          git commit -m "Initial commit on new-branch"
+          git push --set-upstream origin $BRANCH
           git checkout $CURRENT_BRANCH
 
       - name: Set up Quarto
