@@ -29,9 +29,7 @@ jobs:
           git switch --orphan $BRANCH
           git config user.name 'Github Action' 
           git config user.email 'ask@toknow.ai'
-          date +%s > report.txt
-          git add report.txt
-          git commit -m "Initial commit"
+          git commit --allow-empty -m "Empty Commit"
           git push --set-upstream origin $BRANCH
           git checkout $CURRENT_BRANCH
 
