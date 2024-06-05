@@ -27,9 +27,9 @@ jobs:
             echo "Git branch '$BRANCH' does not exist in the remote repository"
           fi
           git switch --orphan $BRANCH
-          git rm -rf .
-          git add .
-          git commit -m "Initial commit on new-branch"
+          date +%s > report.txt
+          git add report.txt
+          git commit -m "Initial commit"
           git push --set-upstream origin $BRANCH
           git checkout $CURRENT_BRANCH
 
