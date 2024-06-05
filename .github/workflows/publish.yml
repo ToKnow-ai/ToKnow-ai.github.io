@@ -27,6 +27,8 @@ jobs:
             echo "Git branch '$BRANCH' does not exist in the remote repository"
           fi
           git switch --orphan $BRANCH
+          git config user.name 'Github Action' 
+          git config user.email 'ask@toknow.ai'
           date +%s > report.txt
           git add report.txt
           git commit -m "Initial commit"
