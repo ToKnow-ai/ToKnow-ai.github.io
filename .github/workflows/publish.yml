@@ -16,9 +16,22 @@ jobs:
 
       - name: Recreate gh-pages branch
         run: |
-          git push origin --delete gh-pages  # Push deletion to remote repository
-          git switch --orphan gh-pages
-          git push
+          #!/bin/bash
+          # https://remarkablemark.org/blog/2022/09/25/check-git-branch-exists-in-remote-repository/
+
+          BRANCH='gh-pages'
+          git ls-remote --exit-code --heads origin $BRANCH >/dev/null 2>&1
+          EXIT_CODE=$?
+
+          if [[ $EXIT_CODE == '0' ]]; then
+            git push origin --delete $BRANCH  # Push deletion to remote repository
+            echo "Git branch '$BRANCH' deleted in the remote repository"
+          elif [[ $EXIT_CODE == '2' ]]; then
+            echo "Git branch '$BRANCH' does not exist in the remote repository"
+          fi
+          git switch --orphan $BRANCH
+          git push --set-upstream origin $BRANCH
+          git checkout main
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
