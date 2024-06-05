@@ -17,7 +17,6 @@ jobs:
       - name: Recreate gh-pages branch
         run: |
           #!/bin/bash
-          # https://remarkablemark.org/blog/2022/09/25/check-git-branch-exists-in-remote-repository/
 
           CURRENT_BRANCH=`git symbolic-ref --short HEAD`
           BRANCH='gh-pages'
@@ -28,7 +27,7 @@ jobs:
             echo "Git branch '$BRANCH' does not exist in the remote repository"
           fi
           git switch --orphan $BRANCH
-          git push --set-upstream origin $BRANCH
+          git push -f --set-upstream origin $BRANCH
           git checkout $CURRENT_BRANCH
 
       - name: Set up Quarto
