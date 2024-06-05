@@ -26,7 +26,8 @@ jobs:
 
       - name: Recreate gh-pages branch
         run: |
-          git branch -d gh-pages
+          git branch -D gh-pages  # Capital D for deletion (assuming branch exists locally)
+          git push origin --delete gh-pages  # Push deletion to remote repository
           git switch --orphan gh-pages
           git push
 
