@@ -25,7 +25,7 @@ jobs:
           git switch --orphan $TEMP_BRANCH
           git config user.name 'Github Action' 
           git config user.email 'ask@toknow.ai'
-          git commit --allow-empty -m "Empty Commit - $(date +%T)"
+          git commit --allow-empty -m "Empty Commit - $(date)"
           git push origin $TEMP_BRANCH:$ORIGIN_BRANCH --force
           git checkout $CURRENT_BRANCH
 
