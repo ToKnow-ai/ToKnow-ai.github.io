@@ -19,13 +19,13 @@ jobs:
           #!/bin/bash
 
           CURRENT_BRANCH=`git symbolic-ref --short HEAD`
-          TEMP_BRANCH=temp-branch-`date +%T`
+          TEMP_BRANCH="temp-branch-$(date +%s)"
           ORIGIN_BRANCH='gh-pages'
           echo "TEMP_BRANCH='$TEMP_BRANCH'"
           git switch --orphan $TEMP_BRANCH
           git config user.name 'Github Action' 
           git config user.email 'ask@toknow.ai'
-          git commit --allow-empty -m "Empty Commit"
+          git commit --allow-empty -m "Empty Commit - $(date +%T)"
           git push origin $TEMP_BRANCH:$ORIGIN_BRANCH --force
           git checkout $CURRENT_BRANCH
 
