@@ -14,6 +14,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
       
+      # Create a 'deployment-in-progress.html' page and also add 'CNANE' file. NOT A BLOCKER!
       - name: Reset gh-pages branch
         run: |
           #!/bin/bash
