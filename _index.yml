@@ -1,4 +1,5 @@
 title: "Information <u>To Know</u>ledge"
+description: "// Research, Ideas, and Insightful Thoughts //"
 listing:
   id: posts-listing
   contents: posts
@@ -12,7 +13,7 @@ title-block-banner: true
 categories:
   - artificial intelligence
   - data science
-  - security
+  - cyber security
   - money
 format:
   html:
