@@ -1,6 +1,6 @@
 # Enable banner style title blocks
 title-block-banner: true
-categories: [tech]
+# categories: [tech]
 author:
   - name: Charles Kabui
     id: charles@toknow.ai
