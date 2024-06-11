@@ -33,7 +33,7 @@ format:
             \usepackage{tikz}
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
-filters:
+quarto_filters:
   - ../quarto_filters/post_action_buttons.lua
   - ../quarto_filters/replace_base64_video_src.lua
   - ../quarto_filters/no-empty-toc.lua
@@ -44,5 +44,5 @@ open-ipynb:
   branch:
     dev: "quarto-dev"
     main: "main"
-ipynb-filters:
+ipynb-quarto_filters:
   - ../quarto_filters/notebook_filter.py

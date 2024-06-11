@@ -68,5 +68,5 @@ notebook = v4.reads(sys.stdin.read())
 
 notebook.cells = extract_quarto_metadata(notebook.cells)
 
-# write notebook to stdout 
+# write notebook to stdout
 nb_write(notebook, sys.stdout)
