@@ -17,7 +17,7 @@ end
 
 return {
     ---@param doc pandoc.Pandoc
-    ---@return pandoc.Pandoc
+    ---@return pandoc.Pandoc|nil
     Pandoc = function (doc)
         local main_categories = read_metadata(quarto.project.directory .. '/_index.yml')['categories']
         local sub_categories = doc.meta['categories']
@@ -25,8 +25,8 @@ return {
           type(main_categories) == "table" and 
           type(sub_categories) == "table" and 
           compare_categories(main_categories, sub_categories)
-        if has_main_category then
-          error(quarto.doc.input_file + "has no main category!")
+        if not has_main_category then
+          return error(quarto.doc.input_file .. " HAS NO MAIN CATEGORY!")
         end
       return doc
     end
