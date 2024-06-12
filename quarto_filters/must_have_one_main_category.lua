@@ -26,7 +26,9 @@ return {
           type(sub_categories) == "table" and 
           compare_categories(main_categories, sub_categories)
         if not has_main_category then
-          return error(quarto.doc.input_file .. " HAS NO MAIN CATEGORY!")
+          error(quarto.doc.input_file .. " HAS NO MAIN CATEGORY!")
+          os.exit(1)  -- Exit with a status code (non-zero indicates an error)
+          return 
         end
       return doc
     end
