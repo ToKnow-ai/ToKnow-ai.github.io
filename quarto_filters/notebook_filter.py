@@ -101,7 +101,11 @@ def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
                 continue
         new_cells.append(cell)
     if any(metadata):
-        source = yaml.dump(metadata)
+        source = yaml.dump(
+            metadata,
+            indent=4,
+            default_flow_style=False,
+            sort_keys=False)
         metadata_cell = v4.new_markdown_cell(source=f'---\n{source}\n---')
         new_cells.insert(0, metadata_cell)
     return new_cells
