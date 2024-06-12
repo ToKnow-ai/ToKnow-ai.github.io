@@ -34,6 +34,7 @@ def parse_metadata_key(key: str, value: str):
     Raises:
         ValueError: If the key type is not 'date' or 'array'.
     """
+    key = key.strip()
     value = value.strip()
     options_pattern = r"\s*(.*?)\s*,\s*type=(.*)\s*"
     type_match: list[tuple[str, str]] = re.findall(options_pattern, key, re.IGNORECASE)
@@ -41,6 +42,7 @@ def parse_metadata_key(key: str, value: str):
         new_value: str = get_html(value).get_text().replace("\n\n", "\n").strip()
         return (key, new_value)
     (key, key_type) = type_match[0]
+    key = key.strip()
     if key_type == 'date':
         date_pattern = r'.*(\d{4}\s*-\s*\d{2}\s*-\s*\d{2}).*'
         new_value: str = re.match(date_pattern, value, re.DOTALL).group(1).strip()
@@ -103,9 +105,8 @@ def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
     if any(metadata):
         source = yaml.dump(
             metadata,
-            indent=4,
-            default_flow_style=False,
-            sort_keys=False)
+            sort_keys=False,
+            indent=4)
         metadata_cell = v4.new_markdown_cell(source=f'---\n{source}\n---')
         new_cells.insert(0, metadata_cell)
     return new_cells
