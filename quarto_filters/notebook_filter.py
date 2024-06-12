@@ -1,6 +1,5 @@
 """Quarto notebook filter"""
 
-import os
 import sys
 import re
 from nbformat import NotebookNode, v4, write as nb_write

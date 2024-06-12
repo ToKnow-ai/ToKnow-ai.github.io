@@ -39,6 +39,8 @@ filters:
   - ../quarto_filters/no-empty-toc.lua
   - at: post-render
     path: ../quarto_filters/output_when_format.lua
+  - at: post-render
+    path: ../quarto_filters/must_have_one_main_category.lua
 open-ipynb: 
   repository: "ToKnow-ai/ToKnow-ai.github.io"
   branch:
