@@ -1,8 +1,5 @@
 project:
   type: website
-  render:
-    - "**/*.qmd"
-    - "**/*.ipynb"
 website:
   title: "ToKnow.ai"
   site-url: https://toknow.ai
@@ -43,6 +40,7 @@ execute:
 shortcodes:
   - quarto_filters/year.lua
   - quarto_filters/bash.lua
+  - quarto_filters/pagepath.lua
 
 
 

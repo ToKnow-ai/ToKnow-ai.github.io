@@ -34,6 +34,7 @@ format:
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
+  - ../quarto_filters/disclaimer.lua
   - ../quarto_filters/post_action_buttons.lua
   - ../quarto_filters/replace_base64_video_src.lua
   - ../quarto_filters/no-empty-toc.lua
