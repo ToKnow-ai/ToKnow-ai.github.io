@@ -41,7 +41,7 @@ local makeBox = function (text, url, icon, color)
   else
     local pandoc_image_attributes = {
       id = tostring({}):sub(10),
-      width = '80%' -- width=0.5\\textwidth
+      width = '90%' -- width=0.9\\textwidth
     }
     local latex_top_raw_block = pandoc.RawInline(
       'latex',
