@@ -81,7 +81,6 @@ return {
     disclaimer_blocks:insert(pandoc.Space())
     disclaimer_blocks:insert(pandoc.Strong(pandoc.Emph(read_more)))
 
-    -- DYNAMIC (ipynb-filters:) meta is diluted, doesn't have links
     --- @type pandoc.Inlines
     local custom_disclaimer = doc.meta['disclaimer']
     if custom_disclaimer then
