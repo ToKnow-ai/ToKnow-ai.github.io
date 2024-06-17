@@ -9,6 +9,7 @@ categories:
     - artificial intelligence
 # If there is no explicit description, the 404.qmd file doesnt show description for listings
 description: "Artificial Intelligence (AI) is currently replacing simple tasks and some major tasks. Suppose we are to assume that AI is to incrementally become better, it will change most aspects of how we live our lives. If it becomes even stronger, it will probably change the future of humanity."
+disclaimer: "We contacted [Nation Media Group](https://www.nationmedia.com/contact/) for two months prior to this publication but they did not get a response. ^[We cantacted the [Nation Media Group](https://www.nationmedia.com/contact/) thorugh the following emails: <support@nation.africa>, <sales_inquiries@ke.nationmedia.com>, <newsdesk@ke.nationmedia.com>, <publiceditor@ke.nationmedia.com>, <mailbox@ke.nationmedia.com>, <epaper@ke.nationmedia.com>, <Customercare@ke.nationmedia.com>]"
 ---
 
 Artificial Intelligence (AI) is currently replacing simple tasks and some major tasks. Suppose we are to assume that AI is to incrementally become better, it will change most aspects of how we live our lives. If it becomes even stronger, it will probably change the future of humanity. And if it becomes even more powerful, then it will probably controls our future. If AI becomes self aware, then it will probably leave us alone.
