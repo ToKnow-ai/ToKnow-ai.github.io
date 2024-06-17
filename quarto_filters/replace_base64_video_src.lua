@@ -82,7 +82,11 @@ end
 ---@param video_src string
 ---@return pandoc.Block
 local function pdf_src_block(video_src)
-  local video = makeBox("Click to watch the video at Youtube.", video_src, "\\faYoutube", "youtubeColor")
+  local video = makeBox(
+    "Click to watch the video at Youtube.", 
+    video_src, 
+    "\\faYoutube", 
+    "youtubeColor")
   return video
 end
 
@@ -95,7 +99,10 @@ local function html_src_block(video_src, meta)
   local youtube_image_src = get_youtube_image(video_src)
   if youtube_image_src and not meta['image'] then
     -- https://github.com/quarto-dev/quarto-cli/discussions/9767
-    video_blocks:insert(pandoc.RawInline("html", "<img class='preview-image hidden' src='" .. youtube_image_src .. "' />"))
+    video_blocks:insert(
+      pandoc.RawInline(
+        "html", 
+        "<img class='preview-image hidden' src='" .. youtube_image_src .. "' />"))
   end
   return pandoc.Div(video_blocks), meta
 end
