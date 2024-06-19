@@ -40,33 +40,35 @@ body_head = f'''
         }}
     </style>
     <script>
-        function initPlayer (youtube_player_el, video_id, nextVideo) {{
+        function initPlayer (youtube_player_el, nextVideo) {{
             const youtube_player = window.youtube_player = new YT.Player(youtube_player_el, {{
                 height: '100%',
                 width: '100%',
                 playerVars: {{ autoplay: 1 }},
-                videoId: video_id,
                 events: {{
                     'onReady': function (event) {{
                         event.target.playVideo()
                     }},
                     'onStateChange': function (event) {{
-                        console.log('onStateChange', event);
                         if (event.data === YT.PlayerState.ENDED) {{
                             onContinue();
                         }}
                     }},
                     'onError': onContinue,
                     'onAutoplayBlocked': function (event) {{
-                        event.target.playVideo()
+                        (event.target || youtube_player).playVideo();
                     }}
                 }}
             }});
 
-            function onContinue(event) {{
-                setTimeout(nextVideo, 1);
-                (event?.target || youtube_player)?.destroy();
+            function onContinue() {{
+                nextVideo((value) => {{
+                    youtube_player.loadVideoById(value);
+                    youtube_player.playVideo();
+                }})
             }}
+
+            onContinue();
         }};
         
         const setIntervalId = setInterval(() => {{
@@ -80,16 +82,16 @@ body_head = f'''
                     }}
                 }}
                 let videoIdGenerator = generateVideoIds();
-                function nextVideo() {{
+                function nextVideo(callback) {{
                     let video_id = videoIdGenerator.next().value;
                     if (!video_id) {{
                         videoIdGenerator = generateVideoIds();
                         video_id = videoIdGenerator.next().value;
                     }}
-                    initPlayer(youtube_player_el, video_id, nextVideo);
+                    callback(video_id);
                 }}
 
-                nextVideo()
+                initPlayer(youtube_player_el, nextVideo);
             }}
         }}, 500);
     </script>
