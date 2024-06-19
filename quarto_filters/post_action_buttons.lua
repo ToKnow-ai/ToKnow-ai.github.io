@@ -1,6 +1,6 @@
 local str_ends_with = require "utils.str_ends_with"
-local read_file = require "utils.read_file"
 local ternary = require "utils.ternary"
+local read_metadata = require "utils.read_metadata"
 
 -- Function to encode string
 ---@param str string
@@ -22,7 +22,8 @@ end
 ---@return string
 local function replace_string(original, replace_pattern, replace_with)
   local encoded_pattern = replace_pattern:gsub("[%p%c%s]", "%%%0")
-  return original:gsub(encoded_pattern, replace_with)
+  local result = original:gsub(encoded_pattern, replace_with)
+  return result
 end
 
 -- Function to create a Google Colab link
@@ -123,15 +124,6 @@ local function remove_extention(file_name)
   return file_name_without_ext
 end
 
--- Funtion to extract the metadata of a file, given a file_name
----@param file_name string
---- @return pandoc.MetaValue
-local function read_metadata(file_name)
-  local yml_text = read_file(file_name)
-  local yml_doc = pandoc.read('---\n' .. yml_text .. '\n---', "markdown")
-  return yml_doc.meta
-end
-
 -- buttons_wrapper
 ---@param html string
 ---@return string
@@ -169,10 +161,29 @@ local function post_action_buttons(doc)
       pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['main']))
     local notebook_path = replace_string(input_file, quarto.project.directory, "")
 
-    local colab_link_html = create_colab_link(repository, branch, notebook_path, 'Open in Colab', '/images/badges/png/colab.png')
-    local binder_link_html = create_binder_link(repository, branch, notebook_path, 'Open in Binder', '/images/badges/png/binder.png')
-    local github_link_html = create_github_link(repository, branch, notebook_path, 'View on Github', '/images/badges/png/github.png')
-    local deepnote_link_html = create_deepnote_link(repository, branch, notebook_path, 'Open in Deepnote', '/images/badges/png/deepnote.png')
+    local colab_link_html = create_colab_link(
+      repository, branch, 
+      notebook_path, 
+      'Open in Colab', 
+      '/images/badges/png/colab.png')
+    local binder_link_html = create_binder_link(
+      repository, 
+      branch, 
+      notebook_path, 
+      'Open in Binder', 
+      '/images/badges/png/binder.png')
+    local github_link_html = create_github_link(
+      repository, 
+      branch, 
+      notebook_path, 
+      'View on Github', 
+      '/images/badges/png/github.png')
+    local deepnote_link_html = create_deepnote_link(
+      repository, 
+      branch, 
+      notebook_path, 
+      'Open in Deepnote', 
+      '/images/badges/png/deepnote.png')
     
     links_html = buttons_wrapper(
       colab_link_html .. binder_link_html .. github_link_html .. deepnote_link_html .. pdf_link_html)

@@ -41,7 +41,7 @@ local makeBox = function (text, url, icon, color)
   else
     local pandoc_image_attributes = {
       id = tostring({}):sub(10),
-      width = '50%' -- width=0.5\\textwidth
+      width = '90%' -- width=0.9\\textwidth
     }
     local latex_top_raw_block = pandoc.RawInline(
       'latex',
@@ -57,7 +57,11 @@ local makeBox = function (text, url, icon, color)
               \\node[inner sep = 0pt] (a) {')
     -- \\includegraphics[width=0.5\\textwidth]{' .. youtube_image_src .. '}\
     -- we have done this so that quarto can download the image, pandoc doesnt embend online images to pdf
-    local pandoc_image_block = pandoc.Image(pandoc_image_attributes.id, youtube_image_src, pandoc_image_attributes.id, pandoc_image_attributes)
+    local pandoc_image_block = pandoc.Image(
+      pandoc_image_attributes.id, 
+      youtube_image_src, 
+      pandoc_image_attributes.id, 
+      pandoc_image_attributes)
     local latex_bottom_raw_block = pandoc.RawInline(
       'latex',
                 '};\
@@ -78,7 +82,11 @@ end
 ---@param video_src string
 ---@return pandoc.Block
 local function pdf_src_block(video_src)
-  local video = makeBox("Click to watch the video at Youtube.", video_src, "\\faYoutube", "youtubeColor")
+  local video = makeBox(
+    "Click to watch the video at Youtube.", 
+    video_src, 
+    "\\faYoutube", 
+    "youtubeColor")
   return video
 end
 
@@ -91,7 +99,10 @@ local function html_src_block(video_src, meta)
   local youtube_image_src = get_youtube_image(video_src)
   if youtube_image_src and not meta['image'] then
     -- https://github.com/quarto-dev/quarto-cli/discussions/9767
-    video_blocks:insert(pandoc.RawInline("html", "<img class='preview-image hidden' src='" .. youtube_image_src .. "' />"))
+    video_blocks:insert(
+      pandoc.RawInline(
+        "html", 
+        "<img class='preview-image hidden' src='" .. youtube_image_src .. "' />"))
   end
   return pandoc.Div(video_blocks), meta
 end
