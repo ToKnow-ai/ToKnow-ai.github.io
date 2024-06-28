@@ -2,6 +2,17 @@ local str_ends_with = require "utils.str_ends_with"
 local ternary = require "utils.ternary"
 local read_metadata = require "utils.read_metadata"
 
+---comment
+---@param str string
+---@return string
+local function str_trim(str)
+  -- Replace leading whitespace
+  local _str, _ = str:gsub("^%s+", "")
+  -- Replacecount trailing whitespace
+  local _str_, _  = _str:gsub("%s+$", "")
+  return _str_
+end
+
 -- Function to encode string
 ---@param str string
 ---@return string
@@ -152,8 +163,8 @@ local function post_action_buttons(doc)
       '/images/badges/png/pdf.png'),
     '')
   local links_html = buttons_wrapper(pdf_link_html)
-
-  if str_ends_with(input_file, ".ipynb") then
+  local treat_as_qmd = str_trim(string.lower(pandoc.utils.stringify(doc.meta['treat_as_qmd'] or '') or '')) == 'true'
+  if str_ends_with(input_file, ".ipynb") and not treat_as_qmd then
     local repository = pandoc.utils.stringify(doc.meta['open-ipynb']['repository'])
     local branch = ternary(
       is_prod, 
