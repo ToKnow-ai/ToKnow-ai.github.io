@@ -13,7 +13,8 @@
     margin-bottom: 0.5em;
 }
 
-.footer .nav-footer .nav-footer-left, .footer .nav-footer .nav-footer-right{
+.footer .nav-footer .nav-footer-left,
+.footer .nav-footer .nav-footer-right {
     display: none;
 }
 
@@ -21,3 +22,6 @@
     font-size: x-small;
 }
 
+.navbar-logo {
+    max-height: 34px;
+}
