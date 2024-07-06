@@ -171,3 +171,4 @@ posts/*/*.html
 
 /.luarc.json
 index.mp4
+extracted_tables/
