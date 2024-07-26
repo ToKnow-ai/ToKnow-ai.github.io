@@ -2,10 +2,18 @@
 
 import sys
 import re
+from typing import Literal
 from nbformat import NotebookNode, v4, write as nb_write
 import yaml
 import mistune
 from bs4 import BeautifulSoup
+
+KeyType = Literal['strip_markdown', 'preserve_cell', 'is_array']
+default_options: dict[KeyType, bool] = {
+    'strip_markdown': True,
+    'preserve_cell': False,
+    'is_array': False,
+}
 
 def get_html(markdown: str) -> BeautifulSoup:
     """
@@ -20,7 +28,7 @@ def get_html(markdown: str) -> BeautifulSoup:
     html = mistune.create_markdown()(markdown)
     return BeautifulSoup(html, features='html.parser')
 
-def parse_metadata_key(key: str, value: str):
+def parse_metadata_key(key: str, value: str) -> tuple[str, str, dict[KeyType, bool]]:
     """
     Parses the metadata key and value and returns a tuple with the parsed key and value.
 
@@ -37,41 +45,42 @@ def parse_metadata_key(key: str, value: str):
     key = key.strip()
     value = value.strip()
     (key, *_options) = key.split(',', 1)
-    key_dict_options = {
-        'strip_markdown': True,
-        # 'type': Literal['date', 'array']
+    key_dict_options: dict[KeyType, bool] = {
+        **default_options,
         **{
-            option_key:option_value
-            for option_key,option_value
+            option_key: get_bool_option(option_value or False)
+            for option_key, option_value
             in [
                 i.strip().split('=')
                 for i
                 in (_options[0].split(',') if len(_options) > 0 else [])
             ]
+            if len(str(option_key).strip()) > 0
         }
     }
     key = key.strip()
-    if 'type' not in key_dict_options:
-        strip_markdown: str = key_dict_options.get('strip_markdown', 'None')
-        strip_markdown_option: bool = \
-            strip_markdown is True \
-            or str(strip_markdown).lower().strip() == 'true' \
-            or str(strip_markdown).lower().strip() == '1'
-        if strip_markdown_option:
-            new_value: str = get_html(value).get_text().replace("\n\n", "\n").strip()
-            return (key, new_value)
-        return (key, value)
-    key_type = key_dict_options.get('type', 'None').strip()
-    if key_type == 'date':
-        date_pattern = r'.*(\d{4}\s*-\s*\d{2}\s*-\s*\d{2}).*'
-        new_value: str = re.match(date_pattern, value, re.DOTALL).group(1).strip()
-        return (key, new_value)
-    if key_type == 'array':
+    if key_dict_options['strip_markdown']:
+        new_value: str = get_html(value).get_text().replace("\n\n", "\n").strip()
+        value = new_value
+    if key_dict_options['is_array']:
         html = get_html(value)
         list_items = html.find_all('li')
         new_values = [item.get_text(strip=True) for item in list_items]
-        return (key, new_values)
-    raise ValueError(f"type({key_type}) is not in ['date', 'array']")
+        value = new_values
+    return (key, value, key_dict_options)
+
+def get_bool_option(strip_markdown: str|None|bool):
+    """
+    Converts the given value to a boolean option.
+
+    Args:
+        strip_markdown (str|None|bool): The value to be converted.
+
+    Returns:
+        bool: The boolean representation of the value.
+    """
+    strip_markdown = str(strip_markdown).lower().strip()
+    return strip_markdown in ('true', '1')
 
 def remove_lists(markdown_text: str):
     """
@@ -108,17 +117,17 @@ def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
     for cell in cells:
         if cell and cell.cell_type == 'markdown':
             matches = re.findall(pattern, cell.source, re.DOTALL)
-            skip_this_cell = False
+            preserve_cell_s: list[bool] = []
             for (metadata_key, metadata_value) in matches:
                 if len(metadata_key.strip()) > 0 and len(metadata_value) > 0:
-                    metadata_key, metadata_value = parse_metadata_key(metadata_key, metadata_value)
+                    metadata_key, metadata_value, options = parse_metadata_key(metadata_key, metadata_value)
                     # html list in listings page spoils UI.
                     metadata[metadata_key] = \
                         metadata.get(metadata_key, []) + metadata_value \
                             if isinstance(metadata_value, list) \
                             else metadata_value
-                    skip_this_cell = True
-            if skip_this_cell:
+                    preserve_cell_s.append(options['preserve_cell'])
+            if not any(preserve_cell_s):
                 continue
         new_cells.append(cell)
     if any(metadata):
