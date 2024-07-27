@@ -28,7 +28,7 @@ def get_html(markdown: str) -> BeautifulSoup:
     html = mistune.create_markdown()(markdown)
     return BeautifulSoup(html, features='html.parser')
 
-def parse_metadata_key(key: str, value: str) -> tuple[str, str, dict[KeyType, bool]]:
+def parse_metadata_key(metadata_key: str, metadata_content: str) -> tuple[str, str, dict[KeyType, bool]]:
     """
     Parses the metadata key and value and returns a tuple with the parsed key and value.
 
@@ -42,10 +42,10 @@ def parse_metadata_key(key: str, value: str) -> tuple[str, str, dict[KeyType, bo
     Raises:
         ValueError: If the key type is not 'date' or 'array'.
     """
-    key = key.strip()
-    value = value.strip()
-    (key, *_options) = key.split(',', 1)
-    key_dict_options: dict[KeyType, bool] = {
+    metadata_key = metadata_key.strip()
+    metadata_content = metadata_content.strip()
+    (metadata_key, *_options) = metadata_key.split(',', 1)
+    metadata_key_options: dict[KeyType, bool] = {
         **default_options,
         **{
             option_key: get_bool_option(option_value or False)
@@ -58,16 +58,16 @@ def parse_metadata_key(key: str, value: str) -> tuple[str, str, dict[KeyType, bo
             if len(str(option_key).strip()) > 0
         }
     }
-    key = key.strip()
-    if key_dict_options['strip_markdown']:
-        new_value: str = get_html(value).get_text().replace("\n\n", "\n").strip()
-        value = new_value
-    if key_dict_options['is_array']:
-        html = get_html(value)
+    metadata_key = metadata_key.strip()
+    if metadata_key_options['strip_markdown'] and not metadata_key_options['is_array']:
+        processed_content: str = get_html(metadata_content).get_text().replace("\n\n", "\n").strip()
+        metadata_content = processed_content
+    if metadata_key_options['is_array']:
+        html = get_html(metadata_content)
         list_items = html.find_all('li')
-        new_values = [item.get_text(strip=True) for item in list_items]
-        value = new_values
-    return (key, value, key_dict_options)
+        processed_content = [item.get_text(strip=True) for item in list_items]
+        metadata_content = processed_content
+    return (metadata_key, metadata_content, metadata_key_options)
 
 def get_bool_option(strip_markdown: str|None|bool):
     """
@@ -111,28 +111,26 @@ def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
         list[NotebookNode]: List of notebook cells with Quarto metadata extracted.
     """
     new_cells = []
-    metadata = {}
+    new_document_metadata = {}
     pattern = r"<!--\s*metadata:\s*(.*?)\s*-->\s*(.*?)\s*(?=<!-- metadata:|$)"
 
     for cell in cells:
         if cell and cell.cell_type == 'markdown':
             matches = re.findall(pattern, cell.source, re.DOTALL)
-            preserve_cell_s: list[bool] = []
-            for (metadata_key, metadata_value) in matches:
-                if len(metadata_key.strip()) > 0 and len(metadata_value) > 0:
-                    metadata_key, metadata_value, options = parse_metadata_key(metadata_key, metadata_value)
+            preserve_this_cell: list[bool] = []
+            for (metadata_key, metadata_content) in matches:
+                if len(metadata_key.strip()) > 0 and len(metadata_content) > 0:
+                    metadata_key, metadata_content, metadata_key_options = parse_metadata_key(metadata_key, metadata_content)
                     # html list in listings page spoils UI.
-                    metadata[metadata_key] = \
-                        metadata.get(metadata_key, []) + metadata_value \
-                            if isinstance(metadata_value, list) \
-                            else metadata_value
-                    preserve_cell_s.append(options['preserve_cell'])
-            if not any(preserve_cell_s):
+                    new_metadata_content = new_document_metadata.get(metadata_key, []) + metadata_content if metadata_key_options['is_array'] else metadata_content
+                    new_document_metadata[metadata_key] = new_metadata_content
+                    preserve_this_cell.append(metadata_key_options['preserve_cell'])
+            if not any(preserve_this_cell):
                 continue
         new_cells.append(cell)
-    if any(metadata):
+    if any(new_document_metadata):
         source = yaml.dump(
-            metadata,
+            new_document_metadata,
             sort_keys=False,
             indent=4)
         metadata_cell = v4.new_markdown_cell(source=f'---\n{source}\n---')
