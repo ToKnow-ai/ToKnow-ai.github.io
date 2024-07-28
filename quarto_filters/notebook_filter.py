@@ -125,7 +125,7 @@ def extract_quarto_metadata(cells: list[NotebookNode]) -> list[NotebookNode]:
                     new_metadata_content = new_document_metadata.get(metadata_key, []) + metadata_content if metadata_key_options['is_array'] else metadata_content
                     new_document_metadata[metadata_key] = new_metadata_content
                     preserve_this_cell.append(metadata_key_options['preserve_cell'])
-            if not any(preserve_this_cell):
+            if len(preserve_this_cell) > 0 and not any(preserve_this_cell):
                 continue
         new_cells.append(cell)
     if any(new_document_metadata):
