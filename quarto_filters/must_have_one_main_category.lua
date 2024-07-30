@@ -21,14 +21,19 @@ return {
   ---@param doc pandoc.Pandoc
   ---@return pandoc.Pandoc|nil
   Pandoc = function (doc)
-    local main_categories = read_metadata(quarto.project.directory .. '/_index.yml')['categories']
-    local sub_categories = doc.meta['categories']
+    local main_categories = read_metadata(quarto.project.directory .. '/_index.yml')['categories'] or {}
+    local sub_categories = doc.meta['categories'] or {}
+    local is_draft = doc.meta['draft'] or false
     local has_main_category =
         type(main_categories) == "table" and
         type(sub_categories) == "table" and
         compare_categories(main_categories, sub_categories)
-    if not has_main_category then
-      error(quarto.doc.input_file .. " HAS NO MAIN CATEGORY!")
+    if not has_main_category and not is_draft then
+      error(
+        quarto.doc.input_file .. " HAS NO MAIN CATEGORY!" 
+        .. " has_main_category=" .. pandoc.utils.stringify(has_main_category) 
+        .. " main_categories=" .. pandoc.utils.stringify(main_categories) 
+        .. " sub_categories=" .. pandoc.utils.stringify(sub_categories))
       os.exit(1)  -- Exit with a status code (non-zero indicates an error)
       return
     end
