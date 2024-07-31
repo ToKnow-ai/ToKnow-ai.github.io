@@ -23,7 +23,7 @@ return {
   Pandoc = function (doc)
     local main_categories = read_metadata(quarto.project.directory .. '/_index.yml')['categories'] or {}
     local sub_categories = doc.meta['categories'] or {}
-    local is_draft = doc.meta['draft'] or false
+    local is_draft = doc.meta['draft'] == true
     local has_main_category =
         type(main_categories) == "table" and
         type(sub_categories) == "table" and
