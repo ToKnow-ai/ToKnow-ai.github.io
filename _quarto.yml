@@ -55,6 +55,7 @@ shortcodes:
   - quarto_filters/year.lua
   - quarto_filters/bash.lua
   - quarto_filters/pagepath.lua
+  - quarto_filters/iframe.lua
 
 
 
