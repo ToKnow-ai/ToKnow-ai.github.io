@@ -1,4 +1,4 @@
-"""Quarto notebook filter"""
+"""Quarto notebook filter to pluck metadata from the inner document and put it in the first cell"""
 
 import sys
 import re
