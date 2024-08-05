@@ -37,7 +37,7 @@ def option_or_source_line(source_line: str) -> str:
     """
     option_line = option_source(source_line)
     if option_line is not None:
-        return f'#|{option_line}'
+        return f'#| {option_line}'
     return source_line
 
 def handle_options(cells: list[NotebookNode]) -> list[NotebookNode]:
