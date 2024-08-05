@@ -11,8 +11,10 @@ local MARKDOWN_CODE_CELL = 'is-a-markdown-code-cell'
 local function code_to_markdown(_attribute, div)
     --- @type pandoc.CodeBlock
     local code_block = div.content[1]
-    local blocks = quarto.utils.string_to_blocks(code_block.text)
-    div.content = blocks
+    if code_block.text and code_block.t == "CodeBlock" then
+        local blocks = quarto.utils.string_to_blocks(code_block.text)
+        div.content = blocks
+    end
     return div
 end
 
