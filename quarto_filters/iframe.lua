@@ -27,7 +27,7 @@ return {
                 /* To position the loading */
                 position: relative;
             }
-            .loading {
+            .iframe-loading, .iframe-error {
                 /* Absolute position */
                 left: 0;
                 position: absolute;
@@ -42,7 +42,7 @@ return {
             }
         </style>
         <div class="]] .. iframe_container_class .. [[">
-          <div class="loading rounded border border-warning" style="background-color: #fff3cd;">
+          <div class="iframe-loading rounded border border-warning" style="background-color: #fff3cd;">
             <strong style="font-size: 1.5rem;">]] .. loading_status .. [[</strong>
             <div class="spinner-grow" style="margin: 2rem; width: 3rem; height: 3rem;" role="status"></div>
           </div>
@@ -50,7 +50,7 @@ return {
         </div>
         <script>
             document.querySelector('.]] .. iframe_container_class .. [[ > iframe').addEventListener('load', function () {
-                const loadingEle = document.querySelector('.]] .. iframe_container_class .. [[ > .loading');
+                const loadingEle = document.querySelector('.]] .. iframe_container_class .. [[ > .iframe-loading');
                 // Hide the loading indicator
                 loadingEle.style.display = 'none';
                 // Bring the iframe back
