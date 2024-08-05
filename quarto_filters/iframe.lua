@@ -4,66 +4,57 @@ return {
   ['iframe'] = function (args, kwargs)
     -- Check if the output format is HTML
     if quarto.doc.is_format('html') then
-      local loading_var = ''
+      -- @type iframe_tag string
+      local loading_status = "Loading IFrame..."
       if args and args[1] then
+        loading_status = ""
         for _, arg in ipairs(args) do
-          loading_var = loading_var .. ' ' .. pandoc.utils.stringify(arg)
+          loading_status = loading_status .. ' ' .. pandoc.utils.stringify(arg)
         end
-      else
-        loading_var = "Loading IFrame..."
       end
-      local class_name = 'class_' .. generate_unique_string()
+      -- @type iframe_tag string
+      local iframe_container_class = 'iframe_container_' .. generate_unique_string()
       -- @type iframe_attrs string
       local iframe_attrs = 'style="opacity: 0"'
       for key, value in pairs(kwargs) do
         iframe_attrs = iframe_attrs .. string.format(' %s="%s"', key, value)
       end
-
       -- @type iframe_tag string
       local iframe_tag =
-        [[
+          [[
           <style>
-            .iframe-container {
+            .]] .. iframe_container_class .. [[ {
                 /* To position the loading */
                 position: relative;
             }
-
             .loading {
                 /* Absolute position */
                 left: 0;
                 position: absolute;
                 top: 0;
-
                 /* Take full size */
                 height: 100%;
                 width: 100%;
-
                 /* Center */
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
-                background-color: #fff3cd;
             }
         </style>
-        <div class="iframe-container ]] .. class_name .. [[">
-          <div class="loading rounded border border-warning">
-            <strong style="font-size: 1.5rem;">]] .. loading_var .. [[</strong>
+        <div class="]] .. iframe_container_class .. [[">
+          <div class="loading rounded border border-warning" style="background-color: #fff3cd;">
+            <strong style="font-size: 1.5rem;">]] .. loading_status .. [[</strong>
             <div class="spinner-grow" style="margin: 2rem; width: 3rem; height: 3rem;" role="status"></div>
           </div>
           <iframe ]] .. iframe_attrs .. [[></iframe>
         </div>
         <script>
-            // Query the elements
-            const iframeEle = document.querySelector('.]] .. class_name .. [[ > iframe');
-            const loadingEle = document.querySelector('.]] .. class_name .. [[ > .loading');
-
-            iframeEle.addEventListener('load', function () {
+            document.querySelector('.]] .. iframe_container_class .. [[ > iframe').addEventListener('load', function () {
+                const loadingEle = document.querySelector('.]] .. iframe_container_class .. [[ > .loading');
                 // Hide the loading indicator
                 loadingEle.style.display = 'none';
-
                 // Bring the iframe back
-                iframeEle.style.opacity = 1;
+                this.style.opacity = 1;
             });
         </script>
         ]]
