@@ -15,7 +15,7 @@ return {
       -- @type iframe_tag string
       local iframe_container_class = 'iframe_container_' .. generate_unique_string()
       -- @type iframe_attrs string
-      local iframe_attrs = 'style="opacity: 0"'
+      local iframe_attrs = 'style="opacity: 0; background-color: #fff3cd;"'
       for key, value in pairs(kwargs) do
         iframe_attrs = iframe_attrs .. string.format(' %s="%s"', key, value)
       end
@@ -27,7 +27,7 @@ return {
                 /* To position the loading */
                 position: relative;
             }
-            .iframe-loading, .iframe-error {
+            .iframe-loading {
                 /* Absolute position */
                 left: 0;
                 position: absolute;
