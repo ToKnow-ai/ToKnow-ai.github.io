@@ -1,6 +1,8 @@
 # Enable banner style title blocks
 title-block-banner: true
 lightbox: true
+language: 
+  section-title-footnotes: Footnotes / Citations / References
 # categories: [tech]
 author:
   - name: Charles Kabui
