@@ -55,6 +55,7 @@ return {
                 loadingEle.style.display = 'none';
                 // Bring the iframe back
                 this.style.opacity = 1;
+                console.log(this, { loadingEle })
             });
         </script>
         ]]
