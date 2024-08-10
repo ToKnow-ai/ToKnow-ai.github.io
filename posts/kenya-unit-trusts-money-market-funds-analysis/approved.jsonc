@@ -1,5 +1,9 @@
+/* THIS IS A LIST OF APPROVED FUND MANAGERS
+ * It is a JSON file with comments. Use json5 to load the data into Pandas.
+*/
 [
   {
+    // This is the name
     "NAME": "Orient Asset Managers Limited",
     "ADDRESS": "P.O. Box 34530-00100, Nairobi",
     "LICENCE NO.": 23.0,
