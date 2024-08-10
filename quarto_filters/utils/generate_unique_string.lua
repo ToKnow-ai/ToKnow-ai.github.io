@@ -1,14 +1,12 @@
-local generate_unique_string = function (length)
-    length = (length == nil and 10) or length
-    math.randomseed(os.time()) -- Initialize random seed
+local function generate_unique_string(length)
+    length = length or 10
+    local seed = os.time() * 1000 + math.floor(os.clock() * 1000)
+    math.randomseed(seed)
     local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     local result = ""
-    local charTable = {}
-    for c in chars:gmatch"." do
-        table.insert(charTable, c)
-    end
     for i = 1, length do
-        result = result .. charTable[math.random(1, #charTable)]
+        local rand = math.random(#chars)
+        result = result .. chars:sub(rand, rand)
     end
     return result
 end
