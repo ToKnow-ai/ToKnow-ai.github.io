@@ -1,5 +1,9 @@
 project:
   type: website
+  # https://github.com/chrisvoncsefalvay/chrisvoncsefalvay.github.io/blob/main/_quarto.yml
+  # https://quarto.org/docs/projects/scripts.html#pre-and-post-render
+  pre-render:
+    - ./quarto_scripts/python/quarto_pre_render.py "posts/*/*.ipynb" "./quarto_scripts/python/pluck_metadata_filter.py"
   render:
     - "**/*.qmd"
     - "**/*.ipynb"
@@ -52,10 +56,10 @@ execute:
   freeze: auto
   cache: false
 shortcodes:
-  - quarto_filters/year.lua
-  - quarto_filters/bash.lua
-  - quarto_filters/pagepath.lua
-  - quarto_filters/iframe.lua
+  - quarto_scripts/lua/year.lua
+  - quarto_scripts/lua/bash.lua
+  - quarto_scripts/lua/pagepath.lua
+  - quarto_scripts/lua/iframe.lua
 
 
 

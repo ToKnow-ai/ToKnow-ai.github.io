@@ -34,15 +34,15 @@ format:
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 quarto_filters:
-  - ../quarto_filters/post_action_buttons.lua
-  - ../quarto_filters/replace_base64_video_src.lua
-  - ../quarto_filters/no-empty-toc.lua
+  - ../quarto_scripts/lua/post_action_buttons.lua
+  - ../quarto_scripts/lua/replace_base64_video_src.lua
+  - ../quarto_scripts/lua/no-empty-toc.lua
   - at: post-render
-    path: ../quarto_filters/output_when_format.lua
+    path: ../quarto_scripts/lua/output_when_format.lua
 open-ipynb: 
   repository: "ToKnow-ai/ToKnow-ai.github.io"
   branch:
     dev: "quarto-dev"
     main: "main"
 ipynb-quarto_filters:
-  - ../quarto_filters/notebook_filter.py
+  - ../quarto_scripts/lua/notebook_filter.py

@@ -41,26 +41,26 @@ format:
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
-  - ../quarto_filters/markdown_code_options.lua
-  - ../quarto_filters/disclaimer.lua
-  - ../quarto_filters/post_action_buttons.lua
-  - ../quarto_filters/replace_base64_video_src.lua
-  - ../quarto_filters/no-empty-toc.lua
+  - ../quarto_scripts/lua/markdown_code_options.lua
+  - ../quarto_scripts/lua/disclaimer.lua
+  - ../quarto_scripts/lua/post_action_buttons.lua
+  - ../quarto_scripts/lua/replace_base64_video_src.lua
+  - ../quarto_scripts/lua/no-empty-toc.lua
   - at: post-render
-    path: ../quarto_filters/output_when_format.lua
+    path: ../quarto_scripts/lua/output_when_format.lua
   - at: post-render
-    path: ../quarto_filters/must_have_one_main_category.lua
+    path: ../quarto_scripts/lua/must_have_one_main_category.lua
   - at: post-render
-    path: ../quarto_filters/pdf_links.lua
+    path: ../quarto_scripts/lua/pdf_links.lua
 open-ipynb: 
   repository: "ToKnow-ai/ToKnow-ai.github.io"
   branch:
     dev: "quarto-dev"
     main: "main"
 ipynb-filters:
-  - ../quarto_filters/pluck_metadata_filter.py
-  - ../quarto_filters/markdown_code_options.py
-  # - ../quarto_filters/export_notebook.py
+  - ../quarto_scripts/python/pluck_metadata_filter.py
+  - ../quarto_scripts/python/markdown_code_options.py
+  # - ../quarto_scripts/python/export_notebook.py
 # if you remove the below pagetitle setting, the dynamic page title is not updated,
 # even for updates from notebook filters (ipynb-filters:). Remember, title updates
 # for normal filters DONT work in listing page!, see:
