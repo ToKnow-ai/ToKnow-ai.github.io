@@ -18,3 +18,5 @@ To All:
  EXPORT NOTEBOOK
  PREVENT RENDERING DRAFT DOCUMENTS
  RENDERING IMAGES IN THE NEW METADATA FORMAT WITHIN NOTEBOOK MARKDOWN - `image:` metadata extracted by `<!-- metadata: image -->` doesnt seem to work.
+
+bibtex citations created with NOTEBOOK filter dont have title!

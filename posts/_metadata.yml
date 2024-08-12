@@ -17,7 +17,10 @@ license:
 format:
   html:
     page-layout: full
-    citation: true
+    # https://github.com/quarto-dev/quarto-cli/discussions/7234
+    citation:
+      type: article
+    lang: en-GB
     google-scholar: true
     comments:
       giscus:
