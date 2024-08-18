@@ -34,6 +34,7 @@ format:
     include-in-header:  
         - text: |
             \usepackage{tcolorbox}
+            \tcbuselibrary{most}
             \usepackage{fontawesome5}
             \usepackage{xcolor}
             \definecolor{youtubeColor}{HTML}{FF0000}
@@ -57,10 +58,6 @@ open-ipynb:
   branch:
     dev: "quarto-dev"
     main: "main"
-ipynb-filters:
-  - ../quarto_scripts/python/pluck_metadata_filter.py
-  - ../quarto_scripts/python/markdown_code_options.py
-  # - ../quarto_scripts/python/export_notebook.py
 # if you remove the below pagetitle setting, the dynamic page title is not updated,
 # even for updates from notebook filters (ipynb-filters:). Remember, title updates
 # for normal filters DONT work in listing page!, see:

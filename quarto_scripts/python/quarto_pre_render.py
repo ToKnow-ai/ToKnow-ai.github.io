@@ -9,15 +9,12 @@ This script does the following:
     c. Captures the output of the script.
     d. Writes the output back to the original file.
 """
-import os
+
 import sys
 import glob
 import subprocess
 
-if __name__ == "__main__":
-    if not os.getenv("QUARTO_PROJECT_RENDER_ALL"):
-        exit()
-        
+def main():
     if len(sys.argv) < 3:
         print("Usage: python script.py <glob_pattern> <python_script>", file=sys.stderr)
         sys.exit()
@@ -47,9 +44,12 @@ if __name__ == "__main__":
                 continue
 
             # Write the output back to the file
-            with open(file + '.ipynb', 'w', encoding='utf-8') as f:
+            with open(file, 'w', encoding='utf-8') as f:
                 f.write(result.stdout)
 
             print(f"Processed {file}", file=sys.stderr)
         except Exception as e:
             print(f"Error processing {file}: {str(e)}", file=sys.stderr)
+
+if __name__ == "__main__":
+    main()
