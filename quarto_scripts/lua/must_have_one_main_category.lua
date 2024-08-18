@@ -15,6 +15,18 @@ local compare_categories = function(main_categories, sub_categories)
   return false
 end
 
+local function tableToListString(t, stringfy)
+  stringfy = stringfy or tostring
+  local result = "["
+  for i, v in ipairs(t) do
+    result = result .. stringfy(v)
+    if i < #t then
+      result = result .. ", "
+    end
+  end
+  return result .. "]"
+end
+
 return {
   compare_categories = compare_categories,
 
@@ -31,9 +43,9 @@ return {
     if not has_main_category and not is_draft then
       error(
         quarto.doc.input_file .. " HAS NO MAIN CATEGORY!" 
-        .. " has_main_category=" .. pandoc.utils.stringify(has_main_category) 
-        .. " main_categories=" .. pandoc.utils.stringify(main_categories) 
-        .. " sub_categories=" .. pandoc.utils.stringify(sub_categories))
+        .. " has_main_category=" .. pandoc.utils.stringify(has_main_category)
+        .. " main_categories=" .. tableToListString(main_categories, pandoc.utils.stringify)
+        .. " sub_categories=" .. tableToListString(sub_categories, pandoc.utils.stringify))
       os.exit(1)  -- Exit with a status code (non-zero indicates an error)
       return
     end
