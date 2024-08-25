@@ -8,7 +8,7 @@ from .get_browser import get_browser_page_async
 async def web_screenshot_async(
         url: str, 
         *, 
-        action: Callable[[Page], None] = None | ElementHandle, 
+        action: Callable[[Page], None | ElementHandle] = None, 
         executable_path: str = None,
         width: int = 0,
         height: int = 0,
