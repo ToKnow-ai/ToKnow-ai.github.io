@@ -63,5 +63,5 @@ open-ipynb:
 # for normal filters DONT work in listing page!, see:
 # https://github.com/quarto-dev/quarto-cli/discussions?discussions_q=author%3AMcKabue+
 # https://github.com/quarto-dev/quarto-cli/discussions/5260
-pagetitle: "Toknow.ai - {{< meta title >}}"
+# pagetitle: "Toknow.ai - {{< meta title >}}"
 date: last-modified

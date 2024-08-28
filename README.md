@@ -20,3 +20,6 @@ To All:
  RENDERING IMAGES IN THE NEW METADATA FORMAT WITHIN NOTEBOOK MARKDOWN - `image:` metadata extracted by `<!-- metadata: image -->` doesnt seem to work.
 
 bibtex citations created with NOTEBOOK filter dont have title!
+
+add counter https://api.visitorbadge.io/api/visitors?path=...
+[`ipynb-output: all,none,best`](https://quarto.org/docs/reference/formats/ipynb.html) does not WORK
