@@ -13,8 +13,8 @@ async def web_screenshot_async(
         width: int = 0,
         height: int = 0,
         # pyppeteer.page.Page.screenshot options
-        options: dict = {'fullPage': True },
-        crop: dict[Literal['left', 'top', 'right', 'bottom'], int | None] = { 'left': None, 'top': None, 'right': None, 'bottom': None }) -> Image.Image:
+        screenshot_options: dict = {'fullPage': True },
+        crop_options: dict[Literal['left', 'top', 'right', 'bottom'], int | None] | None = None) -> Image.Image:
     
     page, browser = await get_browser_page_async(executable_path, width = width, height = height)
     
@@ -27,14 +27,16 @@ async def web_screenshot_async(
         else:
             screenshot_element = action(page)
     # Take a screenshot and get the image bytes
-    screenshot_bytes = await (screenshot_element or page).screenshot(options)
+    screenshot_bytes = await (screenshot_element or page).screenshot(screenshot_options)
     # Close the browser
     await browser.close()
     # Convert the bytes to a PIL Image
     image = Image.open(io.BytesIO(screenshot_bytes))
-    image = image.crop((
-        crop.get('left', 0),
-        crop.get('top', 0),
-        crop.get('right', image.size[0]),
-        crop.get('bottom', image.size[1])))
+    crop_options = crop_options or {}
+    crop_cordinates = (
+        crop_options.get('left', 0), 
+        crop_options.get('top', 0), 
+        crop_options.get('right', image.size[0]), 
+        crop_options.get('bottom', image.size[1]))
+    image = image.crop(crop_cordinates)
     return image
