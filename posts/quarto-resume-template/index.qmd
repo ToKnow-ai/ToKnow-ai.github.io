@@ -36,8 +36,9 @@ Before we dive into the how-to, let's understand why this combination is so powe
 
 That's it! You don't need any coding experience or special software.
 
+## Step-by-Step Guide
 
-## Step 1: Create a GitHub Account
+### Step 1: Create a GitHub Account
 
 If you don't already have one, you'll need to create a GitHub account:
 
@@ -45,8 +46,7 @@ If you don't already have one, you'll need to create a GitHub account:
 2. Click "Sign up" in the top right corner
 3. Follow the prompts to create your account
 
-
-## Step 2: Use the Resume Template
+### Step 2: Use the Resume Template
 
 We'll use a pre-made template to make this process easy:
 
@@ -57,8 +57,7 @@ We'll use a pre-made template to make this process easy:
 5. Make sure it's set to "Public"
 6. Click "Create repository from template"
 
-
-## Step 3: Edit Your Resume
+### Step 3: Edit Your Resume
 
 Now, let's add your information:
 
@@ -67,8 +66,7 @@ Now, let's add your information:
 3. Replace the example information with your own details
 4. When you're done, scroll down and click "Commit changes"
 
-
-## Step 4: Customize Your Site
+### Step 4: Customize Your Site
 
 You can customize your site's appearance and add extra information:
 
@@ -77,8 +75,7 @@ You can customize your site's appearance and add extra information:
 
 Don't worry if you're not sure about these - the default settings look great too!
 
-
-## Step 5: Publish Your Site
+### Step 5: Publish Your Site
 
 GitHub will automatically build and publish your site:
 
@@ -90,24 +87,21 @@ GitHub will automatically build and publish your site:
 
 Your site will now be live at `https://your-github-username.github.io`!
 
-> If you dont edit your resume, here is how your resume website will look: Website: <https://toknow.ai/quarto-resume-template/> , PDF: <https://toknow.ai/quarto-resume-template/index.pdf>
+> If you don't edit your resume, here's how your resume website will look: Website: <https://toknow.ai/quarto-resume-template/> , PDF: <https://toknow.ai/quarto-resume-template/index.pdf>
 
-
-## Step 6 (Optional): Using a Custom Domain
+### Step 6 (Optional): Using a Custom Domain
 
 If you have your own domain name:
 
 1. Add your domain to the `custom-domain` field in `RESUME.json`
 2. Go to your domain registrar and set up a CNAME record pointing to `your-github-username.github.io`
 
-> For detailed and up to date instructions, check [Configuring a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) on how you can customize the domain name of your GitHub Pages site. 
-
+> For detailed and up-to-date instructions, check [Configuring a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) on how you can customize the domain name of your GitHub Pages site. 
 
 ## Examples and Resources
 
 - Check out [onesmus.com](https://onesmus.com/) for an example of a site created with this template
 - You can view its [GitHub repository](https://github.com/onesmuskabui/onesmuskabui.github.io) to see how it's set up
-
 
 ## For the Tech-Savvy: Under the Hood
 
@@ -115,7 +109,7 @@ If you're interested in the technical details, here's what's happening behind th
 
 1. **GitHub Actions**: We use GitHub Actions to automatically build your resume. Every time you update your resume content, a GitHub Action is triggered to rebuild your site.
 
-2. **Quarto**: Quarto is an open-source scientific and technical publishing system. It's typically used for creating dynamic content with Python, R, Julia, and Observable, but it's also excellent for creating static sites like your resume. Quarto can be used to author books, websites, blogs, scientific papers and presentations such as powerpoint.
+2. **Quarto**: Quarto is an open-source scientific and technical publishing system. It's typically used for creating dynamic content with Python, R, Julia, and Observable, but it's also excellent for creating static sites like your resume.
 
    - Quarto takes your Markdown content and converts it into both HTML and PDF formats.
    - It handles the layout, styling, and responsiveness of your site.
@@ -124,10 +118,9 @@ If you're interested in the technical details, here's what's happening behind th
 3. **Why Quarto is Great**: 
    - It separates content from presentation, making it easy to focus on your resume content.
    - It produces high-quality, professional-looking output.
-   - It's flexible enough to grow with your needs, from a simple resume to a full portfolio site. This means that as your needs grow, you can use the same tool to create more complex content without learning a new system.
+   - It's flexible enough to grow with your needs, from a simple resume to a full portfolio site.
 
 To learn more about Quarto, check out the [official Quarto documentation](https://quarto.org/docs/guide/).
-
 
 ## Conclusion
 
