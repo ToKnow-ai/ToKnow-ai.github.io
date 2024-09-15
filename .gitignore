@@ -171,3 +171,8 @@ posts/*/*.html
 
 /.luarc.json
 index.mp4
+extracted_tables/
+posts/*/index.pdf
+posts/*/*.toc
+posts/*/*.aux
+.quarto-temp-dir_*/

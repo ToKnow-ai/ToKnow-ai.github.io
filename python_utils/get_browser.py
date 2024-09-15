@@ -1,7 +1,9 @@
-from pyppeteer import launch
 import shutil
-from pyppeteer.page import Page
+
+from pyppeteer import launch
 from pyppeteer.browser import Browser
+from pyppeteer.page import Page
+
 
 async def get_browser_async(executable_path: str = None, *, headless = True, incognito = False) -> Browser:
     executable_path = executable_path or\
