@@ -1,9 +1,12 @@
 ---
-title: Create Your Professional Resume Website with GitHub and Quarto
+title: Create a Free Professional Resume Website and PDF with GitHub pages and Quarto
 description: Are you looking to showcase your professional experience in a modern, easily accessible format? In this guide, we'll walk you through the process of creating your own resume website using GitHub and Quarto. The best part? It's completely free and gives you a high-quality, trusted online presence in just minutes!
 categories:
   - ideas
   - free resume
+  - quarto
+  - github pages
+  - PDF resume
 date: "2024-09-15"
 image: "image.png"
 ---
@@ -46,9 +49,15 @@ If you don't already have one, you'll need to create a GitHub account:
 2. Click "Sign up" in the top right corner
 3. Follow the prompts to create your account
 
-### Step 2: Use the Resume Template
 
-We'll use a pre-made template to make this process easy:
+### Step 2: Set Up Your Resume Repository
+
+You have two options for setting up your resume repository. Choose the one that best fits your needs:
+
+
+#### Option A: Use the Template (Quick Start)
+
+This option is best if you want to get started quickly and don't need to incorporate future updates to the template.
 
 1. Visit the [ToKnow-ai/Quarto-Resume-Template](https://github.com/ToKnow-ai/quarto-resume-template)
 2. Click the green "Use this template" button
@@ -56,6 +65,34 @@ We'll use a pre-made template to make this process easy:
 4. Name your repository `<your-github-username>.github.io` (replace "`<your-github-username>`" with your actual GitHub username)
 5. Make sure it's set to "Public"
 6. Click "Create repository from template"
+
+
+#### Option B: Fork the Repository (Stay Updated)
+
+This option is best if you want to be able to easily incorporate future updates and improvements to the template.
+
+1. Visit the [ToKnow-ai/Quarto-Resume-Template](https://github.com/ToKnow-ai/quarto-resume-template) repository
+2. Click the "Fork" button in the top right corner of the page
+3. In the "Create a new fork" page, change the repository name to `<your-github-username>.github.io` (replace "`<your-github-username>`" with your actual GitHub username).
+4. Make sure "Copy the `main` branch only" is selected
+5. Click "Create fork"
+
+> By forking the repository:
+>
+> - You create a copy of the template in your own GitHub account
+> - You can easily pull in future updates to the template by syncing your fork
+> - You maintain the connection to the original repository, making it easier to contribute back if you make improvements
+
+##### Syncing Your Forked Repository (When Updates Are Available)
+
+To keep your resume template up-to-date with the latest features and improvements:
+
+1. Go to your forked repository on GitHub
+2. If your fork is behind the original repository, you'll see a message saying "This branch is X commits behind ToKnow-ai:main"
+3. Click on "Sync fork" and then "Update branch" to pull in the latest changes
+
+> Remember to review any changes carefully, as they might affect your resume's layout or content.
+
 
 ### Step 3: Edit Your Resume
 
