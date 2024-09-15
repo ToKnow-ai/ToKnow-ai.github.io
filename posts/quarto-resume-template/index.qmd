@@ -8,6 +8,8 @@ date: "2024-09-15"
 image: "image.png"
 ---
 
+![Sample Quarto Resume - Jane Doe](image.png)
+
 ## Why Use Quarto and GitHub Pages?
 
 Before we dive into the how-to, let's understand why this combination is so powerful:
@@ -22,7 +24,9 @@ Before we dive into the how-to, let's understand why this combination is so powe
 
 5. **Version Control**: GitHub keeps track of all changes, so you can always go back to a previous version if needed.
 
-6. **Trusted Platform**: GitHub is widely used and trusted in the tech industry, adding credibility to your online presence.
+6. **Full Content Control**: Unlike social media platforms or third-party resume builders, you have complete control over your content and how it's presented.
+
+7. **Trusted Platform**: GitHub is widely used and trusted in the tech industry, adding credibility to your online presence.
 
 ## What You'll Need
 
@@ -89,7 +93,7 @@ Your site will now be live at `https://your-github-username.github.io`!
 > If you dont edit your resume, here is how your resume website will look: Website: <https://toknow.ai/quarto-resume-template/> , PDF: <https://toknow.ai/quarto-resume-template/index.pdf>
 
 
-## Using a Custom Domain (Optional)
+## Step 6 (Optional): Using a Custom Domain
 
 If you have your own domain name:
 
@@ -104,41 +108,6 @@ If you have your own domain name:
 - Check out [onesmus.com](https://onesmus.com/) for an example of a site created with this template
 - You can view its [GitHub repository](https://github.com/onesmuskabui/onesmuskabui.github.io) to see how it's set up
 
-## Conclusion
-
-Congratulations! You now have a professional resume website that you can easily update and share. Remember, your site will be accessible at `your-github-username.github.io` unless you've set up a custom domain.
-
-This process leverages the power of GitHub Pages to host your site for free, and uses Quarto to convert your simple Markdown resume into a beautifully formatted website.
-
-If you run into any issues or want to learn more about customizing your site, don't hesitate to explore GitHub's documentation or ask for help in the GitHub community forums. Happy job hunting!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## For the Tech-Savvy: Under the Hood
 
@@ -146,7 +115,7 @@ If you're interested in the technical details, here's what's happening behind th
 
 1. **GitHub Actions**: We use GitHub Actions to automatically build your resume. Every time you update your resume content, a GitHub Action is triggered to rebuild your site.
 
-2. **Quarto**: Quarto is an open-source scientific and technical publishing system. It's typically used for creating dynamic content with Python, R, Julia, and Observable, but it's also excellent for creating static sites like your resume.
+2. **Quarto**: Quarto is an open-source scientific and technical publishing system. It's typically used for creating dynamic content with Python, R, Julia, and Observable, but it's also excellent for creating static sites like your resume. Quarto can be used to author books, websites, blogs, scientific papers and presentations such as powerpoint.
 
    - Quarto takes your Markdown content and converts it into both HTML and PDF formats.
    - It handles the layout, styling, and responsiveness of your site.
@@ -155,14 +124,21 @@ If you're interested in the technical details, here's what's happening behind th
 3. **Why Quarto is Great**: 
    - It separates content from presentation, making it easy to focus on your resume content.
    - It produces high-quality, professional-looking output.
-   - It's flexible enough to grow with your needs, from a simple resume to a full portfolio site.
+   - It's flexible enough to grow with your needs, from a simple resume to a full portfolio site. This means that as your needs grow, you can use the same tool to create more complex content without learning a new system.
 
 To learn more about Quarto, check out the [official Quarto documentation](https://quarto.org/docs/guide/).
 
+
 ## Conclusion
+
+Congratulations! You now have a professional resume website that you can easily update and share. Remember, your site will be accessible at `your-github-username.github.io` unless you've set up a custom domain.
 
 By leveraging GitHub and Quarto, you're getting a professional, easily-updatable resume website and PDF, all hosted for free. This solution combines the best of both worlds: a modern web presence and a traditional document format.
 
 Whether you're a tech novice just looking for a simple solution, or a tech-savvy individual interested in the underlying processes, this template provides a robust, free, and trusted platform for showcasing your professional experience.
 
+As your needs evolve, remember that Quarto can grow with you, allowing you to create more complex content like full websites, blogs, books, or even scientific papers - all using the same powerful publishing system.
+
 Happy job hunting, and enjoy your new resume website!
+
+> If you run into any issues or want to learn more about customizing your site, ask your question in the comments section!

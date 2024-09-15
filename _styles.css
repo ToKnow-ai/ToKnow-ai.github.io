@@ -25,3 +25,7 @@
 .navbar-logo {
     max-height: 34px;
 }
+
+#quarto-content .thumbnail-image, #quarto-content .figure-img {
+    border: 1px solid;
+}
