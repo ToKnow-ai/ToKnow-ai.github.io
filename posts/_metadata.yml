@@ -1,5 +1,8 @@
 # Enable banner style title blocks
 title-block-banner: true
+lightbox: true
+language: 
+  section-title-footnotes: Footnotes / Citations / References
 # categories: [tech]
 author:
   - name: Charles Kabui
@@ -8,12 +11,16 @@ author:
 toc: true
 toc-title: Table of Contents
 license:
-  text: GNU GENERAL PUBLIC LICENSE
+  text: GNU GENERAL PUBLIC LICENSE v3.0
   type: open-access
   url: https://www.gnu.org/licenses/gpl-3.0.en.html
 format:
   html:
-    citation: true
+    page-layout: full
+    # https://github.com/quarto-dev/quarto-cli/discussions/7234
+    citation:
+      type: article
+    lang: en-GB
     google-scholar: true
     comments:
       giscus:
@@ -21,12 +28,13 @@ format:
         mapping: pathname
         loading: lazy
         category: Giscus Comments
-        category-id: giscus-comments
+        category-id: DIC_kwDOL20t9s4CfKjw
   pdf:
     # alternative: https://github.com/dragonstyle/share-post/blob/8026647db8619666cadef7d4205d9f16571ca95d/_extensions/share-post/share-post.lua#L265
     include-in-header:  
         - text: |
             \usepackage{tcolorbox}
+            \tcbuselibrary{most}
             \usepackage{fontawesome5}
             \usepackage{xcolor}
             \definecolor{youtubeColor}{HTML}{FF0000}
@@ -34,28 +42,26 @@ format:
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
-  - ../quarto_filters/disclaimer.lua
-  - ../quarto_filters/post_action_buttons.lua
-  - ../quarto_filters/replace_base64_video_src.lua
-  - ../quarto_filters/no-empty-toc.lua
+  - ../quarto_scripts/lua/markdown_code_options.lua
+  - ../quarto_scripts/lua/disclaimer.lua
+  - ../quarto_scripts/lua/post_action_buttons.lua
+  - ../quarto_scripts/lua/replace_base64_video_src.lua
+  - ../quarto_scripts/lua/no-empty-toc.lua
   - at: post-render
-    path: ../quarto_filters/output_when_format.lua
+    path: ../quarto_scripts/lua/output_when_format.lua
   - at: post-render
-    path: ../quarto_filters/must_have_one_main_category.lua
+    path: ../quarto_scripts/lua/must_have_one_main_category.lua
   - at: post-render
-    path: ../quarto_filters/pdf_links.lua
+    path: ../quarto_scripts/lua/pdf_links.lua
 open-ipynb: 
   repository: "ToKnow-ai/ToKnow-ai.github.io"
   branch:
     dev: "quarto-dev"
     main: "main"
-ipynb-filters:
-  - ../quarto_filters/notebook_filter.py
-  # - ../quarto_filters/export_notebook.py
 # if you remove the below pagetitle setting, the dynamic page title is not updated,
 # even for updates from notebook filters (ipynb-filters:). Remember, title updates
 # for normal filters DONT work in listing page!, see:
 # https://github.com/quarto-dev/quarto-cli/discussions?discussions_q=author%3AMcKabue+
 # https://github.com/quarto-dev/quarto-cli/discussions/5260
-pagetitle: "Toknow.ai - {{< meta title >}}"
+# pagetitle: "Toknow.ai - {{< meta title >}}"
 date: last-modified

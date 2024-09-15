@@ -69,10 +69,10 @@ end
 --        #| output-when-format: "{format}"
 --        #| output-when-format-{format}: "{template}"
 ---@param attribute_key string|function - comment name: video-src, output-when-format, output-when-format-{format}
----@param walk_callback function - a function that receives a pandoc.Block and returns a pandoc.Block, or
---                               - a function that receives (pandoc.Block,pandoc.MetaBlocks) and returns (pandoc.Block,pandoc.MetaBlocks)
+---@param walk_callback function - a function that receives a (attribute_value,pandoc.Block) and returns a pandoc.Block, or
+--                               - a function that receives (attribute_value,pandoc.Block,pandoc.MetaBlocks) and returns (pandoc.Block,pandoc.MetaBlocks)
 ---@param children_predicate function|nil - an optional predicate function that receives pandoc.Block and returns a boolean
----                              - it ismused to match siblings where attribute_key
+---                              - it is used to match siblings where attribute_key
 ---@return table<'Pandoc', function>
 local notebook_special_comments_walker = function(attribute_key, walk_callback, children_predicate)
   return {

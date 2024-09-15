@@ -19,3 +19,4 @@ categories:
 format:
   html:
     css: _index.css
+    page-layout: full

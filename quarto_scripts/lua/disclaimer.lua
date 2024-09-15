@@ -1,6 +1,5 @@
 local read_file = require "utils.read_file"
 local read_metadata = require "utils.read_metadata"
-local must_have_one_main_category = require "must_have_one_main_category"
 
 --- Check if a Pandoc element is an inline or a block element
 ---@param elem any The Pandoc element to check
@@ -24,7 +23,8 @@ local function is_inline_element (elem)
     Link = true,
     Image = true,
     Note = true,
-    Span = true
+    Span = true,
+    SoftBreak = true
   }
 
   return elem.t and inline_types[elem.t] == true
@@ -54,23 +54,23 @@ return {
   ---@param doc pandoc.Pandoc
   ---@return pandoc.Pandoc
   Pandoc = function (doc)
-    local general_disclaimer = quarto.project.directory .. '/posts/_general-disclaimer.md'
-
+    
     local disclaimer_blocks = pandoc.List {
       pandoc.Strong(pandoc.Emph('Disclaimer:')),
       pandoc.Space()
     }
 
+    local general_disclaimer = quarto.project.directory .. '/posts/_general-disclaimer.md'
     local general_disclaimer_inlines = quarto.utils.string_to_inlines(read_file(general_disclaimer))
     disclaimer_blocks:extend(general_disclaimer_inlines)
 
-    --- @type table
-    local categories = doc.meta['categories']
-    if must_have_one_main_category.compare_categories(categories, { 'cyber security' }) then
-      disclaimer_blocks:extend(pandoc.read('<br/>', 'html').blocks)
-      local security_disclaimer = quarto.project.directory .. '/posts/_security-disclaimer.md'
-      local security_disclaimer_inlines = quarto.utils.string_to_inlines(read_file(security_disclaimer))
-      disclaimer_blocks:extend(security_disclaimer_inlines)
+    --- @type pandoc.Inlines|any
+    local custom_disclaimer = doc.meta['disclaimer']
+    if custom_disclaimer then
+      -- disclaimer_blocks:extend(pandoc.read('<br/>', 'html').blocks)
+      disclaimer_blocks:insert(pandoc.Space())
+      disclaimer_blocks:insert(pandoc.Emph(blocks_to_inlines(custom_disclaimer)))
+      doc.meta['disclaimer'] = nil
     end
 
     local site_url = pandoc.utils.stringify(
@@ -80,15 +80,6 @@ return {
       'Read more: [/terms-of-service](' .. site_url .. '/terms-of-service)')
     disclaimer_blocks:insert(pandoc.Space())
     disclaimer_blocks:insert(pandoc.Strong(pandoc.Emph(read_more)))
-
-    --- @type pandoc.Inlines
-    local custom_disclaimer = doc.meta['disclaimer']
-    if custom_disclaimer then
-      disclaimer_blocks:extend(pandoc.read('<br/>', 'html').blocks)
-      quarto.log.debug('custom_disclaimer', custom_disclaimer, type(custom_disclaimer))
-      disclaimer_blocks:insert(pandoc.Strong(pandoc.Emph(custom_disclaimer)))
-      doc.meta['disclaimer'] = nil
-    end
 
     local div = pandoc.Div(
       pandoc.Para(blocks_to_inlines(disclaimer_blocks)),

@@ -1,20 +1,37 @@
 project:
   type: website
+  # # https://github.com/chrisvoncsefalvay/chrisvoncsefalvay.github.io/blob/main/_quarto.yml
+  # # https://quarto.org/docs/projects/scripts.html#pre-and-post-render
+  pre-render:
+    - ./quarto_scripts/python/quarto_copy_temp_dir_pre.py "posts/*/*.ipynb"
+    - ./quarto_scripts/python/quarto_pre_render.py "posts/*/*.ipynb" "./quarto_scripts/python/include_format:ipynb_filter.py"
+    - ./quarto_scripts/python/quarto_pre_render.py "posts/*/*.ipynb" "./quarto_scripts/python/pluck_metadata_filter.py"
+    - ./quarto_scripts/python/quarto_pre_render.py "posts/*/*.ipynb" "./quarto_scripts/python/markdown_code_options.py"
   render:
     - "**/*.qmd"
     - "**/*.ipynb"
+  post-render:
+    - ./quarto_scripts/python/quarto_copy_temp_dir_post.py
 website:
   title: "ToKnow.ai"
   google-analytics: 'G-4R9DMKF8S7'
+  favicon: "images/logo.png"
+  image: "images/logo.png"
+  open-graph: true
+  twitter-card: 
+    site: "@ToKnow_ai"
   site-url: https://toknow.ai
   description: "ToKnow.ai aims to extract knowledge from information in order to generate valuable insights and intelligence."
   navbar:
-    right:
+    logo: "images/logo-white.png"
+    collapse-below: "md"
+    left:
       - href: index.qmd
         text: Posts
       - href: apps.qmd
         text: Apps
       - about.qmd
+    right:
       - icon: github
         href: https://github.com/ToKnow-ai
         aria-label: Github - ToKnow.ai
@@ -44,9 +61,10 @@ execute:
   freeze: auto
   cache: false
 shortcodes:
-  - quarto_filters/year.lua
-  - quarto_filters/bash.lua
-  - quarto_filters/pagepath.lua
+  - quarto_scripts/lua/year.lua
+  - quarto_scripts/lua/bash.lua
+  - quarto_scripts/lua/pagepath.lua
+  - quarto_scripts/lua/iframe.lua
 
 
 
