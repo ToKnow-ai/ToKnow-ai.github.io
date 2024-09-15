@@ -4,6 +4,9 @@ description: Are you looking to showcase your professional experience in a moder
 categories:
   - ideas
   - free resume
+  - quarto
+  - github pages
+  - PDF resume
 date: "2024-09-15"
 image: "image.png"
 ---
