@@ -5,10 +5,15 @@ language:
   section-title-footnotes: Footnotes / Citations / References
 # categories: [tech]
 author:
-  - name: Charles Kabui
-    id: charles@toknow.ai
-    email: charles@toknow.ai
+  name:
+    given: Charles
+    family: Kabui
+    literal: Kabui, Charles
+  id: kabui@toknow.ai
+  email: kabui@toknow.ai
 toc: true
+toc-expand: 5
+toc-depth: 5
 toc-title: Table of Contents
 license:
   text: GNU GENERAL PUBLIC LICENSE v3.0
