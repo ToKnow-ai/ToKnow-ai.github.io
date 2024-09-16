@@ -21,6 +21,9 @@ license:
   url: https://www.gnu.org/licenses/gpl-3.0.en.html
 format:
   html:
+    # # https://github.com/microsoft/vscode-jupyter/issues/6999
+    # pio.renderers.default = "plotly_mimetype+notebook_connected"
+    plotly-connected: true
     page-layout: full
     # https://github.com/quarto-dev/quarto-cli/discussions/7234
     citation:
