@@ -156,9 +156,10 @@ If you have your own domain name:
 > For detailed and up-to-date instructions, check [Configuring a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) on how you can customize the domain name of your GitHub Pages site. 
 
 ## Examples and Resources
+Below are some resumes created with this template:
 
-- Check out [onesmus.com](https://onesmus.com/) for an example of a site created with this template
-- You can view its [GitHub repository](https://github.com/onesmuskabui/onesmuskabui.github.io) to see how it's set up
+- [onesmus.com](https://onesmus.com/) (or [onesmuskabui.github.io](https://onesmuskabui.github.io/))
+- [resume.mckabue.com](https://resume.mckabue.com/) (or [mckabue.github.io](https://mckabue.github.io/))
 
 ## For the Tech-Savvy: Under the Hood
 
