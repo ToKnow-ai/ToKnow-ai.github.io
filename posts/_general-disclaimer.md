@@ -1,1 +1,0 @@
-*This publication is meant for informational purposes only. We do not guarantee accuracy or completeness. We do not encourage illegal or malicious use.*
