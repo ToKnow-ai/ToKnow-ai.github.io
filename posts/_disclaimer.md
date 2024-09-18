@@ -1,1 +1,1 @@
-*This publication is meant for informational purposes ONLY. Accuracy or completeness NOT guaranteed. Illegal or malicious use NOT encouraged.*
+*For information only. No guarantee of accuracy or completeness. Illegal use prohibited. Not professional advice or solicitation*
