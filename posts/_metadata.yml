@@ -61,11 +61,6 @@ filters:
     path: ../quarto_scripts/lua/must_have_one_main_category.lua
   - at: post-render
     path: ../quarto_scripts/lua/pdf_links.lua
-open-ipynb: 
-  repository: "ToKnow-ai/ToKnow-ai.github.io"
-  branch:
-    dev: "quarto-dev"
-    main: "main"
 # if you remove the below pagetitle setting, the dynamic page title is not updated,
 # even for updates from notebook filters (ipynb-filters:). Remember, title updates
 # for normal filters DONT work in listing page!, see:

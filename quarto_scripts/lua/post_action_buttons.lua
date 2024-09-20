@@ -28,101 +28,88 @@ local function replace_string(original, replace_pattern, replace_with)
 end
 
 -- Function to create a Google Colab link
----@param repository string
----@param branch string
----@param notebook_path string
+---@param ipynb_output_uri string
 ---@param title string
 ---@param badge_url string
 ---@return string
-local function create_colab_link(repository, branch, notebook_path, title, badge_url)
+local function create_colab_link(ipynb_output_uri, title, badge_url)
   return 
     '<a \
       target="_blank" \
-      href="https://colab.research.google.com/github/' .. repository .. '/blob/' .. branch .. notebook_path .. '" \
+      href="https://colab.research.google.com/#fileId=' .. ipynb_output_uri .. '" \
       aria-label="' .. title .. '" \
       title="' .. title ..'">\
       <img src="' .. badge_url .. '" aria-label="' .. title .. '" title="' .. title .. '" />\
     </a>'
 end
 
--- Function to create a Binder link
--- Also see: https://quarto.org/docs/projects/binder.html#add-a-link-to-binder
----@param repository string
----@param branch string
----@param notebook_path string
+-- Function to create a Download link for the notebook
+---@param ipynb_output_uri string
 ---@param title string
 ---@param badge_url string
 ---@return string
-local function create_binder_link(repository, branch, notebook_path, title, badge_url)
+local function create_download_link(ipynb_output_uri, title, badge_url)
   return 
-    '<a \
+      '<a \
       target="_blank" \
-      href="https://mybinder.org/v2/gh/' .. repository .. '/' .. branch .. '?labpath=' .. notebook_path .. '" \
+      href="' .. ipynb_output_uri .. '" \
       aria-label="' .. title .. '" \
-      title="' .. title ..'">\
-      <img src="' .. badge_url .. '" aria-label="' .. title .. '" title="' .. title .. '" />\
-    </a>'
-end
-
--- Function to create a Github link
----@param repository string
----@param branch string
----@param notebook_path string
----@param title string
----@param badge_url string
----@return string
-local function create_github_link(repository, branch, notebook_path, title, badge_url)
-  return 
-    '<a \
-      target="_blank" \
-      href="https://github.com/' .. repository .. '/blob/' .. branch .. notebook_path .. '" \
-      aria-label="' .. title .. '" \
-      title="' .. title ..'">\
+      title="' .. title .. '">\
       <img src="' .. badge_url .. '" aria-label="' .. title .. '" title="' .. title .. '" />\
     </a>'
 end
 
 -- Function to create a Deepnote link
----@param repository string
----@param branch string
----@param notebook_path string
+---@param ipynb_output_uri string
 ---@param title string
 ---@param badge_url string
 ---@return string
-local function create_deepnote_link(repository, branch, notebook_path, title, badge_url)
-  local github_url = 'https://github.com/' .. repository .. '/blob/' .. branch .. '/' .. notebook_path
+local function create_deepnote_link(ipynb_output_uri, title, badge_url)
   return 
-    '<a \
+      '<a \
       target="_blank" \
-      href="https://deepnote.com/launch?url=' .. urlencode(github_url) .. '" \
+      href="https://deepnote.com/launch?url=' .. urlencode(ipynb_output_uri) .. '" \
       aria-label="' .. title .. '" \
-      title="' .. title ..'">\
+      title="' .. title .. '">\
       <img src="' .. badge_url .. '" aria-label="' .. title .. '" title="' .. title .. '" />\
     </a>'
 end
 
 -- Function to create a PDF link
----@param pdf_uri string
+---@param pdf_output_uri string
 ---@param title string
 ---@param badge_url string
 ---@return string
-local function create_PDF_link(pdf_uri, title, badge_url)
+local function create_PDF_link(pdf_output_uri, title, badge_url)
   return 
     '<a \
       target="_blank" \
-      href="' .. pdf_uri .. '" \
+      href="' .. pdf_output_uri .. '" \
       aria-label="' .. title .. '" \
       title="' .. title ..'">\
       <img src="' .. badge_url .. '" aria-label="' .. title .. '" title="' .. title .. '" />\
     </a>'
 end
 
--- Function to remove extention
---- @param file_name string
---- @return string
-local function remove_extention(file_name)
-  local file_name_without_ext = file_name:match("^(.+/.+)%..+$")
-  return file_name_without_ext
+---comment
+---@param doc pandoc.Pandoc
+---@return string
+local get_output_filename_without_ext = function (doc)
+  local render_output_file = replace_string(quarto.doc.project_output_file() or '', quarto.project.directory, '')
+  local dir = render_output_file:match("(.*/)")
+  local filename = render_output_file:match("([^/]+)$") -- Get the filename
+  local name_without_ext = ternary(
+    doc.meta['output-file'],
+    pandoc.utils.stringify(doc.meta['output-file'] or {}),
+    filename:match("(.+)%..+$"))
+
+  -- quarto.log.debug("project_output_file", quarto.doc.project_output_file())
+  -- quarto.log.debug("quarto.doc.output_file", quarto.doc.output_file)
+  -- quarto.log.debug("quarto.project.output_directory", quarto.project.output_directory)
+  -- quarto.log.debug("dir .. name_without_ext", dir, name_without_ext)
+  -- quarto.log.debug("quarto.project.directory", quarto.project.directory)
+    
+  return dir .. name_without_ext
 end
 
 -- buttons_wrapper
@@ -144,50 +131,36 @@ local function post_action_buttons(doc)
   local input_file = quarto.doc.input_file
   local is_prod = (not PANDOC_STATE.trace) -- quarto preview --trace
   local siteUrl = read_metadata(quarto.project.directory .. '/_quarto.yml')['website']['site-url']
-  local pdf_output_file = remove_extention(quarto.doc.output_file:sub(#quarto.project.output_directory + 1)) .. '.pdf'
+  local output_filepath_without_ext = 
+    ternary(is_prod, pandoc.utils.stringify(siteUrl), '') .. get_output_filename_without_ext(doc)
+  quarto.log.debug("output_filepath_without_ext", output_filepath_without_ext)
+  local pdf_output_uri = output_filepath_without_ext .. '.pdf'
   local pdf_link_html = ternary(
     siteUrl,
     create_PDF_link(
-      ternary(is_prod, pandoc.utils.stringify(siteUrl), '') .. pdf_output_file, 
+      pdf_output_uri, 
       'Download as PDF', 
       '/images/badges/png/pdf.png'),
     '')
   local links_html = buttons_wrapper(pdf_link_html)
   local treat_as_qmd = tobool(doc.meta['treat_as_qmd'])
   if str_ends_with(input_file, ".ipynb") and not treat_as_qmd then
-    local repository = pandoc.utils.stringify(doc.meta['open-ipynb']['repository'])
-    local branch = ternary(
-      is_prod, 
-      pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['dev']),
-      pandoc.utils.stringify(doc.meta['open-ipynb']['branch']['main']))
-    local notebook_path = replace_string(input_file, quarto.project.directory, "")
-
+    local ipynb_output_uri = output_filepath_without_ext .. '.output.ipynb'
     local colab_link_html = create_colab_link(
-      repository, branch, 
-      notebook_path, 
+      ipynb_output_uri,
       'Open in Colab', 
       '/images/badges/png/colab.png')
-    local binder_link_html = create_binder_link(
-      repository, 
-      branch, 
-      notebook_path, 
-      'Open in Binder', 
-      '/images/badges/png/binder.png')
-    local github_link_html = create_github_link(
-      repository, 
-      branch, 
-      notebook_path, 
-      'View on Github', 
+    local download_link_html = create_download_link(
+      ipynb_output_uri,
+      'Download Notebook', 
       '/images/badges/png/github.png')
     local deepnote_link_html = create_deepnote_link(
-      repository, 
-      branch, 
-      notebook_path, 
+      ipynb_output_uri,
       'Open in Deepnote', 
       '/images/badges/png/deepnote.png')
     
     links_html = buttons_wrapper(
-      colab_link_html .. binder_link_html .. github_link_html .. deepnote_link_html .. pdf_link_html)
+      colab_link_html .. deepnote_link_html .. download_link_html .. pdf_link_html)
   end
 
   local body_blocks = pandoc.List:new{}

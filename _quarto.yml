@@ -5,16 +5,16 @@ project:
   # # https://github.com/chrisvoncsefalvay/chrisvoncsefalvay.github.io/blob/main/_quarto.yml
   # # https://quarto.org/docs/projects/scripts.html#pre-and-post-render
   pre-render:
-    # Start by deleting temporary files
-    - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
-    - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
-    # Delete ignored files for a clean build
-    - git clean -Xdf posts/
+    # # Start by deleting temporary files
+    # - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
+    # - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
+    # # Delete ignored files for a clean build
+    # - git clean -Xdf posts/
     # Delete empty directories
     - find posts/ -type d -empty -delete
     # Prepare repository for rendering
-    - ./quarto_scripts/python/ignore_util.py "_quarto-ignore.yml" "posts/**/*.ipynb" 
-    - ./quarto_scripts/python/copy_util.py "posts/**/*.ipynb" "{name}.render.{ext}"
+    - ./quarto_scripts/python/ignore_util.py "_quarto-ignore.yml" "posts/**/*[!render].ipynb"
+    - ./quarto_scripts/python/copy_util.py "posts/**/*[!render].ipynb" "{name}.render.{ext}"
     - ./quarto_scripts/python/pre_render_util.py "posts/**/*.render.ipynb" "./quarto_scripts/python/add_metadata.py" "output-file=index"
     # https://github.com/quarto-dev/quarto-cli/issues/10841 - Quarto deletes the original index.ipynb file 
     # when rendering a different notebook (index.render.ipynb) with output-file: index, despite the original 
@@ -26,11 +26,11 @@ project:
     - "**/*.qmd"
     - "**/*.ipynb"
   post-render:
-    # Finish by deleting temporary files
-    - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
-    - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
-    # Delete ignored files for a clean build
-    - git clean -Xdf posts/
+    # # Finish by deleting temporary files
+    # - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
+    # - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
+    # # Delete ignored files for a clean build
+    # - git clean -Xdf posts/
     # Delete empty directories
     - find posts/ -type d -empty -delete
 website:
