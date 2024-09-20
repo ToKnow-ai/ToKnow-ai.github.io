@@ -178,3 +178,4 @@ posts/*/*.aux
 .quarto-temp-dir_*/
 *.render.ipynb
 _quarto-ignore.yml
+drafts.txt

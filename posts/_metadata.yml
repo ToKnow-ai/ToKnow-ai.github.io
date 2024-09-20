@@ -61,8 +61,10 @@ filters:
     path: ../quarto_scripts/lua/must_have_one_main_category.lua
   - at: post-render
     path: ../quarto_scripts/lua/pdf_links.lua
+  # - at: post-ast
+  #   path: ../quarto_scripts/lua/flag_drafts.lua
 # if you remove the below pagetitle setting, the dynamic page title is not updated,
-# even for updates from notebook filters (ipynb-filters:). Remember, title updates
+# even for updates from note book filters (ipynb-filters:). Remember, title updates
 # for normal filters DONT work in listing page!, see:
 # https://github.com/quarto-dev/quarto-cli/discussions?discussions_q=author%3AMcKabue+
 # https://github.com/quarto-dev/quarto-cli/discussions/5260

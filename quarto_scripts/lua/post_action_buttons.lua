@@ -2,6 +2,7 @@ local str_ends_with = require "utils.str_ends_with"
 local ternary = require "utils.ternary"
 local read_metadata = require "utils.read_metadata"
 local tobool = require "utils.tobool"
+local get_output_filename_without_ext = require "utils.get_output_filename_without_ext"
 
 -- Function to encode string
 ---@param str string
@@ -14,17 +15,6 @@ local function urlencode(str)
       str = string.gsub(str, " ", "+")
   end
   return str
-end
-
--- Function to automatically encode and replace a substring
----@param original string
----@param replace_pattern string
----@param replace_with string
----@return string
-local function replace_string(original, replace_pattern, replace_with)
-  local encoded_pattern = replace_pattern:gsub("[%p%c%s]", "%%%0")
-  local result = original:gsub(encoded_pattern, replace_with)
-  return result
 end
 
 -- Function to create a Google Colab link
@@ -52,6 +42,7 @@ local function create_download_link(ipynb_output_uri, title, badge_url)
   return 
       '<a \
       target="_blank" \
+      style="height:30px" \
       href="' .. ipynb_output_uri .. '" \
       aria-label="' .. title .. '" \
       title="' .. title .. '">\
@@ -89,27 +80,6 @@ local function create_PDF_link(pdf_output_uri, title, badge_url)
       title="' .. title ..'">\
       <img src="' .. badge_url .. '" aria-label="' .. title .. '" title="' .. title .. '" />\
     </a>'
-end
-
----comment
----@param doc pandoc.Pandoc
----@return string
-local get_output_filename_without_ext = function (doc)
-  local render_output_file = replace_string(quarto.doc.project_output_file() or '', quarto.project.directory, '')
-  local dir = render_output_file:match("(.*/)")
-  local filename = render_output_file:match("([^/]+)$") -- Get the filename
-  local name_without_ext = ternary(
-    doc.meta['output-file'],
-    pandoc.utils.stringify(doc.meta['output-file'] or {}),
-    filename:match("(.+)%..+$"))
-
-  -- quarto.log.debug("project_output_file", quarto.doc.project_output_file())
-  -- quarto.log.debug("quarto.doc.output_file", quarto.doc.output_file)
-  -- quarto.log.debug("quarto.project.output_directory", quarto.project.output_directory)
-  -- quarto.log.debug("dir .. name_without_ext", dir, name_without_ext)
-  -- quarto.log.debug("quarto.project.directory", quarto.project.directory)
-    
-  return dir .. name_without_ext
 end
 
 -- buttons_wrapper
@@ -153,7 +123,7 @@ local function post_action_buttons(doc)
     local download_link_html = create_download_link(
       ipynb_output_uri,
       'Download Notebook', 
-      '/images/badges/png/github.png')
+      '/images/badges/png/download-ipynb.png')
     local deepnote_link_html = create_deepnote_link(
       ipynb_output_uri,
       'Open in Deepnote', 

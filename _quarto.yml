@@ -12,6 +12,8 @@ project:
     # - git clean -Xdf posts/
     # Delete empty directories
     - find posts/ -type d -empty -delete
+    # # Delete old drafts' file
+    # - rm drafts.txt
     # Prepare repository for rendering
     - ./quarto_scripts/python/ignore_util.py "_quarto-ignore.yml" "posts/**/*[!render].ipynb"
     - ./quarto_scripts/python/copy_util.py "posts/**/*[!render].ipynb" "{name}.render.{ext}"
