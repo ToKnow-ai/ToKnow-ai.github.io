@@ -60,7 +60,7 @@ return {
       pandoc.Space()
     }
 
-    local general_disclaimer = quarto.project.directory .. '/posts/_general-disclaimer.md'
+    local general_disclaimer = quarto.project.directory .. '/posts/_disclaimer.md'
     local general_disclaimer_inlines = quarto.utils.string_to_inlines(read_file(general_disclaimer))
     disclaimer_blocks:extend(general_disclaimer_inlines)
 
@@ -86,7 +86,7 @@ return {
       pandoc.Attr('', { 'disclaimer' }, {}))
     if quarto.doc.is_format('pdf') then
       doc.blocks:insert(
-        pandoc.RawInline('latex', '{\\tiny '))
+        pandoc.RawInline('latex', '{\\scriptsize'))
     end
     doc.blocks:insert(pandoc.HorizontalRule())
     doc.blocks:insert(div)
