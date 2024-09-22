@@ -39,14 +39,7 @@ format:
         category-id: DIC_kwDOL20t9s4CfKjw
   pdf:
     # alternative: https://github.com/dragonstyle/share-post/blob/8026647db8619666cadef7d4205d9f16571ca95d/_extensions/share-post/share-post.lua#L265
-    include-in-header:  
-        - text: |
-            \usepackage{tcolorbox}
-            \tcbuselibrary{most}
-            \usepackage{fontawesome5}
-            \usepackage{xcolor}
-            \definecolor{youtubeColor}{HTML}{FF0000}
-            \usepackage{tikz}
+    include-in-header: ../quarto_scripts/tex/main.tex
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:

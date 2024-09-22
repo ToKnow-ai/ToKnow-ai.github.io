@@ -60,15 +60,21 @@ local create_link_wrapper = function (markdown_text)
   local html_classes =
   "d-flex justify-content-center gap-3 align-items-center flex-wrap clearfix p-1 post_action_buttons"
   local blocks = pandoc.List:new {}
-  blocks:insert(pandoc.RawInline('latex', '\\begin{centering}'))
-  blocks:insert(pandoc.RawInline('latex', '\\vspace{-1em} \\rule{0.5\\linewidth}{0.5pt}'))
-  blocks:insert(pandoc.RawInline('html', '<hr class="mt-1 mb-1 w-50 mx-auto" />'))
-  -- blocks:insert(pandoc.RawInline('html', '<div class="' .. html_classes  .. '">'))
-  blocks:extend(quarto.utils.string_to_blocks('<div class="' .. html_classes .. '">' .. markdown_text .. '</div>'))
-  -- blocks:insert(pandoc.RawInline('html', '</div>'))
-  blocks:insert(pandoc.RawInline('html', '<hr class="mt-1 mb-1 w-50 mx-auto mb-5" />'))
-  blocks:insert(pandoc.RawInline('latex', '\\vspace{-0.5em}  \\rule{0.5\\linewidth}{0.5pt}'))
-  blocks:insert(pandoc.RawInline('latex', '\\end{centering}'))
+  blocks:insert(pandoc.RawInline('latex', '\\begin{center}'))
+  blocks:insert(pandoc.RawInline('latex', '\\vspace{1em} \\rule{0.5\\linewidth}{0.5pt}'))
+  -- blocks:insert(pandoc.RawInline('html', '<hr class="mt-1 mb-1 w-50 mx-auto" />'))
+  -- -- blocks:insert(pandoc.RawInline('html', '<div class="' .. html_classes  .. '">'))
+  -- blocks:extend(quarto.utils.string_to_blocks('<div class="' .. html_classes .. '">' .. markdown_text .. '</div>'))
+  -- -- blocks:insert(pandoc.RawInline('html', '</div>'))
+  -- blocks:insert(pandoc.RawInline('html', '<hr class="mt-1 mb-1 w-50 mx-auto mb-5" />'))
+  blocks:insert(pandoc.RawInline('latex', '\\linkbutton{https://example.com}{Click me}'))
+  blocks:insert(pandoc.RawInline('latex', '\\linkbutton{https://example.com}{Click me}'))
+  blocks:insert(pandoc.RawInline('latex', '\\linkbutton{https://example.com}{Click me}'))
+  blocks:insert(pandoc.RawInline('latex', '\\linkbutton{https://example.com}{Click asdsa me}'))
+  blocks:insert(pandoc.RawInline('latex', '\\linkbutton{https://example.com}{Click asdsa sadas me}'))
+
+  blocks:insert(pandoc.RawInline('latex', '\\vspace{-1em}  \\rule{0.5\\linewidth}{0.5pt}'))
+  blocks:insert(pandoc.RawInline('latex', '\\end{center}'))
   return blocks
 end
 

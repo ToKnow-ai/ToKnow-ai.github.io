@@ -1,0 +1,34 @@
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+% \usepackage{hyperref}
+\tcbuselibrary{most}
+\usepackage{fontawesome5}
+\usepackage{tikz}
+
+\definecolor{youtubeColor}{HTML}{FF0000}
+\definecolor{bootstrapBlue}{HTML}{18bc9c}
+
+\newcommand{\linkbutton}[2]{%
+    \href{#1}{%
+    \begin{tcolorbox}[
+        hbox, 
+        top=0.8mm,
+        bottom=0.8mm,
+        left=0.8mm,
+        right=0.8mm,
+        colframe=bootstrapBlue,
+        colback=white,
+        coltext=bootstrapBlue,
+        boxrule=1pt,
+        valign=center,
+        fontupper=\bfseries,
+        % enlarge bottom by=2pt,
+        nobeforeafter
+        ]
+    #2
+    \end{tcolorbox}%
+    }
+    \vspace{2pt}
+    \hspace{2pt}
+    \noindent
+}
