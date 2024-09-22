@@ -5,11 +5,11 @@ project:
   # # https://github.com/chrisvoncsefalvay/chrisvoncsefalvay.github.io/blob/main/_quarto.yml
   # # https://quarto.org/docs/projects/scripts.html#pre-and-post-render
   pre-render:
-    # # Start by deleting temporary files
-    # - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
-    # - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
-    # # Delete ignored files for a clean build
-    # - git clean -Xdf posts/
+    # Start by deleting temporary files
+    - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
+    - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
+    # Delete ignored files for a clean build
+    - git clean -Xdf posts/
     # Delete empty directories
     - find posts/ -type d -empty -delete
     # # Delete old drafts' file
@@ -28,11 +28,11 @@ project:
     - "**/*.qmd"
     - "**/*.ipynb"
   post-render:
-    # # Finish by deleting temporary files
-    # - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
-    # - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
-    # # Delete ignored files for a clean build
-    # - git clean -Xdf posts/
+    # Finish by deleting temporary files
+    - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
+    - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
+    # Delete ignored files for a clean build
+    - git clean -Xdf posts/
     # Delete empty directories
     - find posts/ -type d -empty -delete
 website:
