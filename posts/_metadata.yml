@@ -21,6 +21,9 @@ license:
   url: https://www.gnu.org/licenses/gpl-3.0.en.html
 format:
   html:
+    # # https://github.com/microsoft/vscode-jupyter/issues/6999
+    # pio.renderers.default = "plotly_mimetype+notebook_connected"
+    plotly-connected: true
     page-layout: full
     # https://github.com/quarto-dev/quarto-cli/discussions/7234
     citation:
@@ -36,14 +39,7 @@ format:
         category-id: DIC_kwDOL20t9s4CfKjw
   pdf:
     # alternative: https://github.com/dragonstyle/share-post/blob/8026647db8619666cadef7d4205d9f16571ca95d/_extensions/share-post/share-post.lua#L265
-    include-in-header:  
-        - text: |
-            \usepackage{tcolorbox}
-            \tcbuselibrary{most}
-            \usepackage{fontawesome5}
-            \usepackage{xcolor}
-            \definecolor{youtubeColor}{HTML}{FF0000}
-            \usepackage{tikz}
+    include-in-header: ../quarto_scripts/tex/main.tex
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
@@ -58,13 +54,10 @@ filters:
     path: ../quarto_scripts/lua/must_have_one_main_category.lua
   - at: post-render
     path: ../quarto_scripts/lua/pdf_links.lua
-open-ipynb: 
-  repository: "ToKnow-ai/ToKnow-ai.github.io"
-  branch:
-    dev: "quarto-dev"
-    main: "main"
+  # - at: post-ast
+  #   path: ../quarto_scripts/lua/flag_drafts.lua
 # if you remove the below pagetitle setting, the dynamic page title is not updated,
-# even for updates from notebook filters (ipynb-filters:). Remember, title updates
+# even for updates from note book filters (ipynb-filters:). Remember, title updates
 # for normal filters DONT work in listing page!, see:
 # https://github.com/quarto-dev/quarto-cli/discussions?discussions_q=author%3AMcKabue+
 # https://github.com/quarto-dev/quarto-cli/discussions/5260

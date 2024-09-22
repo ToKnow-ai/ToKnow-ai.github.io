@@ -176,3 +176,8 @@ posts/*/index.pdf
 posts/*/*.toc
 posts/*/*.aux
 .quarto-temp-dir_*/
+*.render.ipynb
+_quarto-ignore.yml
+drafts.txt
+posts/*/index.render_files/
+posts/*/index.output.ipynb

@@ -55,7 +55,7 @@ If you don't already have one, you'll need to create a GitHub account:
 You have two options for setting up your resume repository. Choose the one that best fits your needs:
 
 
-#### Option A: Use the Template (Quick Start)
+#### Option A (<b><u>Simple</u></b>): Use the Template
 
 This option is best if you want to get started quickly and don't need to incorporate future updates to the template.
 
@@ -67,7 +67,7 @@ This option is best if you want to get started quickly and don't need to incorpo
 6. Click "Create repository from template"
 
 
-#### Option B: Fork the Repository (Stay Updated)
+#### Option B (<b><u>Advanced</u></b>): Fork the Repository (Stay Updated)
 
 This option is best if you want to be able to easily incorporate future updates and improvements to the template.
 
@@ -82,6 +82,26 @@ This option is best if you want to be able to easily incorporate future updates 
 > - You create a copy of the template in your own GitHub account
 > - You can easily pull in future updates to the template by syncing your fork
 > - You maintain the connection to the original repository, making it easier to contribute back if you make improvements
+
+
+##### Important Note on Workflows in Forked Repositories
+
+When you fork a repository that contains workflows, GitHub disables these workflows by default in the forked repository for security reasons. You'll need to manually enable them:
+
+![Forked repository, click Actions tab.](forked-workflows.png)
+
+1. After forking, go to the "Actions" tab in your forked repository.
+2. You should see a message: 
+> "Workflows aren't being run on this forked repository Because this repository contained workflow files when it was forked, we have disabled them from running on this fork. Make sure you understand the configured workflows and their expected usage before enabling Actions on this repository."
+3. Click on the green "I understand my workflows, go ahead and enable them" button.
+
+If you don't see this message or the "Actions" tab, you'll need to recreate the repository:
+1. Delete your forked repository.
+2. Go back to the original [ToKnow-ai/Quarto-Resume-Template](https://github.com/ToKnow-ai/quarto-resume-template) repository and fork it again.
+3. The "Actions" tab and the workflow enabling message should now appear.
+
+Enabling workflows is crucial for automatically building and deploying your resume website. Make sure you review and understand the workflows before enabling them.
+
 
 ##### Syncing Your Forked Repository (When Updates Are Available)
 
@@ -136,9 +156,10 @@ If you have your own domain name:
 > For detailed and up-to-date instructions, check [Configuring a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) on how you can customize the domain name of your GitHub Pages site. 
 
 ## Examples and Resources
+Below are some resumes created with this template:
 
-- Check out [onesmus.com](https://onesmus.com/) for an example of a site created with this template
-- You can view its [GitHub repository](https://github.com/onesmuskabui/onesmuskabui.github.io) to see how it's set up
+- [onesmus.com](https://onesmus.com/) (or [onesmuskabui.github.io](https://onesmuskabui.github.io/))
+- [resume.mckabue.com](https://resume.mckabue.com/) (or [mckabue.github.io](https://mckabue.github.io/))
 
 ## For the Tech-Savvy: Under the Hood
 
