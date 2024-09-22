@@ -27,14 +27,14 @@ project:
   render:
     - "**/*.qmd"
     - "**/*.ipynb"
-  # post-render:
-  #   # Finish by deleting temporary files
-  #   - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
-  #   - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
-  #   # Delete ignored files for a clean build
-  #   - git clean -Xdf posts/
-  #   # Delete empty directories
-  #   - find posts/ -type d -empty -delete
+  post-render:
+    # Finish by deleting temporary files
+    - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
+    - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
+    # Delete ignored files for a clean build
+    - git clean -Xdf posts/
+    # Delete empty directories
+    - find posts/ -type d -empty -delete
 website:
   title: "ToKnow.ai"
   google-analytics: 'G-4R9DMKF8S7'
