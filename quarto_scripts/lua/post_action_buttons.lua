@@ -27,7 +27,7 @@ local function create_html_or_pdf_button(uri, title, html_icon, pdf_icon)
   if quarto.doc.is_format("html") then
     return 
       string.format(
-        '<a class="btn btn-outline-success btn-sm" href="%s">%s %s</a>', 
+        '<a target="_blank" class="btn btn-outline-success btn-sm" href="%s">%s %s</a>', 
         uri, html_icon, title)
   elseif quarto.doc.is_format("pdf") then
     return 
