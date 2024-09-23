@@ -23,3 +23,9 @@ bibtex citations created with NOTEBOOK filter dont have title!
 
 add counter https://api.visitorbadge.io/api/visitors?path=...
 [`ipynb-output: all,none,best`](https://quarto.org/docs/reference/formats/ipynb.html) does not WORK
+
+links to run in deepnote and colab
+
+sorround all pdf images with a small border like web, with a class (filter?)
+
+put resume date to the left of title.
