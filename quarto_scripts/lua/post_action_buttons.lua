@@ -69,6 +69,7 @@ end
 ---@return string
 local function create_deepnote_markup(ipynb_uri)
   local title = "Run in Deepnote"
+  -- https://deepnote.com/docs/launch-repositories-in-deepnote
   local deepnote_url = 'https://deepnote.com/launch?url=' .. ipynb_uri
   return create_html_or_pdf_button(
     deepnote_url,
