@@ -25,5 +25,3 @@ add counter https://api.visitorbadge.io/api/visitors?path=...
 [`ipynb-output: all,none,best`](https://quarto.org/docs/reference/formats/ipynb.html) does not WORK
 
 links to run in deepnote and colab
-
-youtube video not loading - `replace_base64_video_src.lua`
