@@ -32,3 +32,11 @@
     \hspace{2pt}
     \noindent
 }
+
+% Add the style here
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+
+\let\oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{\oldincludegraphics[#1,frame]{#2}}

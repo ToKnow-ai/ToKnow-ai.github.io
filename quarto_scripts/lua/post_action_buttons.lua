@@ -27,7 +27,7 @@ local function create_html_or_pdf_button(uri, title, html_icon, pdf_icon)
   if quarto.doc.is_format("html") then
     return 
       string.format(
-        '<a class="btn btn-outline-success btn-sm" href="%s">%s %s</a>', 
+        '<a target="_blank" class="btn btn-outline-success btn-sm" href="%s">%s %s</a>', 
         uri, html_icon, title)
   elseif quarto.doc.is_format("pdf") then
     return 
@@ -69,6 +69,7 @@ end
 ---@return string
 local function create_deepnote_markup(ipynb_uri)
   local title = "Run in Deepnote"
+  -- https://deepnote.com/docs/launch-repositories-in-deepnote
   local deepnote_url = 'https://deepnote.com/launch?url=' .. ipynb_uri
   return create_html_or_pdf_button(
     deepnote_url,
