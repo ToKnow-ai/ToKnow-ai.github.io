@@ -62,8 +62,7 @@ local makeBox = function (text, url, icon, color)
       youtube_image_src, 
       pandoc_image_attributes.id, 
       pandoc_image_attributes)
-    local latex_bottom_raw_block = pandoc.RawInline(
-      'latex',
+    local latex_bottom_raw_block = pandoc.RawInline('latex',
                 '};\
                 \\node[anchor=center] at (a.center) {\
                     \\textcolor{' .. color .. '}{{\\fontsize{70}{0}\\selectfont {' .. icon .. '}}} \
@@ -73,8 +72,8 @@ local makeBox = function (text, url, icon, color)
       \\end{centering}')
     return pandoc.Div(
       pandoc.Link(
-        pandoc.List{ latex_top_raw_block, pandoc_image_block, latex_bottom_raw_block },
-        url))
+        pandoc.Inlines{ latex_top_raw_block, pandoc_image_block, latex_bottom_raw_block },
+        url, url))
   end
 end
 
@@ -87,6 +86,7 @@ local function pdf_src_block(video_src)
     video_src, 
     "\\faYoutube", 
     "youtubeColor")
+  quarto.log.debug('video', video)
   return video
 end
 
