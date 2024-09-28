@@ -27,7 +27,7 @@ local function create_html_or_pdf_button(uri, title, html_icon, pdf_icon)
   if quarto.doc.is_format("html") then
     return 
       string.format(
-        '<a class="btn btn-outline-success btn-sm" href="%s">%s %s</a>', 
+        '<a target="_blank" class="btn btn-outline-success btn-sm" href="%s">%s %s</a>', 
         uri, html_icon, title)
   elseif quarto.doc.is_format("pdf") then
     return 
@@ -39,18 +39,18 @@ local function create_html_or_pdf_button(uri, title, html_icon, pdf_icon)
   return string.format('[%s](%s)', title, uri)
 end
 
--- Function to create a Google Colab link
----@param ipynb_uri string
----@return string
-local function create_colab_markdown(ipynb_uri)
-  local title = "Run in Colab"
-  local colab_url = 'https://colab.research.google.com/\\#fileId=' .. ipynb_uri
-  return create_html_or_pdf_button(
-    colab_url, 
-    title, 
-    '<i class="bi bi-code-slash"></i>',
-    '\\faCode')
-end
+-- -- Function to create a Google Colab link
+-- ---@param ipynb_uri string
+-- ---@return string
+-- local function create_colab_markdown(ipynb_uri)
+--   local title = "Run in Colab"
+--   local colab_url = 'https://colab.research.google.com/\\#fileId=' .. ipynb_uri
+--   return create_html_or_pdf_button(
+--     colab_url, 
+--     title, 
+--     '<i class="bi bi-code-slash"></i>',
+--     '\\faCode')
+-- end
 
 -- Function to create a Download link for the notebook
 ---@param ipynb_uri string
@@ -64,18 +64,19 @@ local function create_download_markup(ipynb_uri)
     '\\faFileDownload')
 end
 
--- Function to create a Deepnote link
----@param ipynb_uri string
----@return string
-local function create_deepnote_markup(ipynb_uri)
-  local title = "Run in Deepnote"
-  local deepnote_url = 'https://deepnote.com/launch?url=' .. ipynb_uri
-  return create_html_or_pdf_button(
-    deepnote_url,
-    title,
-    '<i class="bi bi-code-slash"></i>',
-    '\\faCode')
-end
+-- -- Function to create a Deepnote link
+-- ---@param ipynb_uri string
+-- ---@return string
+-- local function create_deepnote_markup(ipynb_uri)
+--   local title = "Run in Deepnote"
+--   -- https://deepnote.com/docs/launch-repositories-in-deepnote
+--   local deepnote_url = 'https://deepnote.com/launch?url=' .. ipynb_uri
+--   return create_html_or_pdf_button(
+--     deepnote_url,
+--     title,
+--     '<i class="bi bi-code-slash"></i>',
+--     '\\faCode')
+-- end
 
 -- Function to create a PDF link
 ---@param pdf_uri string
@@ -87,6 +88,22 @@ local function create_pdf_markup(pdf_uri)
     title,
     '<i class="bi bi-file-pdf"></i>',
     '\\faFilePdf')
+end
+
+-- Function to create a website link
+---@param html_uri string
+---@return string
+local function create_online_markup(html_uri)
+  if quarto.doc.is_format("html") then
+    return ''
+  end
+
+  local title = "Read Online"
+  return create_html_or_pdf_button(
+    html_uri,
+    title,
+    '<i class="bi bi-link"></i>',
+    '\\faLink')
 end
 
 -- create_links_wrapper
@@ -131,21 +148,20 @@ local function post_action_buttons(doc)
   local siteUrl = read_metadata(quarto.project.directory .. '/_quarto.yml')['website']['site-url']
   local output_filepath_without_ext = 
     ternary(is_prod, pandoc.utils.stringify(siteUrl), '') .. get_output_filename_without_ext(doc)
-  local pdf_output_uri = output_filepath_without_ext .. '.pdf'
-  local pdf_markup = create_pdf_markup(pdf_output_uri)
+  local pdf_markup = create_pdf_markup(output_filepath_without_ext .. '.pdf')
+  local html_markup = create_online_markup(output_filepath_without_ext .. '.html')
   local links_blocks = pandoc.List:new {}
+  local separator = ternary(quarto.doc.is_format('ipynb'), ' -- ', '\n')
   local treat_as_qmd = tobool(doc.meta['treat_as_qmd'])
   if str_ends_with(input_file, ".ipynb") and not treat_as_qmd then
     local ipynb_output_uri = output_filepath_without_ext .. '.output.ipynb'
-    local colab_markup = create_colab_markdown(ipynb_output_uri)
+    -- local colab_markup = create_colab_markdown(ipynb_output_uri)
+    -- local deepnote_markup = create_deepnote_markup(ipynb_output_uri)
     local download_markup = create_download_markup(ipynb_output_uri)
-    local deepnote_markup = create_deepnote_markup(ipynb_output_uri)
-    local separator = ternary(quarto.doc.is_format('ipynb'), ' -- ', '\n')
-    
     links_blocks = create_links_wrapper(
-      colab_markup .. separator .. deepnote_markup .. separator .. download_markup .. separator .. pdf_markup)
+      ternary(html_markup, html_markup .. separator, '') .. download_markup .. separator .. pdf_markup)
   else
-    links_blocks = create_links_wrapper(pdf_markup)
+    links_blocks = create_links_wrapper(ternary(html_markup, html_markup .. separator, '') .. pdf_markup)
   end
 
   local body_blocks = pandoc.List:new{}
