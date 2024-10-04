@@ -16,7 +16,6 @@ return {
   ---@return pandoc.Pandoc|nil
   Pandoc = function (doc)
     if is_draft(doc.meta) then
-      quarto.log.debug('RENDER', doc.meta)
       return pandoc.Pandoc({})
     end
     return doc
