@@ -59,8 +59,6 @@ return {
             });
         </script>
         ]]
-
-      -- quarto.log.debug('iframe_tag', iframe_tag)
         
       return pandoc.RawBlock('html', iframe_tag)
     end

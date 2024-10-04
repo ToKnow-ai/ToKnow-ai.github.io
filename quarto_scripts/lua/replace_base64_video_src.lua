@@ -86,7 +86,6 @@ local function pdf_src_block(video_src)
     video_src, 
     "\\faYoutube", 
     "youtubeColor")
-  quarto.log.debug('video', video)
   return video
 end
 
