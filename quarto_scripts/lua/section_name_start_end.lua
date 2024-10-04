@@ -92,7 +92,6 @@ return {
     if skipped_blocks then
       for key, value_blocks in pairs(skipped_blocks) do
         local skipped_blocks_str = pandoc.utils.stringify(value_blocks)
-        quarto.log.debug(key, skipped_blocks_str)
         if skipped_blocks_str then
           meta[key] = pandoc.MetaString(skipped_blocks_str)
         end

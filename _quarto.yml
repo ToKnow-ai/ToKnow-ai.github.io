@@ -80,6 +80,7 @@ format:
       dark: darkly
     css: _styles.css
     link-external-newwindow: true
+    canonical-url: true
 execute:
   freeze: auto
   cache: false

@@ -12,13 +12,14 @@ def upload_dataframe_to_huggingface(
     dataset_name: str = 'default',
     split: str = 'train',
     private: bool = False,
-    preserve_index: bool = False
+    preserve_index: bool = False,
+    features = None
 ) -> None:
     """
     Upload a pandas DataFrame to a Hugging Face dataset.
     """
     # Convert DataFrame to Hugging Face Dataset
-    hf_dataset = Dataset.from_pandas(df, preserve_index = preserve_index)
+    hf_dataset = Dataset.from_pandas(df, preserve_index = preserve_index, features = features)
 
     # Initialize Hugging Face API
     api = HfApi()

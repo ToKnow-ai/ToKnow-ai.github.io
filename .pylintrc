@@ -1,3 +1,4 @@
 [MESSAGES CONTROL]
 disable=relative-beyond-top-level
 disable=missing-function-docstring
+max-line-length=69

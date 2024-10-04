@@ -1,1 +1,1 @@
-*For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation*
+*For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.*
