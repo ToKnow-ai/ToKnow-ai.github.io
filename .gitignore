@@ -168,8 +168,6 @@ posts/*/images/
 posts/*/index_files/
 posts/*/*.tex
 posts/*/*.html
-
-/.luarc.json
 index.mp4
 extracted_tables/
 posts/*/index.pdf
