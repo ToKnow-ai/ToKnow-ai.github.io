@@ -48,6 +48,7 @@ filters:
   - ../quarto_scripts/lua/post_action_buttons.lua
   - ../quarto_scripts/lua/replace_base64_video_src.lua
   - ../quarto_scripts/lua/no-empty-toc.lua
+  - ../quarto_scripts/lua/image_attrs.lua
   - at: post-render
     path: ../quarto_scripts/lua/output_when_format.lua
   - at: post-render
@@ -61,3 +62,6 @@ filters:
 # https://github.com/quarto-dev/quarto-cli/discussions/5260
 # pagetitle: "Toknow.ai - {{< meta title >}}"
 date: last-modified
+image-attrs:
+  decoding: "async"
+  loading: "lazy"
