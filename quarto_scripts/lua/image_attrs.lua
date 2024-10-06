@@ -28,6 +28,7 @@ return {
     Pandoc = function (doc)
         if quarto.doc.is_format('html') then
             --- @type table<string, string>
+            --- @diagnostic disable-next-line: assign-type-mismatch
             local image_attrs = doc.meta['image-attrs'] or {}
             if is_empty_table(image_attrs) then
                 local blocks = doc.blocks:walk {
