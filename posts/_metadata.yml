@@ -43,6 +43,7 @@ format:
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
+  - ../quarto_scripts/lua/remove_unsupported_blocks.lua
   - ../quarto_scripts/lua/markdown_code_options.lua
   - ../quarto_scripts/lua/disclaimer.lua
   - ../quarto_scripts/lua/post_action_buttons.lua
