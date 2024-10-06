@@ -20,5 +20,6 @@ return {
     else
       return pandoc.Null()
     end
-  end
+  end,
+  ['terminal'] = terminal
 }
