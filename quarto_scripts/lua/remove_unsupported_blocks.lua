@@ -2,6 +2,7 @@ local is_output_cell = require "utils.is_output_cell"
 local ternary = require "utils.ternary"
 
 return {
+  --- This allows removing other things including caption of the unsupported figure
   ---@param block pandoc.Block
   ---@diagnostic disable-next-line: undefined-doc-name
   ---@return pandoc.Block|pandoc.Null
@@ -34,23 +35,4 @@ return {
     end
     return block
   end,
-
-  -- ---@param block pandoc.CodeBlock
-  -- ---@return nil
-  -- Block = function(block)
-  --   local text = ternary(
-  --   -- https://github.com/jgm/pandoc/issues/6456
-  --     block.tag == "CodeBlock",
-  --     block.text,
-  --     pandoc.utils.stringify(block))
-  --   if text then
-  --     local match = string.match(
-  --       text:lower(),
-  --       string.lower("^Unable to display output for mime type"))
-  --     if match then
-  --       return pandoc.Null()
-  --     end
-  --   end
-  --   return block
-  -- end
 }
