@@ -1,8 +1,14 @@
 -- Function to find cell output block
----@param block pandoc.Block
+---@param block pandoc.Div
 ---@return boolean
 local function is_output_cell(block)
-    return block.attr and block.attr.classes and block.attr.classes:includes("cell-output")
+    if block and block.attr and block.attr.classes then
+        if quarto.doc.is_format("ipynb") then
+            return block.attr.classes:includes("display_data")
+        end
+        return block.attr.classes:includes("cell-output-display")
+    end
+    return false
 end
 
 return is_output_cell

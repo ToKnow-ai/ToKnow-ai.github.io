@@ -43,15 +43,19 @@ format:
   # ipynb: default
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
+  - ../quarto_scripts/lua/remove_unsupported_blocks.lua
   - ../quarto_scripts/lua/markdown_code_options.lua
   - ../quarto_scripts/lua/disclaimer.lua
   - ../quarto_scripts/lua/post_action_buttons.lua
   - ../quarto_scripts/lua/replace_base64_video_src.lua
   - ../quarto_scripts/lua/no-empty-toc.lua
+  - ../quarto_scripts/lua/image_attrs.lua
   - at: post-render
     path: ../quarto_scripts/lua/output_when_format.lua
   - at: post-render
     path: ../quarto_scripts/lua/must_have_one_main_category.lua
+  - at: post-render
+    path: ../quarto_scripts/lua/remove_empty_blocks.lua
   # - at: post-ast
   #   path: ../quarto_scripts/lua/flag_drafts.lua
 # if you remove the below pagetitle setting, the dynamic page title is not updated,
@@ -61,3 +65,6 @@ filters:
 # https://github.com/quarto-dev/quarto-cli/discussions/5260
 # pagetitle: "Toknow.ai - {{< meta title >}}"
 date: last-modified
+image-attrs:
+  decoding: "async"
+  loading: "lazy"
