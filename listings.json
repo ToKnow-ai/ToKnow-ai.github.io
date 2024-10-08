@@ -1,0 +1,18 @@
+[
+  {
+    "listing": "/apps.html",
+    "items": [
+      "/apps/shazam-playlist-to-youtube-playlist.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/kenyan-collective-investment-schemes-dataset/index.html",
+      "/posts/quarto-resume-template/index.html",
+      "/posts/shazam-playlist-to-youtube-playlist/index.html",
+      "/posts/kenya-population-from-1974-to-2022/index.html",
+      "/posts/artificial-general-intelligence/index.html"
+    ]
+  }
+]
