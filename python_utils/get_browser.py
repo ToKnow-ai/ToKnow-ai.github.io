@@ -14,7 +14,7 @@ async def get_browser_async(executable_path: str = None, *, headless = True, inc
     browser = await launch({
         'headless': headless, 
         'executablePath': executable_path,
-        'args': ["--disable-web-security"] + (['--incognito'] if incognito else []),
+        'args': ["--disable-web-security", '--disable-extensions'] + (['--incognito'] if incognito else []),
         'ignoreHTTPSErrors': True })
     return browser
 
@@ -23,8 +23,9 @@ async def get_browser_page_async(
         width: int = 0,
         height: int = 0,
         *,
-        headless: bool = True) -> tuple[Page, Browser]:
-    browser = await get_browser_async(executable_path, headless=headless)
+        headless: bool = True,
+        incognito = False) -> tuple[Page, Browser]:
+    browser = await get_browser_async(executable_path, headless=headless, incognito=incognito)
     
     # Open a new page
     page = await browser.newPage()

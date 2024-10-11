@@ -24,12 +24,12 @@ fi
 # Install or upgrade pip
 pip install --upgrade pip
 
-# Install packages from requirements.txt
-if [ -f "requirements.txt" ]; then
-    echo "Installing packages from requirements.txt..."
-    pip install -r requirements.txt
+# Install packages from python.requirements.txt
+if [ -f "python.requirements.txt" ]; then
+    echo "Installing packages from python.requirements.txt..."
+    pip install -r python.requirements.txt
 else
-    echo "requirements.txt not found. Skipping package installation."
+    echo "python.requirements.txt not found. Skipping package installation."
 fi
 
 echo "Environment setup complete. You can now run your Python scripts."

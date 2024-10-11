@@ -17,7 +17,7 @@ async def web_screenshot_async(
         crop_options: dict[Literal['left', 'top', 'right', 'bottom'], int | None] | None = None,
         resize_options: dict[Literal['size', 'quality', 'optimize'], int | None] | None = None,) -> Image.Image:
     
-    page, browser = await get_browser_page_async(executable_path, width = width, height = height)
+    page, browser = await get_browser_page_async(executable_path, width = width, height = height, incognito = True)
     
     # Go to the specified URL
     await page.goto(url)
