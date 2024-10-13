@@ -17,6 +17,7 @@ local format_with_template = 'output-when-format-'
 ---@return pandoc.Block
 local function output_when_format(key_template_format, block)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
+    quarto.log.debug('block', block)
     return block
   end
   local format = key_template_format.key
@@ -39,6 +40,7 @@ local function output_when_format(key_template_format, block)
       template_blocks:insert(block)
     end
   end
+  quarto.log.debug('template_blocks', template_blocks)
   return pandoc.Div(template_blocks)
 end
 
