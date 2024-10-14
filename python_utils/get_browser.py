@@ -1,21 +1,17 @@
 import shutil
+from playwright.async_api import Browser, Page, async_playwright, Playwright
 
-from pyppeteer import launch
-from pyppeteer.browser import Browser
-from pyppeteer.page import Page
-
-
-async def get_browser_async(executable_path: str = None, *, headless = True, incognito = False) -> Browser:
+async def get_browser_async(p: Playwright, executable_path: str = None, *, headless = True, incognito = False) -> Browser:
     executable_path = executable_path or\
                     shutil.which("google-chrome") or\
                     shutil.which("chromium-browser") or\
                     shutil.which("chromium")
-    # Launch a new browser instance
-    browser = await launch({
-        'headless': headless, 
-        'executablePath': executable_path,
-        'args': ["--disable-web-security", '--disable-extensions'] + (['--incognito'] if incognito else []),
-        'ignoreHTTPSErrors': True })
+    
+    browser = await p.chromium.launch(
+        headless=headless,
+        executable_path=executable_path,
+        args=["--disable-web-security"] + (['--incognito'] if incognito else [])
+    )
     return browser
 
 async def get_browser_page_async(
@@ -23,13 +19,22 @@ async def get_browser_page_async(
         width: int = 0,
         height: int = 0,
         *,
+        playwright: Playwright = None,
         headless: bool = True,
         incognito = False) -> tuple[Page, Browser]:
-    browser = await get_browser_async(executable_path, headless=headless, incognito=incognito)
-    
-    # Open a new page
-    page = await browser.newPage()
-
-    # 0 makes it default height or default width
-    await page.setViewport({'width': width, 'height': height})
-    return page, browser
+    playwright = await async_playwright().start()
+    browser = await get_browser_async(playwright, executable_path, headless=headless, incognito=incognito)
+    context = await browser.new_context(ignore_https_errors=True)
+    page = await context.new_page()
+    viewport = { 
+        "width": width or page.viewport_size["width"], 
+        "height": height or page.viewport_size["height"]
+    }
+    await page.set_viewport_size(viewport_size=viewport)
+    async def close_playwright():
+        # Close resources manually
+        await page.close()    # Close the page
+        await context.close() # Close the browser context
+        await browser.close() # Close the browser
+        await playwright.stop() # Stop Playwright
+    return page, close_playwright

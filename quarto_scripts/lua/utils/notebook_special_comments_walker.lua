@@ -34,8 +34,6 @@ function elements_walker (elements, get_and_update_meta, attribute_value, attrib
       if attr_value then
         if children_predicate then
           local child_predicate_result, _discard_subsequent_matches = children_predicate(element)
-          quarto.log.debug('child_predicate_result, _discard_subsequent_matches', child_predicate_result,
-          _discard_subsequent_matches)
           if child_predicate_result then
             if discard_subsequent_matches then
               -- Here we discard the subsequent matched element. By discard,

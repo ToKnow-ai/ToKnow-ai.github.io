@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name of the virtual environment
-VENV_NAME=".env"
+VENV_NAME=".venv"
 
 # Check if the virtual environment already exists
 if [ -d "$VENV_NAME" ]; then
