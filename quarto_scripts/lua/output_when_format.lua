@@ -2,7 +2,6 @@ local str_starts_with = require "utils.str_starts_with"
 local str_ends_with = require "utils.str_ends_with"
 local notebook_special_comments_walker = require "utils.notebook_special_comments_walker"
 local is_output_cell = require "utils.is_output_cell"
-local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
 local format_with_template = 'output-when-format-'
 
@@ -17,7 +16,6 @@ local format_with_template = 'output-when-format-'
 ---@return pandoc.Block
 local function output_when_format(key_template_format, block)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
-    quarto.log.debug('block', block)
     return block
   end
   local format = key_template_format.key
@@ -28,7 +26,7 @@ local function output_when_format(key_template_format, block)
     if quarto.doc.is_format(format) then
       if template then
         -- This replaces the current block, if the format is matched!
-        template_blocks = quarto_pandoc_parse_str(template)
+        template_blocks = quarto.utils.string_to_blocks(template)
       end
     else
       template_blocks:insert(block)
@@ -40,7 +38,6 @@ local function output_when_format(key_template_format, block)
       template_blocks:insert(block)
     end
   end
-  quarto.log.debug('template_blocks', template_blocks)
   return pandoc.Div(template_blocks)
 end
 
@@ -51,4 +48,19 @@ local function predicate(k)
   return str_starts_with(k, 'output-when-format')
 end
 
-return notebook_special_comments_walker(predicate, output_when_format, is_output_cell)
+return notebook_special_comments_walker(
+  predicate, 
+  output_when_format, 
+  function (block) 
+    -- local is_subling_a_cell = false
+    -- pandoc.walk_block(block, {
+    --   ---@param sibling_block pandoc.Div
+    --   Block = function (sibling_block)
+    --     if sibling_block.attr.classes:includes("cell-code") then
+    --       is_subling_a_cell = true
+    --     end
+    --   end
+    -- })
+    local skip_subsequent_matches = str_ends_with(quarto.doc.input_file, ".ipynb")
+    return is_output_cell(block), skip_subsequent_matches
+  end)

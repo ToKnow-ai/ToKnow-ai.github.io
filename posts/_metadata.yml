@@ -45,7 +45,6 @@ format:
 filters:
   - at: pre-ast
     path: ../quarto_scripts/lua/create_href.lua
-  - ../quarto_scripts/lua/remove_unsupported_blocks.lua
   - ../quarto_scripts/lua/markdown_code_options.lua
   - ../quarto_scripts/lua/disclaimer.lua
   - ../quarto_scripts/lua/post_action_buttons.lua
@@ -58,6 +57,8 @@ filters:
     path: ../quarto_scripts/lua/must_have_one_main_category.lua
   - at: post-render
     path: ../quarto_scripts/lua/remove_empty_blocks.lua
+  - at: post-render
+    path: ../quarto_scripts/lua/remove_unsupported_blocks.lua
   # - at: post-ast
   #   path: ../quarto_scripts/lua/flag_drafts.lua
 # if you remove the below pagetitle setting, the dynamic page title is not updated,

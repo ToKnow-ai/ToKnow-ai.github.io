@@ -28,16 +28,30 @@ end
 function elements_walker (elements, get_and_update_meta, attribute_value, attribute_key, walk_callback, children_predicate)
   local new_elements = pandoc.List:new{}
   if elements and #elements > 0 then
+    local discard_subsequent_matches = false
     for _, element in ipairs(elements) do
       local attr_value = attribute_value or attributes.get_attribute_value(element, attribute_key)
       if attr_value then
         if children_predicate then
-          if children_predicate(element) then
-            local meta, update_meta = get_and_update_meta()
-            local new_element, new_meta = walk_callback_proxy(attr_value, element, meta, walk_callback)
-            update_meta(new_meta)
-            if new_element then
-              new_elements:insert(new_element)
+          local child_predicate_result, _discard_subsequent_matches = children_predicate(element)
+          quarto.log.debug('child_predicate_result, _discard_subsequent_matches', child_predicate_result,
+          _discard_subsequent_matches)
+          if child_predicate_result then
+            if discard_subsequent_matches then
+              -- Here we discard the subsequent matched element. By discard,
+              -- we are completely throwing it away, WE DO NOT NEED IT!!!
+              -- Sometimes, jupyter notebook can create multiple outputs Div's,
+              -- eg: when rendering plotly maps.
+              -- We also need to reset the `discard_subsequent_matches = _discard_subsequent_matches`
+              -- again so that non-subsequent matches don't get discarded!
+            else
+              discard_subsequent_matches = _discard_subsequent_matches
+              local meta, update_meta = get_and_update_meta()
+              local new_element, new_meta = walk_callback_proxy(attr_value, element, meta, walk_callback)
+              update_meta(new_meta)
+              if new_element then
+                new_elements:insert(new_element)
+              end
             end
           else
             if element.content then
