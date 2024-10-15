@@ -1,4 +1,5 @@
 import shutil
+from typing import Any, Callable, Coroutine
 from playwright.async_api import Browser, Page, async_playwright, Playwright
 
 async def get_browser_async(p: Playwright, executable_path: str = None, *, headless = True, incognito = False) -> Browser:
@@ -21,7 +22,7 @@ async def get_browser_page_async(
         *,
         playwright: Playwright = None,
         headless: bool = True,
-        incognito = False) -> tuple[Page, Browser]:
+        incognito = False) -> tuple[Page, Callable[[], Coroutine[Any, Any, None]]]:
     playwright = await async_playwright().start()
     browser = await get_browser_async(playwright, executable_path, headless=headless, incognito=incognito)
     context = await browser.new_context(ignore_https_errors=True)

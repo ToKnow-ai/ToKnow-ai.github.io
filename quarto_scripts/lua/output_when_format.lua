@@ -13,8 +13,9 @@ local format_with_template = 'output-when-format-'
 --          #|output-when-format-{format}: "{template}"   =>  #|output-when-format-pdf: "[text](link)"
 ---@param key_template_format table<"key"|"value", string>
 ---@param block pandoc.Block
+---@param sibling_match_count number
 ---@return pandoc.Block
-local function output_when_format(key_template_format, block)
+local function output_when_format(key_template_format, block, sibling_match_count)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
     return block
   end
@@ -24,7 +25,7 @@ local function output_when_format(key_template_format, block)
   if str_starts_with(format, format_with_template) then
     format = string.sub(format, #format_with_template + 1)
     if quarto.doc.is_format(format) then
-      if template then
+      if template and sibling_match_count == 0 then
         -- This replaces the current block, if the format is matched!
         template_blocks = quarto.utils.string_to_blocks(template)
       end
@@ -33,7 +34,7 @@ local function output_when_format(key_template_format, block)
     end
   else
     format = template
-    if quarto.doc.is_format(format) then
+    if quarto.doc.is_format(format) and sibling_match_count == 0 then
       -- This includes the current block as is, if the format is matched!
       template_blocks:insert(block)
     end
@@ -48,19 +49,4 @@ local function predicate(k)
   return str_starts_with(k, 'output-when-format')
 end
 
-return notebook_special_comments_walker(
-  predicate, 
-  output_when_format, 
-  function (block) 
-    -- local is_subling_a_cell = false
-    -- pandoc.walk_block(block, {
-    --   ---@param sibling_block pandoc.Div
-    --   Block = function (sibling_block)
-    --     if sibling_block.attr.classes:includes("cell-code") then
-    --       is_subling_a_cell = true
-    --     end
-    --   end
-    -- })
-    local skip_subsequent_matches = str_ends_with(quarto.doc.input_file, ".ipynb")
-    return is_output_cell(block), skip_subsequent_matches
-  end)
+return notebook_special_comments_walker(predicate, output_when_format, is_output_cell)

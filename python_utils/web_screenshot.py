@@ -29,7 +29,7 @@ async def web_screenshot_async(
         screenshot_options = screenshot_options or {}
         screenshot_bytes = await (screenshot_element or page).screenshot(**screenshot_options)
         
-        close_playwright()
+        await close_playwright()
         
         image = Image.open(io.BytesIO(screenshot_bytes))
         
