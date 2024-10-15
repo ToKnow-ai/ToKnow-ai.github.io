@@ -181,3 +181,5 @@ posts/*/index.render_files/
 posts/*/index.output.ipynb
 apps.tex
 apps.aux
+
+/.luarc.json

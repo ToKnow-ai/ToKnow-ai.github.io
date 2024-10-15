@@ -50,7 +50,7 @@ def main():
                 f.write(result.stdout)
         except Exception as e:
             print(f"Error processing {matched_file}: {str(e)}", file=sys.stderr)
-    print(f"Pre-render complated for {os.path.basename(python_script)}")
+    print(f"Pre-render completed for {os.path.basename(python_script)}")
 
 if __name__ == "__main__":
     main()

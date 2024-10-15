@@ -109,9 +109,10 @@ end
 -- Function to extract base64 video
 ---@param video_src table<'key'|'value', string>
 ---@param block pandoc.Block
+---@param sibling_match_count number
 ---@param meta pandoc.MetaBlocks
 ---@return pandoc.Block, pandoc.MetaBlocks
-local function replace_base64_video_src(video_src, block, meta)
+local function replace_base64_video_src(video_src, block, sibling_match_count, meta)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
     return block, meta
   end

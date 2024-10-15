@@ -2,7 +2,6 @@ local str_starts_with = require "utils.str_starts_with"
 local str_ends_with = require "utils.str_ends_with"
 local notebook_special_comments_walker = require "utils.notebook_special_comments_walker"
 local is_output_cell = require "utils.is_output_cell"
-local quarto_pandoc_parse_str = require "utils.quarto_pandoc_parse_str"
 
 local format_with_template = 'output-when-format-'
 
@@ -14,8 +13,9 @@ local format_with_template = 'output-when-format-'
 --          #|output-when-format-{format}: "{template}"   =>  #|output-when-format-pdf: "[text](link)"
 ---@param key_template_format table<"key"|"value", string>
 ---@param block pandoc.Block
+---@param sibling_match_count number
 ---@return pandoc.Block
-local function output_when_format(key_template_format, block)
+local function output_when_format(key_template_format, block, sibling_match_count)
   if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
     return block
   end
@@ -25,16 +25,16 @@ local function output_when_format(key_template_format, block)
   if str_starts_with(format, format_with_template) then
     format = string.sub(format, #format_with_template + 1)
     if quarto.doc.is_format(format) then
-      if template then
+      if template and sibling_match_count == 0 then
         -- This replaces the current block, if the format is matched!
-        template_blocks = quarto_pandoc_parse_str(template)
+        template_blocks = quarto.utils.string_to_blocks(template)
       end
     else
       template_blocks:insert(block)
     end
   else
     format = template
-    if quarto.doc.is_format(format) then
+    if quarto.doc.is_format(format) and sibling_match_count == 0 then
       -- This includes the current block as is, if the format is matched!
       template_blocks:insert(block)
     end

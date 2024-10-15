@@ -4,15 +4,16 @@ local attributes = require "utils.attributes"
 ---@param attribute_value boolean|string|table<string, string>
 ---@param block pandoc.Block|pandoc.Inline
 ---@param main_meta pandoc.MetaBlocks
+---@param sibling_match_count number
 ---@param walk_callback function
 ---@return pandoc.Block
 ---@return pandoc.MetaBlocks
-local walk_callback_proxy = function (attribute_value, block, main_meta, walk_callback)
+local walk_callback_proxy = function (attribute_value, block, main_meta, sibling_match_count, walk_callback)
   local nparams = debug.getinfo(walk_callback).nparams
-  if nparams == 3 then
-    return walk_callback(attribute_value, block, main_meta)
+  if nparams == 4 then
+    return walk_callback(attribute_value, block, sibling_match_count, main_meta)
   else
-    local sub_block = walk_callback(attribute_value, block)
+    local sub_block = walk_callback(attribute_value, block, sibling_match_count)
     return sub_block, main_meta
   end
 end
@@ -28,13 +29,15 @@ end
 function elements_walker (elements, get_and_update_meta, attribute_value, attribute_key, walk_callback, children_predicate)
   local new_elements = pandoc.List:new{}
   if elements and #elements > 0 then
+    local sibling_match_count = 0
     for _, element in ipairs(elements) do
       local attr_value = attribute_value or attributes.get_attribute_value(element, attribute_key)
       if attr_value then
         if children_predicate then
           if children_predicate(element) then
             local meta, update_meta = get_and_update_meta()
-            local new_element, new_meta = walk_callback_proxy(attr_value, element, meta, walk_callback)
+            local new_element, new_meta = walk_callback_proxy(attr_value, element, meta, sibling_match_count, walk_callback)
+            sibling_match_count = sibling_match_count + 1
             update_meta(new_meta)
             if new_element then
               new_elements:insert(new_element)
@@ -47,7 +50,8 @@ function elements_walker (elements, get_and_update_meta, attribute_value, attrib
           end
         else
           local meta, update_meta = get_and_update_meta()
-          local new_element, new_meta = walk_callback_proxy(attr_value, element, meta, walk_callback)
+          local new_element, new_meta = walk_callback_proxy(attr_value, element, meta, sibling_match_count, walk_callback)
+          sibling_match_count = sibling_match_count + 1
           update_meta(new_meta)
           if new_element then
             new_elements:insert(new_element)
