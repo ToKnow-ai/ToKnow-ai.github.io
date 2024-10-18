@@ -3,13 +3,13 @@ title: Create a Free Professional Resume Website and PDF with GitHub pages and Q
 description: Are you looking to showcase your professional experience in a modern, easily accessible format? In this guide, we'll walk you through the process of creating your own resume website using GitHub and Quarto. The best part? It's completely free and gives you a high-quality, trusted online presence in just minutes!
 categories:
   - ideas
+keywords:
+  - quarto-free-resume
+  - github-pages
   - free-resume
   - quarto
   - github-pages
   - PDF-resume
-keywords:
-  - quarto-free-resume
-  - github-pages
 date: "2024-09-15"
 image: "image.png"
 ---
