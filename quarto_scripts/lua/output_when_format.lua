@@ -30,7 +30,8 @@ local function output_when_format(key_template_format, block, sibling_match_coun
         template_blocks = quarto.utils.string_to_blocks(template)
       end
     else
-      template_blocks:insert(block)
+      -- Wrapping this may not render well in some cases, eg: plotly interactive plots!!
+      return block
     end
   else
     format = template
