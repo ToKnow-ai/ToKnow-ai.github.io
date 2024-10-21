@@ -35,6 +35,7 @@ project:
     - git clean -Xdf posts/
     # Delete empty directories
     - find posts/ -type d -empty -delete
+    - ./quarto_scripts/python/add_to_sitemap.py "pdf,output.ipynb"
 website:
   title: "ToKnow.ai"
   google-analytics: 'G-4R9DMKF8S7'

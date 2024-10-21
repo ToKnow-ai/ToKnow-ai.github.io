@@ -2,3 +2,4 @@ PyYAML==6.0.2
 nbformat==5.10.4
 mistune==3.0.2
 beautifulsoup4==4.12.3
+pandas==2.2.3
