@@ -7,6 +7,7 @@ listing:
   contents: apps
   sort: "date desc"
   type: grid
+  fields: [image, title, subtitle]
   filter-ui: true
   feed:
     type: partial
