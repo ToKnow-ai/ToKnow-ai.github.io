@@ -1,0 +1,21 @@
+[
+  {
+    "listing": "/apps.html",
+    "items": [
+      "/apps/private-domain-checker.html",
+      "/apps/shazam-playlist-to-youtube-playlist.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/balancing-between-paywalls-and-search-engine-optimization/index.html",
+      "/posts/summary-of-registered-entities-and-companies-in-kenya/index.html",
+      "/posts/kenyan-collective-investment-schemes-dataset/index.html",
+      "/posts/quarto-resume-template/index.html",
+      "/posts/shazam-playlist-to-youtube-playlist/index.html",
+      "/posts/kenya-population-from-1974-to-2022/index.html",
+      "/posts/artificial-general-intelligence/index.html"
+    ]
+  }
+]
