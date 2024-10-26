@@ -1,3 +1,6 @@
 [submodule "posts/shazam-playlist-to-youtube-playlist/shazam-playlist-to-youtube-playlist"]
 	path = posts/shazam-playlist-to-youtube-playlist/shazam-playlist-to-youtube-playlist
 	url = https://huggingface.co/spaces/ToKnow-ai/shazam-playlist-to-youtube-playlist
+[submodule "posts/private-domain-checker/private-domain-checker"]
+	path = posts/private-domain-checker/private-domain-checker
+	url = https://huggingface.co/spaces/ToKnow-ai/private-domain-checker
