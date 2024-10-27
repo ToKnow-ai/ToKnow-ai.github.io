@@ -15,6 +15,13 @@ default_options: dict[KeyType, bool] = {
     'is_array': False,
 }
 
+def clean_line(line):
+    """Remove list markers and clean the text"""
+    # Remove bullet points or numbers
+    line = re.sub(r'^\s*[-*+]\s+', '', line)
+    line = re.sub(r'^\s*\d+\.\s+', '', line)
+    return line.strip()
+
 def get_html(markdown: str) -> BeautifulSoup:
     """
     Converts markdown to HTML using the mistune library and returns a BeautifulSoup object.
@@ -63,10 +70,11 @@ def parse_metadata_key(metadata_key: str, metadata_content: str) -> tuple[str, s
         processed_content: str = get_html(metadata_content).get_text().replace("\n\n", "\n").strip()
         metadata_content = processed_content
     if metadata_key_options['is_array']:
-        html = get_html(metadata_content)
-        list_items = html.find_all('li')
-        processed_content = [item.get_text(strip=True) for item in list_items]
-        metadata_content = processed_content
+        metadata_content = [
+            clean_line(line) 
+            for line 
+            in metadata_content.split('\n') if clean_line(line).strip()
+        ] if metadata_content else ''
     return (metadata_key, metadata_content, metadata_key_options)
 
 def get_bool_option(strip_markdown: str|None|bool):

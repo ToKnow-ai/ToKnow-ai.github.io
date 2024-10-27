@@ -49,5 +49,5 @@ end
 local function predicate(k)
   return str_starts_with(k, 'output-when-format')
 end
-
+-- we need `eval-when-format-pdf` to control current markdown file
 return notebook_special_comments_walker(predicate, output_when_format, is_output_cell)
