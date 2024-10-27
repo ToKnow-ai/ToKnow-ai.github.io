@@ -1,7 +1,7 @@
 ---
 title: Private Domain Checker
 subtitle: Protection Against Domain Front-Running by Registrars
-image: ../posts/_private-domain-checker/post.png
+image: ../posts/private-domain-checker/post.png
 ---
 
 <iframe
