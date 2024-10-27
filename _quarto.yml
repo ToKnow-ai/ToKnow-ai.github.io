@@ -39,6 +39,9 @@ project:
 website:
   title: "ToKnow.ai"
   google-analytics: 'G-4R9DMKF8S7'
+  repo-url: https://github.com/ToKnow-ai/ToKnow-ai.github.io
+  repo-branch: main
+  repo-actions: [issue]
   favicon: "images/logo.png"
   image: "images/logo.png"
   open-graph: true
