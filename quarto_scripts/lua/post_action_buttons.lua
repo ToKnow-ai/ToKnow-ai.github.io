@@ -17,6 +17,33 @@ local get_output_filename_without_ext = require "utils.get_output_filename_witho
 --   return str
 -- end
 
+-- -- Function to create a Google Colab link
+-- ---@param ipynb_uri string
+-- ---@return string
+-- local function create_colab_markdown(ipynb_uri)
+--   local title = "Run in Colab"
+--   local colab_url = 'https://colab.research.google.com/\\#fileId=' .. ipynb_uri
+--   return create_html_or_pdf_button(
+--     colab_url,
+--     title,
+--     '<i class="bi bi-code-slash"></i>',
+--     '\\faCode')
+-- end
+
+-- -- Function to create a Deepnote link
+-- ---@param ipynb_uri string
+-- ---@return string
+-- local function create_deepnote_markup(ipynb_uri)
+--   local title = "Run in Deepnote"
+--   -- https://deepnote.com/docs/launch-repositories-in-deepnote
+--   local deepnote_url = 'https://deepnote.com/launch?url=' .. ipynb_uri
+--   return create_html_or_pdf_button(
+--     deepnote_url,
+--     title,
+--     '<i class="bi bi-code-slash"></i>',
+--     '\\faCode')
+-- end
+
 ---create_html_or_pdf_button
 ---@param uri string
 ---@param title string
@@ -39,19 +66,6 @@ local function create_html_or_pdf_button(uri, title, html_icon, pdf_icon)
   return string.format('[%s](%s)', title, uri)
 end
 
--- -- Function to create a Google Colab link
--- ---@param ipynb_uri string
--- ---@return string
--- local function create_colab_markdown(ipynb_uri)
---   local title = "Run in Colab"
---   local colab_url = 'https://colab.research.google.com/\\#fileId=' .. ipynb_uri
---   return create_html_or_pdf_button(
---     colab_url, 
---     title, 
---     '<i class="bi bi-code-slash"></i>',
---     '\\faCode')
--- end
-
 -- Function to create a Download link for the notebook
 ---@param ipynb_uri string
 ---@return string
@@ -64,19 +78,19 @@ local function create_download_markup(ipynb_uri)
     '\\faFileDownload')
 end
 
--- -- Function to create a Deepnote link
--- ---@param ipynb_uri string
--- ---@return string
--- local function create_deepnote_markup(ipynb_uri)
---   local title = "Run in Deepnote"
---   -- https://deepnote.com/docs/launch-repositories-in-deepnote
---   local deepnote_url = 'https://deepnote.com/launch?url=' .. ipynb_uri
---   return create_html_or_pdf_button(
---     deepnote_url,
---     title,
---     '<i class="bi bi-code-slash"></i>',
---     '\\faCode')
--- end
+-- Function to create a Kaggle link
+---@param ipynb_uri string
+---@return string
+local function create_kaggle_markup(ipynb_uri)
+  local title = "Open in Kaggle"
+  -- https://www.kaggle.com/discussions/product-feedback/152480
+  local deepnote_url = 'https://kaggle.com/kernels/welcome?src=' .. ipynb_uri
+  return create_html_or_pdf_button(
+    deepnote_url,
+    title,
+    '<i class="bi bi-code-slash"></i>',
+    '\\faKaggle')
+end
 
 -- Function to create a PDF link
 ---@param pdf_uri string
@@ -98,7 +112,7 @@ local function create_online_markup(html_uri)
     return ''
   end
 
-  local title = "Read Online"
+  local title = "Read at ToKnow.ai"
   return create_html_or_pdf_button(
     html_uri,
     title,
@@ -157,9 +171,13 @@ local function post_action_buttons(doc)
     local ipynb_output_uri = output_filepath_without_ext .. '.output.ipynb'
     -- local colab_markup = create_colab_markdown(ipynb_output_uri)
     -- local deepnote_markup = create_deepnote_markup(ipynb_output_uri)
+    local kaggle_markup = create_kaggle_markup(ipynb_output_uri)
     local download_markup = create_download_markup(ipynb_output_uri)
     links_blocks = create_links_wrapper(
-      ternary(html_markup, html_markup .. separator, '') .. download_markup .. separator .. pdf_markup)
+      ternary(html_markup, html_markup .. separator, '')
+      .. ternary(not quarto.doc.is_format('ipynb'), kaggle_markup .. separator, '')
+      .. download_markup .. separator 
+      .. pdf_markup)
   else
     links_blocks = create_links_wrapper(ternary(html_markup, html_markup .. separator, '') .. pdf_markup)
   end
