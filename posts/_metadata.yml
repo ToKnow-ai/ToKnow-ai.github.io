@@ -54,6 +54,8 @@ filters:
   - ../quarto_scripts/lua/no-empty-toc.lua
   - ../quarto_scripts/lua/image_attrs.lua
   - at: post-render
+    path: ../quarto_scripts/lua/echo_when_format.lua
+  - at: post-render
     path: ../quarto_scripts/lua/output_when_format.lua
   - at: post-render
     path: ../quarto_scripts/lua/must_have_one_main_category.lua
