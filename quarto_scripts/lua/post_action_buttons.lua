@@ -112,7 +112,10 @@ local function create_online_markup(html_uri)
     return ''
   end
 
-  local title = "Read at ToKnow.ai"
+  local title = ternary(
+    quarto.doc.is_format("pdf"),
+    "Read at \\textbf{\\underline{\\large{ToKnow}}}.ai",
+    "Read at <u>**ToKnow**</u>.ai")
   return create_html_or_pdf_button(
     html_uri,
     title,

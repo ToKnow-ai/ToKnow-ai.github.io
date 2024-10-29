@@ -40,7 +40,9 @@ format:
   pdf:
     # alternative: https://github.com/dragonstyle/share-post/blob/8026647db8619666cadef7d4205d9f16571ca95d/_extensions/share-post/share-post.lua#L265
     include-in-header: ../quarto_scripts/tex/main.tex
-  # ipynb: default
+  ipynb:
+    # without this, dataframe tables are ignored in `format:ipynb`
+    html-table-processing: none
 # https://quarto.org/docs/authoring/front-matter.html
 filters:
   - at: pre-ast
