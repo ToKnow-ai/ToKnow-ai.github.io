@@ -2,6 +2,16 @@ local generate_unique_string = require "utils.generate_unique_string"
 
 return {
   ['iframe'] = function (args, kwargs)
+    if quarto.doc.is_format('ipynb') then
+      local iframe_attrs = ''
+      for key, value in pairs(kwargs) do
+        iframe_attrs = iframe_attrs .. string.format(' %s="%s"', key, value)
+      end
+      -- @type iframe_tag string
+      local iframe_tag = '<iframe ' .. iframe_attrs .. '></iframe>'
+      return pandoc.RawBlock('markdown', iframe_tag)
+    end
+
     -- Check if the output format is HTML
     if quarto.doc.is_format('html') then
       -- @type iframe_tag string
@@ -12,15 +22,16 @@ return {
           loading_status = loading_status .. ' ' .. pandoc.utils.stringify(arg)
         end
       end
-      -- @type iframe_tag string
+      -- @type iframe_container_class string
       local iframe_container_class = 'iframe_container_' .. generate_unique_string()
       -- @type iframe_attrs string
       local iframe_attrs = 'style="opacity: 0; background-color: #fff3cd;"'
       for key, value in pairs(kwargs) do
         iframe_attrs = iframe_attrs .. string.format(' %s="%s"', key, value)
       end
-      -- @type iframe_tag string
-      local iframe_tag =
+
+      -- @type iframe_container string
+      local iframe_container =
           [[
           <style>
             .]] .. iframe_container_class .. [[ {
@@ -60,7 +71,7 @@ return {
         </script>
         ]]
         
-      return pandoc.RawBlock('html', iframe_tag)
+      return pandoc.RawBlock('html', iframe_container)
     end
 
     -- Return null for non-HTML formats
