@@ -1,27 +1,30 @@
 return {
-  ---@param div pandoc.Div
+  ---@param block pandoc.Div
   ---@diagnostic disable-next-line: undefined-doc-name
   ---@return pandoc.Div|pandoc.Null
-  Div = function (div)
+  Block = function (block)
     if quarto.doc.is_format("ipynb") then
-      if div and div.attr and div.attr.classes then
+      if block and block.attr and block.attr.classes then
         -- This is the empty code cell left after using `#|echo: false`
         -- Other formats (pdf/html) remove it, or ignore it, or is just not visible, so no problem!
-        if div.attr.classes:includes("cell") and div.attr.classes:includes("code") then
+        if block.attr.classes:includes("cell") and block.attr.classes:includes("code") then
           local some_children_have_value = false
-          div:walk {
-            Div = function(sub_div)
-              if #sub_div.content > 0 then
+          block:walk {
+            Block = function(sub_block)
+              if sub_block.content and #sub_block.content > 0 then
+                some_children_have_value = true
+              end
+              if sub_block.text and #sub_block.text > 0 then
                 some_children_have_value = true
               end
             end
           }
-          if #div.content == 0 or not some_children_have_value then
+          if not block.content or #block.content == 0 or not some_children_have_value then
             return pandoc.Null()
           end
         end
       end
     end
-    return div
+    return block
   end
 }
