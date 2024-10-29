@@ -14,6 +14,7 @@ local function code_to_markdown(_attribute, div)
     if code_block and code_block.text and code_block.t == "CodeBlock" then
         local blocks = quarto.utils.string_to_blocks(code_block.text)
         div.content = blocks
+        div.classes = {} 
     end
     return div
 end
