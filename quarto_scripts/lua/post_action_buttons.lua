@@ -108,10 +108,6 @@ end
 ---@param html_uri string
 ---@return string
 local function create_online_markup(html_uri)
-  if quarto.doc.is_format("html") then
-    return ''
-  end
-
   local title = ternary(
     quarto.doc.is_format("pdf"),
     "Read at \\textbf{\\underline{\\large{ToKnow}}}.ai",
@@ -177,12 +173,14 @@ local function post_action_buttons(doc)
     local kaggle_markup = create_kaggle_markup(ipynb_output_uri)
     local download_markup = create_download_markup(ipynb_output_uri)
     links_blocks = create_links_wrapper(
-      ternary(html_markup, html_markup .. separator, '')
+      ternary(not quarto.doc.is_format("html"), html_markup .. separator, '')
       .. ternary(not quarto.doc.is_format('ipynb'), kaggle_markup .. separator, '')
       .. download_markup .. separator 
-      .. pdf_markup)
+      .. ternary(not quarto.doc.is_format("pdf"), pdf_markup, ''))
   else
-    links_blocks = create_links_wrapper(ternary(html_markup, html_markup .. separator, '') .. pdf_markup)
+    links_blocks = create_links_wrapper(
+      ternary(not quarto.doc.is_format("html"), html_markup .. separator, '') 
+      .. ternary(not quarto.doc.is_format("pdf"), pdf_markup, ''))
   end
 
   local body_blocks = pandoc.List:new{}
