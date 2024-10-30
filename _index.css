@@ -1,7 +1,5 @@
 .quarto-title .quarto-categories {
-    column-gap: 0;
-    display: block;
-    line-height: 1.8;
+    column-gap: 0
 }
 
 .quarto-title .quarto-categories .quarto-category {
@@ -11,14 +9,9 @@
     border: 0;
     border-radius: 1.25rem;
     opacity: 1;
-    display: inline;
 }
 
-.quarto-title .quarto-categories .quarto-category > span {
-    display: inline-block;
-}
-
-.quarto-title .quarto-categories .quarto-category:not(:last-child) > span:after {
+.quarto-title .quarto-categories .quarto-category:not(:last-child):after {
     content: "\A";
     width: 10px;
     height: 10px;

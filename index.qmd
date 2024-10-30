@@ -6,12 +6,11 @@ listing:
 metadata-files: 
   - _index.yml
 categories:
-  - artificial <span>intelligence</span>
-  - data <span>science</span>
-  - cyber <span>security</span>
-  - <span>money</span>
-  - <span>ideas</span>
-  - <span>news</span>
+  - artificial intelligence
+  - data science
+  - cyber security
+  - ideas
+  - news
 ---
 
 :::{#posts-listing}
