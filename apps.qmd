@@ -8,7 +8,7 @@ listing:
   sort: "date desc"
   type: grid
   fields: [image, title, subtitle]
-  filter-ui: true
+  filter-ui: false
   feed:
     type: partial
 ---

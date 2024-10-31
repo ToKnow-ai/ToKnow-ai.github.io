@@ -7,15 +7,15 @@ listing:
   type: default
   categories: true
   sort-ui: false
-  filter-ui: true
+  filter-ui: false
 page-layout: full
 title-block-banner: true
 categories:
   - artificial-intelligence
   - data-science
   - cyber-security
-  - money
   - ideas
+  - news
 format:
   html:
     css: _index.css
