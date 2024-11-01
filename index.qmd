@@ -10,9 +10,7 @@ categories:
   - data science
   - cyber security
   - ideas
-  - news
 ---
 
 :::{#posts-listing}
 :::
-
