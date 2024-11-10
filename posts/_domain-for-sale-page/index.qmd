@@ -1,0 +1,6 @@
+Domain sale at: https://htmlpreview.github.io/?https://github.com/OarkLimited/Kiira/blob/master/Coming%20Soon/index.html
+
+for example: /index?domain=toknow.ai
+
+use the first letter "T" as icon
+
