@@ -15,6 +15,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          # Create Token at - https://github.com/settings/tokens
+          # Add the token to - https://github.com/ToKnow-ai/ToKnow-ai.github.io/settings/secrets/actions (Repository secrets)
+          # https://github.com/actions/checkout/issues/287#issuecomment-780483104
+          # https://github.com/marketplace/actions/clone-github-repo-action#for-a-private-repository
           token: ${{ secrets.GH_PAT }}
       
       - name: Reset gh-pages branch
