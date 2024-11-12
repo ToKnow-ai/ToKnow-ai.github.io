@@ -1,6 +1,6 @@
 ---
 title: "Domain For Sale"
-description: "Domain For Sale"
+description: "You can own the below domains, but them..."
 ---
 
  - [Wachawi.com](wachawi.com)
@@ -22,4 +22,6 @@ https://stackoverflow.com/a/8306712
 https://www.labnol.org/code/19233-submit-forms-with-javascript
 
 https://developers.cloudflare.com/pages/configuration/custom-domains/ 
+
+https://developers.cloudflare.com/pages/framework-guides/deploy-anything/
 -->
