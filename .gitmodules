@@ -4,3 +4,9 @@
 [submodule "posts/private-domain-checker/private-domain-checker"]
 	path = posts/private-domain-checker/private-domain-checker
 	url = https://huggingface.co/spaces/ToKnow-ai/private-domain-checker
+[submodule "posts/_add-google-analytics-views/google-analytics-views-cloudflare-worker"]
+	path = posts/_add-google-analytics-views/google-analytics-views-cloudflare-worker
+	url = https://github.com/ToKnow-ai/google-analytics-views-cloudflare-worker.git
+[submodule "domain-for-sale-page"]
+	path = domain-for-sale-page
+	url = https://github.com/ToKnow-ai/domain-for-sale-page.git

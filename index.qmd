@@ -9,10 +9,8 @@ categories:
   - artificial intelligence
   - data science
   - cyber security
-  - money
   - ideas
 ---
 
 :::{#posts-listing}
 :::
-
