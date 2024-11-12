@@ -1,0 +1,12 @@
+---
+title: "Domain For Sale"
+date: "2024-11-04"
+categories: 
+    - ideas
+keyboards:
+    - domain-for-sale
+description: "Artificial Intelligence (AI) is currently replacing simple tasks and some major tasks. Suppose we are to assume that AI is to incrementally become better, it will change most aspects of how we live our lives. If it becomes even stronger, it will probably change the future of humanity."
+---
+
+<iframe src="page/index.html"></iframe>
+

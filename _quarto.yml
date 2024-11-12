@@ -22,6 +22,10 @@ project:
     # when rendering a different notebook (index.render.ipynb) with output-file: index, despite the original 
     # file being explicitly ignored in the project configuration. #10841
     - ./quarto_scripts/python/pre_render_util.py "posts/**/*.render.ipynb" "./quarto_scripts/python/add_metadata.py" "format.ipynb.output-file=index.output"
+    # ipynb:
+    #    # without this, dataframe tables are ignored in `format:ipynb`
+    #    html-table-processing: none
+    - ./quarto_scripts/python/pre_render_util.py "posts/**/*.render.ipynb" "./quarto_scripts/python/add_metadata.py" "format.ipynb.html-table-processing=none"
     - ./quarto_scripts/python/pre_render_util.py "posts/**/*.render.ipynb" "./quarto_scripts/python/pluck_metadata_filter.py"
     - ./quarto_scripts/python/pre_render_util.py "posts/**/*.render.ipynb" "./quarto_scripts/python/markdown_code_options.py"
   render:
