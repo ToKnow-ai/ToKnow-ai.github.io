@@ -4,3 +4,10 @@ for example: /index?domain=toknow.ai
 
 use the first letter "T" as icon
 
+
+https://pqvst.com/2021/12/28/custom-google-forms/
+
+https://stackoverflow.com/a/8306712
+
+https://www.labnol.org/code/19233-submit-forms-with-javascript
+
