@@ -64,7 +64,7 @@ website:
       - about.qmd
     right:
       - href: domains-for-sale.qmd
-        text: Domain 4 Sale
+        text: Domains 4 Sale
       - icon: github
         href: https://github.com/ToKnow-ai
         aria-label: Github - ToKnow.ai
