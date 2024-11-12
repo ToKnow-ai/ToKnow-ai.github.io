@@ -21,4 +21,3 @@ https://stackoverflow.com/a/8306712
 https://www.labnol.org/code/19233-submit-forms-with-javascript
 
 https://developers.cloudflare.com/pages/configuration/custom-domains/
-
