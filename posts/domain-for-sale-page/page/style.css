@@ -124,6 +124,11 @@ html {
   border-radius: 4px;
 }
 
+.wrapper .description .description-wrapper .email {
+  display: block;
+  text-align: center;
+}
+
 @media (max-width: 575px) {
   .wrapper .wrapper-cell {
     display: table-row;

@@ -45,7 +45,10 @@
             <div style="height:0;">&nbsp;</div>
             <div class="description">
                 <div class="description-wrapper">
-                    <h1 class="headline">Contact us</h1>
+                    <h1 class="headline">Contact</h1>
+                    <p class="email">
+                        ask@toknow.ai
+                    </p>
                     <form method="post" target="hidden-form"
                         action="https://docs.google.com/forms/d/e/1FAIpQLSf_mqbdbQyvp0qz9ujq24vQ5HFLMtm2vWJWhKfEv_Lsjvjv3Q/formResponse">
                     
@@ -69,7 +72,11 @@
         </div>
     </div>
     <script type="text/javascript">
-        const searchParams = [...new URL(location.href).searchParams.entries()]
+        const searchParams = [
+            ["domain", location.hostname], 
+            ...new URL(location.href).searchParams.entries()
+        ]
+        
         for (const [queryKey, queryValue] of searchParams) {
             const _queryKey = (queryKey || '').toLowerCase().trim();
             if (_queryKey === "domain") {
