@@ -2,6 +2,8 @@ profile:
   default: ignore
 project:
   type: website
+  resources:
+    - ".well-known/*"
   # # https://github.com/chrisvoncsefalvay/chrisvoncsefalvay.github.io/blob/main/_quarto.yml
   # # https://quarto.org/docs/projects/scripts.html#pre-and-post-render
   pre-render:
@@ -64,7 +66,7 @@ website:
       - about.qmd
     right:
       - href: domains-for-sale.qmd
-        text: Domain 4 Sale
+        text: Domains 4 Sale
       - icon: github
         href: https://github.com/ToKnow-ai
         aria-label: Github - ToKnow.ai
@@ -99,6 +101,3 @@ shortcodes:
   - quarto_scripts/lua/bash.lua
   - quarto_scripts/lua/pagepath.lua
   - quarto_scripts/lua/iframe.lua
-
-
-
