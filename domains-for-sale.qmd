@@ -1,9 +1,64 @@
 ---
 title: "Domains For Sale"
-description: "You can own below domains for your business or side hussle, buy them..."
+description: "You can own below domains for your business or side hussle..."
 ---
 
  - [Wachawi.com](https://wachawi.com/)
+
+
+### Need help to find a good domain? {.pt-3}
+
+If you don't like any of the above domains, we can help you find a short and memorable domain name.
+Fill the below form with the kind of domain you'd like.
+
+```{=html}
+<form 
+  class="help-me-find-a-domain card card-body" 
+  method="post" 
+  target="hidden-form"
+  action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdZXoFm93ZZDqbDCsWHOXixJkiO_oXlYCKOun2eN0hIwUKjWA/formResponse">
+  <div class="mb-3">
+    <label class="form-label">Your Name</label>
+    <input name="entry.2005620554" type="text" class="form-control form-control-sm" placeholder="Jane Doe" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input name="entry.1045781291" type="email" class="form-control form-control-sm" placeholder="email@example.com" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Domain Purpose</label>
+    <input name="entry.1065046570" type="text" class="form-control form-control-sm" placeholder="Restaurant / Influencer / Youtube Channel / Women Products / Children Toys" required />
+    <div class="form-text">What do you want to use the domain for?</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Domain Target Audience</label>
+    <input name="entry.1166974658" type="text" class="form-control form-control-sm" placeholder="Worldwide / USA / Kenya / Women / Children" required />
+    <div class="form-text">Who is your primary target for whatever you want to use the domain for?</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <iframe style="display:none" name="hidden-form"></iframe>
+  <script type="text/javascript">
+      document.querySelector('form.help-me-find-a-domain').addEventListener('submit', (e) => {
+          setTimeout(() => {
+              e.target.closest('form').reset();
+              alert('Thank you, we\'ll get in touch!')
+          }, 500)
+      }, false)
+    </script>
+</form>
+```
+
+### Want to safely search a domain? {.pt-3}
+
+There are a few things to keep in mind when searching a domain, read [/posts/private-domain-checker](/posts/private-domain-checker/index.html).
+You can use the below tool to search domains privately.
+
+{{< iframe 
+  'loading private domain checker...' 
+  src="https://toknow-ai-private-domain-checker.hf.space"
+  frameborder="0"
+  width="100%"
+  height="440px" >}}
 
 
 

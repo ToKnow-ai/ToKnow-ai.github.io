@@ -25,3 +25,25 @@ add counter https://api.visitorbadge.io/api/visitors?path=...
 [`ipynb-output: all,none,best`](https://quarto.org/docs/reference/formats/ipynb.html) does not WORK
 
 links to run in deepnote and colab
+
+Opening hugging space iframes (perhaps add ability to add domain to the URL?)
+https://stackoverflow.com/a/5697801
+https://chromium.googlesource.com/chromium/src/+/master/docs/security/lookalikes/lookalike-domains.md
+```json
+[
+  {
+    "relation": ["lookalikes/allowlist"],
+    "target": { 
+        "namespace": "web", 
+        "site": "https://toknow.ai" 
+    }
+  },
+  {
+    "relation": ["lookalikes/allowlist"],
+    "target": { 
+        "namespace": "web", 
+        "site": "https://toknow-ai-private-domain-checker.hf.space" 
+    }
+  }
+]
+```
