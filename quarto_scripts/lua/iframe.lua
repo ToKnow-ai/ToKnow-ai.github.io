@@ -27,6 +27,10 @@ return {
       -- @type iframe_attrs string
       local iframe_attrs = 'style="opacity: 0; background-color: #fff3cd;"'
       for key, value in pairs(kwargs) do
+        -- if key == "src" then
+        --   -- https://stackoverflow.com/a/5697801
+        --   value = value .. '?parent_url=encodeURIComponent(document.URL)'
+        -- end
         iframe_attrs = iframe_attrs .. string.format(' %s="%s"', key, value)
       end
 
