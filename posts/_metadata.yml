@@ -55,6 +55,8 @@ filters:
   - at: post-render
     path: ../quarto_scripts/lua/output_when_format.lua
   - at: post-render
+    path: ../quarto_scripts/lua/page_views.lua
+  - at: post-render
     path: ../quarto_scripts/lua/must_have_one_main_category.lua
   - at: post-render
     path: ../quarto_scripts/lua/remove_empty_blocks.lua
