@@ -29,3 +29,7 @@
 #quarto-content .thumbnail-image, #quarto-content .figure-img {
     border: 1px solid;
 }
+
+main.content iframe {
+    border: 1px solid rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));;
+}
