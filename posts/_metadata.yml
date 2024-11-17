@@ -21,6 +21,7 @@ license:
   url: https://www.gnu.org/licenses/gpl-3.0.en.html
 format:
   html:
+    css: _post-styles.css
     # # https://github.com/microsoft/vscode-jupyter/issues/6999
     # pio.renderers.default = "plotly_mimetype+notebook_connected"
     plotly-connected: true

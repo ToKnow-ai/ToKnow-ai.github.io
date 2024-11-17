@@ -29,9 +29,3 @@
 #quarto-content .thumbnail-image, #quarto-content .figure-img {
     border: 1px solid;
 }
-
-/* Links in posts overflow */
-main.content a {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
