@@ -31,7 +31,7 @@
 }
 
 /* Links in posts overflow */
-a {
+main ul a {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
