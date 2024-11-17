@@ -3,3 +3,7 @@ main.content a {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
+main.content iframe {
+    border: 1px solid rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));;
+}
