@@ -1,0 +1,5 @@
+/* Links in posts overflow */
+main.content a {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
