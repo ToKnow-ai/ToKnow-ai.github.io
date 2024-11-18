@@ -3,7 +3,6 @@ title: "Artificial General Intelligence"
 date: "2024-06-04"
 image: "pexels-googledeepmind-17485658.jpg"
 categories: 
-    - ideas
     - artificial-intelligence
 keyboards:
     - AGI
