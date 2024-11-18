@@ -3,7 +3,3 @@ main.content a {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
-
-main.content iframe {
-    border: 1px solid;
-}
