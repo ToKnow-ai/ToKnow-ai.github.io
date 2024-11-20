@@ -41,6 +41,13 @@ return {
             .]] .. iframe_container_class .. [[ {
                 /* To position the loading */
                 position: relative;
+                /* Take full size */
+                height: 100%;
+                width: 100%;
+                /* Center */
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             .iframe-loading {
                 /* Absolute position */

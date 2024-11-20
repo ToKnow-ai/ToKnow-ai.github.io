@@ -10,3 +10,6 @@
 [submodule "posts/balancing-between-paywalls-and-search-engine-optimization/bypassing-nation-media-group-paywall"]
 	path = posts/balancing-between-paywalls-and-search-engine-optimization/bypassing-nation-media-group-paywall
 	url = https://github.com/ToKnow-ai/bypassing-nation-media-group-paywall.git
+[submodule "posts/display-google-analytics-views-using-cloudflare-worker/display-google-analytics-views-using-cloudflare-worker"]
+	path = posts/display-google-analytics-views-using-cloudflare-worker/display-google-analytics-views-using-cloudflare-worker
+	url = https://github.com/ToKnow-ai/display-google-analytics-views-using-cloudflare-worker.git
