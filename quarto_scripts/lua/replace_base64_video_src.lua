@@ -12,7 +12,9 @@ local get_youtube_image = function(video_src)
     -- "https://youtu.be/kCc8FmEb1nY?si=77OsaKikOnJgRRRy"
     string.match(video_src, ".+youtu.be/([%w]+).*$") or
     -- "https://www.youtube.com/embed/kCc8FmEb1nY?si=XspSx2xnp7xhYgDe"
-    string.match(video_src, ".+youtube.com/embed/(.+)%?.+$")
+    -- "https://www.youtube.com/embed/kCc8FmEb1nY?"
+    -- "https://www.youtube.com/embed/kCc8FmEb1nY"
+    string.match(video_src, ".+youtube%.com/embed/([^%?]+)")
   if video_id then
     return 'https://img.youtube.com/vi/' .. video_id .. '/hqdefault.jpg'
   end
@@ -113,9 +115,9 @@ end
 ---@param meta pandoc.MetaBlocks
 ---@return pandoc.Block, pandoc.MetaBlocks
 local function replace_base64_video_src(video_src, block, sibling_match_count, meta)
-  if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
-    return block, meta
-  end
+  -- if not (str_ends_with(quarto.doc.input_file, ".ipynb")) then
+  --   return block, meta
+  -- end
   
   if quarto.doc.is_format('pdf') then
     return pdf_src_block(video_src.value), meta
@@ -128,4 +130,28 @@ local function replace_base64_video_src(video_src, block, sibling_match_count, m
   return block, meta
 end
 
-return notebook_special_comments_walker('video-src', replace_base64_video_src, is_output_cell)
+---@param block pandoc.Div -- |pandoc.CodeBlock
+---@return boolean
+local child_predicate = function (block)
+  if block.t == "CodeBlock" then
+    return false
+  end
+  if is_output_cell(block) then
+    return true
+  end
+  if block.content and #block.content > 0 then
+    for _, element in ipairs(block.content) do
+      if element and element.t == "CodeBlock" then
+        return false
+      end
+    end
+  end
+  return true
+end
+
+
+
+return {
+  Pandoc = notebook_special_comments_walker('video-src', replace_base64_video_src, child_predicate)['Pandoc'],
+  replace_base64_video_src = replace_base64_video_src
+}
