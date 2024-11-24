@@ -4,12 +4,12 @@
 [submodule "posts/private-domain-checker/private-domain-checker"]
 	path = posts/private-domain-checker/private-domain-checker
 	url = https://huggingface.co/spaces/ToKnow-ai/private-domain-checker
-[submodule "posts/_add-google-analytics-views/google-analytics-views-cloudflare-worker"]
-	path = posts/_add-google-analytics-views/google-analytics-views-cloudflare-worker
-	url = https://github.com/ToKnow-ai/google-analytics-views-cloudflare-worker.git
 [submodule "domain-for-sale-page"]
 	path = domain-for-sale-page
 	url = https://github.com/ToKnow-ai/domain-for-sale-page.git
 [submodule "posts/balancing-between-paywalls-and-search-engine-optimization/bypassing-nation-media-group-paywall"]
 	path = posts/balancing-between-paywalls-and-search-engine-optimization/bypassing-nation-media-group-paywall
 	url = https://github.com/ToKnow-ai/bypassing-nation-media-group-paywall.git
+[submodule "posts/display-google-analytics-views-using-cloudflare-worker/display-google-analytics-views-using-cloudflare-worker"]
+	path = posts/display-google-analytics-views-using-cloudflare-worker/display-google-analytics-views-using-cloudflare-worker
+	url = https://github.com/ToKnow-ai/display-google-analytics-views-using-cloudflare-worker.git

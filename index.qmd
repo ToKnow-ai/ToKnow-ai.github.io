@@ -9,7 +9,7 @@ categories:
   - artificial intelligence
   - data science
   - cyber security
-  - ideas
+  - software engineering
 ---
 
 :::{#posts-listing}

@@ -26,12 +26,12 @@
     max-height: 34px;
 }
 
-#quarto-content .thumbnail-image, #quarto-content .figure-img {
-    border: 1px solid;
+main.content {
+    max-width: 100%;
+    overflow: hidden;
 }
 
-/* Links in posts overflow */
-a {
-    white-space: pre-wrap;
-    word-wrap: break-word;
+main.content iframe, main.content .thumbnail-image, main.content .figure-img {
+    border: var(--quarto-border-width) solid var(--quarto-border-color);
+    border-radius: var(--quarto-border-radius);
 }
