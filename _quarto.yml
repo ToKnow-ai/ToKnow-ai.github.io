@@ -92,6 +92,7 @@ format:
       dark: darkly
     css: _styles.css
     link-external-newwindow: true
+    link-external-filter: '^(?:http:|https:)\/\/toknow\.ai\/'
     canonical-url: true
 execute:
   freeze: auto
