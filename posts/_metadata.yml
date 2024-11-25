@@ -45,6 +45,8 @@ format:
 filters:
   - at: pre-ast
     path: ../quarto_scripts/lua/create_href.lua
+  # - at: pre-ast
+  #   path: ../quarto_scripts/lua/image_frame.lua
   - ../quarto_scripts/lua/markdown_code_options.lua
   - ../quarto_scripts/lua/disclaimer.lua
   - ../quarto_scripts/lua/post_action_buttons.lua
