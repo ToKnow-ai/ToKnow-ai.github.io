@@ -3,7 +3,7 @@ local bash = require "bash"
 --- is_empty_table
 ---@param table table<any, any> | any
 ---@return boolean
-local is_empty_table = function (table)
+local is_not_empty_table = function (table)
     if type(table) == "table" then
         for k, v in pairs(table) do
             return true
@@ -30,7 +30,7 @@ return {
             --- @type table<string, string>
             --- @diagnostic disable-next-line: assign-type-mismatch
             local image_attrs = doc.meta['image-attrs'] or {}
-            if is_empty_table(image_attrs) then
+            if is_not_empty_table(image_attrs) then
                 local blocks = doc.blocks:walk {
                     ---@param image pandoc.Image
                     ---@return pandoc.Inline|pandoc.List|nil

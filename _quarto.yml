@@ -101,4 +101,4 @@ shortcodes:
   - quarto_scripts/lua/bash.lua
   - quarto_scripts/lua/pagepath.lua
   - quarto_scripts/lua/iframe.lua
-  - quarto_scripts/lua/video-src.lua
+  - quarto_scripts/lua/video_src.lua
