@@ -10,8 +10,8 @@ project:
     # Start by deleting temporary files
     - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
     - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
-    # Delete ignored files for a clean build
-    - git clean -Xdf posts/
+    # # Delete ignored files for a clean build
+    # - git clean -Xdf posts/
     # Delete empty directories
     - find posts/ -type d -empty -delete
     # # Delete old drafts' file
@@ -37,8 +37,8 @@ project:
     # Finish by deleting temporary files
     - ./quarto_scripts/python/delete_util.py "posts/**/*.render.ipynb"
     - ./quarto_scripts/python/delete_util.py "_quarto-ignore.yml"
-    # Delete ignored files for a clean build
-    - git clean -Xdf posts/
+    # # Delete ignored files for a clean build
+    # - git clean -Xdf posts/
     # Delete empty directories
     - find posts/ -type d -empty -delete
     - ./quarto_scripts/python/add_to_sitemap.py "pdf,output.ipynb"
@@ -85,6 +85,7 @@ website:
         href: terms-of-service.qmd
       - text: "License"
         href: LICENSE
+      - <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&label=total%20website%20views" />
 format:
   html:
     theme:
