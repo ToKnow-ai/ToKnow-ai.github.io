@@ -47,3 +47,9 @@ https://chromium.googlesource.com/chromium/src/+/master/docs/security/lookalikes
   }
 ]
 ```
+
+
+SVG IMAGES NOT WORKING FOR PDF despite the claim: <https://quarto.org/docs/prerelease/1.3/pdf.html#remote-images>
+![](https://quarto.org/quarto.png)
+
+![](https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg?test.png)
