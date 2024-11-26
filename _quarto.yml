@@ -92,6 +92,7 @@ format:
       dark: darkly
     css: _styles.css
     link-external-newwindow: true
+    # Don't strip index.html from external links #11527 (https://github.com/quarto-dev/quarto-cli/issues/11527)
     link-external-filter: '^(?:http:|https:)\/\/toknow\.ai\/'
     canonical-url: true
 execute:
