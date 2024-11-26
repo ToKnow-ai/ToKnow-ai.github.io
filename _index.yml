@@ -11,6 +11,11 @@ listing:
 page-layout: full
 title-block-banner: true
 categories:
+  - artificial intelligence
+  - data science
+  - cyber security
+  - software engineering
+enforce-categories:
   - artificial-intelligence
   - data-science
   - cyber-security

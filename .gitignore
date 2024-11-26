@@ -182,3 +182,4 @@ posts/*/index.output.ipynb
 apps.tex
 apps.aux
 SERVICE_ACCOUNT_CREDENTIALS.json
+posts/*/*render_files/*
