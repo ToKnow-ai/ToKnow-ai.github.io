@@ -5,11 +5,6 @@ listing:
     type: partial
 metadata-files: 
   - _index.yml
-categories:
-  - artificial intelligence
-  - data science
-  - cyber security
-  - software engineering
 ---
 
 :::{#posts-listing}
