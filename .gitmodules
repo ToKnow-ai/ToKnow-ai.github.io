@@ -1,9 +1,9 @@
 [submodule "posts/shazam-playlist-to-youtube-playlist/shazam-playlist-to-youtube-playlist"]
 	path = posts/shazam-playlist-to-youtube-playlist/shazam-playlist-to-youtube-playlist
-	url = https://huggingface.co/spaces/ToKnow-ai/shazam-playlist-to-youtube-playlist
+	url = https://github.com/ToKnow-ai/shazam-playlist-to-youtube-playlist.git
 [submodule "posts/private-domain-checker/private-domain-checker"]
 	path = posts/private-domain-checker/private-domain-checker
-	url = https://huggingface.co/spaces/ToKnow-ai/private-domain-checker
+	url = https://github.com/ToKnow-ai/private-domain-checker.git
 [submodule "domain-for-sale-page"]
 	path = domain-for-sale-page
 	url = https://github.com/ToKnow-ai/domain-for-sale-page.git
