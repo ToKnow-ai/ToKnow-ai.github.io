@@ -89,7 +89,7 @@ website:
         href: terms-of-service.qmd
       - text: "License"
         href: LICENSE
-      - <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&label=total%20website%20views" />
+      - <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&label=readers%20count" />
 format:
   html:
     theme:
