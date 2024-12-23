@@ -1,4 +1,7 @@
 {
-    "cSpell.enabled": false,
-    "CodeGPT.apiKey": "Anthropic"
+  "cSpell.enabled": false,
+  "CodeGPT.apiKey": "Anthropic",
+  "files.associations": {
+    "*.html": "jinja-html"
+  }
 }
