@@ -35,3 +35,7 @@ main.content iframe, main.content .thumbnail-image, main.content .figure-img {
     border: var(--quarto-border-width) solid var(--quarto-border-color);
     border-radius: var(--quarto-border-radius);
 }
+
+.dataframe thead th {
+    text-align: left !important;
+}
