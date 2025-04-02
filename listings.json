@@ -1,0 +1,33 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/the-kenyan-startup-bill-2022/index.html",
+      "/posts/kenya-artificial-intelligence-strategy-2025-2030/index.html",
+      "/posts/optimizing-css-extraction-in-webpack-5/index.html",
+      "/posts/computational-techniques-in-data-science/graph-theory/index.html",
+      "/posts/computational-techniques-in-data-science/linear-programming-optimizing-linear-objective-function-with-constraints/index.html",
+      "/posts/licenced-hospitals-clinics-and-dispensaries-in-kenya-year-2025/index.html",
+      "/posts/life-expectancy-age-gender-and-counties-in-kenya/index.html",
+      "/posts/computational-techniques-in-data-science/random-walk/index.html",
+      "/posts/computational-techniques-in-data-science/stochastic-programming-and-applications/index.html",
+      "/posts/kenya-life-expectancy-between-2000-and-2021/index.html",
+      "/posts/display-google-analytics-views-using-cloudflare-worker/index.html",
+      "/posts/private-domain-checker/index.html",
+      "/posts/balancing-between-paywalls-and-search-engine-optimization/index.html",
+      "/posts/summary-of-registered-entities-and-companies-in-kenya/index.html",
+      "/posts/kenyan-collective-investment-schemes-dataset/index.html",
+      "/posts/quarto-resume-template/index.html",
+      "/posts/shazam-playlist-to-youtube-playlist/index.html",
+      "/posts/kenya-population-from-1974-to-2022/index.html",
+      "/posts/artificial-general-intelligence/index.html"
+    ]
+  },
+  {
+    "listing": "/apps.html",
+    "items": [
+      "/apps/private-domain-checker.html",
+      "/apps/shazam-playlist-to-youtube-playlist.html"
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/apps.html</link>
+<atom:link href="https://toknow.ai/apps.xml" rel="self" type="application/rss+xml"/>
+<description>ToKnow.ai aims to extract knowledge from information in order to generate valuable insights and intelligence.</description>
+<image>
+<url>https://toknow.ai/images/logo.png</url>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/apps.html</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Wed, 02 Apr 2025 20:14:35 GMT</lastBuildDate>
+<item>
+  <title>Private Domain Checker</title>
+  <link>https://toknow.ai/apps/private-domain-checker.html</link>
+  <description><![CDATA[ 
+ ]]></description>
+  <guid>https://toknow.ai/apps/private-domain-checker.html</guid>
+  <pubDate>Wed, 02 Apr 2025 20:14:35 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/private-domain-checker/post.png" medium="image" type="image/png" height="107" width="144"/>
+</item>
+<item>
+  <title>Convert Your Shazam Playlist to YouTube Playlist</title>
+  <link>https://toknow.ai/apps/shazam-playlist-to-youtube-playlist.html</link>
+  <description><![CDATA[ 
+ ]]></description>
+  <guid>https://toknow.ai/apps/shazam-playlist-to-youtube-playlist.html</guid>
+  <pubDate>Wed, 02 Apr 2025 20:14:35 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/shazam-playlist-to-youtube-playlist/post.png" medium="image" type="image/png" height="120" width="144"/>
+</item>
+</channel>
+</rss>

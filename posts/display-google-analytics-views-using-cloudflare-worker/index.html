@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kabui, Charles">
+<meta name="dcterms.date" content="2024-11-23">
+<meta name="keywords" content="page-views, page-reads, google-analytics, cloudflare-workers, github-pages, static-pages, azure-functionns, lambda-functions, google-cloud-functions, serverless-architecture">
+<meta name="description" content="Engagement on websites and blogs is often measured through view counts. However, not all views represent meaningful engagement. External services like VisitorBadge.io can display view counts via an SVG image, but they lack the ability to delay view triggers while showing current counts. An alternative is using Google Analytics, which provides comprehensive website health metrics. For architectural simplicity and compatibility, especially with static websites, a Cloudflare worker can be used to fetch and display views from Google Analytics.">
+
+<title>Free, Intelligent and Serverless Page View/Read Count using Google Analytics and Cloudflare Workers – ToKnow.ai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-69723e077026ad4a321bed14f8700e6d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-35322284f6b9dd1705f24f61da0789cd.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4R9DMKF8S7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R9DMKF8S7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../_styles.css">
+<link rel="stylesheet" href="../_post-styles.css">
+<meta property="og:title" content="Free, Intelligent and Serverless Page View/Read Count using Google Analytics and Cloudflare Workers – ToKnow.ai">
+<meta property="og:description" content="Engagement on websites and blogs is often measured through view counts. However, not all views represent meaningful engagement. External services like VisitorBadge.io can display view counts via an SVG image, but they lack the ability to delay view triggers while showing current counts. An alternative is using Google Analytics, which provides comprehensive website health metrics. For architectural simplicity and compatibility, especially with static websites, a Cloudflare worker can be used to fetch and display views from Google Analytics.">
+<meta property="og:image" content="https://toknow.ai/pageviews?page_path=/">
+<meta property="og:site_name" content="ToKnow.ai">
+<meta name="twitter:title" content="Free, Intelligent and Serverless Page View/Read Count using Google Analytics and Cloudflare Workers – ToKnow.ai">
+<meta name="twitter:description" content="Engagement on websites and blogs is often measured through view counts. However, not all views represent meaningful engagement. External services like VisitorBadge.io can display view counts via an SVG image, but they lack the ability to delay view triggers while showing current counts. An alternative is using Google Analytics, which provides comprehensive website health metrics. For architectural simplicity and compatibility, especially with static websites, a Cloudflare worker can be used to fetch and display views from Google Analytics.">
+<meta name="twitter:image" content="https://toknow.ai/pageviews?page_path=/">
+<meta name="twitter:site" content="@ToKnow_ai">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html">
+<meta name="citation_title" content="Free, Intelligent and Serverless Page View/Read Count using Google Analytics and Cloudflare Workers">
+<meta name="citation_keywords" content="page-views,page-reads,google-analytics,cloudflare-workers,github-pages,static-pages,azure-functionns,lambda-functions,google-cloud-functions,serverless-architecture">
+<meta name="citation_author" content="Kabui, Charles">
+<meta name="citation_publication_date" content="2024-11-23">
+<meta name="citation_cover_date" content="2024-11-23">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-11-23">
+<meta name="citation_fulltext_html_url" content="https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html">
+<meta name="citation_language" content="en-GB">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ToKnow.ai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../apps.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../domains-for-sale.html"> 
+<span class="menu-text">Domains 4 Sale</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ToKnow-ai"> <i class="bi bi-github" role="img" aria-label="Github - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ToKnow_ai"> <i class="bi bi-twitter" role="img" aria-label="Twitter - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img" aria-label="ToKnow.ai RSS">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Free, Intelligent and Serverless Page View/Read Count using Google Analytics and Cloudflare Workers</h1>
+            <p class="subtitle lead">Using Google Analytics to generate a SVG image of the Page Reader/View Count through Cloudflare Workers</p>
+                  <div>
+        <div class="description">
+          Engagement on websites and blogs is often measured through view counts. However, not all views represent meaningful engagement. External services like VisitorBadge.io can display view counts via an SVG image, but they lack the ability to delay view triggers while showing current counts. An alternative is using Google Analytics, which provides comprehensive website health metrics. For architectural simplicity and compatibility, especially with static websites, a Cloudflare worker can be used to fetch and display views from Google Analytics.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">software-engineering</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kabui, Charles <a href="mailto:kabui@toknow.ai" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">23 November 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>page-views, page-reads, google-analytics, cloudflare-workers, github-pages, static-pages, azure-functionns, lambda-functions, google-cloud-functions, serverless-architecture</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#authenticating-and-authorizing-google-analytics-apis" id="toc-authenticating-and-authorizing-google-analytics-apis" class="nav-link active" data-scroll-target="#authenticating-and-authorizing-google-analytics-apis">Authenticating and Authorizing Google Analytics APIs</a></li>
+  <li><a href="#google-apis-explorer" id="toc-google-apis-explorer" class="nav-link" data-scroll-target="#google-apis-explorer">Google APIs Explorer</a></li>
+  <li><a href="#python-example" id="toc-python-example" class="nav-link" data-scroll-target="#python-example">Python Example</a>
+  <ul>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#tests" id="toc-tests" class="nav-link" data-scroll-target="#tests">Tests</a></li>
+  </ul></li>
+  <li><a href="#using-cloudflare-worker" id="toc-using-cloudflare-worker" class="nav-link" data-scroll-target="#using-cloudflare-worker">Using Cloudflare Worker</a>
+  <ul>
+  <li><a href="#implementing-typescript-worker" id="toc-implementing-typescript-worker" class="nav-link" data-scroll-target="#implementing-typescript-worker">Implementing Typescript Worker</a></li>
+  <li><a href="#testing-deployment-and-troubleshooting-cloudflare-workers" id="toc-testing-deployment-and-troubleshooting-cloudflare-workers" class="nav-link" data-scroll-target="#testing-deployment-and-troubleshooting-cloudflare-workers">Testing, Deployment and Troubleshooting Cloudflare Workers</a></li>
+  </ul></li>
+  <li><a href="#alternatives-to-cloudflare" id="toc-alternatives-to-cloudflare" class="nav-link" data-scroll-target="#alternatives-to-cloudflare">Alternatives to Cloudflare</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.output.ipynb" download="index.output.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/display-google-analytics-views-using-cloudflare-worker" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://kaggle.com/kernels/welcome?src=https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.output.ipynb"><i class="bi bi-code-slash"></i> Open in Kaggle</a>
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.output.ipynb"><i class="bi bi-file-earmark-arrow-down-fill"></i> Download as Notebook</a>
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="post.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="post.jpg" class="no-frame img-fluid" loading="lazy" decoding="async"></a></p>
+<p>When you set up a website, blog, vlog, or social media post, you expect engagement. One of the simplest and most effective ways to measure engagement is through views. View count is effective because it measures both active and passive audience interaction. However, not all views represent actual engagement. For example, if one user reloads the same page a thousand times, it doesn’t represent a thousand unique viewers - it’s just one user refreshing repeatedly. They may not have even read the content. On the other hand, when a user returns multiple times to read content carefully, each visit could be considered meaningful engagement. To calculate actual reads, we need some intelligence in our tracking.</p>
+<p>In the case of a blog or website, one of the simplest ways to add some intelligence is to delay sending the view or read signal by for example 7 seconds. Another way is to wait for the user to scroll a page to about half the page before triggering a read count.</p>
+<p>You could also employ a free external service such as <a href="https://visitorbadge.io" class="uri">https://visitorbadge.io</a>, which receives the page url and returns an SVG image of the page count, for example:</p>
+<p><a href="https://api.visitorbadge.io/api/visitors?path=https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html" target="_blank">https://api.visitorbadge.io/api/visitors?path=https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html</a></p>
+<p>returns:</p>
+<p><a href="https://api.visitorbadge.io/api/visitors?path=https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html&amp;name.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://api.visitorbadge.io/api/visitors?path=https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html&amp;name.svg" class="img-fluid" data-extract-media="false" loading="lazy" decoding="async"></a></p>
+<p>One of the drawback of this strategy is we can’t delay the tigger of view count and show the current views/reads at the same time.</p>
+<p>Ofcourse, you can implement a backend service to save and read the views. However, for a static websites and blogs such as this one (hosted as github pages), that would go aganist the current architecture.</p>
+<p>Another alternative would be to utilize Google analytics. Google analytics can be added not just for the views, but to measure the overall health of the website/blog. If google analytics is your primary analytics tool for your website/blog, why not just show the views they have calculated?</p>
+<p>To ensure we dont affect the current architecture, we can use a cloudflare worker to fetch views from google analytics.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://developers.google.com/analytics">Google Analytics</a> helps website and app owners track and analyze their website traffic.</p>
+<p>It gives insights into how users interact with your website, such as which pages they visit, how long they stay, and where they come from, demographics, page views, session duration, and more. To set up Google Analytics, create a Google account, set up a property for your website, and add the provided tracking code to your website’s HTML.</p>
+<p>For a step-by-step guide on how to set up Google Analytics, read <a href="https://dev.to/codesphere/setting-up-google-analytics-on-your-static-website-47mn" class="uri">https://dev.to/codesphere/setting-up-google-analytics-on-your-static-website-47mn</a> and <a href="https://morotsman.github.io/blog,/google/analytics,/jekyll,/github/pages/2020/07/07/add-google-analytics.html" class="uri">https://morotsman.github.io/blog,/google/analytics,/jekyll,/github/pages/2020/07/07/add-google-analytics.html</a> or watch the video below:</p>
+<div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/f3X-hYRxBL8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<img class="preview-image hidden" src="https://img.youtube.com/vi/f3X-hYRxBL8/hqdefault.jpg">
+</div>
+</div>
+</div>
+<section id="authenticating-and-authorizing-google-analytics-apis" class="level2">
+<h2 class="anchored" data-anchor-id="authenticating-and-authorizing-google-analytics-apis">Authenticating and Authorizing Google Analytics APIs</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This assumes you already have Google Analytics setup and running on one of your website/blog</p>
+</div>
+</div>
+<p>For a detailed guide on how to create a service account, download the <code>credentials.json</code> file, and connect the service account to the google analytics account, see <a href="https://developers.google.com/analytics/devguides/reporting/data/v1/quickstart-client-libraries" class="uri">https://developers.google.com/analytics/devguides/reporting/data/v1/quickstart-client-libraries</a>.</p>
+<p>The <code>credentials.json</code> file has the following json structure:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"service_account"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"project_id"</span><span class="fu">:</span> <span class="st">"..."</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"private_key_id"</span><span class="fu">:</span> <span class="st">"s6sdfsdf876...sdf7ygsf78fsd"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"private_key"</span><span class="fu">:</span> <span class="st">"-----BEGIN PRIVATE KEY-----</span><span class="ch">\n</span><span class="st">...</span><span class="ch">\n</span><span class="st">-----END PRIVATE KEY-----</span><span class="ch">\n</span><span class="st">"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"client_email"</span><span class="fu">:</span> <span class="st">"starting-account...iam.gserviceaccount.com"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"client_id"</span><span class="fu">:</span> <span class="st">"094534589...438598743"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"auth_uri"</span><span class="fu">:</span> <span class="st">"https://accounts.google.com/o/oauth2/auth"</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"token_uri"</span><span class="fu">:</span> <span class="st">"https://oauth2.googleapis.com/token"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"auth_provider_x509_cert_url"</span><span class="fu">:</span> <span class="st">"https://www.googleapis.com/oauth2/v1/certs"</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"client_x509_cert_url"</span><span class="fu">:</span> <span class="st">"https://www.googleapis.com/robot/v1/metadata/x509/starting-account...iam.gserviceaccount.com"</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"universe_domain"</span><span class="fu">:</span> <span class="st">"googleapis.com"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To get the Google Analytics property identifier, see <a href="https://developers.google.com/analytics/devguides/reporting/data/v1/property-id#what_is_my_property_id" class="uri">https://developers.google.com/analytics/devguides/reporting/data/v1/property-id#what_is_my_property_id</a></p>
+<p>We need both the Google Analytics property identifier (<code>properties/232..132</code>) and <code>credentials.json</code> file to be able to fetch analytics data.</p>
+</section>
+<section id="google-apis-explorer" class="level2">
+<h2 class="anchored" data-anchor-id="google-apis-explorer">Google APIs Explorer</h2>
+<p>Google provides an APIs Explorer specifically for testing Google Analytics Data API calls.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="google-explorer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Google Analytics API Explorer"><img src="google-explorer.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="Google Analytics API Explorer"></a></p>
+<figcaption>Google Analytics API Explorer</figcaption>
+</figure>
+</div>
+<p>Here’s how to use it:</p>
+<ul>
+<li>Visit: <a href="https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport" class="uri">https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport</a></li>
+<li>Replace <code>PROPERTY_ID</code> with your actual Google Analytics 4 property ID, instructions here: <a href="https://developers.google.com/analytics/devguides/reporting/data/v1/property-id" class="uri">https://developers.google.com/analytics/devguides/reporting/data/v1/property-id</a></li>
+<li>Use the following request body and update the <code>dateRanges.startDate</code> (format: <code>YYYY-MM-DD</code>), <code>dateRanges.endDate</code> (format: <code>YYYY-MM-DD</code>) and page path (<code>dimensionFilter.filter.stringFilter.value</code>) whose views you want to get. The <code>startDate</code> can be any old day, even older than the website and <code>endDate</code> can be any future date.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"dateRanges"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"startDate"</span><span class="fu">:</span> <span class="st">"2024-01-01"</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"endDate"</span><span class="fu">:</span> <span class="st">"2024-12-31"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">}</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a> <span class="dt">"dimensions"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">{</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"pagePath"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">}</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a> <span class="dt">"dimensionFilter"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"filter"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"fieldName"</span><span class="fu">:</span> <span class="st">"pagePath"</span><span class="fu">,</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"stringFilter"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       <span class="dt">"matchType"</span><span class="fu">:</span> <span class="st">"CONTAINS"</span><span class="fu">,</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>       <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"/posts/private-domain-checker"</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>     <span class="fu">}</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>   <span class="fu">}</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a> <span class="fu">},</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a> <span class="dt">"metrics"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>   <span class="fu">{</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"screenPageViews"</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>   <span class="fu">}</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Click the “<strong>Execute</strong>” button.</li>
+</ul>
+<p>This will allow you to send a test POST request with your configured parameters and see the response from the API, including any errors or the data you requested.</p>
+<p><strong>Success Response:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">HTTP/1.1</span> <span class="er">200</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"dimensionHeaders"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"pagePath"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"metricHeaders"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"screenPageViews"</span><span class="fu">,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"TYPE_INTEGER"</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"rows"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"dimensionValues"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>          <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"/posts/private-domain-checker/"</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"metricValues"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>          <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"82"</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"dimensionValues"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>          <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"/posts/private-domain-checker/index.html"</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"metricValues"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>          <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"5"</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"dimensionValues"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>          <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"/posts/private-domain-checker"</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"metricValues"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>          <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"2"</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"rowCount"</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"metadata"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"currencyCode"</span><span class="fu">:</span> <span class="st">"USD"</span><span class="fu">,</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"timeZone"</span><span class="fu">:</span> <span class="st">"Africa/Nairobi"</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"kind"</span><span class="fu">:</span> <span class="st">"analyticsData#runReport"</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p><strong>Error Reponse:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">HTTP/1.1</span> <span class="er">400</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"error"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">400</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"message"</span><span class="fu">:</span> <span class="st">"Invalid property ID: 465...623. A numeric Property ID is required. </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">    To learn more about Property ID, see </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">    https://developers.google.com/analytics/devguides/reporting/data/v1/property-id."</span><span class="fu">,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"INVALID_ARGUMENT"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="python-example" class="level2">
+<h2 class="anchored" data-anchor-id="python-example">Python Example</h2>
+<p>install the following packages, <a href="https://pypi.org/project/google-auth-oauthlib/"><code>google-auth-oauthlib</code></a> and <a href="https://pypi.org/project/google-api-python-client/"><code>google-api-python-client</code></a> for ease of authentication. You need to obtain a property_key and credentials from google. You also need to allow the credentials account to read the google analytics data. This is currently free and no cost is incured. below are the steps how to setup your analytics account, service account and obtain the credentials file.</p>
+<section id="code" class="level3">
+<h3 class="anchored" data-anchor-id="code">Code</h3>
+<div id="cell-12" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %pip install google-auth-oauthlib</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># %pip install --upgrade google-api-python-client</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.oauth2.service_account <span class="im">import</span> Credentials</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timedelta</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> SVG</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_values(response, searchKey)<span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">str</span>]:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [ </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        value.get(<span class="st">'value'</span>, <span class="va">None</span>) </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> row  </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">in</span> response.get(<span class="st">'rows'</span>, []) </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> key, values </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            <span class="kw">in</span> row.items() </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> value </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                <span class="kw">in</span> values</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> key <span class="op">==</span> searchKey</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_views(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        page_path: <span class="bu">str</span>, </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        property_key: <span class="bu">str</span>, </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        credentials_filename: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">list</span>[<span class="bu">str</span>]]:</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    SCOPES <span class="op">=</span> [<span class="st">'https://www.googleapis.com/auth/analytics.readonly'</span>]</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    credentials <span class="op">=</span> Credentials.from_service_account_file(</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        credentials_filename,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        scopes<span class="op">=</span>SCOPES)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    analytics <span class="op">=</span> build(<span class="st">'analyticsdata'</span>, <span class="st">'v1beta'</span>, credentials <span class="op">=</span> credentials)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    tomorrow_date <span class="op">=</span> (datetime.now() <span class="op">+</span> timedelta(days<span class="op">=</span><span class="dv">1</span>)).strftime(<span class="st">'%Y-%m-</span><span class="sc">%d</span><span class="st">'</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> {</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"dateRanges"</span>: [{</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"startDate"</span>: <span class="st">"2024-01-01"</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"endDate"</span>: tomorrow_date</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        }],</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">"dimensions"</span>: [{</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"pagePath"</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        }],</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        <span class="st">"dimensionFilter"</span>: {</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">"filter"</span>: {</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>                <span class="st">"fieldName"</span>: <span class="st">"pagePath"</span>,</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>                <span class="st">"stringFilter"</span>: {</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"matchType"</span>: <span class="st">"CONTAINS"</span>,</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"value"</span>: page_path</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>        <span class="st">"metrics"</span>: [{</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"screenPageViews"</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>        }]</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> analytics.properties().runReport(</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        <span class="bu">property</span><span class="op">=</span>property_key,</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>        body<span class="op">=</span>body).execute()</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    metricValues <span class="op">=</span> get_values(response, <span class="st">'metricValues'</span>)</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    dimensionValues <span class="op">=</span> get_values(response, <span class="st">'dimensionValues'</span>)</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    metadata <span class="op">=</span> [</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"</span><span class="sc">{</span>dimension<span class="sc">}</span><span class="ss"> :: </span><span class="sc">{</span>metric<span class="sc">}</span><span class="ss">"</span> </span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (dimension, metric) </span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>        <span class="kw">in</span> <span class="bu">zip</span>(dimensionValues, metricValues)</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sum</span>([<span class="bu">int</span>(i <span class="kw">or</span> <span class="dv">0</span>) <span class="cf">for</span> i <span class="kw">in</span> metricValues]), </span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>        metadata</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_badge(label: <span class="bu">str</span>, value: <span class="bu">str</span> <span class="op">|</span> <span class="bu">int</span>, metadata: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> []) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    value_text <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>value<span class="sc">:,}</span><span class="ss">"</span> <span class="cf">if</span> <span class="bu">isinstance</span>(value, <span class="bu">int</span>) <span class="cf">else</span> <span class="bu">str</span>(value)</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate widths</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>    label_width <span class="op">=</span> <span class="bu">len</span>(label) <span class="op">*</span> <span class="dv">8</span> <span class="op">+</span> <span class="dv">10</span>  <span class="co"># Approximate width calculation</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>    value_width <span class="op">=</span> <span class="bu">len</span>(value_text) <span class="op">*</span> <span class="dv">8</span> <span class="op">+</span> <span class="dv">10</span>  <span class="co"># Approximate width calculation</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    total_width <span class="op">=</span> label_width <span class="op">+</span> value_width</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate metadata comments</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    metadata_comments <span class="op">=</span> <span class="st">"</span><span class="ch">\n</span><span class="st">      "</span>.join(</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>        [<span class="ss">f"&lt;!-- METADATA: </span><span class="sc">{</span>item<span class="sc">.</span>replace(<span class="st">'--&gt;'</span>, <span class="st">'—&gt;'</span>)<span class="sc">}</span><span class="ss"> --&gt;"</span> <span class="cf">for</span> item <span class="kw">in</span> metadata])</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'''&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;svg xmlns="http://www.w3.org/2000/svg" width="</span><span class="sc">{</span>total_width<span class="sc">}</span><span class="ss">" height="20"&gt;</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="ss">      </span><span class="sc">{</span>metadata_comments<span class="sc">}</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;linearGradient id="b" x2="0" y2="100%"&gt;</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;stop offset="0" stop-color="#bbb" stop-opacity=".1"/&gt;</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;stop offset="1" stop-opacity=".1"/&gt;</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;/linearGradient&gt;</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;mask id="a"&gt;</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;rect width="</span><span class="sc">{</span>total_width<span class="sc">}</span><span class="ss">" height="20" rx="3" fill="#fff"/&gt;</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;/mask&gt;</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;g mask="url(#a)"&gt;</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;rect width="</span><span class="sc">{</span>label_width<span class="sc">}</span><span class="ss">" height="20" fill="#555"/&gt;</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;rect x="</span><span class="sc">{</span>label_width<span class="sc">}</span><span class="ss">" width="</span><span class="sc">{</span>value_width<span class="sc">}</span><span class="ss">" height="20" fill="#4c1"/&gt;</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;rect width="</span><span class="sc">{</span>total_width<span class="sc">}</span><span class="ss">" height="20" fill="url(#b)"/&gt;</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;/g&gt;</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="13"&gt;</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;text x="</span><span class="sc">{</span>label_width<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="ss">" y="15" fill="#010101" fill-opacity=".3"&gt;</span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">&lt;/text&gt;</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;text x="</span><span class="sc">{</span>label_width<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="ss">" y="14"&gt;</span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">&lt;/text&gt;</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;text x="</span><span class="sc">{</span>label_width <span class="op">+</span> value_width<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="ss">" y="15" fill="#010101" fill-opacity=".3"&gt;</span><span class="sc">{</span>value_text<span class="sc">}</span><span class="ss">&lt;/text&gt;</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;text x="</span><span class="sc">{</span>label_width <span class="op">+</span> value_width<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="ss">" y="14"&gt;</span><span class="sc">{</span>value_text<span class="sc">}</span><span class="ss">&lt;/text&gt;</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="ss">      &lt;/g&gt;</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/svg&gt;'''</span>.strip()</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> format_number(num: <span class="bu">int</span><span class="op">|</span><span class="bu">float</span>):</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="co">    Format a number similar to YouTube's style:</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="co">    - Less than 1000: show as is (100, 999)</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="co">    - Thousands: show as K (1K, 1.3K)</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="co">    - Millions: show as M (1.1M, 2.4M)</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="co">        num (int/float): Number to format</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="co">        str: Formatted number string</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>    abs_num <span class="op">=</span> <span class="bu">abs</span>(num)</span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>    sign <span class="op">=</span> <span class="st">'-'</span> <span class="cf">if</span> num <span class="op">&lt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">''</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> abs_num <span class="op">&lt;</span> <span class="dv">1000</span>:</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>sign<span class="sc">}{</span>abs_num<span class="sc">:d}</span><span class="ss">"</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> abs_num <span class="op">&lt;</span> <span class="dv">1000000</span>:</span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>        formatted <span class="op">=</span> abs_num <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>        <span class="co"># If the decimal part is 0, don't show it</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> formatted.is_integer():</span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>sign<span class="sc">}{</span><span class="bu">int</span>(formatted)<span class="sc">}</span><span class="ss">K"</span></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>sign<span class="sc">}{</span>formatted<span class="sc">:.1f}</span><span class="ss">K"</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>        formatted <span class="op">=</span> abs_num <span class="op">/</span> <span class="dv">1000000</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> formatted.is_integer():</span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>sign<span class="sc">}{</span><span class="bu">int</span>(formatted)<span class="sc">}</span><span class="ss">M"</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>sign<span class="sc">}{</span>formatted<span class="sc">:.1f}</span><span class="ss">M"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tests" class="level3">
+<h3 class="anchored" data-anchor-id="tests">Tests</h3>
+<div id="cell-14" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>views_count, metadata <span class="op">=</span> get_views(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    page_path <span class="op">=</span> <span class="st">"/posts/private-domain-checker"</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    property_key <span class="op">=</span> <span class="st">"properties/465...623"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    credentials_filename <span class="op">=</span> <span class="st">'../../../SERVICE_ACCOUNT_CREDENTIALS.json'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>svg_code <span class="op">=</span> generate_badge(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span><span class="st">"readers"</span>, </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> format_number(views_count), </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    metadata <span class="op">=</span> metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(svg_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;svg xmlns="http://www.w3.org/2000/svg" width="92" height="20"&gt;
+      &lt;!-- METADATA: /posts/private-domain-checker/ :: 88 --&gt;
+      &lt;!-- METADATA: /posts/private-domain-checker/index.html :: 5 --&gt;
+      &lt;!-- METADATA: /posts/private-domain-checker :: 2 --&gt;
+      &lt;linearGradient id="b" x2="0" y2="100%"&gt;
+        &lt;stop offset="0" stop-color="#bbb" stop-opacity=".1"/&gt;
+        &lt;stop offset="1" stop-opacity=".1"/&gt;
+      &lt;/linearGradient&gt;
+      &lt;mask id="a"&gt;
+        &lt;rect width="92" height="20" rx="3" fill="#fff"/&gt;
+      &lt;/mask&gt;
+      &lt;g mask="url(#a)"&gt;
+        &lt;rect width="66" height="20" fill="#555"/&gt;
+        &lt;rect x="66" width="26" height="20" fill="#4c1"/&gt;
+        &lt;rect width="92" height="20" fill="url(#b)"/&gt;
+      &lt;/g&gt;
+      &lt;g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="13"&gt;
+        &lt;text x="33.0" y="15" fill="#010101" fill-opacity=".3"&gt;readers&lt;/text&gt;
+        &lt;text x="33.0" y="14"&gt;readers&lt;/text&gt;
+        &lt;text x="79.0" y="15" fill="#010101" fill-opacity=".3"&gt;95&lt;/text&gt;
+        &lt;text x="79.0" y="14"&gt;95&lt;/text&gt;
+      &lt;/g&gt;
+    &lt;/svg&gt;</code></pre>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SVG(svg_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+<figure class="figure">
+<p><a href="index.render_files/figure-html/cell-5-output-1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index.render_files/figure-html/cell-5-output-1.svg" class="img-fluid figure-img" loading="lazy" decoding="async"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-17" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>views_count, metadata <span class="op">=</span> get_views(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    page_path <span class="op">=</span> <span class="st">"/"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    property_key <span class="op">=</span> <span class="st">"properties/465...623"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    credentials_filename <span class="op">=</span> <span class="st">'../../../SERVICE_ACCOUNT_CREDENTIALS.json'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>SVG(generate_badge(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> <span class="st">"total website views"</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> format_number(views_count), </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    metadata <span class="op">=</span> metadata))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+<figure class="figure">
+<p><a href="index.render_files/figure-html/cell-6-output-1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index.render_files/figure-html/cell-6-output-1.svg" class="img-fluid figure-img" loading="lazy" decoding="async"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Below is a live version of the total website views:</p>
+<p><a href="https://toknow.ai/pageviews?page_path=/&amp;label=total%20website%20views" class="uri">https://toknow.ai/pageviews?page_path=/&amp;label=total%20website%20views</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://toknow.ai/pageviews?page_path=/&amp;label=total%20website%20views&amp;name.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Live Total Views for ToKnow.ai"><img src="https://toknow.ai/pageviews?page_path=/&amp;label=total%20website%20views&amp;name.svg" class="img-fluid figure-img" loading="lazy" decoding="async" alt="Live Total Views for ToKnow.ai"></a></p>
+<figcaption>Live Total Views for ToKnow.ai</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="using-cloudflare-worker" class="level2">
+<h2 class="anchored" data-anchor-id="using-cloudflare-worker">Using Cloudflare Worker</h2>
+<p>At the time of this writting, <a href="https://developers.cloudflare.com/workers/languages/">cloudflare workers supports various languages</a> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. However, <code>Python</code> and <code>Rust</code> are currently in beta. Python packages do not run in production, you can only deploy Python Workers that use the standard library and a <a href="https://developers.cloudflare.com/workers/languages/python/packages/#supported-packages">few select packages</a>. That means we cant use the gogle python packages <code>google-auth-oauthlib</code> and <code>google-api-python-client</code>. We would have to create the authentication logic from scratch, which adds maintenance burden. Also for python, only HTTP libraries that are able to make requests asynchronously are supported. Currently, these include <code>aiohttp</code> and <code>httpx</code>. Also, python is not really a first class language in a true sense, it still uses webassembly and pyodide: <a href="https://blog.cloudflare.com/python-workers/" class="uri">https://blog.cloudflare.com/python-workers/</a>.</p>
+<p>Javascript seems to be the best candidate for a cloudflare worker. And since Typescript is also supported, its easier to use typescript for type safety and maintentance. Incase the workers API changes in future, typescript will highlight the areas that are incompatible.</p>
+<section id="implementing-typescript-worker" class="level3">
+<h3 class="anchored" data-anchor-id="implementing-typescript-worker">Implementing Typescript Worker</h3>
+<p>Despite Javascript and Typescript being the best languages to implement the worker, there is also some limitations. Not all NodeJS packages and environment are supported. As such, we’ll also need to implement a google authentication from scratch. But fortunately, its easier to get a third party package compatible with cloudflare, such as <a href="https://github.com/Schachte/cloudflare-google-auth" class="uri">https://github.com/Schachte/cloudflare-google-auth</a> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. This offsets alot of maintenance. <a href="https://github.com/Schachte/cloudflare-google-auth" class="uri">https://github.com/Schachte/cloudflare-google-auth</a> seems to be the package with latest mainteinance, but there are other older and possibly working implementations and online discussions about authenticating and authorizing google API calls using Service Account credentials <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">// https://github.com/ToKnow-ai/display-google-analytics-views-using-cloudflare-worker/blob/main/worker.ts</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> GoogleAuth<span class="op">,</span> { GoogleKey } <span class="im">from</span> <span class="st">'cloudflare-workers-and-google-oauth'</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">// JSON containing the key for the service account</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">// download from GCS</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">interface</span> Env {</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    SERVICE_ACCOUNT_CREDENTIALS<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    GA_PROPERTY_ID<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> getTomorrowDate <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> tomorrow <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    tomorrow<span class="op">.</span><span class="fu">setDate</span>(tomorrow<span class="op">.</span><span class="fu">getDate</span>() <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tomorrow<span class="op">.</span><span class="fu">toISOString</span>()<span class="op">.</span><span class="fu">split</span>(<span class="st">'T'</span>)[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">// Helper function to calculate text width</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> getTextWidth <span class="op">=</span> (text<span class="op">:</span> <span class="dt">string</span>)<span class="op">:</span> <span class="dt">number</span> <span class="kw">=&gt;</span> {</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Approximate character widths (can be adjusted for more accuracy)</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> averageCharWidth <span class="op">=</span> <span class="dv">8</span><span class="op">;</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> text<span class="op">.</span><span class="at">length</span> <span class="op">*</span> averageCharWidth <span class="op">+</span> <span class="dv">10</span><span class="op">;</span> <span class="co">// Adding padding</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co">// Enhanced helper function to generate SVG badge</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> generateBadge <span class="op">=</span> (label<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> value<span class="op">:</span> <span class="dt">string</span> <span class="op">|</span> <span class="dt">number</span><span class="op">,</span> metadata<span class="op">:</span> <span class="dt">string</span>[] <span class="op">=</span> []) <span class="kw">=&gt;</span> {</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> valueText<span class="op">:</span> <span class="dt">string</span> <span class="op">=</span> <span class="kw">typeof</span> value <span class="op">===</span> <span class="st">'number'</span> <span class="op">?</span> value<span class="op">.</span><span class="fu">toLocaleString</span>() <span class="op">:</span> value<span class="op">;</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Calculate widths</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> labelWidth <span class="op">=</span> <span class="fu">getTextWidth</span>(label)<span class="op">;</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> valueWidth <span class="op">=</span> <span class="fu">getTextWidth</span>(valueText)<span class="op">;</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> totalWidth <span class="op">=</span> labelWidth <span class="op">+</span> valueWidth<span class="op">;</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Generate metadata comments</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> metadataComments <span class="op">=</span> metadata</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">map</span>(item <span class="kw">=&gt;</span> <span class="vs">`&lt;!-- METADATA: </span><span class="sc">${</span>item<span class="op">.</span><span class="fu">replace</span>(<span class="ss">/--&gt;/g</span><span class="op">,</span> <span class="st">'—&gt;'</span>)<span class="sc">}</span><span class="vs"> --&gt;`</span>)</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">join</span>(<span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)<span class="op">;</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;svg xmlns="http://www.w3.org/2000/svg" width="</span><span class="sc">${</span>totalWidth<span class="sc">}</span><span class="vs">" height="20"&gt;</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="vs">      </span><span class="sc">${</span>metadataComments<span class="sc">}</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;linearGradient id="b" x2="0" y2="100%"&gt;</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;stop offset="0" stop-color="#bbb" stop-opacity=".1"/&gt;</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;stop offset="1" stop-opacity=".1"/&gt;</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/linearGradient&gt;</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;mask id="a"&gt;</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;rect width="</span><span class="sc">${</span>totalWidth<span class="sc">}</span><span class="vs">" height="20" rx="3" fill="#fff"/&gt;</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/mask&gt;</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;g mask="url(#a)"&gt;</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;rect width="</span><span class="sc">${</span>labelWidth<span class="sc">}</span><span class="vs">" height="20" fill="#555"/&gt;</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;rect x="</span><span class="sc">${</span>labelWidth<span class="sc">}</span><span class="vs">" width="</span><span class="sc">${</span>valueWidth<span class="sc">}</span><span class="vs">" height="20" fill="#4c1"/&gt;</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;rect width="</span><span class="sc">${</span>totalWidth<span class="sc">}</span><span class="vs">" height="20" fill="url(#b)"/&gt;</span></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/g&gt;</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="13"&gt;</span></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;text x="</span><span class="sc">${</span>labelWidth<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="vs">" y="15" fill="#010101" fill-opacity=".3"&gt;</span><span class="sc">${</span>label<span class="sc">}</span><span class="vs">&lt;/text&gt;</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;text x="</span><span class="sc">${</span>labelWidth<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="vs">" y="14"&gt;</span><span class="sc">${</span>label<span class="sc">}</span><span class="vs">&lt;/text&gt;</span></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;text x="</span><span class="sc">${</span>labelWidth <span class="op">+</span> valueWidth<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="vs">" y="15" fill="#010101" fill-opacity=".3"&gt;</span><span class="sc">${</span>valueText<span class="sc">}</span><span class="vs">&lt;/text&gt;</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;text x="</span><span class="sc">${</span>labelWidth <span class="op">+</span> valueWidth<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="vs">" y="14"&gt;</span><span class="sc">${</span>valueText<span class="sc">}</span><span class="vs">&lt;/text&gt;</span></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/g&gt;</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/svg&gt;`</span><span class="op">.</span><span class="fu">trim</span>()<span class="op">;</span></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> formatNumber <span class="op">=</span> (num<span class="op">:</span> <span class="dt">number</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> isNegative <span class="op">=</span> num <span class="op">&lt;</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> absNum <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(num)<span class="op">;</span></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (absNum <span class="op">&lt;</span> <span class="dv">1000</span>) {</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>isNegative <span class="op">?</span> <span class="st">'-'</span> <span class="op">:</span> <span class="st">''</span><span class="sc">}${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">trunc</span>(absNum)<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (absNum <span class="op">&lt;</span> <span class="dv">1000000</span>) {</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> formattedNum <span class="op">=</span> absNum <span class="op">/</span> <span class="dv">1000</span><span class="op">;</span></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>isNegative <span class="op">?</span> <span class="st">'-'</span> <span class="op">:</span> <span class="st">''</span><span class="sc">}${</span>formattedNum<span class="op">.</span><span class="fu">toFixed</span>(formattedNum <span class="op">%</span> <span class="dv">1</span> <span class="op">===</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> <span class="dv">1</span>)<span class="sc">}</span><span class="vs">K`</span><span class="op">;</span></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> formattedNum <span class="op">=</span> absNum <span class="op">/</span> <span class="dv">1000000</span><span class="op">;</span></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>isNegative <span class="op">?</span> <span class="st">'-'</span> <span class="op">:</span> <span class="st">''</span><span class="sc">}${</span>formattedNum<span class="op">.</span><span class="fu">toFixed</span>(formattedNum <span class="op">%</span> <span class="dv">1</span> <span class="op">===</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> <span class="dv">1</span>)<span class="sc">}</span><span class="vs">M`</span><span class="op">;</span></span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> Entries<span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">=</span> { [K <span class="kw">in</span> <span class="kw">keyof</span> T]<span class="op">:</span> [K<span class="op">,</span> T[K]]<span class="op">;</span> }[<span class="kw">keyof</span> T][]<span class="op">;</span></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="im">namespace</span> <span class="dt">GoogleAnalyticsReport</span> {</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>  <span class="kw">type</span> MetricType <span class="op">=</span> <span class="st">'TYPE_INTEGER'</span> <span class="op">|</span> <span class="st">'TYPE_FLOAT'</span> <span class="op">|</span> <span class="st">'TYPE_STRING'</span><span class="op">;</span></span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>  <span class="kw">interface</span> DimensionHeader {</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>    name<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>  <span class="kw">interface</span> MetricHeader {</span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>    name<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>    type<span class="op">:</span> MetricType<span class="op">;</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>  <span class="im">export</span> <span class="kw">interface</span> DimensionValue {</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>    value<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>  <span class="im">export</span> <span class="kw">interface</span> MetricValue {</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>    value<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>  <span class="im">export</span> <span class="kw">interface</span> ReportRow {</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>    dimensionValues<span class="op">:</span> DimensionValue[]<span class="op">;</span></span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>    metricValues<span class="op">:</span> MetricValue[]<span class="op">;</span></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a>  <span class="kw">interface</span> ReportMetadata {</span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>    currencyCode<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>    timeZone<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>  <span class="im">export</span> <span class="kw">interface</span> Report {</span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a>    dimensionHeaders<span class="op">:</span> DimensionHeader[]<span class="op">;</span></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>    metricHeaders<span class="op">:</span> MetricHeader[]<span class="op">;</span></span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a>    rows<span class="op">:</span> ReportRow[]<span class="op">;</span></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a>    rowCount<span class="op">:</span> <span class="dt">number</span><span class="op">;</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>    metadata<span class="op">:</span> ReportMetadata<span class="op">;</span></span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> getValues <span class="op">=</span> (</span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>    analyticsResponse<span class="op">:</span> GoogleAnalyticsReport<span class="op">.</span><span class="at">Report</span><span class="op">,</span> </span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>    searchKey<span class="op">:</span> <span class="kw">keyof</span> GoogleAnalyticsReport<span class="op">.</span><span class="at">ReportRow</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (analyticsResponse<span class="op">?.</span>[<span class="st">'rows'</span>] <span class="op">??</span> [])</span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">flatMap</span>(row <span class="kw">=&gt;</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(row) <span class="im">as</span> Entries<span class="op">&lt;</span>GoogleAnalyticsReport<span class="op">.</span><span class="at">ReportRow</span><span class="op">&gt;</span>)</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span>(([key<span class="op">,</span> _]) <span class="kw">=&gt;</span> key <span class="op">===</span>  searchKey)</span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">flatMap</span>(([_<span class="op">,</span> values]) <span class="kw">=&gt;</span> values)</span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span>(value <span class="kw">=&gt;</span> value<span class="op">?.</span>[<span class="st">'value'</span>])</span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> IMAGE_CACHE_SECONDS <span class="op">=</span> <span class="dv">45</span> <span class="op">*</span> <span class="dv">60</span><span class="op">;</span> <span class="co">// Cache for 45 minutes</span></span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> GOOGLE_CALL_CACHE_TTL_SECONDS <span class="op">=</span> <span class="dv">45</span> <span class="op">*</span> <span class="dv">60</span><span class="op">;</span> <span class="co">// 45 minutes before revalidating the resource</span></span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> {</span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a>    <span class="kw">async</span> <span class="fu">fetch</span>(</span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>        request<span class="op">:</span> Request<span class="op">,</span></span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a>        env<span class="op">:</span> Env<span class="op">,</span></span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a>        ctx<span class="op">:</span> ExecutionContext</span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>    )<span class="op">:</span> <span class="bu">Promise</span><span class="op">&lt;</span>Response<span class="op">&gt;</span> {</span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> {</span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>            <span class="kw">const</span> cache <span class="op">=</span> caches<span class="op">.</span><span class="at">default</span></span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a>            <span class="kw">let</span> response <span class="op">=</span> <span class="cf">await</span> cache<span class="op">.</span><span class="fu">match</span>(request)</span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (<span class="op">!</span>response) {</span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (<span class="op">!</span>env<span class="op">.</span><span class="at">SERVICE_ACCOUNT_CREDENTIALS</span> <span class="op">||</span> <span class="op">!</span>env<span class="op">.</span><span class="at">GA_PROPERTY_ID</span>) {</span>
+<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">"No credentials"</span>)</span>
+<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> scopes<span class="op">:</span> <span class="dt">string</span>[] <span class="op">=</span> [</span>
+<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'https://www.googleapis.com/auth/analytics.readonly'</span>]</span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> googleAuth<span class="op">:</span> GoogleKey <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(</span>
+<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">atob</span>(env<span class="op">.</span><span class="at">SERVICE_ACCOUNT_CREDENTIALS</span>))</span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a>                <span class="co">// initialize the service</span></span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> oauth <span class="op">=</span> <span class="kw">new</span> <span class="fu">GoogleAuth</span>(googleAuth<span class="op">,</span> scopes)</span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> token <span class="op">=</span> <span class="cf">await</span> oauth<span class="op">.</span><span class="fu">getGoogleAuthToken</span>()</span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (token <span class="op">===</span> <span class="kw">undefined</span>) {</span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">"generating Google auth token failed"</span>)</span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a>                <span class="co">// Only allow GET requests</span></span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (request<span class="op">.</span><span class="at">method</span> <span class="op">!==</span> <span class="st">'GET'</span>) {</span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Response</span>(<span class="st">'Method not allowed'</span><span class="op">,</span> { status<span class="op">:</span> <span class="dv">405</span> })<span class="op">;</span></span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> getQuery <span class="op">=</span> (queryName) <span class="kw">=&gt;</span> [</span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>                    <span class="op">...</span><span class="kw">new</span> <span class="fu">URL</span>(request<span class="op">.</span><span class="at">url</span>)<span class="op">.</span><span class="at">searchParams</span><span class="op">.</span><span class="fu">entries</span>()]<span class="op">.</span><span class="fu">find</span>(</span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a>                        ([key<span class="op">,</span> _]) <span class="kw">=&gt;</span> (key <span class="op">||</span> <span class="st">''</span>)<span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">trim</span>() <span class="op">===</span> queryName)<span class="op">?.</span>[<span class="dv">1</span>]</span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> page_path <span class="op">=</span> <span class="fu">getQuery</span>(<span class="st">"page_path"</span>)<span class="op">;</span></span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (<span class="op">!</span>page_path) {</span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Response</span>(<span class="st">'page_path not available'</span><span class="op">,</span> { status<span class="op">:</span> <span class="dv">405</span> })<span class="op">;</span></span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a>                <span class="co">// Construct the request body</span></span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> requestBody <span class="op">=</span> {</span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"dateRanges"</span><span class="op">:</span> [{</span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"startDate"</span><span class="op">:</span> <span class="st">"2024-01-01"</span><span class="op">,</span></span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"endDate"</span><span class="op">:</span> <span class="fu">getTomorrowDate</span>()</span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a>                    }]<span class="op">,</span></span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"dimensions"</span><span class="op">:</span> [{</span>
+<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"name"</span><span class="op">:</span> <span class="st">"pagePath"</span></span>
+<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a>                    }]<span class="op">,</span></span>
+<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"dimensionFilter"</span><span class="op">:</span> {</span>
+<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"filter"</span><span class="op">:</span> {</span>
+<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"fieldName"</span><span class="op">:</span> <span class="st">"pagePath"</span><span class="op">,</span></span>
+<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"stringFilter"</span><span class="op">:</span> {</span>
+<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"matchType"</span><span class="op">:</span> <span class="st">"CONTAINS"</span><span class="op">,</span></span>
+<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"value"</span><span class="op">:</span> page_path<span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">trim</span>()</span>
+<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a>                            }</span>
+<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>                        }</span>
+<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a>                    }<span class="op">,</span></span>
+<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"metrics"</span><span class="op">:</span> [{</span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"name"</span><span class="op">:</span> <span class="st">"screenPageViews"</span></span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a>                    }]</span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>                }<span class="op">;</span></span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a>                <span class="co">// Make request to Google Analytics API</span></span>
+<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> analyticsResponse <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(</span>
+<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a>                    <span class="vs">`https://analyticsdata.googleapis.com/v1beta/</span><span class="sc">${</span>env<span class="op">.</span><span class="at">GA_PROPERTY_ID</span><span class="sc">}</span><span class="vs">:runReport`</span><span class="op">,</span></span>
+<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a>                    {</span>
+<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a>                        method<span class="op">:</span> <span class="st">'POST'</span><span class="op">,</span></span>
+<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a>                        headers<span class="op">:</span> {</span>
+<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Authorization'</span><span class="op">:</span> <span class="vs">`Bearer </span><span class="sc">${</span>token<span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
+<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Content-Type'</span><span class="op">:</span> <span class="st">'application/json'</span><span class="op">,</span></span>
+<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a>                        }<span class="op">,</span></span>
+<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a>                        body<span class="op">:</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(requestBody)<span class="op">,</span></span>
+<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'cf'</span><span class="op">:</span> {</span>
+<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a>                            <span class="co">// Always cache this fetch regardless of content type</span></span>
+<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a>                            <span class="co">// for a max of 45 minutes before revalidating the resource</span></span>
+<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a>                            cacheTtl<span class="op">:</span> GOOGLE_CALL_CACHE_TTL_SECONDS<span class="op">,</span></span>
+<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a>                            cacheEverything<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a>                        }<span class="op">,</span></span>
+<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>                    })<span class="op">;</span></span>
+<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (<span class="op">!</span>analyticsResponse<span class="op">.</span><span class="at">ok</span>) {</span>
+<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Response</span>(</span>
+<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a>                        <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>({ error<span class="op">:</span> <span class="cf">await</span> analyticsResponse<span class="op">.</span><span class="fu">text</span>() }<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a>                        {</span>
+<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a>                            status<span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a>                            headers<span class="op">:</span> {</span>
+<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'Content-Type'</span><span class="op">:</span> <span class="st">'application/json'</span></span>
+<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a>                            }</span>
+<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>                        })<span class="op">;</span></span>
+<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> data <span class="op">=</span> <span class="cf">await</span> analyticsResponse<span class="op">.</span><span class="fu">json</span><span class="op">&lt;</span>GoogleAnalyticsReport<span class="op">.</span><span class="at">Report</span><span class="op">&gt;</span>()<span class="op">;</span></span>
+<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> metricValues <span class="op">=</span> <span class="fu">getValues</span>(data<span class="op">,</span> <span class="st">'metricValues'</span>)<span class="op">;</span></span>
+<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> dimensionValues <span class="op">=</span> <span class="fu">getValues</span>(data<span class="op">,</span> <span class="st">'dimensionValues'</span>)<span class="op">;</span></span>
+<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> viewsCount <span class="op">=</span> metricValues</span>
+<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">map</span>(value <span class="kw">=&gt;</span> <span class="pp">parseInt</span>(value <span class="op">??</span> <span class="st">'0'</span>))</span>
+<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> count) <span class="kw">=&gt;</span> total <span class="op">+</span> count<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a>                <span class="co">// take the first 20 to avoid bloating the image. Sort desc in future..</span></span>
+<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> metadata <span class="op">=</span> dimensionValues<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">20</span>)<span class="op">.</span><span class="fu">map</span>((value<span class="op">,</span> index) <span class="kw">=&gt;</span> </span>
+<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a>                    <span class="vs">`</span><span class="sc">${</span>value<span class="sc">}</span><span class="vs"> :: </span><span class="sc">${</span>metricValues<span class="op">?.</span>[index]<span class="op">?.</span><span class="at">toLocaleString</span><span class="op">?.</span>() <span class="op">??</span> <span class="st">'NULL'</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> shorten <span class="op">=</span> <span class="fu">getQuery</span>(<span class="st">"shorten"</span>) <span class="op">||</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> label <span class="op">=</span> <span class="fu">getQuery</span>(<span class="st">"label"</span>) <span class="op">||</span> <span class="st">"readers"</span><span class="op">;</span></span>
+<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> badgeSVG <span class="op">=</span> <span class="fu">generateBadge</span>(</span>
+<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">,</span> </span>
+<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a>                    shorten <span class="op">?</span> <span class="fu">formatNumber</span>(viewsCount) <span class="op">:</span> viewsCount<span class="op">,</span> </span>
+<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a>                    metadata)<span class="op">;</span></span>
+<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a>                response <span class="op">=</span> <span class="kw">new</span> <span class="fu">Response</span>(</span>
+<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a>                    badgeSVG<span class="op">,</span> </span>
+<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a>                    {</span>
+<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a>                        headers<span class="op">:</span> </span>
+<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a>                        {</span>
+<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Content-Type'</span><span class="op">:</span> <span class="st">'image/svg+xml'</span><span class="op">,</span></span>
+<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Cache-Control'</span><span class="op">:</span> <span class="vs">`public, max-age=</span><span class="sc">${</span>IMAGE_CACHE_SECONDS<span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
+<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Access-Control-Allow-Origin'</span><span class="op">:</span> <span class="st">'*'</span></span>
+<span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a>                        }</span>
+<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a>                    })<span class="op">;</span></span>
+<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a>                <span class="co">// Cache API respects Cache-Control headers</span></span>
+<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a>                ctx<span class="op">.</span><span class="fu">waitUntil</span>(cache<span class="op">.</span><span class="fu">put</span>(request<span class="op">,</span> response<span class="op">.</span><span class="fu">clone</span>()))<span class="op">;</span></span>
+<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> response</span>
+<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">catch</span> (error) {</span>
+<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Response</span>(</span>
+<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a>                <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>({</span>
+<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a>                    error<span class="op">:</span> error<span class="op">.</span><span class="at">message</span> <span class="op">||</span> <span class="st">'Internal server error'</span><span class="op">,</span></span>
+<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a>                    timestamp<span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">toISOString</span>()</span>
+<span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a>                })<span class="op">,</span></span>
+<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a>                {</span>
+<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a>                    status<span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a>                    headers<span class="op">:</span> {</span>
+<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Content-Type'</span><span class="op">:</span> <span class="st">'application/json'</span></span>
+<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a>                    }</span>
+<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a>                })<span class="op">;</span></span>
+<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="testing-deployment-and-troubleshooting-cloudflare-workers" class="level3">
+<h3 class="anchored" data-anchor-id="testing-deployment-and-troubleshooting-cloudflare-workers">Testing, Deployment and Troubleshooting Cloudflare Workers</h3>
+<ul>
+<li><a href="https://developers.cloudflare.com/workers/get-started/guide/">Workers &gt; Get started</a></li>
+<li><a href="https://developers.cloudflare.com/workers/languages/typescript/">TypeScript is a first-class language on Cloudflare Workers</a></li>
+<li><a href="https://developers.cloudflare.com/workers/wrangler/">Wrangler</a></li>
+<li><a href="https://developers.cloudflare.com/workers/tutorials/deploy-a-realtime-chat-app/#_top">Deploy a real-time chat application</a></li>
+<li><a href="https://developers.cloudflare.com/workers/tutorials/deploy-button/#_top">Create a deploy button with GitHub Actions</a></li>
+<li><a href="https://developers.cloudflare.com/workers/examples/#_top">Explore examples of Workers</a></li>
+<li><a href="https://developers.cloudflare.com/developer-spotlight/">Examples of how community developers are getting the most out of Workers</a></li>
+<li><a href="https://ishwardatt.medium.com/creating-and-deploying-a-cloudflare-worker-with-nodejs-typescript-bde33963763f">Creating and Deploying a Cloudflare worker with Nodejs (Typescript)</a></li>
+</ul>
+</section>
+</section>
+<section id="alternatives-to-cloudflare" class="level2">
+<h2 class="anchored" data-anchor-id="alternatives-to-cloudflare">Alternatives to Cloudflare</h2>
+<p>There exist other serverless services that can offer a better service than cloudflare workers, such as Azure Functionns from microsoft, Lambda Functions from Amazon Web Services and Google Cloud Functions from Google. I have extensively worked with Azure Functions for their simplicity compared to Lambda Functions or Google Cloud Functions. However, Cloudflare Workers still offer the best developer overall experience, is easier to setup, easier to use the domain path (<em>example.com/&lt;<code>any/path/can/trigger</code>&gt;</em>) to trigger your worker if your domain DNS is managed by cloudflare and doesnt require a credit card to signup and start testing &amp; experimenting. See <a href="#tbl-serverless-architectures" class="quarto-xref">Table&nbsp;1</a></p>
+<div id="tbl-serverless-architectures" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-serverless-architectures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Cloudflare Workers from Cloudflare, Azure Functionns from microsoft, Lambda Functions from Amazon Web Services and Google Cloud Functions from Google for a serverless architecture
+</figcaption>
+<div aria-describedby="tbl-serverless-architectures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="table-responsive">
+<table class="caption-top table-striped table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Cloudflare Workers</th>
+<th>Azure Functions</th>
+<th>AWS Lambda Functions</th>
+<th>Google Cloud Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Ease of Setup</strong></td>
+<td>Very easy - simple web interface and CLI tools <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></td>
+<td>Moderate - requires Azure account setup and tooling <a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></td>
+<td>Moderate - requires AWS account setup and IAM configuration <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></td>
+<td>Moderate - requires GCP project setup <a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></td>
+</tr>
+<tr class="even">
+<td><strong>Developer Experience</strong></td>
+<td>Excellent - fast deployment, good documentation, simple testing <a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a> <a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> <a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a> <a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a></td>
+<td>Good - extensive tooling, VS Code integration <a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a></td>
+<td>Good - comprehensive tooling, multiple deployment options <a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a> <a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a></td>
+<td>Good - clean interface, good documentation <a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a> <a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a> <a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a> <a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a></td>
+</tr>
+<tr class="odd">
+<td><strong>Pricing</strong></td>
+<td>Free tier: 100,000 requests/day and 1000 requests/min per account<br>Standard tier: starts at <a href="https://www.cloudflare.com/plans/developer-platform/">$5 USD per month</a> <a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a> <a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a></td>
+<td>Free tier: 1 million requests/month<br>Then $0.20/million requests <a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a></td>
+<td>Free tier: 1 million requests/month<br>Then $0.20/million requests <a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a></td>
+<td>Free tier: 2 million requests/month<br>Then $0.40/million requests <a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a></td>
+</tr>
+<tr class="even">
+<td><strong>Credit Card Required</strong></td>
+<td>No <a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a></td>
+<td>Yes <a href="#fn30" class="footnote-ref" id="fnref30" role="doc-noteref"><sup>30</sup></a></td>
+<td>Yes <a href="#fn31" class="footnote-ref" id="fnref31" role="doc-noteref"><sup>31</sup></a></td>
+<td>Yes <a href="#fn32" class="footnote-ref" id="fnref32" role="doc-noteref"><sup>32</sup></a></td>
+</tr>
+<tr class="odd">
+<td><strong>Performance</strong></td>
+<td>Excellent - near zero cold start, global edge deployment <a href="#fn33" class="footnote-ref" id="fnref33" role="doc-noteref"><sup>33</sup></a> <a href="#fn34" class="footnote-ref" id="fnref34" role="doc-noteref"><sup>34</sup></a> <a href="#fn35" class="footnote-ref" id="fnref35" role="doc-noteref"><sup>35</sup></a> <a href="#fn36" class="footnote-ref" id="fnref36" role="doc-noteref"><sup>36</sup></a></td>
+<td>Good - 100-1000ms cold start on average but also supports always ready instances <a href="#fn37" class="footnote-ref" id="fnref37" role="doc-noteref"><sup>37</sup></a> <a href="#fn38" class="footnote-ref" id="fnref38" role="doc-noteref"><sup>38</sup></a> <a href="#fn39" class="footnote-ref" id="fnref39" role="doc-noteref"><sup>39</sup></a> <a href="#fn40" class="footnote-ref" id="fnref40" role="doc-noteref"><sup>40</sup></a></td>
+<td>Good - 100-1000ms cold start for less than 1% of invocations <a href="#fn41" class="footnote-ref" id="fnref41" role="doc-noteref"><sup>41</sup></a> <a href="#fn42" class="footnote-ref" id="fnref42" role="doc-noteref"><sup>42</sup></a></td>
+<td>Good - 100-2000ms cold start <a href="#fn43" class="footnote-ref" id="fnref43" role="doc-noteref"><sup>43</sup></a> <a href="#fn44" class="footnote-ref" id="fnref44" role="doc-noteref"><sup>44</sup></a></td>
+</tr>
+<tr class="even">
+<td><strong>Language Support</strong></td>
+<td>Limited - JavaScript, TypeScript, Rust, Python (beta), WebAssembly <a href="#fn45" class="footnote-ref" id="fnref45" role="doc-noteref"><sup>45</sup></a></td>
+<td>Extensive - Node.js, Python, Java, .NET, PowerShell <a href="#fn46" class="footnote-ref" id="fnref46" role="doc-noteref"><sup>46</sup></a></td>
+<td>Extensive - Node.js, Python, Java, .NET, Go, Ruby <a href="#fn47" class="footnote-ref" id="fnref47" role="doc-noteref"><sup>47</sup></a></td>
+<td>Good - Node.js, Python, Go, Java, .NET <a href="#fn48" class="footnote-ref" id="fnref48" role="doc-noteref"><sup>48</sup></a></td>
+</tr>
+<tr class="odd">
+<td><strong>Integration with Other Services</strong></td>
+<td>Excellent with Cloudflare services <a href="#fn49" class="footnote-ref" id="fnref49" role="doc-noteref"><sup>49</sup></a><br>Limited with external services</td>
+<td>Excellent with Azure services <a href="#fn50" class="footnote-ref" id="fnref50" role="doc-noteref"><sup>50</sup></a> <br>Good with external services</td>
+<td>Excellent with AWS services <a href="#fn51" class="footnote-ref" id="fnref51" role="doc-noteref"><sup>51</sup></a> <br>Good with external services</td>
+<td>Excellent with Google services <a href="#fn52" class="footnote-ref" id="fnref52" role="doc-noteref"><sup>52</sup></a><br>Good with external services</td>
+</tr>
+<tr class="even">
+<td><strong>Scalability</strong></td>
+<td>Automatic, global edge network <a href="#fn53" class="footnote-ref" id="fnref53" role="doc-noteref"><sup>53</sup></a></td>
+<td>Automatic, regional <a href="#fn54" class="footnote-ref" id="fnref54" role="doc-noteref"><sup>54</sup></a></td>
+<td>Automatic, regional <a href="#fn55" class="footnote-ref" id="fnref55" role="doc-noteref"><sup>55</sup></a></td>
+<td>Automatic, regional <a href="#fn56" class="footnote-ref" id="fnref56" role="doc-noteref"><sup>56</sup></a></td>
+</tr>
+<tr class="odd">
+<td><strong>Security</strong></td>
+<td>Built-in DDoS protection<br>SSL/TLS by default <a href="#fn57" class="footnote-ref" id="fnref57" role="doc-noteref"><sup>57</sup></a> <a href="#fn58" class="footnote-ref" id="fnref58" role="doc-noteref"><sup>58</sup></a></td>
+<td>Azure Security Center integration<br>Key Vault integration <a href="#fn59" class="footnote-ref" id="fnref59" role="doc-noteref"><sup>59</sup></a></td>
+<td>IAM integration<br>KMS integration <a href="#fn60" class="footnote-ref" id="fnref60" role="doc-noteref"><sup>60</sup></a> <a href="#fn61" class="footnote-ref" id="fnref61" role="doc-noteref"><sup>61</sup></a> <a href="#fn62" class="footnote-ref" id="fnref62" role="doc-noteref"><sup>62</sup></a></td>
+<td>Cloud IAM integration<br>Secret Manager <a href="#fn63" class="footnote-ref" id="fnref63" role="doc-noteref"><sup>63</sup></a></td>
+</tr>
+<tr class="even">
+<td><strong>Monitoring and Logging</strong></td>
+<td>Basic metrics and logs<br>Limited retention <a href="#fn64" class="footnote-ref" id="fnref64" role="doc-noteref"><sup>64</sup></a></td>
+<td>Advanced Azure Monitor integration <a href="#fn65" class="footnote-ref" id="fnref65" role="doc-noteref"><sup>65</sup></a></td>
+<td>Advanced CloudWatch integration <a href="#fn66" class="footnote-ref" id="fnref66" role="doc-noteref"><sup>66</sup></a></td>
+<td>Advanced Cloud Monitoring integration <a href="#fn67" class="footnote-ref" id="fnref67" role="doc-noteref"><sup>67</sup></a></td>
+</tr>
+<tr class="odd">
+<td><strong>Custom Domain Support</strong></td>
+<td>Native support with Cloudflare DNS<br>Easy SSL setup <a href="#fn68" class="footnote-ref" id="fnref68" role="doc-noteref"><sup>68</sup></a></td>
+<td>Requires App Service domain or custom domain setup <a href="#fn69" class="footnote-ref" id="fnref69" role="doc-noteref"><sup>69</sup></a></td>
+<td>Requires API Gateway or custom domain setup <a href="#fn70" class="footnote-ref" id="fnref70" role="doc-noteref"><sup>70</sup></a></td>
+<td>Requires domain mapping configuration <a href="#fn71" class="footnote-ref" id="fnref71" role="doc-noteref"><sup>71</sup></a></td>
+</tr>
+<tr class="even">
+<td><strong>Key Limitations</strong></td>
+<td>- No filesystem access<br>- No raw TCP or UDP access<br>- Can’t use many Node.js built-in processes and modules like <code>fs</code>, <code>Node crypto module</code> etc<br>- Other technical limits <a href="https://developers.cloudflare.com/workers/platform/limits/">here</a> and <a href="https://www.cloudflare.com/plans/">here</a></td>
+<td>See limits <a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale#service-limits">here</a></td>
+<td>- Maximum deployment package size of 50MB zipped (250MB unzipped)<br>- See More limits <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">here</a>, <a href="https://www.micahwalter.com/2024/01/lambda-package-size-limits/">here</a> and <a href="https://aws.amazon.com/lambda/faqs/">here</a></td>
+<td>See limits <a href="https://cloud.google.com/functions/quotas#resource_limits">here</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+<p>There are other options for serverless services such as <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html">CloudFront Functions</a>, <a href="https://docs.digitalocean.com/products/functions/">DigitalOcean Functions</a>, <a href="https://www.oracle.com/cloud/cloud-native/functions/">Oracle Cloud Functions</a>, etc.</p>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes / Citations / References</h2>
+
+<ol>
+<li id="fn1"><p>Cloudflare offers first-class support for <a href="https://developers.cloudflare.com/workers/languages/javascript/">JavaScript</a>, <a href="https://developers.cloudflare.com/workers/languages/typescript/">TypeScript</a>, <a href="https://developers.cloudflare.com/workers/languages/python/">Python</a>, <a href="https://developers.cloudflare.com/workers/languages/rust/">Rust</a> and WebAssembly. WebAssembly allows one to write Workers using <a href="https://developers.cloudflare.com/workers/languages/">C, C++, Kotlin, Go and more</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://github.com/Schachte/cloudflare-google-auth" class="uri">https://github.com/Schachte/cloudflare-google-auth</a> and <a href="https://ryan-schachte.com/blog/oauth_cloudflare_workers/" class="uri">https://ryan-schachte.com/blog/oauth_cloudflare_workers/</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://community.cloudflare.com/t/validate-google-auth-id-token-on-cf-workers/381293">Node.js helper libraries Google provide don’t work with Cloudflare workers</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://github.com/jazcarate/cloudflare-worker-google-oauth">( ◕◡◕)っ Cloudflare Workers Google OAuth</a> and <a href="https://apiumhub.com/tech-blog-barcelona/implementing-google-oauth-google-api-cloudflare-workers/">Implementing Google OAuth to use Google API in Cloudflare Workers</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://github.com/kriasoft/web-auth-library">Web Auth Library</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://community.cloudflare.com/t/example-google-oauth-2-0-for-service-accounts-using-cf-worker/258220">Example: Google OAuth 2.0 for Service Accounts using CF Worker</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><a href="https://gist.github.com/markelliot/6627143be1fc8209c9662c504d0ff205">Converts Google service user OAuth2 credentials into an access token in Cloudflare-compatible JS</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><a href="https://gist.github.com/koistya/95776c2e948095906d48d7e7b04aad0b">Allow retrieving an OAuth 2.0 authentication token for interacting with Google services using the service account key</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><a href="https://developers.cloudflare.com/workers/get-started/guide/">Workers &gt; Get started</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-get-started">Getting started with Azure Functions</a><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html">Create your first Lambda function</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p><a href="https://cloud.google.com/functions/docs/create-deploy-gcloud">Create a Cloud Run function by using the Google Cloud CLI</a><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p><a href="https://developers.cloudflare.com/workers/observability/">Understand how your Worker projects are performing via logs, traces, and other data sources.</a><a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p><a href="https://developers.cloudflare.com/workers/examples/debugging-logs/">Send debugging information in an errored response to a logging service.</a><a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p><a href="https://blog.cloudflare.com/debugging-cloudflare-workers/">Better debugging for Cloudflare Workers, now with breakpoints</a><a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p><a href="https://developers.cloudflare.com/workers/observability/dev-tools/breakpoints/">Debug via breakpoints</a><a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code">Develop Azure Functions by using Visual Studio Code</a><a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-zip.html">Deploying Lambda functions as .zip file archives</a><a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html">Create a Lambda function using a container image</a><a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p><a href="https://cloud.google.com/functions/docs/concepts/overview">Cloud Run functions overview</a><a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p><a href="https://cloud.google.com/functions/docs/console-quickstart">Create a Cloud Run function by using the Google Cloud console</a><a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p><a href="https://cloud.google.com/functions/docs/create-deploy-gcloud">Create a Cloud Run function by using the Google Cloud CLI</a><a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p><a href="https://cloud.google.com/functions/docs/create-deploy-ide">Create a Cloud Run function by using Cloud Code for Cloud Shell</a><a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p><a href="https://developers.cloudflare.com/workers/platform/pricing/#workers">Users on the Workers Paid plan have access to the Standard usage model.</a>. The Free tier offers 100,000 requests per day with no charge for duration and 10 milliseconds of CPU time per invocation. The Standard tier provides 10 million included requests per month, with additional requests costing $0.30 per million. There’s no charge or limit for duration. The Standard tier includes 30 million CPU milliseconds per month, with additional milliseconds costing $0.02 per million. Each invocation is limited to 30 seconds of CPU time, and Cron Triggers or Queue Consumers are limited to 15 minutes per invocation. Inbound requests to your Worker. Cloudflare does not bill for <a href="https://developers.cloudflare.com/workers/platform/limits/#subrequests">subrequests</a> you make from your Worker. Requests to static assets are free and unlimited.<a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p><a href="https://developers.cloudflare.com/workers/platform/pricing/#fine-print">Workers Paid plan is separate from any other Cloudflare plan (Free, Professional, Business) you may have. Only requests that hit a Worker will count against your limits and your bill. Since Cloudflare Workers runs before the Cloudflare cache, the caching of a request still incurs costs</a><a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p>Azure Functions offers a spectrum of <a href="https://azure.microsoft.com/en-us/pricing/details/functions/">hosting options to balance cost, control, and features</a>.</p>
+<ol type="1">
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan">Consumption Plan</a>:
+<ul>
+<li>Traditional serverless model with pay-per-use billing</li>
+<li>Includes free grant of 1 million requests and 400,000 GB-s monthly</li>
+<li>Scales based on events but lacks VNet support</li>
+<li>Maximum 200 instances</li>
+<li>No cold start mitigation</li>
+</ul></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan">Flex Consumption Plan</a>:
+<ul>
+<li>Enhanced serverless model with more flexibility</li>
+<li>Supports VNet integration and always-ready instances</li>
+<li>Free grant of 250,000 executions and 100,000 GB-s monthly</li>
+<li>Faster scaling with up to 1,000 instances</li>
+<li>Multiple memory size options (2,048 MB and 4,096 MB)</li>
+<li>Includes both on-demand and always-ready billing modes</li>
+</ul></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-premium-plan?tabs=portal">Premium Plan</a>:
+<ul>
+<li>Enhanced performance with no cold starts</li>
+<li>Pre-warmed instances and VNet access</li>
+<li>Billing based on core seconds and memory allocation</li>
+<li>Requires at least one instance always running</li>
+<li>Scales up to 100 instances (region dependent)</li>
+<li>Available with 1-year or 3-year savings plans</li>
+</ul></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/dedicated-plan">Dedicated (App Service) Plan</a>:
+<ul>
+<li>Runs on dedicated VMs with predictable costs</li>
+<li>Limited to 10-30 instances depending on tier</li>
+<li>No auto-scaling to zero</li>
+<li>Best for utilizing existing App Service resources</li>
+<li>Includes deployment slots and Kudu console access</li>
+</ul></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/container-concepts#container-hosting-options">Container Options</a>:
+<ol type="a">
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-container-apps-hosting">Azure Container Apps (Recommended)</a>:
+<ul>
+<li>Managed Kubernetes environment</li>
+<li>Supports scale-to-zero and serverless billing</li>
+<li>Includes KEDA, Dapr, and mTLS support</li>
+<li>Up to 1,000 instances</li>
+<li>Workload profiles for dedicated hardware/GPUs</li>
+</ul></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-arc-custom-container">Azure Arc-enabled Kubernetes (Preview)</a>:
+<ul>
+<li>Run Functions on any Kubernetes cluster</li>
+<li>Managed through Azure</li>
+<li>Supports both code and container deployments</li>
+</ul></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-kubernetes-keda">Direct Kubernetes</a>:
+<ul>
+<li>Open-source deployment option</li>
+<li>Uses KEDA for event-driven scaling</li>
+<li>Community support model</li>
+<li>Requires self-management of containers</li>
+</ul></li>
+</ol></li>
+</ol>
+<p>See more <a href="https://learn.microsoft.com/en-us/azure/azure-functions/container-concepts#feature-support-comparison">Feature support comparison</a> and <a href="https://www.anodot.com/blog/azure-functions-pricing/">Azure Functions Pricing - 2024 Guide to Azure Functions Costs &amp; Optimization</a><a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p><a href="https://aws.amazon.com/lambda/pricing/">The AWS Lambda free tier includes one million free requests per month and 400,000 GB-seconds of compute time per month, usable for functions powered by both x86, and Graviton2 processors, in aggregate.</a>. Calculate your AWS Lambda and architecture cost in a single estimate using <a href="https://calculator.aws/#/createCalculator/Lambda">AWS Pricing Calculator</a><a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p>Depending on which version of Cloud Run functions you are using, you have two <a href="https://cloud.google.com/functions/pricing-overview">pricing options</a>; <a href="https://cloud.google.com/run/pricing">Cloud Run pricing</a> and <a href="https://cloud.google.com/functions/pricing-1stgen">Cloud Run functions (1st gen) pricing</a><a href="#fnref28" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p><a href="https://dash.cloudflare.com/sign-up/workers-and-pages" class="uri">https://dash.cloudflare.com/sign-up/workers-and-pages</a><a href="#fnref29" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn30"><p><a href="https://azure.microsoft.com/en-us/free/" class="uri">https://azure.microsoft.com/en-us/free/</a><a href="#fnref30" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn31"><p><a href="https://aws.amazon.com/free/" class="uri">https://aws.amazon.com/free/</a><a href="#fnref31" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn32"><p><a href="https://cloud.google.com/functions?hl=en" class="uri">https://cloud.google.com/functions?hl=en</a><a href="#fnref32" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn33"><p><a href="https://developers.cloudflare.com/workers/platform/limits/">Cloudflare Account plan limits, Request limits, Response limits, Worker limits(Duration, CPU time), and Cache API limits</a>. If you are running into limits, your project may be a good fit for <a href="https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/">Workers for Platforms</a>. You can also request an adjustment to a limit by complete the <a href="https://forms.gle/ukpeZVLWLnKeixDu7">Limit Increase Request Form</a><a href="#fnref33" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn34"><p><a href="https://blog.cloudflare.com/eliminating-cold-starts-with-cloudflare-workers/">Eliminating cold starts with Cloudflare Workers</a><a href="#fnref34" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn35"><p><a href="https://www.cloudflare.com/learning/serverless/serverless-performance/">Cloudflare Workers has eliminated cold starts entirely, meaning they need zero spin up time. This is the case in every location in Cloudflare’s global network. In contrast, both Lambda and Lambda@Edge functions can take over a second to respond from a cold start.</a><a href="#fnref35" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn36"><p><a href="https://medium.com/ddosify/cold-start-comparison-of-aws-lambda-and-cloudflare-workers-a3f9021ee60a">To solve this famous cold start problem, Cloudflare designed a different approach, and they claim 0ms cold starts all around the world</a><a href="#fnref36" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn37"><p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale#cold-start-behavior">Azure Functions Cold start behavior</a><a href="#fnref37" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn38"><p><a href="https://techcommunity.microsoft.com/blog/appsonazureblog/our-latest-work-to-improve-azure-functions-cold-starts/4164500">Our latest work to improve Azure Functions cold starts</a><a href="#fnref38" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn39"><p>A typical cold start latency spans from 1 to 10 seconds. However, less lucky executions may take up to 30 seconds occasionally. <a href="https://mikhail.io/serverless/coldstarts/azure/">PowerShell functions are especially slow to start with values from 4 to 27 seconds</a>. View detailed distributions: <a href="https://mikhail.io/serverless/coldstarts/azure/languages/">Cold Start Duration per Language</a><a href="#fnref39" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn40"><p>The cold start of a Function app in the Consumption plan typically ranges <a href="https://community.dynamics.com/blogs/post/?postid=46eed945-74d9-472b-a98e-a6f7c0d09b1c">between 1 and 3 seconds</a><a href="#fnref40" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn41"><p><a href="https://mikhail.io/serverless/coldstarts/big3/">Comparison of Cold Starts in Serverless Functions across AWS, Azure, and GCP</a><a href="#fnref41" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn42"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/execution-environments.html">Cold starts typically occur in under 1% of invocations. The duration of a cold start varies from under 100 ms to over 1 second</a>. Provisioned Concurrency can keep your functions initialized and warm, ready to respond in double-digit milliseconds<a href="#fnref42" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn43"><p>In Cloud Run functions (1st gen), the amount of <a href="https://cloud.google.com/functions/docs/concepts/execution-environment#cold-starts">memory granted to a function impacts the CPU allocation, which in turn can have an impact on cold start time</a>. While this is also true in Cloud Run functions by default, in Cloud Run functions you have the option of configuring <a href="https://cloud.google.com/functions/docs/configuring/memory#set-vcpu">CPU allocation</a> separate from memory. Latency can also be reduced by setting a minimum number of instances to avoid cold starts<a href="#fnref43" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn44"><p><a href="https://mikhail.io/serverless/coldstarts/big3/">Comparison of Cold Starts in Serverless Functions across AWS, Azure, and GCP</a><a href="#fnref44" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn45"><p>Cloudflare offers first-class support for <a href="https://developers.cloudflare.com/workers/languages/javascript/">JavaScript</a>, <a href="https://developers.cloudflare.com/workers/languages/typescript/">TypeScript</a>, <a href="https://developers.cloudflare.com/workers/languages/python/">Python</a>, <a href="https://developers.cloudflare.com/workers/languages/rust/">Rust</a> and WebAssembly. WebAssembly allows one to write Workers using <a href="https://developers.cloudflare.com/workers/languages/">C, C++, Kotlin, Go and more</a><a href="#fnref45" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn46"><p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages">Supported languages in Azure Functions</a><a href="#fnref46" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn47"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">Ruby, Java, Python, Node.js, .NET</a><a href="#fnref47" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn48"><p><a href="https://cloud.google.com/functions/docs/concepts/execution-environment#runtimes">Cloud Run functions supports multiple language runtimes</a><a href="#fnref48" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn49"><p><a href="https://developers.cloudflare.com/workers/platform/bindings/">Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform.</a><a href="#fnref49" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn50"><p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings">Azure Functions triggers and bindings concepts</a><a href="#fnref50" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn51"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html">Invoking Lambda with events from other AWS services</a><a href="#fnref51" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn52"><p><a href="https://cloud.google.com/functions/docs/concepts/services">Access Google Cloud APIs from Cloud Run functions by using a service account to act on your behalf. The service account provides Application Default Credentials for your functions</a><a href="#fnref52" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn53"><p><a href="https://developers.cloudflare.com/workers/platform/limits/#worker-limits">Worker limits</a><a href="#fnref53" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn54"><p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale#scale">Maximum instances are given on a per-function app (Consumption) or per-plan (Premium/Dedicated) basis, unless otherwise indicated</a><a href="#fnref54" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn55"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html">Understanding Lambda function scaling</a><a href="#fnref55" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn56"><p><a href="https://cloud.google.com/functions/docs/concepts/execution-environment#scaling-behavior">Auto-scaling behavior - Cloud Run functions</a><a href="#fnref56" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn57"><p><a href="https://blog.cloudflare.com/pt-br/introducing-automatic-ssl-tls-securing-and-simplifying-origin-connectivity/">Introducing Automatic SSL/TLS: securing and simplifying origin connectivity</a><a href="#fnref57" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn58"><p>By default, <a href="https://developers.cloudflare.com/ddos-protection/managed-rulesets/http/">DDoS attack protection is always enabled</a>, to customize, <a href="https://developers.cloudflare.com/ddos-protection/managed-rulesets/http/configure-dashboard/#create-a-ddos-override">create a DDoS override</a><a href="#fnref58" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn59"><p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts">Securing Azure Functions</a><a href="#fnref59" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn60"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html">Security in AWS Lambda</a><a href="#fnref60" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn61"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/security-dataprotection.html">Data protection in AWS Lambda</a><a href="#fnref61" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn62"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/security-iam.html">Identity and Access Management for AWS Lambda</a><a href="#fnref62" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn63"><p><a href="https://cloud.google.com/functions/docs/securing">Secure your Cloud Run function</a>. One way to control access to a function is to <a href="https://cloud.google.com/functions/docs/securing#identity">require that the requesting entity identify itself by using a credential.</a>. <a href="https://cloud.google.com/functions/docs/securing#identity">You can also limit access by specifying network settings for individual functions</a>. This allows for fine-tuned control over the network ingress and egress to and from your functions.<a href="#fnref63" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn64"><p>Understand how your Worker projects are performing via <a href="https://developers.cloudflare.com/workers/observability/">logs, traces, and other data sources</a>; <a href="https://developers.cloudflare.com/workers/observability/dev-tools/">DevTools</a>, <a href="https://developers.cloudflare.com/workers/observability/errors/">Errors and exceptions</a>, <a href="https://developers.cloudflare.com/workers/observability/integrations/">Integrations</a>, <a href="https://developers.cloudflare.com/workers/observability/logs/">Logs</a>, <a href="https://developers.cloudflare.com/workers/observability/metrics-and-analytics/">Metrics and analytics</a> and <a href="https://developers.cloudflare.com/workers/observability/source-maps/">Source maps and stack traces</a><a href="#fnref64" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn65"><p><a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-monitoring">Monitor executions in Azure Functions</a>. Azure Functions offers built-in integration with <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview">Azure Application Insights</a> to monitor functions executions<a href="#fnref65" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn66"><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-monitoring.html">Monitoring and troubleshooting Lambda functions</a>. Lambda automatically monitors Lambda functions on your behalf and reports metrics through Amazon CloudWatch<a href="#fnref66" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn67"><p><a href="https://cloud.google.com/functions/docs/monitoring">Monitor your Cloud Run function</a>. <a href="https://cloud.google.com/solutions/observability?hl=en">Google Cloud Observability</a> provides logging and monitoring tools that help you understand what is happening in your functions<a href="#fnref67" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn68"><p><a href="https://developers.cloudflare.com/workers/configuration/routing/custom-domains/">Custom Domains allow you to connect your Worker</a> to a domain or subdomain, without having to make changes to your DNS settings or perform any certificate management<a href="#fnref68" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn69"><p><a href="https://learn.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom DNS name to Azure App Service</a>. You can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service, see <a href="https://learn.microsoft.com/en-us/azure/dns/dns-delegate-domain-azure-dns">Tutorial: Host your domain in Azure DNS</a><a href="#fnref69" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn70"><p><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Custom domain name for public REST APIs in API Gateway</a>. For information about custom domain names for private APIs, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-custom-domains.html">Custom domain names for private APIs in API Gateway</a><a href="#fnref70" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn71"><p><a href="https://cloud.google.com/functions/docs/networking/network-settings">Configure network settings</a>. Cloud Run functions network settings enable you to control network ingress and egress to and from individual functions<a href="#fnref71" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2024,
+  author = {{Kabui, Charles}},
+  title = {Free, {Intelligent} and {Serverless} {Page} {View/Read}
+    {Count} Using {Google} {Analytics} and {Cloudflare} {Workers}},
+  date = {2024-11-23},
+  url = {https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kabui, Charles. 2024. <span>“Free, Intelligent and Serverless Page
+View/Read Count Using Google Analytics and Cloudflare Workers.”</span>
+<a href="https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html">https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/index.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/toknow\.ai\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="ToKnow-ai/ToKnow-ai.github.io" data-repo-id="R_kgDOL20t9g" data-category="Giscus Comments" data-category-id="DIC_kwDOL20t9s4CfKjw" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2025, ToKnow.ai
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../terms-of-service.html">
+<p>Terms of Service</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+ <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&amp;label=readers%20count">
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

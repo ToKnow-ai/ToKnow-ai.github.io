@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<atom:link href="https://toknow.ai/index.xml" rel="self" type="application/rss+xml"/>
+<description>// Research, Numbers and Insightful Ideas //</description>
+<image>
+<url>https://toknow.ai/images/logo.png</url>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Wed, 02 Apr 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>The Kenyan Startup Bill (Senate Bill No. 14 of 2022): Innovation and Entrepreneurship</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/the-kenyan-startup-bill-2022/</link>
+  <description><![CDATA[ <a href="./pexels-pixabay-66898.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The Kenyan Startup Bill (Senate Bill No.&nbsp;14 of 2022)"><img src="https://toknow.ai/posts/the-kenyan-startup-bill-2022/pexels-pixabay-66898.jpg" class="img-fluid figure-img" loading="lazy" decoding="async" alt="The Kenyan Startup Bill (Senate Bill No.&nbsp;14 of 2022)"></a> ]]></description>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/the-kenyan-startup-bill-2022/</guid>
+  <pubDate>Wed, 02 Apr 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/the-kenyan-startup-bill-2022/pexels-pixabay-66898.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Kenya National Artificial Intelligence Strategy 2025-2030</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/kenya-artificial-intelligence-strategy-2025-2030/</link>
+  <description><![CDATA[ <a href="./NotebookLM-Mind-Map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Kenya National Artificial Intelligence Strategy 2025-2030 NotebookLM Mind Map"><img src="https://toknow.ai/posts/kenya-artificial-intelligence-strategy-2025-2030/NotebookLM-Mind-Map.png" class="img-fluid figure-img" decoding="async" loading="lazy" alt="Kenya National Artificial Intelligence Strategy 2025-2030 NotebookLM Mind Map"></a> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/kenya-artificial-intelligence-strategy-2025-2030/</guid>
+  <pubDate>Tue, 01 Apr 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/kenya-artificial-intelligence-strategy-2025-2030/image.png" medium="image" type="image/png" height="204" width="144"/>
+</item>
+<item>
+  <title>Optimizing CSS Extraction in Webpack 5</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/optimizing-css-extraction-in-webpack-5/</link>
+  <description><![CDATA[ Webpack 5<sup>1</sup> has <code>MiniCssExtractPlugin</code><sup>2</sup>, a powerful tool for extracting CSS from JavaScript modules. This optimization serves multiple purposes: ]]></description>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/optimizing-css-extraction-in-webpack-5/</guid>
+  <pubDate>Tue, 01 Apr 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/optimizing-css-extraction-in-webpack-5/image.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Graph Theory</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/computational-techniques-in-data-science/graph-theory/</link>
+  <description><![CDATA[ Graph theory is the study of networks of connected objects. A graph consists of <strong>nodes (vertices)</strong> and <strong>edges (connections)</strong>. If edges have a <strong>direction</strong>, it’s a <strong>directed graph (digraph)</strong>; otherwise, it’s <strong>undirected</strong>. ]]></description>
+  <category>data-science</category>
+  <category>computational-techniques</category>
+  <guid>https://toknow.ai/posts/computational-techniques-in-data-science/graph-theory/</guid>
+  <pubDate>Mon, 31 Mar 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Linear Programming</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/computational-techniques-in-data-science/linear-programming-optimizing-linear-objective-function-with-constraints/</link>
+  <description><![CDATA[ A logistics company supplies goods from <strong>three warehouses (W1, W2, W3)</strong> to <strong>four retail stores (S1, S2, S3, S4)</strong>. The transportation cost per unit from each warehouse to each store is given in the table below. Each warehouse has a limited supply, and each store has a demand requirement. The goal is to minimize the total transportation cost. ]]></description>
+  <category>data-science</category>
+  <category>computational-techniques</category>
+  <guid>https://toknow.ai/posts/computational-techniques-in-data-science/linear-programming-optimizing-linear-objective-function-with-constraints/</guid>
+  <pubDate>Mon, 24 Mar 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Licenced Hospitals, Clinics and Dispensaries in Kenya, Year 2025</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/licenced-hospitals-clinics-and-dispensaries-in-kenya-year-2025/</link>
+  <description><![CDATA[ Using the data from <a href="https://kmpdc.go.ke/Registers/H-Facilities.php">Licenced HealthFacilities for the year 2025</a> <sup>1</sup>, we analyze hospital distribution in kenya per county. ]]></description>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/licenced-hospitals-clinics-and-dispensaries-in-kenya-year-2025/</guid>
+  <pubDate>Thu, 20 Mar 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Life Expectancy by Age, Gender and Counties in Kenya</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/life-expectancy-age-gender-and-counties-in-kenya/</link>
+  <description><![CDATA[ We plot and analyze the life expectancy in Kenya by age, gender and counties. The data is from the 2019 Kenya Population and Housing Census. The data is available in the <a href="https://www.knbs.or.ke/reports/kenya-census-2019/">Kenya National Bureau of Statistics website</a> <sup>1</sup>. We will extract the data from Table 5.7, page 70 of the <a href="https://web.archive.org/web/20250318194027/https://www.knbs.or.ke/wp-content/uploads/2024/05/2019-Kenya-Population-and-Housing-Census-Analytical-Report-on-Population-Dynamics-Vol-VIII.pdf">KPHC Census Analytical Report on Population Dynamics Volume VIII</a> <sup>2</sup> ]]></description>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/life-expectancy-age-gender-and-counties-in-kenya/</guid>
+  <pubDate>Tue, 18 Mar 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Random Walk</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/computational-techniques-in-data-science/random-walk/</link>
+  <description><![CDATA[ A random walk is a mathematical model that describes a path consisting of a series of random steps. ]]></description>
+  <category>data-science</category>
+  <category>computational-techniques</category>
+  <guid>https://toknow.ai/posts/computational-techniques-in-data-science/random-walk/</guid>
+  <pubDate>Mon, 17 Mar 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Stochastic Programming and Applications</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/computational-techniques-in-data-science/stochastic-programming-and-applications/</link>
+  <description><![CDATA[ Stochastic programming is an optimization framework that incorporates uncertainty into decision-making models. Unlike deterministic optimization, which assumes perfect/fixed information about all parameters, stochastic programming accounts for randomness in constraints and objectives. ]]></description>
+  <category>data-science</category>
+  <category>computational-techniques</category>
+  <guid>https://toknow.ai/posts/computational-techniques-in-data-science/stochastic-programming-and-applications/</guid>
+  <pubDate>Tue, 11 Mar 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Life Expectancy by sex between 2000 and 2021 in Kenya (WHO)</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/kenya-life-expectancy-between-2000-and-2021/</link>
+  <description><![CDATA[ The average number of years that a newborn could expect to live. Kenya, by sex, 2000 - 2021. ]]></description>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/kenya-life-expectancy-between-2000-and-2021/</guid>
+  <pubDate>Mon, 10 Mar 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Free, Intelligent and Serverless Page View/Read Count using Google Analytics and Cloudflare Workers</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/</link>
+  <description><![CDATA[ Engagement on websites and blogs is often measured through view counts. However, not all views represent meaningful engagement. External services like VisitorBadge.io can display view counts via an SVG image, but they lack the ability to delay view triggers while showing current counts. An alternative is using Google Analytics, which provides comprehensive website health metrics. For architectural simplicity and compatibility, especially with static websites, a Cloudflare worker can be used to fetch and display views from Google Analytics. ]]></description>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/display-google-analytics-views-using-cloudflare-worker/</guid>
+  <pubDate>Sat, 23 Nov 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/pageviews?page_path=/" medium="image"/>
+</item>
+<item>
+  <title>Protecting Against Domain Front-Running by Registrars</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/private-domain-checker/</link>
+  <description><![CDATA[ Protect your domain name searches from front-runnin - a practice where registrars potentially monitor and register domains you search for, intending to profit by reselling it at a higher price. This article presents a simple open-source solution for quickly checking domain availability privately, explains domain registration systems, and provides practical strategies for securing your desired domains. ]]></description>
+  <category>cyber-security</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/private-domain-checker/</guid>
+  <pubDate>Sun, 27 Oct 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/private-domain-checker/post.png" medium="image" type="image/png" height="107" width="144"/>
+</item>
+<item>
+  <title>Balancing between Paywalls and Search Engine Optimization</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/</link>
+  <description><![CDATA[ This case study examines the challenges faced by media companies in implementing effective paywalls while maintaining search engine optimization (SEO). Using Nation Media Group as a primary example, we explore the evolution of paywall strategies and propose a sophisticated solution that balances content protection with discoverability. ]]></description>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/</guid>
+  <pubDate>Mon, 21 Oct 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/nation-media-group.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Summary of Registered Entities and Companies in Kenya</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/summary-of-registered-entities-and-companies-in-kenya/</link>
+  <description><![CDATA[ Dive into a decade of Kenya’s economic landscape through the lens of business registrations. This post explores how political transitions between the Uhuru/Jubilee and Ruto/UDA eras may have influenced business formation trends, offering insights into the interplay between politics and entrepreneurship in East Africa’s powerhouse. ]]></description>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/summary-of-registered-entities-and-companies-in-kenya/</guid>
+  <pubDate>Tue, 15 Oct 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Kenyan Collective Investment Schemes Dataset</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/kenyan-collective-investment-schemes-dataset/</link>
+  <description><![CDATA[ The dataset compiles Effective Annual Rates for Money Market Funds (KES) and Assets Under Management, sourced from Capital Markets Authority reports and Cytonn Research publications. Utilizing web crawling techniques, data cleaning, and basic exploratory analysis, we’ve created a standardized dataset suitable for in-depth financial research. The dataset compiles Effective Annual Rates for Money Market Funds (KES) and Assets Under Management for the schemes. ]]></description>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/kenyan-collective-investment-schemes-dataset/</guid>
+  <pubDate>Fri, 04 Oct 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Create a Free Professional Resume Website and PDF with GitHub pages and Quarto</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/quarto-resume-template/</link>
+  <description><![CDATA[ Are you looking to showcase your professional experience in a modern, easily accessible format? In this guide, we’ll walk you through the process of creating your own resume website using GitHub and Quarto. The best part? It’s completely free and gives you a high-quality, trusted online presence in just minutes! ]]></description>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/quarto-resume-template/</guid>
+  <pubDate>Sun, 15 Sep 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/quarto-resume-template/image.png" medium="image" type="image/png" height="120" width="144"/>
+</item>
+<item>
+  <title>Convert Your Shazam Playlist to YouTube Playlist</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/shazam-playlist-to-youtube-playlist/</link>
+  <description><![CDATA[ Shazam is an incredible app for identifying music playing around you. Whether you’re at a cafe, watching a movie, or just hearing a catchy tune on the radio, Shazam helps you discover new music effortlessly. However, the app’s main limitation is that it doesn’t allow you to play full songs unless you have a linked music streaming subscription. ]]></description>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/shazam-playlist-to-youtube-playlist/</guid>
+  <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/shazam-playlist-to-youtube-playlist/post.png" medium="image" type="image/png" height="120" width="144"/>
+</item>
+<item>
+  <title>Kenya Population from year 1974 to year 2022</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/kenya-population-from-1974-to-2022/</link>
+  <description><![CDATA[ The data has been sourced from the World Bank API.<sup>1</sup> ]]></description>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/kenya-population-from-1974-to-2022/</guid>
+  <pubDate>Sat, 08 Jun 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Artificial General Intelligence</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/artificial-general-intelligence/</link>
+  <description><![CDATA[ Artificial Intelligence (AI) is currently replacing simple tasks and some major tasks. Suppose we are to assume that AI is to incrementally become better, it will change most aspects of how we live our lives. If it becomes even stronger, it will probably change the future of humanity. ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/artificial-general-intelligence/</guid>
+  <pubDate>Tue, 04 Jun 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/artificial-general-intelligence/pexels-googledeepmind-17485658.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

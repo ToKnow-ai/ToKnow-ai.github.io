@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kabui, Charles">
+<meta name="dcterms.date" content="2024-10-21">
+<meta name="keywords" content="nation-media-group, paywalls, search-engine-optimization, cloudflare">
+<meta name="description" content="This case study examines the challenges faced by media companies in implementing effective paywalls while maintaining search engine optimization (SEO). Using Nation Media Group as a primary example, we explore the evolution of paywall strategies and propose a sophisticated solution that balances content protection with discoverability.">
+
+<title>Balancing between Paywalls and Search Engine Optimization – ToKnow.ai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-69723e077026ad4a321bed14f8700e6d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-35322284f6b9dd1705f24f61da0789cd.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4R9DMKF8S7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R9DMKF8S7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../_styles.css">
+<link rel="stylesheet" href="../_post-styles.css">
+<meta property="og:title" content="Balancing between Paywalls and Search Engine Optimization – ToKnow.ai">
+<meta property="og:description" content="This case study examines the challenges faced by media companies in implementing effective paywalls while maintaining search engine optimization (SEO). Using Nation Media Group as a primary example, we explore the evolution of paywall strategies and propose a sophisticated solution that balances content protection with discoverability.">
+<meta property="og:image" content="https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/nation-media-group.jpg">
+<meta property="og:site_name" content="ToKnow.ai">
+<meta name="twitter:title" content="Balancing between Paywalls and Search Engine Optimization – ToKnow.ai">
+<meta name="twitter:description" content="This case study examines the challenges faced by media companies in implementing effective paywalls while maintaining search engine optimization (SEO). Using Nation Media Group as a primary example, we explore the evolution of paywall strategies and propose a sophisticated solution that balances content protection with discoverability.">
+<meta name="twitter:image" content="https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/nation-media-group.jpg">
+<meta name="twitter:site" content="@ToKnow_ai">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/index.html">
+<meta name="citation_title" content="Balancing between Paywalls and Search Engine Optimization">
+<meta name="citation_keywords" content="nation-media-group,paywalls,search-engine-optimization,cloudflare">
+<meta name="citation_author" content="Kabui, Charles">
+<meta name="citation_publication_date" content="2024-10-21">
+<meta name="citation_cover_date" content="2024-10-21">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-10-21">
+<meta name="citation_fulltext_html_url" content="https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/index.html">
+<meta name="citation_language" content="en-GB">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ToKnow.ai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../apps.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../domains-for-sale.html"> 
+<span class="menu-text">Domains 4 Sale</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ToKnow-ai"> <i class="bi bi-github" role="img" aria-label="Github - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ToKnow_ai"> <i class="bi bi-twitter" role="img" aria-label="Twitter - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img" aria-label="ToKnow.ai RSS">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Balancing between Paywalls and Search Engine Optimization</h1>
+            <p class="subtitle lead">How Media Paywalls Should Work: A Research Case for Nation Media Group</p>
+                  <div>
+        <div class="description">
+          This case study examines the challenges faced by media companies in implementing effective paywalls while maintaining search engine optimization (SEO). Using Nation Media Group as a primary example, we explore the evolution of paywall strategies and propose a sophisticated solution that balances content protection with discoverability.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">cyber-security</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kabui, Charles <a href="mailto:kabui@toknow.ai" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">21 October 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>nation-media-group, paywalls, search-engine-optimization, cloudflare</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#paywalls-and-seo-a-delicate-balance" id="toc-paywalls-and-seo-a-delicate-balance" class="nav-link" data-scroll-target="#paywalls-and-seo-a-delicate-balance">Paywalls and SEO: A Delicate Balance</a></li>
+  <li><a href="#a-better-solution" id="toc-a-better-solution" class="nav-link" data-scroll-target="#a-better-solution">A Better Solution</a></li>
+  <li><a href="#nation-media-groups-case" id="toc-nation-media-groups-case" class="nav-link" data-scroll-target="#nation-media-groups-case">Nation Media Group’s Case</a>
+  <ul>
+  <li><a href="#initial-css-based-paywall" id="toc-initial-css-based-paywall" class="nav-link" data-scroll-target="#initial-css-based-paywall">Initial CSS-Based Paywall</a></li>
+  <li><a href="#enhanced-javascript-security-layer" id="toc-enhanced-javascript-security-layer" class="nav-link" data-scroll-target="#enhanced-javascript-security-layer">Enhanced JavaScript Security Layer</a></li>
+  <li><a href="#implementing-the-suggested-approach-python-code" id="toc-implementing-the-suggested-approach-python-code" class="nav-link" data-scroll-target="#implementing-the-suggested-approach-python-code">Implementing the Suggested Approach (<code>python code</code>)</a></li>
+  <li><a href="#leveraging-cloudflares-web-workers" id="toc-leveraging-cloudflares-web-workers" class="nav-link" data-scroll-target="#leveraging-cloudflares-web-workers">Leveraging Cloudflare’s Web Workers</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.output.ipynb" download="index.output.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/balancing-between-paywalls-and-search-engine-optimization" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://kaggle.com/kernels/welcome?src=https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/index.output.ipynb"><i class="bi bi-code-slash"></i> Open in Kaggle</a>
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/index.output.ipynb"><i class="bi bi-file-earmark-arrow-down-fill"></i> Download as Notebook</a>
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="nation-media-group.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Nation Media Group logo"><img src="nation-media-group.jpg" class="img-fluid figure-img" decoding="async" loading="lazy" alt="Nation Media Group logo"></a></p>
+<figcaption>Nation Media Group logo</figcaption>
+</figure>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>To maintain independence in content creation, creators and authors need sustainable monetization models. One of the most common monetization methods for written content is through advertising. However, paywalls offer another viable path for revenue generation.</p>
+<p>In this context, paywalls represent a model that restricts content to paying subscribers while limiting the reach for non-subscribers. When implemented poorly, paywalls can hurt discoverability, often leading to reduced traffic and lower engagement. This research provides insights into maintaining a balance between paywalls and SEO, particularly for media companies like Nation Media Group.</p>
+</section>
+<section id="paywalls-and-seo-a-delicate-balance" class="level2">
+<h2 class="anchored" data-anchor-id="paywalls-and-seo-a-delicate-balance">Paywalls and SEO: A Delicate Balance</h2>
+<p>For users to discover your content, they need to find it in search engines such as Google, Bing, or DuckDuckGo. For best results, it makes sense to allow search engines to see the entire premium article, enabling them to suggest it when users search for similar content. This practice is called search engine optimization (SEO). You might have the best news content, but if no one can find it, it’s essentially useless.</p>
+<p>The challenge of allowing partial access to premium content while still restricting it to paid users is a delicate balance that most media houses must maintain. Users often find clever ways to circumvent paywalls to access paid content for free. There are online forums dedicated to discovering these vulnerabilities, such as “<a href="https://www.reddit.com/r/Kenya/comments/s96k01/bypassing_daily_nation_paywall/?rdt=48760">Bypassing Daily Nation Paywall</a>” and “<a href="https://www.reddit.com/r/educationalgifs/comments/lk1not/you_can_bypass_most_soft_paywalls_with_a_little/">You can bypass most soft paywalls with a little CSS knowledge</a>”. The ideas shared in these forums are often simple but require basic programming skills to execute. Consequently, most people would prefer to pay rather than learn how to implement these bypasses.</p>
+<p>However, some users create browser plugins that automatically do the heavy lifting, allowing effortless access to premium content. Browser plugin stores and code repositories containing paywall bypass tools are usually taken down, such as the well-known <a href="https://github.com/iamadamdev/bypass-paywalls-chrome" class="uri">https://github.com/iamadamdev/bypass-paywalls-chrome</a>. Yet, the code often finds a new home before removal, as seen with <a href="https://github.com/nikolqyy/bypass-paywalls-chrome/releases/tag/most-recent" class="uri">https://github.com/nikolqyy/bypass-paywalls-chrome/releases/tag/most-recent</a> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>This cat-and-mouse game is time-consuming for media companies, as they must constantly identify which plugins are currently bypassing their paywalls. Additionally, executing DMCA takedown notices is not instantaneous. Even after a successful takedown, someone with a cloned repository can reupload the code or plugin, and the cycle continues. This strategy only affects publicly available plugins and ideas, and ironically, the more control attempts are made, the more it spreads awareness that the website can be bypassed. This may prompt users who previously paid willingly to feel short-changed and start seeking bypass methods.</p>
+<p>Furthermore, this approach tends to target only well-known plugins and repositories. Lesser-known repositories continue to grow unnoticed (e.g., <a href="https://github.com/nikolqyy/bypass-paywalls-chrome" class="uri">https://github.com/nikolqyy/bypass-paywalls-chrome</a>). It’s unlikely that users accustomed to accessing content for free will start paying even if access is restricted. Moreover, users who have already installed these plugins will continue to enjoy premium content without paying.</p>
+</section>
+<section id="a-better-solution" class="level2">
+<h2 class="anchored" data-anchor-id="a-better-solution">A Better Solution</h2>
+<p>After issuing a DMCA takedown notice, the next logical step is typically to modify aspects of your website, such as class names and arrangement of site contents, to render old bypass plugins ineffective. However, there’s a more sophisticated solution that is scalable, cost-effective, and doesn’t compromise search engine optimization. This improved approach involves maintaining a select list of search engines that are allowed to access all premium content for SEO purposes. This list may include Google, Bing, DuckDuckGo, Yandex, Baidu, Yahoo, and Ahrefs. On your web servers, you would check the IP address of the calling client and perform a reverse DNS lookup to determine if the IP address is associated with the whitelisted search engines. Of course, this operation is nerwork expensive and should be optimized by caching the results for a set period, such as one week. This means that an IP address identified as belonging to a search engine would not need to be re-evaluated for approximately seven days. This strategy maintains a good balance between functionality and performance.</p>
+</section>
+<section id="nation-media-groups-case" class="level2">
+<h2 class="anchored" data-anchor-id="nation-media-groups-case">Nation Media Group’s Case</h2>
+<p>Nation Media Group, a leading media house in East Africa, is in a unique position to improve its paywall strategy. Currently, they leverage <strong>Cloudflare</strong> as their content delivery network (CDN). This presents an opportunity to optimize their paywall solution using Cloudflare’s services without significant overhead.</p>
+<p>The vulnerabilities detailed here affect <a href="https://nation.africa/" class="uri">https://nation.africa/</a> and <a href="https://www.businessdailyafrica.com/" class="uri">https://www.businessdailyafrica.com/</a>.</p>
+<section id="initial-css-based-paywall" class="level3">
+<h3 class="anchored" data-anchor-id="initial-css-based-paywall">Initial CSS-Based Paywall</h3>
+<p>Nation Media Group’s intial attempt used simple CSS classes to hide premium content, which could be easily bypassed with basic JavaScript.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// https://nation.africa/</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove the paywall element</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.wall-guard'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Allow copying the text</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">'.blk-txt'</span>)<span class="op">?.</span><span class="fu">forEach</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      i <span class="kw">=&gt;</span> i<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">remove</span>(<span class="st">'blk-txt'</span>))<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// https://www.businessdailyafrica.com/</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove the paywall spinner</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.spinner'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove the paywall element</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.paywall'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove the call for action</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.grid-container-medium'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// https://www.businessdailyafrica.com/ AND https://nation.africa/</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Show the hidden content</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">'.paragraph-wrapper.nmgp'</span>)<span class="op">?.</span><span class="fu">forEach</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      i <span class="kw">=&gt;</span> i<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">remove</span>(<span class="st">'nmgp'</span>))<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="enhanced-javascript-security-layer" class="level3">
+<h3 class="anchored" data-anchor-id="enhanced-javascript-security-layer">Enhanced JavaScript Security Layer</h3>
+<p>After we reported the issue to them<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, Nation Media Group added a JavaScript layer to prevent easy access to premium content. They implemented a more sophisticated JavaScript-based security measure.</p>
+<p>The new JavaScript code now removes the actual content from the Document Object Model (DOM), meaning that CSS manipulation alone is no longer sufficient to reveal the hidden content. Nevertheless, there remains a way to silently disable JavaScript by re-fetching the HTML and parsing it as DOM without executing the JavaScript. This method essentially allows the old CSS-based bypass technique to continue functioning.</p>
+<p>This more advanced bypass script operates by fetching the original HTML, removing paywall elements, enabling images, and replacing the entire body content. By doing so, it effectively circumvents the enhanced security measures put in place by the media outlet.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">setTimeout</span>(<span class="kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// fetch html src</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> htmlString <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(location<span class="op">.</span><span class="at">href</span>)<span class="op">.</span><span class="fu">then</span>(resp <span class="kw">=&gt;</span> resp<span class="op">.</span><span class="fu">text</span>())</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> newHtmlDocument <span class="op">=</span> <span class="kw">new</span> <span class="fu">DOMParser</span>()<span class="op">.</span><span class="fu">parseFromString</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        htmlString<span class="op">,</span> <span class="st">'text/html'</span>)<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// https://nation.africa/</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove the paywall element</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.wall-guard'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Allow copying the text</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">'.blk-txt'</span>)<span class="op">?.</span><span class="fu">forEach</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        i <span class="kw">=&gt;</span> i<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">remove</span>(<span class="st">'blk-txt'</span>))<span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// https://www.businessdailyafrica.com/</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove the paywall spinner</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.spinner'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove the paywall element</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.paywall'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove the call for action</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.grid-container-medium'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">// https://www.businessdailyafrica.com/ AND https://nation.africa/</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Show the hidden content</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">'.paragraph-wrapper.nmgp'</span>)<span class="op">?.</span><span class="fu">forEach</span>(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        i <span class="kw">=&gt;</span> i<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">remove</span>(<span class="st">'nmgp'</span>))<span class="op">;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Stop all events</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">// document.body.outerHTML += ''</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Enable images</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">'img.lazy-img'</span>)<span class="op">.</span><span class="fu">forEach</span>(</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        i <span class="kw">=&gt;</span> i<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">remove</span>(<span class="st">'lazy-img'</span>))</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">'img[data-src]'</span>)<span class="op">.</span><span class="fu">forEach</span>(img <span class="kw">=&gt;</span> {</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> { dataset } <span class="op">=</span> img<span class="op">;</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        img<span class="op">.</span><span class="at">src</span> <span class="op">=</span> dataset<span class="op">.</span><span class="at">src</span> <span class="op">??</span> img<span class="op">.</span><span class="at">src</span><span class="op">;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        img<span class="op">.</span><span class="at">srcset</span> <span class="op">=</span> dataset<span class="op">.</span><span class="at">srcset</span> <span class="op">??</span> img<span class="op">.</span><span class="at">srcset</span><span class="op">;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove spinners</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">'.spinner'</span>)<span class="op">.</span><span class="fu">forEach</span>(i <span class="kw">=&gt;</span> i<span class="op">.</span><span class="fu">remove</span>())<span class="op">;</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove cloundflare email protection label</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    newHtmlDocument<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.__cf_email__'</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        <span class="op">?.</span><span class="fu">closest</span>(<span class="st">'.paragraph-wrapper'</span>)<span class="op">?.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove external scripts from the new DOM</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(newHtmlDocument<span class="op">.</span><span class="fu">getElementsByTagName</span>(<span class="st">'script'</span>))</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">forEach</span>(script <span class="kw">=&gt;</span> script<span class="op">.</span><span class="at">src</span> <span class="op">?</span> script<span class="op">.</span><span class="fu">remove</span>() <span class="op">:</span> <span class="kw">null</span>)<span class="op">;</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove iframes from the new DOM</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(newHtmlDocument<span class="op">.</span><span class="fu">getElementsByTagName</span>(<span class="st">'iframe'</span>))</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">forEach</span>(iframe <span class="kw">=&gt;</span> iframe<span class="op">.</span><span class="fu">remove</span>())<span class="op">;</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">outerHTML</span> <span class="op">=</span> newHtmlDocument<span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">outerHTML</span><span class="op">;</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">removePopup</span>(<span class="dv">50</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove external scripts from the old DOM</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(<span class="bu">document</span><span class="op">.</span><span class="fu">getElementsByTagName</span>(<span class="st">'script'</span>))</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">forEach</span>(script <span class="kw">=&gt;</span> script<span class="op">.</span><span class="at">src</span> <span class="op">?</span> script<span class="op">.</span><span class="fu">remove</span>() <span class="op">:</span> <span class="kw">null</span>)<span class="op">;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove iframes from the old DOM</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(<span class="bu">document</span><span class="op">.</span><span class="fu">getElementsByTagName</span>(<span class="st">'iframe'</span>))</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">forEach</span>(iframe <span class="kw">=&gt;</span> iframe<span class="op">.</span><span class="fu">remove</span>())<span class="op">;</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Filter out elements not in body or head</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(<span class="bu">document</span><span class="op">.</span><span class="at">documentElement</span><span class="op">.</span><span class="at">children</span>)<span class="op">.</span><span class="fu">forEach</span>(</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        element <span class="kw">=&gt;</span> <span class="op">!</span>[<span class="st">'body'</span><span class="op">,</span> <span class="st">'head'</span>]<span class="op">.</span><span class="fu">includes</span>(element<span class="op">.</span><span class="at">tagName</span><span class="op">.</span><span class="fu">toLowerCase</span>()) </span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>            <span class="op">?</span> element<span class="op">.</span><span class="fu">remove</span>() </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>            <span class="op">:</span> <span class="kw">null</span>)<span class="op">;</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    <span class="co">// remove popup and make page scrollable</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">removePopup</span> (maxRetries<span class="op">,</span> retries) {</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>        <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>            <span class="kw">const</span> popUp <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'.fc-ab-root'</span>)</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (popUp) {</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>                popUp<span class="op">?.</span><span class="fu">remove</span>()</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>                <span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">style</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">else</span> <span class="cf">if</span> (retries <span class="op">&lt;</span> maxRetries) {</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>                <span class="fu">removePopup</span>(maxRetries<span class="op">,</span> retries <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>        }<span class="op">,</span> <span class="dv">300</span>)<span class="op">;</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To validate, you can use the article that was premium before June 2024, and is still premium now, such as <a href="https://nation.africa/kenya/business/inside-world-bank-tough-terms-sh158bn-loan-kenya-4642634" class="uri">https://nation.africa/kenya/business/inside-world-bank-tough-terms-sh158bn-loan-kenya-4642634</a>. To test the old logic, use an archived version of the premium article at <a href="https://web.archive.org/web/20240601075749/https://nation.africa/kenya/business/inside-world-bank-tough-terms-sh158bn-loan-kenya-4642634" class="uri">https://web.archive.org/web/20240601075749/https://nation.africa/kenya/business/inside-world-bank-tough-terms-sh158bn-loan-kenya-4642634</a>. Please note this may stop working at any time depending on changes they make on their platforms.</p>
+</section>
+<section id="implementing-the-suggested-approach-python-code" class="level3">
+<h3 class="anchored" data-anchor-id="implementing-the-suggested-approach-python-code">Implementing the Suggested Approach (<code>python code</code>)</h3>
+<p>This approach would significantly increase the difficulty of bypassing the paywall while still allowing search engines to index the full content. However, it’s worth noting that determined users could potentially access the content by routing their requests through services like Google’s PageSpeed Insights (<a href="https://pagespeed.web.dev/" class="uri">https://pagespeed.web.dev/</a>) or Rich Results Test (<a href="https://search.google.com/test/rich-results" class="uri">https://search.google.com/test/rich-results</a>).</p>
+<p><strong>Implementation Considerations</strong></p>
+<p>To implement this solution effectively, consider the following:</p>
+<ol type="1">
+<li><strong>Performance Optimization</strong>: Ensure that the IP lookup and content serving process is optimized to minimize latency. Utilize caching.</li>
+<li><strong>Regular Updates</strong>: Continuously monitor and update the list of whitelisted search engine hostnames.</li>
+<li><strong>Fallback Mechanism</strong>: Implement a fallback strategy for cases where the reverse DNS lookup fails or times out.</li>
+<li><strong>User Experience</strong>: Design the system to handle edge cases gracefully, ensuring a smooth experience for legitimate users and search engine crawlers.</li>
+<li><strong>Compliance</strong>: Ensure that the implementation complies with relevant data protection and privacy regulations, such as implementing a secure storage for cached IP information.</li>
+</ol>
+<p>By addressing these considerations, you can create a robust system that balances content protection with search engine accessibility.</p>
+<div id="cell-17" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipaddress <span class="im">import</span> ip_address <span class="im">as</span> parse_ip_address</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> reverse_dns_lookup(ip_address: <span class="bu">str</span>, <span class="op">*</span>host_names: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Perform reverse DNS lookup.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Usage example:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">        await reverse_dns_lookup("66.249.66.1", "googlebot.com", "google.com")</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    ip_address : str</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">        the ip address of the client that called the server, </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">        or the header value of "X-Forwarded-For" incase a </span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">        proxy/CDN such as cloudflare is used!</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    host_names : list[str]</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">        allowed search engines</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">        eg: "googlebot.com", "search.msn.com", "duckduckgo.com", etc</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    More Information:</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">    Verifying Googlebot: </span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">        https://developers.google.com/search/docs/advanced/crawling/verifying-googlebot</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">    How to access the sitemap.xml file of stackoverflow.com</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">        https://meta.stackexchange.com/a/324471</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">    Reverse IP Domain Check?</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">        https://stackoverflow.com/a/716753/3563013</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(host_names) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Raises `ValueError`if ip_address is not valid IPv4 or IPv6 </span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            <span class="co"># address.</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            valid_ip_address: <span class="bu">str</span> <span class="op">=</span> <span class="bu">str</span>(parse_ip_address(ip_address))</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Perform reverse DNS lookup</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Get hostname from IP, </span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>            <span class="co"># eg: ('crawl-66-249-66-1.googlebot.com', [], ['66.249.66.1'])</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            ip_address_hostname, aliases_1, _ <span class="op">=</span> socket.gethostbyaddr(</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>                valid_ip_address)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Get all IP addesses resolving the hostname (both IPv4 and IPv6)</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>            ip_address_list <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>                [ip[<span class="dv">4</span>][<span class="dv">0</span>] </span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>                 <span class="cf">for</span> ip </span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>                 <span class="kw">in</span> socket.getaddrinfo(ip_address_hostname, <span class="va">None</span>)]))</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Check if IP matches any of the addresses for the hostname</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> valid_ip_address <span class="kw">in</span> ip_address_list:</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Perform forward DNS lookup to get all aliases</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>                _, aliases_2, _ <span class="op">=</span> socket.gethostbyname_ex(ip_address_hostname)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>                all_aliases <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>                    [ip_address_hostname] <span class="op">+</span> aliases_1 <span class="op">+</span> aliases_2))</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Check if hostname or its aliases match any of the allowed </span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>                <span class="co"># hosts</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="bu">any</span>(</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>                    host_name </span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> host_name </span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">in</span> host_names</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> <span class="bu">any</span>(</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>                        alias </span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">for</span> alias </span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">in</span> all_aliases </span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> alias.casefold().strip() <span class="op">==</span> <span class="op">\</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>                            host_name.casefold().strip() <span class="op">\</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>                            <span class="kw">or</span> alias.casefold().strip().endswith(</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>                                <span class="ss">f".</span><span class="sc">{</span>host_name<span class="sc">.</span>casefold()<span class="sc">.</span>strip()<span class="sc">}</span><span class="ss">"</span>)))</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Test</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> reverse_dns_lookup(</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>    <span class="st">"66.249.66.1"</span>, <span class="st">"googlebot.com"</span>, <span class="st">"googleusercontent.com"</span>, <span class="st">"google.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="leveraging-cloudflares-web-workers" class="level3">
+<h3 class="anchored" data-anchor-id="leveraging-cloudflares-web-workers">Leveraging Cloudflare’s Web Workers</h3>
+<p>Given Nation Media Group’s existing infrastructure with Cloudflare, they don’t need to rewrite their server code. Instead, they can utilize an intermediary service from Cloudflare known as <a href="https://workers.cloudflare.com/">Web Workers</a>. <a href="https://workers.cloudflare.com/">Cloudflare Workers</a> allow for the interception of requests and the implementation of more complex logic, such as reverse DNS lookups, without requiring changes to the core server infrastructure.</p>
+<p>Cloudflare Workers provide first-class support for JavaScript, TypeScript, Python, and Rust, and they can support any programming language via <a href="https://developers.cloudflare.com/workers/runtime-apis/webassembly/">WebAssembly</a>. Additionally, the cost model is favorable, with the first <code>100,000</code> requests per day being free and a modest fee of <code>$5</code> for every <code>10 million</code> requests beyond that.</p>
+<p><strong>Advantages of Cloudflare Workers:</strong></p>
+<ol type="1">
+<li><strong>Efficiency</strong>: Minimal impact on server infrastructure.</li>
+<li><strong>Scalability</strong>: Cloudflare’s global infrastructure can handle large-scale traffic.</li>
+<li><strong>Cost-effectiveness</strong>: Free for low to moderate usage, with low costs for higher volumes.</li>
+<li><strong>Performance</strong>: Requests can be intercepted and resolved in <u><strong>pararell</strong></u> with reverse DNS lookup, ensuring faster response times.</li>
+</ol>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>No system is foolproof, and it’s important for media companies to maintain ongoing vigilance and updates to ensure the integrity of their paywalls. As the digital media landscape continues to evolve, so too must the strategies for protecting and monetizing content.</p>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <em>You will be peronally liable for any misuse of the information provided here. We <a href="https://www.nationmedia.com/contact/">contacted Nation Media Group</a> on Jun 3, 2024, 2:30 PM East African Time, but they did not respond <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes / Citations / References</h2>
+
+<ol>
+<li id="fn1"><p>https://news.ycombinator.com/item?id=41294166<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>We <a href="https://www.nationmedia.com/contact/">contacted Nation Media Group</a> through the following emails: <a href="mailto:support@nation.africa" class="email">support@nation.africa</a>, <a href="mailto:sales_inquiries@ke.nationmedia.com" class="email">sales_inquiries@ke.nationmedia.com</a>, <a href="mailto:newsdesk@ke.nationmedia.com" class="email">newsdesk@ke.nationmedia.com</a>, <a href="mailto:publiceditor@ke.nationmedia.com" class="email">publiceditor@ke.nationmedia.com</a>, <a href="mailto:mailbox@ke.nationmedia.com" class="email">mailbox@ke.nationmedia.com</a>, <a href="mailto:epaper@ke.nationmedia.com" class="email">epaper@ke.nationmedia.com</a>, <a href="mailto:Customercare@ke.nationmedia.com" class="email">Customercare@ke.nationmedia.com</a> on Jun 3, 2024, 2:30 PM East African Time<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We <a href="https://www.nationmedia.com/contact/">contacted Nation Media Group</a> through the following emails: <a href="mailto:support@nation.africa" class="email">support@nation.africa</a>, <a href="mailto:sales_inquiries@ke.nationmedia.com" class="email">sales_inquiries@ke.nationmedia.com</a>, <a href="mailto:newsdesk@ke.nationmedia.com" class="email">newsdesk@ke.nationmedia.com</a>, <a href="mailto:publiceditor@ke.nationmedia.com" class="email">publiceditor@ke.nationmedia.com</a>, <a href="mailto:mailbox@ke.nationmedia.com" class="email">mailbox@ke.nationmedia.com</a>, <a href="mailto:epaper@ke.nationmedia.com" class="email">epaper@ke.nationmedia.com</a>, <a href="mailto:Customercare@ke.nationmedia.com" class="email">Customercare@ke.nationmedia.com</a> on Jun 3, 2024, 2:30 PM East African Time<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2024,
+  author = {{Kabui, Charles}},
+  title = {Balancing Between {Paywalls} and {Search} {Engine}
+    {Optimization}},
+  date = {2024-10-21},
+  url = {https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/index.html},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kabui, Charles. 2024. <span>“Balancing Between Paywalls and Search
+Engine Optimization.”</span> <a href="https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/index.html">https://toknow.ai/posts/balancing-between-paywalls-and-search-engine-optimization/index.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/toknow\.ai\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="ToKnow-ai/ToKnow-ai.github.io" data-repo-id="R_kgDOL20t9g" data-category="Giscus Comments" data-category-id="DIC_kwDOL20t9s4CfKjw" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2025, ToKnow.ai
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../terms-of-service.html">
+<p>Terms of Service</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+ <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&amp;label=readers%20count">
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
