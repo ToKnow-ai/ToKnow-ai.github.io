@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A574;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#8B5E3C;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Context window visualization -->
+  <rect x="100" y="80" width="600" height="40" rx="8" fill="url(#accent)" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1"/>
+  <rect x="100" y="80" width="480" height="40" rx="8" fill="#FFFFFF" fill-opacity="0.15"/>
+  <text x="390" y="106" font-family="monospace" font-size="14" fill="#FFFFFF" fill-opacity="0.7" text-anchor="middle">1,000,000 TOKENS</text>
+  <!-- Filter funnel -->
+  <polygon points="300,170 500,170 450,260 350,260" fill="url(#accent)" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1.5"/>
+  <text x="400" y="225" font-family="monospace" font-size="13" fill="#FFFFFF" fill-opacity="0.8" text-anchor="middle">DYNAMIC FILTER</text>
+  <!-- Output stream -->
+  <rect x="350" y="280" width="100" height="30" rx="6" fill="#FFFFFF" fill-opacity="0.2"/>
+  <text x="400" y="300" font-family="monospace" font-size="11" fill="#FFFFFF" fill-opacity="0.7" text-anchor="middle">-24% TOKENS</text>
+  <!-- Stats -->
+  <text x="150" y="370" font-family="monospace" font-size="13" fill="#FFFFFF" fill-opacity="0.6">+11% ACCURACY</text>
+  <text x="400" y="370" font-family="monospace" font-size="13" fill="#FFFFFF" fill-opacity="0.6">59% vs OPUS</text>
+  <text x="620" y="370" font-family="monospace" font-size="13" fill="#FFFFFF" fill-opacity="0.6">ASL-3</text>
+  <!-- Title -->
+  <text x="400" y="430" font-family="monospace" font-size="18" fill="#FFFFFF" font-weight="bold" text-anchor="middle">CLAUDE SONNET 4.6</text>
+</svg>

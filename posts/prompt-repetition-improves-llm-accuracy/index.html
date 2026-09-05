@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kabui, Charles">
+<meta name="dcterms.date" content="2026-02-13">
+<meta name="keywords" content="prompt-repetition, double-prompting, lost-in-the-middle, LLM-attention, prompt-engineering, context-window, AI-code-generation">
+<meta name="description" content="Research from Google shows that simply repeating your prompt fixes the ‘Lost in the Middle’ attention problem in LLMs, winning 47 out of 70 benchmark tests with zero losses, and boosting accuracy by up to 76 percentage points on targeted tasks.">
+
+<title>Double Prompting: How Prompt Repetition Improves LLM Accuracy Without Extra Cost – ToKnow.ai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b7adde2f1b737e1ab85d341de37ab126.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-a00569dc5e1b9abeeb38d9c5a30072e9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4R9DMKF8S7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R9DMKF8S7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../_styles.css">
+<link rel="stylesheet" href="../_post-styles.css">
+<meta property="og:title" content="Double Prompting: How Prompt Repetition Improves LLM Accuracy Without Extra Cost – ToKnow.ai">
+<meta property="og:description" content="Research from Google shows that simply repeating your prompt fixes the ‘Lost in the Middle’ attention problem in LLMs, winning 47 out of 70 benchmark tests with zero losses, and boosting accuracy by up to 76 percentage points on targeted tasks.">
+<meta property="og:image" content="https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/image.png">
+<meta property="og:site_name" content="ToKnow.ai">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:width" content="1024">
+<meta name="twitter:title" content="Double Prompting: How Prompt Repetition Improves LLM Accuracy Without Extra Cost – ToKnow.ai">
+<meta name="twitter:description" content="Research from Google shows that simply repeating your prompt fixes the ‘Lost in the Middle’ attention problem in LLMs, winning 47 out of 70 benchmark tests with zero losses, and boosting accuracy by up to 76 percentage points on targeted tasks.">
+<meta name="twitter:image" content="https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/image.png">
+<meta name="twitter:site" content="@ToKnow_ai">
+<meta name="twitter:image-height" content="1024">
+<meta name="twitter:image-width" content="1024">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/">
+<meta name="citation_title" content="Double Prompting: How Prompt Repetition Improves LLM Accuracy Without Extra Cost">
+<meta name="citation_keywords" content="prompt-repetition,double-prompting,lost-in-the-middle,LLM-attention,prompt-engineering,context-window,AI-code-generation">
+<meta name="citation_author" content="Kabui, Charles">
+<meta name="citation_publication_date" content="2026-02-13">
+<meta name="citation_cover_date" content="2026-02-13">
+<meta name="citation_year" content="2026">
+<meta name="citation_online_date" content="2026-02-13">
+<meta name="citation_fulltext_html_url" content="https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/">
+<meta name="citation_language" content="en-GB">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ToKnow.ai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../apps.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../domains-for-sale.html"> 
+<span class="menu-text">Domains 4 Sale</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ToKnow-ai"> <i class="bi bi-github" role="img" aria-label="Github - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ToKnow_ai"> <i class="bi bi-twitter" role="img" aria-label="Twitter - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img" aria-label="ToKnow.ai RSS">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Double Prompting: How Prompt Repetition Improves LLM Accuracy Without Extra Cost</h1>
+                  <div>
+        <div class="description">
+          Research from Google shows that simply repeating your prompt fixes the ‘Lost in the Middle’ attention problem in LLMs, winning 47 out of 70 benchmark tests with zero losses, and boosting accuracy by up to 76 percentage points on targeted tasks.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">artificial-intelligence</div>
+                <div class="quarto-category">software-engineering</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kabui, Charles <a href="mailto:kabui@toknow.ai" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2026-02-13</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>prompt-repetition, double-prompting, lost-in-the-middle, LLM-attention, prompt-engineering, context-window, AI-code-generation</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-problem-lost-in-the-middle" id="toc-the-problem-lost-in-the-middle" class="nav-link" data-scroll-target="#the-problem-lost-in-the-middle">1. The Problem: Lost in the Middle</a>
+  <ul>
+  <li><a href="#the-foundational-discovery" id="toc-the-foundational-discovery" class="nav-link" data-scroll-target="#the-foundational-discovery">1.1 The Foundational Discovery</a></li>
+  <li><a href="#the-u-shaped-attention-curve" id="toc-the-u-shaped-attention-curve" class="nav-link" data-scroll-target="#the-u-shaped-attention-curve">1.2 The U-Shaped Attention Curve</a></li>
+  <li><a href="#the-problem-persists-across-model-generations" id="toc-the-problem-persists-across-model-generations" class="nav-link" data-scroll-target="#the-problem-persists-across-model-generations">1.3 The Problem Persists Across Model Generations</a></li>
+  </ul></li>
+  <li><a href="#the-solution-prompt-repetition" id="toc-the-solution-prompt-repetition" class="nav-link" data-scroll-target="#the-solution-prompt-repetition">2. The Solution: Prompt Repetition</a>
+  <ul>
+  <li><a href="#the-core-insight" id="toc-the-core-insight" class="nav-link" data-scroll-target="#the-core-insight">2.1 The Core Insight</a></li>
+  <li><a href="#experimental-results" id="toc-experimental-results" class="nav-link" data-scroll-target="#experimental-results">2.2 Experimental Results</a></li>
+  <li><a href="#why-it-does-not-increase-cost-or-latency" id="toc-why-it-does-not-increase-cost-or-latency" class="nav-link" data-scroll-target="#why-it-does-not-increase-cost-or-latency">2.3 Why It Does Not Increase Cost or Latency</a></li>
+  <li><a href="#prompt-repetition-variants" id="toc-prompt-repetition-variants" class="nav-link" data-scroll-target="#prompt-repetition-variants">2.4 Prompt Repetition Variants</a></li>
+  <li><a href="#interaction-with-reasoning-models" id="toc-interaction-with-reasoning-models" class="nav-link" data-scroll-target="#interaction-with-reasoning-models">2.5 Interaction with Reasoning Models</a></li>
+  </ul></li>
+  <li><a href="#related-research-re-reading-as-reasoning-enhancement" id="toc-related-research-re-reading-as-reasoning-enhancement" class="nav-link" data-scroll-target="#related-research-re-reading-as-reasoning-enhancement">3. Related Research: Re-Reading as Reasoning Enhancement</a></li>
+  <li><a href="#practical-implications-for-developers" id="toc-practical-implications-for-developers" class="nav-link" data-scroll-target="#practical-implications-for-developers">4. Practical Implications for Developers</a>
+  <ul>
+  <li><a href="#when-to-use-prompt-repetition" id="toc-when-to-use-prompt-repetition" class="nav-link" data-scroll-target="#when-to-use-prompt-repetition">4.1 When to Use Prompt Repetition</a></li>
+  <li><a href="#when-it-is-less-necessary" id="toc-when-it-is-less-necessary" class="nav-link" data-scroll-target="#when-it-is-less-necessary">4.2 When It Is Less Necessary</a></li>
+  <li><a href="#simple-implementation" id="toc-simple-implementation" class="nav-link" data-scroll-target="#simple-implementation">4.3 Simple Implementation</a></li>
+  <li><a href="#combining-with-other-techniques" id="toc-combining-with-other-techniques" class="nav-link" data-scroll-target="#combining-with-other-techniques">4.4 Combining with Other Techniques</a></li>
+  <li><a href="#enterprise-orchestration-strategy" id="toc-enterprise-orchestration-strategy" class="nav-link" data-scroll-target="#enterprise-orchestration-strategy">4.5 Enterprise Orchestration Strategy</a></li>
+  <li><a href="#the-model-selection-cost-shift" id="toc-the-model-selection-cost-shift" class="nav-link" data-scroll-target="#the-model-selection-cost-shift">4.6 The Model Selection Cost Shift</a></li>
+  <li><a href="#security-implications" id="toc-security-implications" class="nav-link" data-scroll-target="#security-implications">4.7 Security Implications</a></li>
+  </ul></li>
+  <li><a href="#the-broader-picture-why-this-matters" id="toc-the-broader-picture-why-this-matters" class="nav-link" data-scroll-target="#the-broader-picture-why-this-matters">5. The Broader Picture: Why This Matters</a>
+  <ul>
+  <li><a href="#it-validates-a-known-developer-intuition" id="toc-it-validates-a-known-developer-intuition" class="nav-link" data-scroll-target="#it-validates-a-known-developer-intuition">5.1 It Validates a Known Developer Intuition</a></li>
+  <li><a href="#it-is-a-free-lunch-almost" id="toc-it-is-a-free-lunch-almost" class="nav-link" data-scroll-target="#it-is-a-free-lunch-almost">5.2 It Is a Free Lunch (Almost)</a></li>
+  <li><a href="#it-highlights-a-fundamental-architectural-limitation" id="toc-it-highlights-a-fundamental-architectural-limitation" class="nav-link" data-scroll-target="#it-highlights-a-fundamental-architectural-limitation">5.3 It Highlights a Fundamental Architectural Limitation</a></li>
+  <li><a href="#it-may-become-a-default" id="toc-it-may-become-a-default" class="nav-link" data-scroll-target="#it-may-become-a-default">5.4 It May Become a Default</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/prompt-repetition-improves-llm-accuracy" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Accuracy With Double Prompting"><img src="image.png" class="img-fluid figure-img" decoding="async" loading="lazy" alt="Accuracy With Double Prompting"></a></p>
+<figcaption>Accuracy With Double Prompting</figcaption>
+</figure>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Ever noticed that an LLM can kickstart a project with brilliant, high-level architecture, but as the codebase grows, it starts tripping over its own feet? It begins introducing logical inconsistencies, making “executive decisions” like adding complex, unasked-for features, or simply forgetting context you provided earlier in the conversation.</p>
+<p>This is not a random glitch. It is a documented phenomenon rooted in the fundamental architecture of transformer-based language models, and it has a name: <strong>Lost in the Middle</strong>.</p>
+<p>This article examines the research behind this problem, a remarkably simple technique that mitigates it, <strong>prompt repetition</strong> (or “double prompting”), and why this matters for anyone building production software with LLMs.</p>
+<hr>
+</section>
+<section id="the-problem-lost-in-the-middle" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-lost-in-the-middle">1. The Problem: Lost in the Middle</h2>
+<section id="the-foundational-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="the-foundational-discovery">1.1 The Foundational Discovery</h3>
+<p>In July 2023, Nelson F. Liu, Kevin Lin, John Hewitt, and colleagues at Stanford published a landmark paper: <a href="https://arxiv.org/abs/2307.03172"><em>“Lost in the Middle: How Language Models Use Long Contexts”</em></a>.</p>
+<p>The study evaluated language models on two tasks requiring them to identify relevant information within their input contexts: multi-document question answering and key-value retrieval. The findings were striking:</p>
+<ul>
+<li><strong>Performance was highest when relevant information appeared at the very beginning or very end of the input context.</strong></li>
+<li><strong>Performance degraded significantly when the relevant information was placed in the middle of the context</strong>, even for models explicitly designed for long contexts.</li>
+<li>This pattern held across model families and sizes, suggesting it is a fundamental property of the causal attention mechanism used in decoder-only transformer architectures.</li>
+</ul>
+<p>The researchers coined the term <strong>“Lost in the Middle”</strong> for this phenomenon, and it has since become a standard reference point in the LLM research community.</p>
+</section>
+<section id="the-u-shaped-attention-curve" class="level3">
+<h3 class="anchored" data-anchor-id="the-u-shaped-attention-curve">1.2 The U-Shaped Attention Curve</h3>
+<p>The attention pattern Liu et al.&nbsp;identified is often described as a <strong>“U-shaped” curve</strong>: models exhibit strong <strong>primacy bias</strong> (they attend well to the beginning of the context) and strong <strong>recency bias</strong> (they attend well to the end), but the middle of the context window becomes a kind of blind spot.</p>
+<p>This is directly analogous to the well-known <a href="https://en.wikipedia.org/wiki/Serial-position_effect">serial position effect</a> in human memory research, where humans also recall items better from the beginning (primacy) and end (recency) of a list.</p>
+<p>The underlying mechanism is tied to how causal language models work: past tokens cannot attend to future tokens. This means the first tokens in a sequence are processed without the benefit of full context, while the last tokens have the richest attention. Tokens in the middle are caught in a zone where they have fading relevance to the end-of-sequence prediction but are too far from the beginning to benefit from primacy.</p>
+</section>
+<section id="the-problem-persists-across-model-generations" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem-persists-across-model-generations">1.3 The Problem Persists Across Model Generations</h3>
+<p>A November 2025 study by researchers at General Motors, <a href="https://arxiv.org/abs/2511.13900"><em>“What Works for ‘Lost-in-the-Middle’ in LLMs? A Study on GM-Extract and Mitigations”</em></a>, extended this work with a real-world industrial benchmark.</p>
+<p>Their key findings confirmed the persistence of the problem:</p>
+<ul>
+<li><strong>Even modern models with 128k token context windows</strong> (such as LLaMA-3.1-8B) show performance degradation as context density increases.</li>
+<li>The maximum improvement achieved by all tested mitigation methods (including positional encoding modifications, hidden state scaling, and fine-tuning) was only <strong>7-15% on average</strong>, indicating that the problem is <strong>deeply fundamental to transformer attention.</strong></li>
+<li>A critical insight: as context length increases, models retain their ability to understand <strong>what</strong> the answer is (semantic comprehension) but progressively lose the ability to identify <strong>where</strong> the answer is located (spatial awareness).</li>
+<li>Performance was highly sensitive to input data format. Simply reformatting the same data from structured key-value pairs to natural language paragraphs changed retrieval accuracy by 15-20%.</li>
+</ul>
+<p>These findings establish that “Lost in the Middle” is not merely a theoretical curiosity. It is a practical reliability problem that affects code generation, document retrieval, data extraction, and any task where an LLM must locate and use specific information within a long context.</p>
+<hr>
+</section>
+</section>
+<section id="the-solution-prompt-repetition" class="level2">
+<h2 class="anchored" data-anchor-id="the-solution-prompt-repetition">2. The Solution: Prompt Repetition</h2>
+<section id="the-core-insight" class="level3">
+<h3 class="anchored" data-anchor-id="the-core-insight">2.1 The Core Insight</h3>
+<p>In December 2025, Yaniv Leviathan, Matan Kalman, and Yossi Matias at Google Research published <a href="https://arxiv.org/abs/2512.14982"><em>“Prompt Repetition Improves Non-Reasoning LLMs”</em></a>, proposing a deceptively simple technique: <strong>repeat the entire prompt</strong>.</p>
+<p>Instead of sending <code>&lt;QUERY&gt;</code> to the model, send <code>&lt;QUERY&gt;&lt;QUERY&gt;</code>.</p>
+<p>The reasoning is elegant: in a causal language model, each token can only attend to tokens that appeared before it. In a single pass of <code>&lt;CONTEXT&gt; &lt;QUESTION&gt;</code>, the model processes the answer options or question elements without full bidirectional awareness. When the prompt is repeated, <strong>every token in the second copy can attend to every token in the first copy</strong>, effectively giving the model a form of bidirectional attention within a unidirectional architecture.</p>
+<p>This addresses the Lost in the Middle problem directly: the middle content from the first copy now has a second chance to be processed through the lens of the complete instruction, because the instruction appears again after it.</p>
+</section>
+<section id="experimental-results" class="level3">
+<h3 class="anchored" data-anchor-id="experimental-results">2.2 Experimental Results</h3>
+<p>The researchers tested prompt repetition on <strong>7 popular models</strong> of varying sizes from leading providers:</p>
+<ul>
+<li><strong>Gemini 2.0 Flash</strong> and <strong>Gemini 2.0 Flash Lite</strong> (Google)</li>
+<li><strong>GPT-4o-mini</strong> and <strong>GPT-4o</strong> (OpenAI)</li>
+<li><strong>Claude 3 Haiku</strong> and <strong>Claude 3.7 Sonnet</strong> (Anthropic)</li>
+<li><strong>DeepSeek V3</strong></li>
+</ul>
+<p>They evaluated across <strong>7 benchmarks</strong>: ARC (Challenge), OpenBookQA, GSM8K, MMLU-Pro, MATH, and two custom tasks (NameIndex and MiddleMatch). All tests used official APIs.</p>
+<p><strong>The headline result: prompt repetition won 47 out of 70 benchmark-model combinations, with zero losses.</strong></p>
+<p>That bears repeating: across 70 tests spanning 7 models and 7 benchmarks, prompt repetition <strong>never made things worse</strong> and <strong>improved performance in 67% of cases.</strong></p>
+<p>Specific findings:</p>
+<div class="table-responsive">
+<table class="caption-top table-striped table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wins (statistically significant, p &lt; 0.1)</td>
+<td>47 out of 70</td>
+</tr>
+<tr class="even">
+<td>Losses</td>
+<td><strong>0 out of 70</strong></td>
+</tr>
+<tr class="odd">
+<td>NameIndex accuracy (Gemini 2.0 Flash-Lite)</td>
+<td>21.33% =&gt; <strong>97.33%</strong></td>
+</tr>
+<tr class="even">
+<td>Latency impact</td>
+<td><strong>None</strong> (only prefill stage affected)</td>
+</tr>
+<tr class="odd">
+<td>Output length change</td>
+<td><strong>None</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The NameIndex result is particularly striking. This custom task asks the model to identify the 25th item in a list of 50 names, a pure positional recall task that directly tests the Lost in the Middle problem. Prompt repetition increased accuracy from 21% to 97%, a <strong>76 percentage point improvement</strong>.</p>
+</section>
+<section id="why-it-does-not-increase-cost-or-latency" class="level3">
+<h3 class="anchored" data-anchor-id="why-it-does-not-increase-cost-or-latency">2.3 Why It Does Not Increase Cost or Latency</h3>
+<p>A natural concern is that doubling the prompt doubles the cost. In practice, the impact is minimal:</p>
+<ol type="1">
+<li><strong>No increase in generated tokens.</strong> Prompt repetition does not change the length or format of the model’s output. The token costs for generation (which typically dominate pricing) are unchanged.</li>
+<li><strong>No increase in latency.</strong> The additional processing occurs entirely in the <strong>prefill stage</strong>, which is parallelizable. The researchers measured empirical latency and found it remained constant across all models and benchmarks, with the only exception being Anthropic models on very long inputs.</li>
+<li><strong>The input token cost increase is modest.</strong> Doubling the input adds to the input token cost, but input tokens are typically priced 3-10x cheaper than output tokens across major providers.</li>
+</ol>
+<p>The trade-off equation is clear: a modest increase in input cost for a consistent, measurable improvement in accuracy with zero architectural changes.</p>
+</section>
+<section id="prompt-repetition-variants" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-repetition-variants">2.4 Prompt Repetition Variants</h3>
+<p>The researchers also tested variations of the technique:</p>
+<ul>
+<li><strong>Prompt Repetition (Verbose)</strong>:<br> <code>&lt;QUERY&gt; Let me repeat that: ...&lt;/QUERY&gt;</code>,<br> performed similarly across most benchmarks.</li>
+<li><strong>Prompt Repetition ×3</strong>:<br> <code>&lt;QUERY&gt; Let me repeat that: ...&lt;/QUERY&gt;</code><br> <code>&lt;QUERY&gt;Let me repeat that one more time: ...&lt;QUERY&gt;</code>, <br> sometimes <strong>substantially outperformed</strong> standard repetition on positional tasks like NameIndex and MiddleMatch.</li>
+<li><strong>Padding control</strong>: Padding the input with periods to the same length as prompt repetition showed <strong>no improvement</strong>, confirming the gains come from the repetition itself, not simply from longer inputs.</li>
+</ul>
+</section>
+<section id="interaction-with-reasoning-models" class="level3">
+<h3 class="anchored" data-anchor-id="interaction-with-reasoning-models">2.5 Interaction with Reasoning Models</h3>
+<p>When reasoning (chain-of-thought / “think step by step”) was enabled, prompt repetition was <strong>neutral to slightly positive</strong> (5 wins, 1 loss, 22 ties). This is expected: reasoning models often already begin their response by restating parts of the prompt, effectively performing their own internal repetition.</p>
+<p><strong>Prompt repetition is most valuable for non-reasoning tasks</strong>, which include code generation, data extraction, classification, formatting, and many production workloads where reasoning overhead is unnecessary.</p>
+<hr>
+</section>
+</section>
+<section id="related-research-re-reading-as-reasoning-enhancement" class="level2">
+<h2 class="anchored" data-anchor-id="related-research-re-reading-as-reasoning-enhancement">3. Related Research: Re-Reading as Reasoning Enhancement</h2>
+<p>The prompt repetition findings are complemented by earlier work from Xu et al.&nbsp;(<a href="https://arxiv.org/abs/2309.06275"><em>“Re-Reading Improves Reasoning in Large Language Models”</em></a>, EMNLP 2024), which introduced the <strong>Re2</strong> technique: simply re-reading the question in the prompt.</p>
+<p>Unlike chain-of-thought prompting, which targets the <em>output</em> (encouraging the model to reason aloud), Re2 targets the <em>input</em> by processing the question twice. The authors demonstrated that this enables a form of <strong>“bidirectional” encoding in unidirectional decoder-only LLMs</strong>, because the first pass provides global information that the second pass can leverage.</p>
+<p>Their evaluation across <strong>14 datasets spanning 112 experiments</strong> confirmed that Re2 consistently enhanced reasoning performance with a simple re-reading strategy.</p>
+<p>The theoretical underpinning is the same as prompt repetition: in causal models, <strong>the second pass through the content benefits from attention to the first pass</strong>, compensating for the inherent limitation of unidirectional attention.</p>
+<hr>
+</section>
+<section id="practical-implications-for-developers" class="level2">
+<h2 class="anchored" data-anchor-id="practical-implications-for-developers">4. Practical Implications for Developers</h2>
+<section id="when-to-use-prompt-repetition" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-prompt-repetition">4.1 When to Use Prompt Repetition</h3>
+<p>Prompt repetition is most effective for:</p>
+<ul>
+<li><strong>Data extraction tasks</strong> with long context (parsing specific values from large documents)</li>
+<li><strong>Code generation</strong> from detailed specifications, where the spec appears early and the instruction at the end</li>
+<li><strong>Multi-document question answering</strong> (RAG systems where retrieved documents fill the middle context)</li>
+<li><strong>Classification tasks</strong> where options are presented before the question</li>
+<li><strong>Any task where relevant information is in the middle of a long prompt</strong></li>
+</ul>
+</section>
+<section id="when-it-is-less-necessary" class="level3">
+<h3 class="anchored" data-anchor-id="when-it-is-less-necessary">4.2 When It Is Less Necessary</h3>
+<ul>
+<li><strong>Tasks with reasoning enabled</strong> (the model already repeats key information in its chain-of-thought)</li>
+<li><strong>Short prompts</strong> where there is no “middle” to get lost in</li>
+<li><strong>Streaming / conversational contexts</strong> where context is managed turn-by-turn</li>
+</ul>
+</section>
+<section id="simple-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="simple-implementation">4.3 Simple Implementation</h3>
+<p>Implementing prompt repetition requires no special tooling:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Before</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.chat.completions.create(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"gpt-4o"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: query}]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># After: double prompting</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.chat.completions.create(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"gpt-4o"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: <span class="ss">f"</span><span class="sc">{</span>query<span class="sc">}</span><span class="ch">\n\n</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">"</span>}]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For a verbose variant:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>doubled <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>query<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Let me repeat that:</span><span class="ch">\n\n</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="combining-with-other-techniques" class="level3">
+<h3 class="anchored" data-anchor-id="combining-with-other-techniques">4.4 Combining with Other Techniques</h3>
+<p>Prompt repetition can be combined with:</p>
+<ul>
+<li><strong>Structured prompts</strong> (the repeated prompt benefits from the same specificity principles discussed in <a href="../../posts/prompt-length-vs-code-quality/">The Prompt-to-Code Paradox</a>)</li>
+<li><strong>Context engineering</strong> (place the most critical instructions at both the beginning and end of the context)</li>
+<li><strong>Few-shot examples</strong> (repeat examples alongside the instruction)</li>
+<li><strong>Selective attention</strong> techniques (Leviathan et al., 2024)</li>
+</ul>
+</section>
+<section id="enterprise-orchestration-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="enterprise-orchestration-strategy">4.5 Enterprise Orchestration Strategy</h3>
+<p>As <a href="https://venturebeat.com/orchestration/this-new-dead-simple-prompt-technique-boosts-accuracy-on-llms-by-up-to-76-on">VentureBeat’s analysis</a> of this research noted, prompt repetition should ideally be <strong>invisible infrastructure</strong>, not a user behaviour. A well-designed orchestration layer or API gateway can automatically identify non-reasoning requests (entity extraction, classification, data retrieval, simple Q&amp;A) and double the prompt before sending it to the model. This delivers better results without requiring action from end users or increasing the generation budget.</p>
+<p>This conditional application is key: reasoning-heavy tasks gain little from repetition, so the orchestration harness should route selectively.</p>
+</section>
+<section id="the-model-selection-cost-shift" class="level3">
+<h3 class="anchored" data-anchor-id="the-model-selection-cost-shift">4.6 The Model Selection Cost Shift</h3>
+<p>The data reveals a counterintuitive model selection strategy: <strong>smaller, cheaper models with prompt repetition may outperform larger models without it.</strong> Gemini 2.0 Flash-Lite jumped from 21% to 97% accuracy on NameIndex with simple repetition. Before upgrading to a larger, more expensive model to solve an accuracy bottleneck, teams should first test whether repetition on their current lightweight model closes the gap. This preserves the speed and cost advantages of smaller infrastructure.</p>
+</section>
+<section id="security-implications" class="level3">
+<h3 class="anchored" data-anchor-id="security-implications">4.7 Security Implications</h3>
+<p>Prompt repetition introduces a double-edged security consideration:</p>
+<ul>
+<li><strong>Offensive risk:</strong> If repeating a prompt clarifies intent to the model, malicious intents may be clarified as well. Security teams should update red-teaming protocols to test “repeated injection” attacks, verifying whether repeating a jailbreak command (e.g., “Ignore previous instructions”) makes the model attend to the breach more effectively.</li>
+<li><strong>Defensive opportunity:</strong> Repeating <strong>system prompts</strong> could actually reinforce safety constraints. Stating safety guardrails twice at the start of the context window forces the model to attend to them more rigorously, acting as low-cost reinforcement for robust content filtering.</li>
+</ul>
+<p>This is an underexplored area that warrants further research from AI safety teams.</p>
+<hr>
+</section>
+</section>
+<section id="the-broader-picture-why-this-matters" class="level2">
+<h2 class="anchored" data-anchor-id="the-broader-picture-why-this-matters">5. The Broader Picture: Why This Matters</h2>
+<p>The prompt repetition research matters for three reasons beyond the immediate accuracy gains:</p>
+<section id="it-validates-a-known-developer-intuition" class="level3">
+<h3 class="anchored" data-anchor-id="it-validates-a-known-developer-intuition">5.1 It Validates a Known Developer Intuition</h3>
+<p>Many experienced developers have independently discovered that restating instructions at the end of a long prompt improves results. The Leviathan et al.&nbsp;paper provides the first rigorous, large-scale empirical confirmation of this practice.</p>
+</section>
+<section id="it-is-a-free-lunch-almost" class="level3">
+<h3 class="anchored" data-anchor-id="it-is-a-free-lunch-almost">5.2 It Is a Free Lunch (Almost)</h3>
+<p>Unlike switching to a more expensive model, fine-tuning, or implementing complex RAG architectures, prompt repetition requires <strong>zero infrastructure changes</strong>. It works with existing APIs, existing models, and existing workflows. The only cost is a modest increase in input tokens.</p>
+</section>
+<section id="it-highlights-a-fundamental-architectural-limitation" class="level3">
+<h3 class="anchored" data-anchor-id="it-highlights-a-fundamental-architectural-limitation">5.3 It Highlights a Fundamental Architectural Limitation</h3>
+<p>The fact that such a simple technique produces consistent improvements across all major foundation models underscores that the Lost in the Middle problem is not a training bug that will be fixed in the next model release. It is a <strong>structural property of causal attention</strong> in decoder-only transformers. Until architectures fundamentally change (e.g., through native bidirectional attention or radically different positional encoding), techniques like prompt repetition will remain valuable.</p>
+</section>
+<section id="it-may-become-a-default" class="level3">
+<h3 class="anchored" data-anchor-id="it-may-become-a-default">5.4 It May Become a Default</h3>
+<p>The Google researchers themselves suggest this could become standard behaviour. We may soon see inference engines that <strong>silently double prompts in the background</strong> before sending them to the model, or reasoning models that have internalised this repetition strategy to be more efficient. The authors explicitly list fine-tuning with repeated prompts and training reasoning models with prompt repetition as top future directions.</p>
+<hr>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The research is clear:</p>
+<ol type="1">
+<li><strong>LLMs have a documented, U-shaped attention curve</strong> that causes them to lose track of information in the middle of long contexts (Liu et al., 2023).</li>
+<li><strong>This problem persists across model generations</strong>, even for models with 128k+ context windows (Gupte et al., 2025).</li>
+<li><strong>Simply repeating the prompt</strong> addresses this limitation for non-reasoning tasks, winning <strong>47 out of 70 benchmark tests with zero losses</strong> and improving accuracy by up to 76 percentage points on positional recall tasks (Leviathan et al., 2025).</li>
+<li><strong>The technique is free</strong>: it does not increase output length, latency, or require any architectural changes.</li>
+</ol>
+<p>For developers and teams building production systems with LLMs, prompt repetition represents one of the highest-value, lowest-effort improvements available today. Add it to your toolkit alongside structured prompting, spec-driven development, and proper context engineering.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li><p>Liu, N.F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., &amp; Liang, P. (2023). <a href="https://arxiv.org/abs/2307.03172"><em>Lost in the Middle: How Language Models Use Long Contexts.</em></a> Transactions of the Association for Computational Linguistics (TACL).</p></li>
+<li><p>Leviathan, Y., Kalman, M., &amp; Matias, Y. (2025). <a href="https://arxiv.org/abs/2512.14982"><em>Prompt Repetition Improves Non-Reasoning LLMs.</em></a> arXiv:2512.14982.</p></li>
+<li><p>Gupte, M., Dixit, E., Tayyab, M., &amp; Adiththan, A. (2025). <a href="https://arxiv.org/abs/2511.13900"><em>What Works for ‘Lost-in-the-Middle’ in LLMs? A Study on GM-Extract and Mitigations.</em></a> arXiv:2511.13900.</p></li>
+<li><p>Xu, X., Tao, C., Shen, T., Xu, C., Xu, H., Long, G., Lou, J., &amp; Ma, S. (2024). <a href="https://arxiv.org/abs/2309.06275"><em>Re-Reading Improves Reasoning in Large Language Models.</em></a> EMNLP 2024.</p></li>
+<li><p>Springer, J.M., Kotha, S., Fried, D., Neubig, G., &amp; Raghunathan, A. (2024). <a href="https://arxiv.org/abs/2402.15449"><em>Repetition Improves Language Model Embeddings.</em></a> arXiv:2402.15449.</p></li>
+<li><p>Shaier, S. (2024). <a href="https://arxiv.org/abs/2412.07923"><em>Asking Again and Again: Exploring LLM Robustness to Repeated Questions.</em></a> arXiv:2412.07923.</p></li>
+<li><p>Franzen, C. (2026). <a href="https://venturebeat.com/orchestration/this-new-dead-simple-prompt-technique-boosts-accuracy-on-llms-by-up-to-76-on"><em>This new, dead simple prompt technique boosts accuracy on LLMs by up to 76% on non-reasoning tasks.</em></a> VentureBeat.</p></li>
+</ol>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Double {Prompting:} {How} {Prompt} {Repetition} {Improves}
+    {LLM} {Accuracy} {Without} {Extra} {Cost}},
+  date = {2026-02-13},
+  url = {https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kabui, Charles. 2026. <span>“Double Prompting: How Prompt Repetition
+Improves LLM Accuracy Without Extra Cost.”</span> <a href="https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/">https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/toknow\.ai\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="ToKnow-ai/ToKnow-ai.github.io" data-repo-id="R_kgDOL20t9g" data-category="Giscus Comments" data-category-id="DIC_kwDOL20t9s4CfKjw" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2026, ToKnow.ai
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../terms-of-service.html">
+<p>Terms of Service</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+ <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&amp;label=readers%20count">
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

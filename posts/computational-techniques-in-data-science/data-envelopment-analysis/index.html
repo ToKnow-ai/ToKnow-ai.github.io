@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kabui, Charles">
+<meta name="dcterms.date" content="2025-05-08">
+<meta name="keywords" content="efficiency, data-envelopment-analysis, DEA, operations-research, performance-measurement, productivity, businessanalytics, healthcare-efficiency, banking, education, energy-sector, public-sector, python, r-programming, benchmarking, pyDEA, decision-making">
+
+<title>Efficiency Measurement and Data Envelopment Analysis (DEA) – ToKnow.ai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/logo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-b7adde2f1b737e1ab85d341de37ab126.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-a00569dc5e1b9abeeb38d9c5a30072e9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4R9DMKF8S7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R9DMKF8S7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../../_styles.css">
+<link rel="stylesheet" href="../../_post-styles.css">
+<meta property="og:title" content="Efficiency Measurement and Data Envelopment Analysis (DEA) – ToKnow.ai">
+<meta property="og:description" content="A Practical Guide to Measuring Efficiency with Data Envelopment Analysis (DEA) Across Industries">
+<meta property="og:image" content="https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/image.jpg">
+<meta property="og:site_name" content="ToKnow.ai">
+<meta name="twitter:title" content="Efficiency Measurement and Data Envelopment Analysis (DEA) – ToKnow.ai">
+<meta name="twitter:description" content="A Practical Guide to Measuring Efficiency with Data Envelopment Analysis (DEA) Across Industries">
+<meta name="twitter:image" content="https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/image.jpg">
+<meta name="twitter:site" content="@ToKnow_ai">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/index.html">
+<meta name="citation_title" content="Efficiency Measurement and Data Envelopment Analysis (DEA)">
+<meta name="citation_keywords" content="computational-techniques,data-science,applications,efficiency,data-envelopment-analysis,DEA,operations-research,performance-measurement,productivity,businessanalytics,healthcare-efficiency,banking,education,energy-sector,public-sector,python,r-programming,benchmarking,pyDEA,decision-making">
+<meta name="citation_author" content="Kabui, Charles">
+<meta name="citation_publication_date" content="2025-05-08">
+<meta name="citation_cover_date" content="2025-05-08">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-05-08">
+<meta name="citation_fulltext_html_url" content="https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/index.html">
+<meta name="citation_language" content="en-GB">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../images/logo-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">ToKnow.ai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../apps.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../domains-for-sale.html"> 
+<span class="menu-text">Domains 4 Sale</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ToKnow-ai"> <i class="bi bi-github" role="img" aria-label="Github - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ToKnow_ai"> <i class="bi bi-twitter" role="img" aria-label="Twitter - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss" role="img" aria-label="ToKnow.ai RSS">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Efficiency Measurement and Data Envelopment Analysis (DEA)</h1>
+            <p class="subtitle lead">A Practical Guide to Measuring Efficiency with Data Envelopment Analysis (DEA) Across Industries</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">data-science</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kabui, Charles <a href="mailto:kabui@toknow.ai" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2025-05-08</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>efficiency, data-envelopment-analysis, DEA, operations-research, performance-measurement, productivity, businessanalytics, healthcare-efficiency, banking, education, energy-sector, public-sector, python, r-programming, benchmarking, pyDEA, decision-making</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#types-of-dea-models" id="toc-types-of-dea-models" class="nav-link active" data-scroll-target="#types-of-dea-models">Types of DEA Models</a></li>
+  <li><a href="#dea-orientations" id="toc-dea-orientations" class="nav-link" data-scroll-target="#dea-orientations">DEA Orientations</a></li>
+  <li><a href="#basic-dea-model-ccr-input-oriented" id="toc-basic-dea-model-ccr-input-oriented" class="nav-link" data-scroll-target="#basic-dea-model-ccr-input-oriented">Basic DEA Model: CCR Input-Oriented</a></li>
+  <li><a href="#visualizing-dea-the-efficient-frontier" id="toc-visualizing-dea-the-efficient-frontier" class="nav-link" data-scroll-target="#visualizing-dea-the-efficient-frontier">Visualizing DEA: The Efficient Frontier</a></li>
+  <li><a href="#practical-dea-tools-benchmarking-with-r-vs.-python" id="toc-practical-dea-tools-benchmarking-with-r-vs.-python" class="nav-link" data-scroll-target="#practical-dea-tools-benchmarking-with-r-vs.-python">Practical DEA Tools: Benchmarking with R vs.&nbsp;Python</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul>
+  <li><a href="#hospital-department-efficiency" id="toc-hospital-department-efficiency" class="nav-link" data-scroll-target="#hospital-department-efficiency">Hospital Department Efficiency</a>
+  <ul>
+  <li><a href="#answer" id="toc-answer" class="nav-link" data-scroll-target="#answer">Answer</a></li>
+  </ul></li>
+  <li><a href="#retail-store-efficiency" id="toc-retail-store-efficiency" class="nav-link" data-scroll-target="#retail-store-efficiency">Retail Store Efficiency</a>
+  <ul>
+  <li><a href="#answer-1" id="toc-answer-1" class="nav-link" data-scroll-target="#answer-1">Answer</a></li>
+  </ul></li>
+  <li><a href="#school-performance-evaluation" id="toc-school-performance-evaluation" class="nav-link" data-scroll-target="#school-performance-evaluation">School Performance Evaluation</a>
+  <ul>
+  <li><a href="#answer-2" id="toc-answer-2" class="nav-link" data-scroll-target="#answer-2">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.output.ipynb" download="index.output.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/computational-techniques-in-data-science/data-envelopment-analysis" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://kaggle.com/kernels/welcome?src=https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/index.output.ipynb"><i class="bi bi-code-slash"></i> Open in Kaggle</a>
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/index.output.ipynb"><i class="bi bi-file-earmark-arrow-down-fill"></i> Download as Notebook</a>
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./image.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Efficiency Measurement and Data Envelopment Analysis (DEA)"><img src="./image.jpg" class="img-fluid figure-img" decoding="async" loading="lazy" alt="Efficiency Measurement and Data Envelopment Analysis (DEA)"></a></p>
+<figcaption>Efficiency Measurement and Data Envelopment Analysis (DEA)</figcaption>
+</figure>
+</div>
+<p><strong>Efficiency measurement</strong> is about quantifying how well an entity, such as a company, department, or individual,uses its <strong>resources</strong> (inputs) to achieve its <strong>goals</strong> (outputs). The aim is to maximize outputs while minimizing inputs, ensuring optimal use of available resources.</p>
+<p><strong>Data Envelopment Analysis (DEA)</strong> is a non-parametric mathematical method used to measure the relative efficiency of a set of similar <strong>decision-making units (DMUs)</strong>. DEA evaluates each DMU by comparing its inputs and outputs, using a ratio of the weighted sum of outputs to the weighted sum of inputs. This makes it ideal for assessing efficiency when multiple inputs and outputs are involved.</p>
+<p>DEA has numerous <strong>real-world applications</strong>, including:</p>
+<ul>
+<li><strong>Healthcare</strong>: Evaluating hospitals based on inputs like the number of doctors, nurses, and beds, versus outputs such as the number of patients treated or survival rates, with the goal of identifying underperforming facilities</li>
+<li><strong>Banking</strong>: Assessing bank branches by comparing inputs like staff size and operating costs against outputs such as new accounts opened or loans processed, aiming to optimize branch operations</li>
+<li><strong>Education</strong>: Measuring schools’ efficiency by comparing inputs like teachers, classroom space, and funding against outputs like test scores and graduation rates, to improve educational outcomes and resource allocation.</li>
+<li><strong>Energy Sector</strong>: Analyzing the efficiency of power plants by comparing fuel and labor inputs to energy output and environmental impact, with the goal of minimizing waste and enhancing sustainability</li>
+<li><strong>Public Sector</strong>: Evaluating local governments or public services (e.g., waste management, policing) to ensure effective and efficient use of public funds</li>
+</ul>
+<section id="types-of-dea-models" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-dea-models">Types of DEA Models</h3>
+<p>There are several DEA models, each suited to different scenarios:</p>
+<ul>
+<li>The <strong>CCR model (Constant Returns to Scale)</strong> assumes that a proportional increase in inputs will result in a proportional increase in outputs. It is often used as a baseline for efficiency comparisons</li>
+<li>The <strong>BCC model (Variable Returns to Scale)</strong> allows for cases where outputs do not necessarily change proportionally with inputs, accommodating increasing, constant, or decreasing returns to scale</li>
+</ul>
+</section>
+<section id="dea-orientations" class="level3">
+<h3 class="anchored" data-anchor-id="dea-orientations">DEA Orientations</h3>
+<p>DEA models can also be classified by their <strong>orientation</strong>:</p>
+<ul>
+<li><strong>Input-oriented</strong> models focus on minimizing the inputs required to produce a given level of outputs</li>
+<li><strong>Output-oriented</strong> models aim to maximize the outputs achieved with a given set of inputs</li>
+<li><strong>Non-oriented</strong> models are used when both input reductions and output increases are desired simultaneously</li>
+</ul>
+<p>Other advanced DEA variants include <strong>Two-Stage DEA</strong>, <strong>Slack-Based Measure (SBM)</strong>, <strong>Network DEA</strong>, <strong>Super-Efficiency DEA</strong>, <strong>Fuzzy DEA</strong>, and <strong>Stochastic DEA</strong>, each addressing specific analytical needs.</p>
+</section>
+<section id="basic-dea-model-ccr-input-oriented" class="level3">
+<h3 class="anchored" data-anchor-id="basic-dea-model-ccr-input-oriented">Basic DEA Model: CCR Input-Oriented</h3>
+<p>The <strong>basic DEA model (CCR Input-Oriented)</strong> is designed to minimize input usage while maintaining at least the current level of outputs. It operates under the assumption of constant returns to scale. The objective is to determine how much each decision making unit (DMU) can proportionally reduce its inputs without reducing outputs, while ensuring that no other DMU performs better. The model outputs an <strong>efficiency score ranging from 0 to 1</strong>:</p>
+<ul>
+<li>A score of <strong>1.0</strong> signifies full efficiency.</li>
+<li>A score below 1 indicates potential for improvement.</li>
+</ul>
+</section>
+<section id="visualizing-dea-the-efficient-frontier" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-dea-the-efficient-frontier">Visualizing DEA: The Efficient Frontier</h3>
+<p>A <strong>graphical illustration</strong> can help visualize DEA by plotting DMUs with input on one axis and output on the other. The <strong>efficient frontier</strong> is formed by connecting the most efficient DMUs, representing those producing the most output for the least input. DMUs below the efficient frontier are considered inefficient as they use more input than necessary for their output level. This visualization helps identify best and lagging units.</p>
+<div id="cell-preview-image" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample DMU data: Inputs (lower is better), Outputs (higher is better)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> np.array([<span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">4</span>])</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> np.array([<span class="dv">40</span>, <span class="dv">38</span>, <span class="dv">36</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">34</span>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> [<span class="st">'DMU1'</span>, <span class="st">'DMU2'</span>, <span class="st">'DMU3'</span>, <span class="st">'DMU4'</span>, <span class="st">'DMU5'</span>, <span class="st">'DMU6'</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot DMUs</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.scatter(inputs, outputs, color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'DMUs'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Annotate DMUs</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, name <span class="kw">in</span> <span class="bu">enumerate</span>(names):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    plt.annotate(name, (inputs[i]<span class="op">+</span><span class="fl">0.1</span>, outputs[i]))</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Efficient frontier (manually connecting the efficient DMUs)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's assume DMU6, DMU3, and DMU1 are efficient</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>frontier_inputs <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>frontier_outputs <span class="op">=</span> [<span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">40</span>]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.plot(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  frontier_inputs, </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  frontier_outputs, </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  color<span class="op">=</span><span class="st">'green'</span>, </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  linewidth<span class="op">=</span><span class="dv">2</span>, </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  label<span class="op">=</span><span class="st">'Efficient Frontier'</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'DEA Efficient Frontier Example'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Input (lower is better)'</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Output (higher is better)'</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index.render_files/figure-html/preview-image-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index.render_files/figure-html/preview-image-output-1.png" id="preview-image" class="img-fluid figure-img" decoding="async" loading="lazy"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="practical-dea-tools-benchmarking-with-r-vs.-python" class="level3">
+<h3 class="anchored" data-anchor-id="practical-dea-tools-benchmarking-with-r-vs.-python">Practical DEA Tools: Benchmarking with R vs.&nbsp;Python</h3>
+<p>While <a href="https://pypi.org/project/pyDEA/"><strong>pyDEA</strong></a> is an open-source Python package designed for conducting DEA, in practice, it has significant limitations. Although it supports standard models like CCR and BCC and accepts CSV input, pyDEA is <strong>cumbersome to set up</strong>, lacks flexibility for interactive analysis, and is difficult to integrate into practical workflows.</p>
+<p><strong>R</strong> offers a more mature and practical ecosystem for DEA through packages like <a href="https://cran.r-project.org/web/packages/Benchmarking/index.html"><strong>Benchmarking</strong></a>. The Benchmarking package is widely used in academia and industry for DEA and provides:</p>
+<ul>
+<li>Support for both <strong>CCR</strong> and <strong>BCC</strong> models</li>
+<li>Flexible handling of <strong>input- and output-oriented</strong> approaches</li>
+<li>Functions to compute <strong>efficiency scores</strong>, reference sets, and slacks</li>
+<li>Simple integration with data frames and visualization tools</li>
+<li>Ease of scripting and automation for batch efficiency evaluations</li>
+</ul>
+<p>Because of its robustness, ease of use, and flexibility, <strong>Benchmarking with R</strong> is generally considered the best practical tool for efficiency measurement using DEA. It is especially well-suited for professionals and researchers who need accurate, transparent, and reproducible results.</p>
+</section>
+<section id="examples" class="level1">
+<h1>Examples</h1>
+<section id="hospital-department-efficiency" class="level2">
+<h2 class="anchored" data-anchor-id="hospital-department-efficiency">Hospital Department Efficiency</h2>
+<p>You are analyzing the performance of 4 hospital departments. Each department has a different combination of medical staff and beds. You want to know: Which department is most efficient in treating patients with limited resources?</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li>Doctors: [<code>40</code>, <code>35</code>, <code>45</code>, <code>38</code>]</li>
+<li>Nurses: [<code>80</code>, <code>70</code>, <code>85</code>, <code>75</code>]</li>
+<li>Beds: [<code>150</code>, <code>140</code>, <code>160</code>, <code>145</code>]</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li>Patients treated: [<code>2,000</code>, <code>1,900</code>, <code>2,100</code>, <code>1,950</code>]</li>
+<li>Survival rate: [<code>0.97</code>, <code>0.96</code>, <code>0.98</code>, <code>0.95</code>]</li>
+</ul>
+<section id="answer" class="level3">
+<h3 class="anchored" data-anchor-id="answer">Answer</h3>
+<div id="3b78805c" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("Benchmarking")</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>library(Benchmarking)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>library(knitr)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to create efficiency table</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>generate_efficiency_table <span class="op">&lt;-</span> function(names, scores, unit_label <span class="op">=</span> <span class="st">"Unit"</span>) {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate interpretation text</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  interpretation <span class="op">&lt;-</span> ifelse(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    scores <span class="op">==</span> <span class="dv">1</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fully efficient (benchmark unit)"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    paste0(<span class="st">"Can reduce inputs by ~"</span>, <span class="bu">round</span>((<span class="dv">1</span> <span class="op">-</span> scores) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">"%"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create dataframe</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  df <span class="op">&lt;-</span> data.frame(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    unit_label <span class="op">=</span> names,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    Efficiency_Score <span class="op">=</span> <span class="bu">round</span>(scores, <span class="dv">3</span>),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    Interpretation <span class="op">=</span> interpretation,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    stringsAsFactors <span class="op">=</span> FALSE</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  colnames(df)[<span class="dv">1</span>] <span class="op">&lt;-</span> unit_label  <span class="co"># Dynamic column name</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the dataframe</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  kable(df)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="b79ebf21" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Inputs: Doctors, Nurses, Beds</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">&lt;-</span> matrix(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  c(<span class="dv">40</span>, <span class="dv">80</span>, <span class="dv">150</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">35</span>, <span class="dv">70</span>, <span class="dv">140</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">45</span>, <span class="dv">85</span>, <span class="dv">160</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">38</span>, <span class="dv">75</span>, <span class="dv">145</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  byrow <span class="op">=</span> TRUE</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Outputs: Patients treated, Survival rate</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">&lt;-</span> matrix(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  c(<span class="dv">2000</span>, <span class="fl">0.97</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1900</span>, <span class="fl">0.96</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2100</span>, <span class="fl">0.98</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1950</span>, <span class="fl">0.95</span>),</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  byrow <span class="op">=</span> TRUE</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Run DEA (input-oriented, constant returns to scale)</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>dea_result <span class="op">&lt;-</span> dea(X <span class="op">=</span> inputs, Y <span class="op">=</span> outputs, RTS <span class="op">=</span> <span class="st">"crs"</span>, ORIENTATION <span class="op">=</span> <span class="st">"in"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Print efficiency scores</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dea_result$eff)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>names <span class="op">&lt;-</span> c(<span class="st">"Dept 1"</span>, <span class="st">"Dept 2"</span>, <span class="st">"Dept 3"</span>, <span class="st">"Dept 4"</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate table</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>generate_efficiency_table(names, dea_result$eff, <span class="st">"Department"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9824561 1.0000000 0.9671053 0.9909256
+
+
+|Department | Efficiency_Score|Interpretation                   |
+|:----------|----------------:|:--------------------------------|
+|Dept 1     |            0.982|Can reduce inputs by ~1.8%       |
+|Dept 2     |            1.000|Fully efficient (benchmark unit) |
+|Dept 3     |            0.967|Can reduce inputs by ~3.3%       |
+|Dept 4     |            0.991|Can reduce inputs by ~0.9%       |</code></pre>
+</div>
+</div>
+<p><strong>Department 2</strong> is the benchmark performer, operating fully efficiently by maximizing patient outcomes with its available staff and beds. In contrast, <strong>Department 3</strong> is the least efficient, with potential to reduce its resource use by about <strong>3.3%</strong> while maintaining the same output. <strong>Department 3</strong> should be reviewed more closely - check if it’s overstaffed, underperforming, or facing operational issues. <strong>Departments 1 and 4</strong> are close to efficiency but still have minor room for optimization.</p>
+</section>
+</section>
+<section id="retail-store-efficiency" class="level2">
+<h2 class="anchored" data-anchor-id="retail-store-efficiency">Retail Store Efficiency</h2>
+<p>A retail company wants to assess whether its 4 branches are efficiently turning staff and marketing investment into profit. Which store branch is the best performer given similar resource levels?</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li>Marketing Spend (USD): [<code>$12,000</code>, <code>$10,000</code>, <code>$11,500</code>, <code>$9,800</code>]</li>
+<li>Employees: [<code>20</code>, <code>18</code>, <code>22</code>, <code>19</code>]</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li>Monthly Revenue (USD): [<code>$110,000</code>, <code>$100,000</code>, <code>$120,000</code>, <code>$95,000</code>]</li>
+<li>Number of Customers: [<code>2,300</code>, <code>2,000</code>, <code>2,600</code>, <code>1,900</code>]</li>
+</ul>
+<section id="answer-1" class="level3">
+<h3 class="anchored" data-anchor-id="answer-1">Answer</h3>
+<div id="984810d7" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Inputs: Marketing Spend (USD), Employees</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">&lt;-</span> matrix(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  c(<span class="dv">12000</span>, <span class="dv">20</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">10000</span>, <span class="dv">18</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">11500</span>, <span class="dv">22</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">9800</span>, <span class="dv">19</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  byrow <span class="op">=</span> TRUE</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Outputs: Monthly Revenue (USD), Number of Customers</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">&lt;-</span> matrix(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  c(<span class="dv">110000</span>, <span class="dv">2300</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100000</span>, <span class="dv">2000</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">120000</span>, <span class="dv">2600</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">95000</span>, <span class="dv">1900</span>),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  byrow <span class="op">=</span> TRUE</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Run DEA (input-oriented, constant returns to scale)</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>dea_result <span class="op">&lt;-</span> dea(X <span class="op">=</span> inputs, Y <span class="op">=</span> outputs, RTS <span class="op">=</span> <span class="st">"crs"</span>, ORIENTATION <span class="op">=</span> <span class="st">"in"</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Print efficiency scores</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dea_result$eff)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>names <span class="op">&lt;-</span> c(<span class="st">"Store 1"</span>, <span class="st">"Store 2"</span>, <span class="st">"Store 3"</span>, <span class="st">"Store 4"</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate table</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>generate_efficiency_table(names, dea_result$eff, <span class="st">"Branch/Store"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.0000000 1.0000000 1.0000000 0.9289966
+
+
+|Branch/Store | Efficiency_Score|Interpretation                   |
+|:------------|----------------:|:--------------------------------|
+|Store 1      |            1.000|Fully efficient (benchmark unit) |
+|Store 2      |            1.000|Fully efficient (benchmark unit) |
+|Store 3      |            1.000|Fully efficient (benchmark unit) |
+|Store 4      |            0.929|Can reduce inputs by ~7.1%       |</code></pre>
+</div>
+</div>
+<p><strong>Stores 1, 2, and 3</strong> are fully efficient, effectively turning their marketing spend and staff into revenue and customer traffic. In contrast, <strong>Store 4</strong> is underperforming, with efficiency at <strong>92.9%</strong>, suggesting it could boost its revenue/customers or cut resource use by <strong>7%</strong> to match the top performers. <strong>Store 4</strong> requires operational review to identify and address gaps in marketing effectiveness or staff productivity.</p>
+</section>
+</section>
+<section id="school-performance-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="school-performance-evaluation">School Performance Evaluation</h2>
+<p>A school district monitors 4 schools to find out which one is using its resources most efficiently to produce better academic results.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li>Teachers: [<code>30</code>, <code>25</code>, <code>20</code>, <code>28</code>]</li>
+<li>Annual Budget (USD): [<code>$800,000</code>, <code>$750,000</code>, <code>$700,000</code>, <code>$770,000</code>]</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li>Graduation Rate (%): [<code>85</code>, <code>90</code>, <code>82</code>, <code>88</code>]</li>
+<li>Average Test Score (out of 100): [<code>78</code>, <code>80</code>, <code>76</code>, <code>79</code>]</li>
+</ul>
+<section id="answer-2" class="level3">
+<h3 class="anchored" data-anchor-id="answer-2">Answer</h3>
+<div id="10b2a368" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Inputs: Teachers, Annual Budget (USD)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">&lt;-</span> matrix(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  c(<span class="dv">30</span>, <span class="dv">800000</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">25</span>, <span class="dv">750000</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">20</span>, <span class="dv">700000</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">28</span>, <span class="dv">770000</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  byrow <span class="op">=</span> TRUE</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Outputs: Graduation Rate (%), Average Test Score</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">&lt;-</span> matrix(</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  c(<span class="dv">85</span>, <span class="dv">78</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="dv">90</span>, <span class="dv">80</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">82</span>, <span class="dv">76</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">88</span>, <span class="dv">79</span>),</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  byrow <span class="op">=</span> TRUE</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Run DEA (input-oriented, constant returns to scale)</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>dea_result <span class="op">&lt;-</span> dea(X <span class="op">=</span> inputs, Y <span class="op">=</span> outputs, RTS <span class="op">=</span> <span class="st">"crs"</span>, ORIENTATION <span class="op">=</span> <span class="st">"in"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Print efficiency scores</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dea_result$eff)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>names <span class="op">&lt;-</span> c(<span class="st">"School 1"</span>, <span class="st">"School 2"</span>, <span class="st">"School 3"</span>, <span class="st">"School 4"</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate table</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>generate_efficiency_table(names, dea_result$eff, <span class="st">"School"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9017857 1.0000000 1.0000000 0.9577922
+
+
+|School   | Efficiency_Score|Interpretation                   |
+|:--------|----------------:|:--------------------------------|
+|School 1 |            0.902|Can reduce inputs by ~9.8%       |
+|School 2 |            1.000|Fully efficient (benchmark unit) |
+|School 3 |            1.000|Fully efficient (benchmark unit) |
+|School 4 |            0.958|Can reduce inputs by ~4.2%       |</code></pre>
+</div>
+</div>
+<p><strong>Schools 2 and 3</strong> are fully efficient, effectively using their teachers and budgets to achieve strong graduation rates and test scores. <strong>School 4</strong> is close to efficient but has room to improve by about <strong>4.2%</strong>. <strong>School 1</strong> is the least efficient, with potential to optimize resources by nearly <strong>10%</strong>. <strong>School 1</strong> should be prioritized for review and targeted improvements because it either uses more resources than needed or isn’t getting the best academic outcomes relative to its peers.</p>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2025,
+  author = {{Kabui, Charles}},
+  title = {Efficiency {Measurement} and {Data} {Envelopment} {Analysis}
+    {(DEA)}},
+  date = {2025-05-08},
+  url = {https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/index.html},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kabui, Charles. 2025. <span>“Efficiency Measurement and Data Envelopment
+Analysis (DEA).”</span> <a href="https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/index.html">https://toknow.ai/posts/computational-techniques-in-data-science/data-envelopment-analysis/index.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/toknow\.ai\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="ToKnow-ai/ToKnow-ai.github.io" data-repo-id="R_kgDOL20t9g" data-category="Giscus Comments" data-category-id="DIC_kwDOL20t9s4CfKjw" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2026, ToKnow.ai
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../terms-of-service.html">
+<p>Terms of Service</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../LICENSE">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+ <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&amp;label=readers%20count">
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kabui, Charles">
+<meta name="dcterms.date" content="2026-08-02">
+<meta name="keywords" content="mixture-of-experts, moe-pruning, expert-pruning, domain-specific-moe, vertical-moe, model-compression, legal-ai, tool-calling">
+<meta name="description" content="Without distillation or quantization, you can prune an existing MoE into a smaller task model, or train a domain-specific MoE on purpose. What you cannot do is copy out one self-contained expert, such as a legal expert, and call it done.">
+
+<title>Can you carve a task-specific model out of a Mixture-of-Experts model? – ToKnow.ai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b7adde2f1b737e1ab85d341de37ab126.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-a00569dc5e1b9abeeb38d9c5a30072e9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4R9DMKF8S7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R9DMKF8S7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../_styles.css">
+<link rel="stylesheet" href="../_post-styles.css">
+<meta property="og:title" content="Can you carve a task-specific model out of a Mixture-of-Experts model? – ToKnow.ai">
+<meta property="og:description" content="Without distillation or quantization, you can prune an existing MoE into a smaller task model, or train a domain-specific MoE on purpose. What you cannot do is copy out one self-contained expert, such as a legal expert, and call it done.">
+<meta property="og:image" content="https://toknow.ai/posts/carving-task-specific-model-from-moe/image.png">
+<meta property="og:site_name" content="ToKnow.ai">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="Can you carve a task-specific model out of a Mixture-of-Experts model? – ToKnow.ai">
+<meta name="twitter:description" content="Without distillation or quantization, you can prune an existing MoE into a smaller task model, or train a domain-specific MoE on purpose. What you cannot do is copy out one self-contained expert, such as a legal expert, and call it done.">
+<meta name="twitter:image" content="https://toknow.ai/posts/carving-task-specific-model-from-moe/image.png">
+<meta name="twitter:site" content="@ToKnow_ai">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://toknow.ai/posts/carving-task-specific-model-from-moe/">
+<meta name="citation_title" content="Can you carve a task-specific model out of a Mixture-of-Experts model?">
+<meta name="citation_keywords" content="mixture-of-experts,moe-pruning,expert-pruning,domain-specific-moe,vertical-moe,model-compression,legal-ai,tool-calling">
+<meta name="citation_author" content="Kabui, Charles">
+<meta name="citation_publication_date" content="2026-08-02">
+<meta name="citation_cover_date" content="2026-08-02">
+<meta name="citation_year" content="2026">
+<meta name="citation_online_date" content="2026-08-02">
+<meta name="citation_fulltext_html_url" content="https://toknow.ai/posts/carving-task-specific-model-from-moe/">
+<meta name="citation_language" content="en-GB">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ToKnow.ai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../apps.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../domains-for-sale.html"> 
+<span class="menu-text">Domains 4 Sale</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ToKnow-ai"> <i class="bi bi-github" role="img" aria-label="Github - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ToKnow_ai"> <i class="bi bi-twitter" role="img" aria-label="Twitter - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img" aria-label="ToKnow.ai RSS">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Can you carve a task-specific model out of a Mixture-of-Experts model?</h1>
+                  <div>
+        <div class="description">
+          Without distillation or quantization, you can prune an existing MoE into a smaller task model, or train a domain-specific MoE on purpose. What you cannot do is copy out one self-contained expert, such as a legal expert, and call it done.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">artificial-intelligence</div>
+                <div class="quarto-category">software-engineering</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kabui, Charles <a href="mailto:kabui@toknow.ai" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2026-08-02</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>mixture-of-experts, moe-pruning, expert-pruning, domain-specific-moe, vertical-moe, model-compression, legal-ai, tool-calling</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#what-we-are-really-asking" id="toc-what-we-are-really-asking" class="nav-link active" data-scroll-target="#what-we-are-really-asking">What we are really asking</a></li>
+  <li><a href="#why-a-sparse-model-is-still-huge-on-disk" id="toc-why-a-sparse-model-is-still-huge-on-disk" class="nav-link" data-scroll-target="#why-a-sparse-model-is-still-huge-on-disk">Why a sparse model is still huge on disk</a></li>
+  <li><a href="#route-1-prune-while-you-fine-tune" id="toc-route-1-prune-while-you-fine-tune" class="nav-link" data-scroll-target="#route-1-prune-while-you-fine-tune">Route 1: Prune while you fine-tune</a></li>
+  <li><a href="#route-2-prune-in-one-shot-no-re-training" id="toc-route-2-prune-in-one-shot-no-re-training" class="nav-link" data-scroll-target="#route-2-prune-in-one-shot-no-re-training">Route 2: Prune in one shot, no re-training</a></li>
+  <li><a href="#route-3-train-a-vertical-moe-on-purpose" id="toc-route-3-train-a-vertical-moe-on-purpose" class="nav-link" data-scroll-target="#route-3-train-a-vertical-moe-on-purpose">Route 3: Train a vertical MoE on purpose</a></li>
+  <li><a href="#why-you-cant-just-copy-out-the-legal-expert" id="toc-why-you-cant-just-copy-out-the-legal-expert" class="nav-link" data-scroll-target="#why-you-cant-just-copy-out-the-legal-expert">Why you can’t just copy out “the legal expert”</a></li>
+  <li><a href="#the-other-meaning-of-vertical-moe" id="toc-the-other-meaning-of-vertical-moe" class="nav-link" data-scroll-target="#the-other-meaning-of-vertical-moe">The other meaning of “vertical MoE”</a></li>
+  <li><a href="#what-i-would-actually-do" id="toc-what-i-would-actually-do" class="nav-link" data-scroll-target="#what-i-would-actually-do">What I would actually do</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/carving-task-specific-model-from-moe" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/carving-task-specific-model-from-moe/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Mixture-of-Experts model"><img src="image.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="Mixture-of-Experts model"></a></p>
+<figcaption>Mixture-of-Experts model</figcaption>
+</figure>
+</div>
+<section id="what-we-are-really-asking" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-are-really-asking">What we are really asking</h2>
+<p>A Mixture-of-Experts model, MoE for short, replaces the feed-forward part of each Transformer layer with several small networks called experts, and adds a router that sends each token to a few of them. Only a few experts compute for any given token, so the model runs fast. But every expert still has to be stored, and with dozens of experts per layer and dozens of layers, the model file becomes enormous.</p>
+<p>Now suppose you only care about one job, such as reading contracts, generating code, or calling tools. A tempting idea is to keep only the experts that matter for that job, delete the rest, and ship a small model. This article asks whether that works without the two usual ways of shrinking models.</p>
+<p>Distillation trains a new, smaller student model to imitate the big teacher. It needs extra training runs, and the result is a brand new model, not something found inside the original. Quantization stores the same weights in fewer bits. It keeps every expert; it just makes each one smaller. Both are useful, and this article returns to them at the end. But the sharper question is whether an existing MoE already contains a clean, task-specific sub-model that you can physically carve out.</p>
+<p>The short version of the answer: yes for a pruned and fine-tuned path through the model, no for a single self-contained “legal expert” you can lift out whole.</p>
+<p>Two notes before we go. First, by vertical I mean a model focused on one domain or workflow, such as legal work, medicine, code, or tool calling. That is the sense used throughout this article. Second, some papers use “vertical MoE” for a completely different idea, routing across layers, and that is covered in its own section so the two never get confused.</p>
+<hr>
+</section>
+<section id="why-a-sparse-model-is-still-huge-on-disk" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-sparse-model-is-still-huge-on-disk">Why a sparse model is still huge on disk</h2>
+<p>An MoE gives you two different things to keep straight:</p>
+<ul>
+<li>Active computation: the weights actually used for a token.</li>
+<li>Stored model: every weight the router might ask for later.</li>
+</ul>
+<p>Sparse activation cuts arithmetic. It does not cut storage. If you are not allowed to distill or quantize, the only way to shrink the file is to delete parameters or make the network narrower.</p>
+<p>Done carefully, the surgery looks like this:</p>
+<ol type="1">
+<li>Run task data through the model and record which experts the router picks and how much each expert’s output contributes.</li>
+<li>Score experts, or groups of experts.</li>
+<li>Delete whole expert tensors, not just skip calling them.</li>
+<li>Rebuild the router so it only knows about the survivors.</li>
+<li>Keep the shared parts (attention, embeddings, output head) unless you can show they can go too.</li>
+<li>Fine-tune what is left on the task.</li>
+</ol>
+<p>Masking an expert at runtime does not count. If the deleted weights still ship in the checkpoint, you saved no memory.</p>
+<p>There is a catch with the shared parts. A task capability usually lives across the router, attention, embeddings, output head, and several layers of experts. So “the legal expert” is a hypothesis to test with ablations, not a fact to assume. The papers below keep coming back to this point.</p>
+<hr>
+</section>
+<section id="route-1-prune-while-you-fine-tune" class="level2">
+<h2 class="anchored" data-anchor-id="route-1-prune-while-you-fine-tune">Route 1: Prune while you fine-tune</h2>
+<p>The strongest published result for this route is <a href="https://arxiv.org/abs/2206.00277">Task-Specific Expert Pruning</a>. The authors fine-tuned an MoE on a downstream task and progressively dropped experts whose contribution fell below a threshold. By about halfway through training, each layer was down to one surviving expert, and they kept training it.</p>
+<p>The result: the single-expert-per-layer model kept 99.3% of the MoE’s benefit across six task types and ran about 2x faster. The detailed numbers show a 2x speedup on MNLI and 1.28x on SQuAD2.0. It also removed the cross-device communication that made the original sparse model slow, and the paper notes it needs no extra distillation.</p>
+<p>That sounds like a clean win, but read the limits:</p>
+<ul>
+<li>The model is fine-tuned while experts are removed, so this is not a free extraction.</li>
+<li>The tests used an older BERT-scale MoE, not a modern frontier model.</li>
+<li>One expert survives per layer, so the result is a path, expert A at layer 1, expert B at layer 2, and so on, wrapped in the shared Transformer. It is not one portable expert.</li>
+<li>The paper does not show that an untouched expert from an arbitrary modern MoE works on its own.</li>
+</ul>
+<p>A <a href="https://aclanthology.org/2024.emnlp-main.46/">2024 EMNLP study</a> supports the selection half of this. It found that routing for a single task is highly concentrated, that different tasks use different routing patterns, and that fine-tuning only the relevant experts while freezing the rest works well, often matching full fine-tuning. But it froze the other experts; it did not delete them. That is evidence for task-specific combinations, not for a portable expert tensor.</p>
+<hr>
+</section>
+<section id="route-2-prune-in-one-shot-no-re-training" class="level2">
+<h2 class="anchored" data-anchor-id="route-2-prune-in-one-shot-no-re-training">Route 2: Prune in one shot, no re-training</h2>
+<p>What if you do not want to fine-tune at all? <a href="https://arxiv.org/abs/2510.13999">REAP</a> is the strongest test of that. Its Router-weighted Expert Activation Pruning score combines the router’s gate values with expert activation norms, rather than relying on usage frequency alone. It compresses without any fine-tuning after pruning.</p>
+<p>REAP was tested across sparse MoE models from 20B to 1T parameters at 25% and 50% expert compression. After pruning half the experts from Qwen3-Coder-480B and Kimi-K2, code generation stayed near-lossless. The paper also evaluates tool use and agentic coding. Calibration data matters a lot: calibrating on the right domain keeps quality high, while calibrating on mismatched generic data can make the compressed model produce incoherent code.</p>
+<p>But there is an important limit. REAP gives you a smaller MoE, not a vertical dense model. The surviving experts still depend on the original router and the shared layers. So it answers one question, can we delete half the expert pool and keep useful behavior, and leaves another open, is there one expert that already contains the vertical.</p>
+<p><a href="https://aclanthology.org/2024.findings-emnlp.612/">MoE-I2</a> pushes in the same direction, pruning between experts and then applying low-rank decomposition inside the survivors. It reports zero-shot results on Qwen1.5-MoE, DeepSeek-V2-Lite, and Mixtral. It adds a low-rank approximation step, and like REAP it does not establish that any one expert owns the vertical.</p>
+<p>One warning: usage frequency alone is not a safe selector. A frequently routed expert may carry syntax or general features every domain needs. Use task ablations, activation contribution, and held-out data together.</p>
+<hr>
+</section>
+<section id="route-3-train-a-vertical-moe-on-purpose" class="level2">
+<h2 class="anchored" data-anchor-id="route-3-train-a-vertical-moe-on-purpose">Route 3: Train a vertical MoE on purpose</h2>
+<p>If the vertical is a real product requirement, training the structure is more defensible than pretending a general checkpoint already contains clean vertical modules. Three approaches stand out.</p>
+<p><a href="https://arxiv.org/abs/2507.07024">FlexOlmo</a> starts from a public anchor model. Each data owner trains only their own expert feed-forward module on private data while the shared trunk, attention and the public expert, stays frozen. The experts are combined by concatenating per-expert router embeddings, and each can be included or excluded at inference time. This is close to a vertical model assembled from several private subdomains. But it is a pretraining result, and it does not prove that freezing the whole trunk works for post-training behaviors such as tool syntax or safety.</p>
+<p><a href="https://arxiv.org/abs/2604.18473">BAR</a> works after pretraining. It trains math, code, tool-use, and safety experts separately, then merges them with a frozen anchor expert that preserves the base model, into a five-expert MoE. No distillation or quantization. BAR also exposes the limit of the “one expert per vertical” story. In its tool-use test, freezing the embeddings and the language-model head gave a Berkeley Function Calling Leaderboard score of 20.3. Unfreezing those shared parts raised it to 46.4, because function calling adds special tokens and output formats. The later reinforcement-learning stage unfreezes attention as well. So a practical vertical MoE needs an explicit plan for shared embeddings, attention, the output head, and safety, not just the expert feed-forward networks.</p>
+<p><a href="https://arxiv.org/abs/2605.06663">EMO</a> makes modularity a pretraining objective. It trains a 1B-active, 14B-total model on 1T tokens, and constrains tokens from the same document to use a shared expert pool. Keeping only 25% of the experts costs about 1% absolute performance; keeping 12.5% costs about 3%. A standard MoE falls apart under the same restriction. EMO is the cleanest demonstration that selective expert deployment can be designed into the model. It is also the most expensive route, and it does not turn an existing MoE into a modular one.</p>
+<hr>
+</section>
+<section id="why-you-cant-just-copy-out-the-legal-expert" class="level2">
+<h2 class="anchored" data-anchor-id="why-you-cant-just-copy-out-the-legal-expert">Why you can’t just copy out “the legal expert”</h2>
+<p>The numbers above can sound like proof that a big model secretly contains a compact specialist you can lift out. That is not what the papers show.</p>
+<p>The 99.3% result is a path, one expert per layer plus the shared Transformer. REAP’s survivors still need the original router and shared layers. BAR’s tool-use results show that the embeddings and the output head carry part of the skill. Nothing in this literature demonstrates a single expert tensor, pulled from an arbitrary modern MoE, that works on its own as a legal or tool-calling model.</p>
+<p>If you want to test the idea yourself, treat “the legal expert” as a hypothesis, run an ablation, and be ready to find that the capability lives in the combination rather than in one tensor.</p>
+<hr>
+</section>
+<section id="the-other-meaning-of-vertical-moe" class="level2">
+<h2 class="anchored" data-anchor-id="the-other-meaning-of-vertical-moe">The other meaning of “vertical MoE”</h2>
+<p>Some papers use “vertical MoE” for routing across layers rather than across the experts inside one layer. The model chooses which layer-like transformation to use at a given depth, an idea related to Mixture-of-Depths and dynamic-depth models.</p>
+<p><a href="https://arxiv.org/abs/2503.11144">MoLEx</a> is a clear example. It upcycles a pretrained dense model by reusing its trained layers as experts. At each layer, a router selects another layer’s transformation and mixes it with the current one using a small gate and a mixing weight, then fine-tunes. It shows a dense model can be turned into a layer-expert architecture without distillation or quantization. But it targets compositional representations, not domain specialization, and it does not make the model smaller, since it reuses the existing layers and adds routing.</p>
+<p>So there are two different questions:</p>
+<ul>
+<li>Vertical application: can the model specialize in law, medicine, code, or tool use?</li>
+<li>Vertical depth routing: can each token skip or reuse layers?</li>
+</ul>
+<p>Do not cite a depth router as evidence that a legal expert exists. They optimize different axes.</p>
+<hr>
+</section>
+<section id="what-i-would-actually-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-would-actually-do">What I would actually do</h2>
+<p>For a single vertical, I would not start by training a large MoE. A dense vertical model is the simpler baseline. MoE becomes worthwhile when the vertical has distinct subskills, when modules need to be updated independently, or when several verticals share a base while staying removable.</p>
+<p>For an existing open MoE, I would run task-pruned fine-tuning first. It is the smallest experiment that can falsify the idea:</p>
+<ul>
+<li>keep the shared trunk;</li>
+<li>pick expert combinations with held-out ablations;</li>
+<li>delete experts by layer;</li>
+<li>fine-tune the surviving path;</li>
+<li>check whether tool behavior or citations require shared-parameter updates.</li>
+</ul>
+<p>If the no-distillation, no-quantization constraint holds, the best post-hoc experiment is:</p>
+<ol type="1">
+<li>Choose an open MoE with accessible expert weights and router logits.</li>
+<li>Define the vertical as a testable contract, such as cited document answers and schema-valid tool calls.</li>
+<li>Collect separate calibration and test sets.</li>
+<li>Compare selectors: usage frequency, REAP-style saliency, and task ablations.</li>
+<li>Prune 25%, 50%, and the most aggressive per-layer survivor.</li>
+<li>Rebuild the router and physically delete the removed tensors.</li>
+<li>Fine-tune only the surviving experts first.</li>
+<li>Then test whether the router, embeddings, output head, or attention need unfreezing.</li>
+<li>Measure the final artifact on the target device.</li>
+</ol>
+<p>The main table should look like this:</p>
+<div class="table-responsive">
+<table class="caption-top table-striped table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th style="text-align: right;">Expert weights shipped</th>
+<th style="text-align: right;">Task score</th>
+<th style="text-align: right;">Citation or tool score</th>
+<th style="text-align: right;">General score</th>
+<th style="text-align: right;">Peak memory</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Original MoE</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">baseline</td>
+<td style="text-align: right;">baseline</td>
+<td style="text-align: right;">baseline</td>
+<td style="text-align: right;">baseline</td>
+</tr>
+<tr class="even">
+<td>One-shot pruned MoE</td>
+<td style="text-align: right;">selected subset</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+</tr>
+<tr class="odd">
+<td>Task-pruned and fine-tuned MoE</td>
+<td style="text-align: right;">selected subset</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+</tr>
+<tr class="even">
+<td>Dense vertical baseline</td>
+<td style="text-align: right;">separate model</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+<td style="text-align: right;">measure</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Keep distillation and quantization out of the primary table and add them later as controls.</p>
+<p>Distillation can produce a dense student, but it needs teacher runs, student training, and a new failure mode, and it cannot answer the extraction question, since the student is a new model rather than proof that the teacher contained the vertical. The 2026 <a href="https://arxiv.org/abs/2605.28207">MoE-to-dense study</a> shows the conversion works, but it is no longer pure extraction.</p>
+<p>Quantization lowers the byte count but leaves the expert pool and router intact. REAP itself stacks the two methods, pruning 50% of experts from already-quantized FP8 and 4-bit checkpoints, and a pure 4-bit quantized model beats a 16-bit model with half its experts removed on EvalPlus. Per byte, quantization is often the cheaper win. Per architecture, it never deletes an expert.</p>
+<p>The decisive check is physical. Load the final checkpoint with the deleted experts absent. A runtime mask, an offloaded teacher, or a copy of the original experts on disk does not count.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Without distillation or quantization, yes, an MoE can be torn down into a smaller task model. The demonstrated routes are task-specific pruning during fine-tuning, or one-shot pruning when a smaller MoE is enough.</p>
+<p>What has not been demonstrated is a reliable, zero-shot way to extract one portable expert from an arbitrary modern MoE. The usable unit is usually a per-layer combination plus the shared trunk.</p>
+<p>If the vertical matters, train for it. FlexOlmo shows experts trained against a shared anchor. BAR shows post-training verticals may need shared embeddings, attention, and output-head updates. EMO shows how to make expert subsets independently usable from pretraining. MoLEx shows the separate depth-routing meaning of vertical.</p>
+<p>Distillation and quantization remain useful alternatives. They solve different problems. Neither answers whether the original model contains a clean vertical that can simply be carved out.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li>Chen, T., et al.&nbsp;(2022). <a href="https://arxiv.org/abs/2206.00277"><em>Task-Specific Expert Pruning for Sparse Mixture-of-Experts.</em></a> arXiv:2206.00277.</li>
+<li>Wang, Z., et al.&nbsp;(2024). <a href="https://aclanthology.org/2024.emnlp-main.46/"><em>Let the Expert Stick to His Last: Expert-Specialized Fine-Tuning for Sparse Architectural Large Language Models.</em></a> EMNLP 2024.</li>
+<li>Yang, C., et al.&nbsp;(2024). <a href="https://aclanthology.org/2024.findings-emnlp.612/"><em>MoE-I2: Compressing Mixture of Experts Models through Inter-Expert Pruning and Intra-Expert Low-Rank Decomposition.</em></a> Findings of EMNLP 2024.</li>
+<li>Teo, R. S. Y., et al.&nbsp;(2025). <a href="https://arxiv.org/abs/2503.11144"><em>MoLEx: Mixture of Layer Experts for Finetuning with Sparse Upcycling.</em></a> arXiv:2503.11144.</li>
+<li>Shi, W., et al.&nbsp;(2025). <a href="https://arxiv.org/abs/2507.07024"><em>FlexOlmo: Open Language Models for Flexible Data Use.</em></a> arXiv:2507.07024.</li>
+<li>Lasby, M., et al.&nbsp;(2025). <a href="https://arxiv.org/abs/2510.13999"><em>REAP the Experts: Why Pruning Prevails for One-Shot MoE Compression.</em></a> arXiv:2510.13999.</li>
+<li>Wang, R., et al.&nbsp;(2026). <a href="https://arxiv.org/abs/2605.06663"><em>EMO: Pretraining Mixture of Experts for Emergent Modularity.</em></a> arXiv:2605.06663.</li>
+<li>Kim, J., et al.&nbsp;(2026). <a href="https://arxiv.org/abs/2605.28207"><em>Pruning and Distilling Mixture-of-Experts into Dense Language Models.</em></a> arXiv:2605.28207.</li>
+<li>Morrison, J., et al.&nbsp;(2026). <a href="https://arxiv.org/abs/2604.18473"><em>Train Separately, Merge Together: Modular Post-Training with Mixture-of-Experts.</em></a> arXiv:2604.18473.</li>
+</ol>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Can You Carve a Task-Specific Model Out of a
+    {Mixture-of-Experts} Model?},
+  date = {2026-08-02},
+  url = {https://toknow.ai/posts/carving-task-specific-model-from-moe/},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kabui, Charles. 2026. <span>“Can You Carve a Task-Specific Model Out of
+a Mixture-of-Experts Model?”</span> <a href="https://toknow.ai/posts/carving-task-specific-model-from-moe/">https://toknow.ai/posts/carving-task-specific-model-from-moe/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/toknow\.ai\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="ToKnow-ai/ToKnow-ai.github.io" data-repo-id="R_kgDOL20t9g" data-category="Giscus Comments" data-category-id="DIC_kwDOL20t9s4CfKjw" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2026, ToKnow.ai
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../terms-of-service.html">
+<p>Terms of Service</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+ <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&amp;label=readers%20count">
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

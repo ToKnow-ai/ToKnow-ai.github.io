@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kabui, Charles">
+<meta name="dcterms.date" content="2026-02-13">
+<meta name="keywords" content="prompt-engineering, code-generation, LLMs, AI-assisted-development, specification">
+<meta name="description" content="A research-backed technical analysis of why generating high-quality, production-grade code from LLMs demands detailed specifications—and whether the effort rivals writing the code yourself.">
+
+<title>The Prompt-to-Code Paradox: Does Writing Human-Like Code Require a Prompt Longer Than the Code Itself? – ToKnow.ai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b7adde2f1b737e1ab85d341de37ab126.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-a00569dc5e1b9abeeb38d9c5a30072e9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4R9DMKF8S7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R9DMKF8S7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../_styles.css">
+<link rel="stylesheet" href="../_post-styles.css">
+<meta property="og:title" content="The Prompt-to-Code Paradox: Does Writing Human-Like Code Require a Prompt Longer Than the Code Itself? – ToKnow.ai">
+<meta property="og:description" content="A research-backed technical analysis of why generating high-quality, production-grade code from LLMs demands detailed specifications—and whether the effort rivals writing the code yourself.">
+<meta property="og:image" content="https://toknow.ai/posts/prompt-length-vs-code-quality/image.png">
+<meta property="og:site_name" content="ToKnow.ai">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:width" content="1024">
+<meta name="twitter:title" content="The Prompt-to-Code Paradox: Does Writing Human-Like Code Require a Prompt Longer Than the Code Itself? – ToKnow.ai">
+<meta name="twitter:description" content="A research-backed technical analysis of why generating high-quality, production-grade code from LLMs demands detailed specifications—and whether the effort rivals writing the code yourself.">
+<meta name="twitter:image" content="https://toknow.ai/posts/prompt-length-vs-code-quality/image.png">
+<meta name="twitter:site" content="@ToKnow_ai">
+<meta name="twitter:image-height" content="1024">
+<meta name="twitter:image-width" content="1024">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://toknow.ai/posts/prompt-length-vs-code-quality/">
+<meta name="citation_title" content="The Prompt-to-Code Paradox: Does Writing Human-Like Code Require a Prompt Longer Than the Code Itself?">
+<meta name="citation_keywords" content="prompt-engineering,code-generation,LLMs,AI-assisted-development,specification">
+<meta name="citation_author" content="Kabui, Charles">
+<meta name="citation_publication_date" content="2026-02-13">
+<meta name="citation_cover_date" content="2026-02-13">
+<meta name="citation_year" content="2026">
+<meta name="citation_online_date" content="2026-02-13">
+<meta name="citation_fulltext_html_url" content="https://toknow.ai/posts/prompt-length-vs-code-quality/">
+<meta name="citation_language" content="en-GB">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ToKnow.ai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../apps.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../domains-for-sale.html"> 
+<span class="menu-text">Domains 4 Sale</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ToKnow-ai"> <i class="bi bi-github" role="img" aria-label="Github - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ToKnow_ai"> <i class="bi bi-twitter" role="img" aria-label="Twitter - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img" aria-label="ToKnow.ai RSS">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">The Prompt-to-Code Paradox: Does Writing Human-Like Code Require a Prompt Longer Than the Code Itself?</h1>
+                  <div>
+        <div class="description">
+          A research-backed technical analysis of why generating high-quality, production-grade code from LLMs demands detailed specifications—and whether the effort rivals writing the code yourself.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">software-engineering</div>
+                <div class="quarto-category">artificial-intelligence</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kabui, Charles <a href="mailto:kabui@toknow.ai" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2026-02-13</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>prompt-engineering, code-generation, LLMs, AI-assisted-development, specification</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-specification-gap-why-natural-language-falls-short" id="toc-the-specification-gap-why-natural-language-falls-short" class="nav-link" data-scroll-target="#the-specification-gap-why-natural-language-falls-short">1. The Specification Gap: Why Natural Language Falls Short</a>
+  <ul>
+  <li><a href="#prompt-specificity-directly-impacts-code-quality" id="toc-prompt-specificity-directly-impacts-code-quality" class="nav-link" data-scroll-target="#prompt-specificity-directly-impacts-code-quality">1.1 Prompt Specificity Directly Impacts Code Quality</a></li>
+  <li><a href="#chain-of-thought-prompting-improves-code-logic" id="toc-chain-of-thought-prompting-improves-code-logic" class="nav-link" data-scroll-target="#chain-of-thought-prompting-improves-code-logic">1.2 Chain-of-Thought Prompting Improves Code Logic</a></li>
+  <li><a href="#conversational-prompting-outperforms-automated-prompting" id="toc-conversational-prompting-outperforms-automated-prompting" class="nav-link" data-scroll-target="#conversational-prompting-outperforms-automated-prompting">1.3 Conversational Prompting Outperforms Automated Prompting</a></li>
+  </ul></li>
+  <li><a href="#the-expertise-paradox-you-must-know-the-code-to-prompt-for-it" id="toc-the-expertise-paradox-you-must-know-the-code-to-prompt-for-it" class="nav-link" data-scroll-target="#the-expertise-paradox-you-must-know-the-code-to-prompt-for-it">2. The Expertise Paradox: You Must Know the Code to Prompt for It</a></li>
+  <li><a href="#the-curse-of-instructions-why-more-isnt-always-better" id="toc-the-curse-of-instructions-why-more-isnt-always-better" class="nav-link" data-scroll-target="#the-curse-of-instructions-why-more-isnt-always-better">3. The “Curse of Instructions”: Why More Isn’t Always Better</a></li>
+  <li><a href="#emerging-solutions-spec-driven-development-and-context-engineering" id="toc-emerging-solutions-spec-driven-development-and-context-engineering" class="nav-link" data-scroll-target="#emerging-solutions-spec-driven-development-and-context-engineering">4. Emerging Solutions: Spec-Driven Development and Context Engineering</a>
+  <ul>
+  <li><a href="#spec-driven-development-2025---2026" id="toc-spec-driven-development-2025---2026" class="nav-link" data-scroll-target="#spec-driven-development-2025---2026">4.1 Spec-Driven Development (2025 - 2026)</a></li>
+  <li><a href="#context-engineering-for-ai-agents" id="toc-context-engineering-for-ai-agents" class="nav-link" data-scroll-target="#context-engineering-for-ai-agents">4.2 Context Engineering for AI Agents</a></li>
+  <li><a href="#cnl-p-controlled-natural-language-for-prompts" id="toc-cnl-p-controlled-natural-language-for-prompts" class="nav-link" data-scroll-target="#cnl-p-controlled-natural-language-for-prompts">4.3 CNL-P: Controlled Natural Language for Prompts</a></li>
+  </ul></li>
+  <li><a href="#how-reasoning-models-change-the-equation" id="toc-how-reasoning-models-change-the-equation" class="nav-link" data-scroll-target="#how-reasoning-models-change-the-equation">5. How Reasoning Models Change the Equation</a></li>
+  <li><a href="#the-prompt-to-code-ratio-what-the-evidence-actually-shows" id="toc-the-prompt-to-code-ratio-what-the-evidence-actually-shows" class="nav-link" data-scroll-target="#the-prompt-to-code-ratio-what-the-evidence-actually-shows">6. The Prompt-to-Code Ratio: What the Evidence Actually Shows</a></li>
+  <li><a href="#where-ai-definitively-saves-time-regardless-of-prompt-length" id="toc-where-ai-definitively-saves-time-regardless-of-prompt-length" class="nav-link" data-scroll-target="#where-ai-definitively-saves-time-regardless-of-prompt-length">7. Where AI Definitively Saves Time (Regardless of Prompt Length)</a></li>
+  <li><a href="#practical-recommendations" id="toc-practical-recommendations" class="nav-link" data-scroll-target="#practical-recommendations">8. Practical Recommendations</a>
+  <ul>
+  <li><a href="#for-individual-developers" id="toc-for-individual-developers" class="nav-link" data-scroll-target="#for-individual-developers">For Individual Developers</a></li>
+  <li><a href="#for-teams-and-organisations" id="toc-for-teams-and-organisations" class="nav-link" data-scroll-target="#for-teams-and-organisations">For Teams and Organisations</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/prompt-length-vs-code-quality" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/prompt-length-vs-code-quality/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>A provocative question has emerged in the AI-assisted software engineering community: <strong>To get an LLM to produce truly human-like code, do you need to write a prompt that is as long, or longer, than the code you would have written yourself?</strong></p>
+<p>The short answer, backed by a growing body of research and practitioner experience, is: <strong>not necessarily longer, but substantially more detailed than most developers expect.</strong> The critical insight from the literature is that <em>structured specificity</em>, not raw length, is what separates prompts that produce fragile, average code from those that produce production-grade output. But achieving that specificity often results in prompts that rival or even exceed the length of the generated code, particularly for non-trivial tasks.</p>
+<p>This article examines the research landscape as of early 2026, synthesizing findings from peer-reviewed studies, industry practitioners, and emerging frameworks to answer this question with rigour.</p>
+<hr>
+</section>
+<section id="the-specification-gap-why-natural-language-falls-short" class="level2">
+<h2 class="anchored" data-anchor-id="the-specification-gap-why-natural-language-falls-short">1. The Specification Gap: Why Natural Language Falls Short</h2>
+<p>Code is formal. Natural language is inherently ambiguous. Every prompt is an attempt to bridge this gap, what researchers call the <strong>specification gap</strong> between human intent and machine prediction.</p>
+<section id="prompt-specificity-directly-impacts-code-quality" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-specificity-directly-impacts-code-quality">1.1 Prompt Specificity Directly Impacts Code Quality</h3>
+<p>A 2023 study by Murr, Grainger, and Gao, <em>“Testing LLMs on Code Generation with Varying Levels of Prompt Specificity”</em> (<a href="https://arxiv.org/abs/2311.07599">arXiv:2311.07599</a>), evaluated Bard, ChatGPT-3.5, GPT-4, and Claude-2 across 104 coding problems. Each problem was tested with four prompt types of varying specificity, including base descriptions, prompts with test cases, and prompts with explicit constraints.</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+<li>More specific prompts (those including test cases, constraints, and expected behaviours) consistently produced more accurate and efficient code.</li>
+<li>The performance gap between vague and specific prompts was significant across all tested models.</li>
+<li>GPT-4 with highly specific prompts approached near-human accuracy on many tasks, while the same model with vague prompts often produced incorrect or incomplete solutions.</li>
+</ul>
+<p>This establishes a clear empirical relationship: <strong>prompt detail is not a preference, it is a determinant of output quality.</strong></p>
+</section>
+<section id="chain-of-thought-prompting-improves-code-logic" class="level3">
+<h3 class="anchored" data-anchor-id="chain-of-thought-prompting-improves-code-logic">1.2 Chain-of-Thought Prompting Improves Code Logic</h3>
+<p>Liu et al.&nbsp;(2023), in <em>“Improving ChatGPT Prompt for Code Generation”</em> (<a href="https://arxiv.org/abs/2305.08360">arXiv:2305.08360</a>), demonstrated that chain-of-thought (CoT) prompting with multi-step optimisations substantially improved ChatGPT’s performance on both text-to-code and code-to-code generation tasks using the CodeXGlue benchmark.</p>
+<p>The study found that <strong>carefully designed, multi-step prompts guided the model through logical reasoning</strong> before code generation, reducing errors in control flow, edge case handling, and API usage. The prompts required to achieve this, however, were significantly more elaborate than a simple task description.</p>
+</section>
+<section id="conversational-prompting-outperforms-automated-prompting" class="level3">
+<h3 class="anchored" data-anchor-id="conversational-prompting-outperforms-automated-prompting">1.3 Conversational Prompting Outperforms Automated Prompting</h3>
+<p>Shin et al.&nbsp;(2023/2025), in <em>“Prompt Engineering or Fine-Tuning: An Empirical Assessment of LLMs for Code”</em> (<a href="https://arxiv.org/abs/2310.10508">arXiv:2310.10508</a>, accepted MSR’25), compared GPT-4 using three prompt engineering strategies (basic, in-context learning, and task-specific) against 17 fine-tuned models across code summarisation, generation, and translation.</p>
+<p><strong>A critical finding:</strong> GPT-4 with automated prompting was outperformed by fine-tuned models by 28.3 percentage points on the MBPP code generation dataset. However, a user study with 27 graduate students and 10 industry practitioners revealed that <strong>conversational prompting, where humans iteratively provided explicit instructions, context, and corrections, significantly improved GPT-4’s performance</strong> beyond automated approaches.</p>
+<p>This confirms that high-quality code generation is not about a single prompt. It requires an <strong>interactive specification process</strong> where the developer progressively narrows the model’s solution space through detailed, human-in-the-loop guidance.</p>
+<hr>
+</section>
+</section>
+<section id="the-expertise-paradox-you-must-know-the-code-to-prompt-for-it" class="level2">
+<h2 class="anchored" data-anchor-id="the-expertise-paradox-you-must-know-the-code-to-prompt-for-it">2. The Expertise Paradox: You Must Know the Code to Prompt for It</h2>
+<p>Research from human-computer interaction consistently reveals what Addy Osmani (Google, 2024) termed the <strong>“Knowledge Paradox”</strong>:</p>
+<blockquote class="blockquote">
+<p>AI tools help experienced developers more than beginners. Seniors use AI to accelerate what they already know how to do. Juniors try to use AI to learn what to do. The results differ dramatically.</p>
+</blockquote>
+<p>This paradox extends directly to prompt writing:</p>
+<ul>
+<li><p><strong>To write a prompt detailed enough to produce correct, idiomatic, secure code, you must already understand how to write that code.</strong> If you lack the knowledge, your prompt will be vague. If you have the knowledge, translating your mental model into structured English can feel as cognitively demanding as writing the code itself.</p></li>
+<li><p>Osmani’s <em>“The 70% Problem”</em> (December 2024) documented that non-engineers could reach ~70% of a working solution with AI tools, but the remaining 30%: edge cases, error handling, security, performance, maintainability, required genuine engineering expertise that no amount of prompt crafting could replace.</p></li>
+<li><p>The paradox intensifies for complex tasks: describing 15 regional tax calculation rules in English takes more words than the 20 lines of code implementing them. The <strong>business logic specification in natural language is inherently more verbose than its formal code equivalent.</strong></p></li>
+</ul>
+<hr>
+</section>
+<section id="the-curse-of-instructions-why-more-isnt-always-better" class="level2">
+<h2 class="anchored" data-anchor-id="the-curse-of-instructions-why-more-isnt-always-better">3. The “Curse of Instructions”: Why More Isn’t Always Better</h2>
+<p>While specificity improves output, <strong>unstructured verbosity degrades it.</strong> Research has confirmed a phenomenon dubbed the <strong>“Curse of Instructions”</strong> (documented by Anthropic and others):</p>
+<ul>
+<li>As the number of simultaneous instructions increases, model adherence to each individual instruction drops significantly.</li>
+<li>A study referenced in Anthropic’s engineering guidance found that even GPT-4 and Claude struggle when asked to satisfy many requirements simultaneously. With 10+ detailed bullet points of rules, models reliably follow the first few and begin overlooking the rest.</li>
+<li>Long, unstructured prompts introduce <strong>noise</strong> that can distract the model, leading to higher error rates than shorter, focused prompts.</li>
+</ul>
+<p>The research consensus is clear: <strong>structured specificity, not length, is the variable that matters.</strong> The goal is to be precise and organised, not merely verbose.</p>
+<hr>
+</section>
+<section id="emerging-solutions-spec-driven-development-and-context-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="emerging-solutions-spec-driven-development-and-context-engineering">4. Emerging Solutions: Spec-Driven Development and Context Engineering</h2>
+<section id="spec-driven-development-2025---2026" class="level3">
+<h3 class="anchored" data-anchor-id="spec-driven-development-2025---2026">4.1 Spec-Driven Development (2025 - 2026)</h3>
+<p>The industry response to the prompt-quality challenge has coalesced around <strong>spec-driven development</strong>, treating AI prompts as formal software specifications rather than casual requests.</p>
+<p>GitHub’s analysis of over 2,500 agent configuration files (published January 2026) revealed that the most effective AI specifications consistently covered <strong>six core areas:</strong></p>
+<ol type="1">
+<li><strong>Commands</strong> — Full executable commands with flags, not just tool names</li>
+<li><strong>Testing</strong> — Frameworks, file locations, coverage expectations</li>
+<li><strong>Project structure</strong> — Explicit directory layout</li>
+<li><strong>Code style</strong> — One real code snippet beats three paragraphs of description</li>
+<li><strong>Git workflow</strong> — Branch naming, commit format, PR requirements</li>
+<li><strong>Boundaries</strong> — What the agent must never touch (“Never commit secrets” was the single most common helpful constraint)</li>
+</ol>
+<p>Addy Osmani, in <em>“How to Write a Good Spec for AI Agents”</em> (January 2026), formalised a five-principle framework:</p>
+<ol type="1">
+<li>Start with a high-level vision and let the AI draft the details</li>
+<li>Structure the spec like a professional PRD (Product Requirements Document)</li>
+<li>Break tasks into modular prompts and context—not one monolithic prompt</li>
+<li>Build in self-checks, constraints, and inject human expertise</li>
+<li>Test, iterate, and evolve the spec continuously</li>
+</ol>
+<p>The GitHub Spec Kit introduced a <strong>four-phase gated workflow</strong>: Specify → Plan → Tasks → Implement. Each phase requires validation before proceeding.</p>
+</section>
+<section id="context-engineering-for-ai-agents" class="level3">
+<h3 class="anchored" data-anchor-id="context-engineering-for-ai-agents">4.2 Context Engineering for AI Agents</h3>
+<p>Mohsenimofidi et al.&nbsp;(2025/2026), in <em>“Context Engineering for AI Agents in Open-Source Software”</em> (<a href="https://arxiv.org/abs/2510.21413">arXiv:2510.21413</a>, accepted MSR 2026), studied the adoption of AI context files (such as <code>AGENTS.md</code>) across 466 open-source projects.</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+<li>There is no established content structure yet, significant variation exists in how context is provided (descriptive, prescriptive, prohibitive, explanatory, conditional).</li>
+<li>The information developers provide in these files is essentially <strong>a specification document that guides AI behaviour</strong>, confirming that the community is converging on the need for detailed, structured context.</li>
+<li>The field is actively studying which structural modifications positively affect generated code quality.</li>
+</ul>
+</section>
+<section id="cnl-p-controlled-natural-language-for-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="cnl-p-controlled-natural-language-for-prompts">4.3 CNL-P: Controlled Natural Language for Prompts</h3>
+<p>Xing et al.&nbsp;(2025), in <em>“When Prompt Engineering Meets Software Engineering”</em> (<a href="https://arxiv.org/abs/2508.06942">arXiv:2508.06942</a>), proposed CNL-P (Controlled Natural Language for Prompts), a system that applies software engineering principles to prompt writing:</p>
+<ul>
+<li>Precise grammar structures and strict semantic norms eliminate natural language ambiguity</li>
+<li>A <strong>linting tool</strong> checks prompts for syntactic and semantic accuracy, applying static analysis techniques to natural language for the first time</li>
+<li>Experiments showed that this structured approach enhanced LLM response quality through the synergy of prompt engineering and software engineering</li>
+</ul>
+<p>This represents a formal recognition that <strong>prompts are code</strong>, they benefit from the same rigour, structure, and tooling we apply to software.</p>
+<hr>
+</section>
+</section>
+<section id="how-reasoning-models-change-the-equation" class="level2">
+<h2 class="anchored" data-anchor-id="how-reasoning-models-change-the-equation">5. How Reasoning Models Change the Equation</h2>
+<p>Halim et al.&nbsp;(2025), in <em>“A Study on Thinking Patterns of Large Reasoning Models in Code Generation”</em> (<a href="https://arxiv.org/abs/2509.13758">arXiv:2509.13758</a>), analysed how large reasoning models (LRMs) like OpenAI’s o3, DeepSeek R1, and Qwen3 approach code generation.</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+<li>LRMs follow a <strong>human-like coding workflow</strong>, typically proceeding through problem understanding =&gt; planning =&gt; implementation =&gt; verification phases.</li>
+<li>More complex tasks elicit additional reasoning actions such as scaffolding, flaw detection, and style checks.</li>
+<li>Actions like <strong>unit test creation and scaffold generation</strong> strongly correlated with functional correctness.</li>
+<li>Lightweight prompting strategies that included <strong>context-oriented and reasoning-oriented cues</strong> improved code quality, suggesting that even with advanced reasoning models, structured prompts outperform vague ones.</li>
+</ul>
+<p>This suggests an evolving landscape where newer models partially internalise the reasoning that older models required explicit instruction for—but structured context still helps.</p>
+<hr>
+</section>
+<section id="the-prompt-to-code-ratio-what-the-evidence-actually-shows" class="level2">
+<h2 class="anchored" data-anchor-id="the-prompt-to-code-ratio-what-the-evidence-actually-shows">6. The Prompt-to-Code Ratio: What the Evidence Actually Shows</h2>
+<p>Synthesising across the research, the relationship between prompt detail and code quality follows a clear pattern:</p>
+<div class="table-responsive">
+<table class="caption-top table-striped table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task Complexity</th>
+<th>Optimal Prompt Strategy</th>
+<th>Typical Prompt:Code Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Trivial</strong> (sort a list, format a string)</td>
+<td>Short, direct instruction</td>
+<td>~1:10</td>
+</tr>
+<tr class="even">
+<td><strong>Moderate</strong> (CRUD endpoint, data transformation)</td>
+<td>Specific with constraints, types, edge cases</td>
+<td>~1:3 to 1:1</td>
+</tr>
+<tr class="odd">
+<td><strong>Complex</strong> (OAuth flow, business logic, architecture)</td>
+<td>Full specification with examples, constraints, tests</td>
+<td>~1:1 to 2:1</td>
+</tr>
+<tr class="even">
+<td><strong>Production-grade</strong> (security, performance, maintainability)</td>
+<td>Spec-driven with iterative refinement</td>
+<td>Often &gt;1:1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The pattern is clear: <strong>as task complexity increases, the prompt-to-code ratio approaches and can exceed 1:1.</strong> For production-grade code (the kind that handles edge cases, follows security best practices, adheres to style guides, and includes proper error handling) the specification effort often rivals writing the code manually.</p>
+<p>However, the effort is not wasted. As Osmani observed:</p>
+<blockquote class="blockquote">
+<p>“If you spend 2 minutes writing the prompt, the code might require 10 minutes of fixing. If you spend 10 minutes designing the prompt, the code might require 1 minute of reviewing.”</p>
+</blockquote>
+<p>The total effort (prompt + review) is typically less than writing from scratch, even when the prompt itself is long. <strong>The effort shifts from typing syntax to defining requirements</strong>—a higher-leverage activity.</p>
+<hr>
+</section>
+<section id="where-ai-definitively-saves-time-regardless-of-prompt-length" class="level2">
+<h2 class="anchored" data-anchor-id="where-ai-definitively-saves-time-regardless-of-prompt-length">7. Where AI Definitively Saves Time (Regardless of Prompt Length)</h2>
+<p>The research is unambiguous that AI excels in specific scenarios regardless of prompt-to-code ratio:</p>
+<ol type="1">
+<li><strong>Boilerplate generation</strong> — Short prompt (“Create a FastAPI CRUD app”) produces hundreds of lines of repetitive but correct code.</li>
+<li><strong>Breadth over depth</strong> — The model draws on libraries, patterns, and APIs you haven’t memorised.</li>
+<li><strong>Refactoring</strong> — “Make this more readable” (short prompt) =&gt; significant structural improvements.</li>
+<li><strong>Test generation</strong> — Given existing code, models generate comprehensive test suites efficiently.</li>
+<li><strong>Documentation</strong> — Models excel at explaining and documenting existing code.</li>
+<li><strong>Exploration</strong> — Rapid prototyping of multiple approaches to compare trade-offs.</li>
+</ol>
+<p>In these scenarios, the prompt-to-code ratio is highly favourable (1:10 or better), and the AI provides clear time savings.</p>
+<hr>
+</section>
+<section id="practical-recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="practical-recommendations">8. Practical Recommendations</h2>
+<p>Based on the accumulated research and practitioner evidence:</p>
+<section id="for-individual-developers" class="level3">
+<h3 class="anchored" data-anchor-id="for-individual-developers">For Individual Developers</h3>
+<ol type="1">
+<li><strong>Invest in specification, not just prompting.</strong> Treat prompts as software specifications. Define inputs, outputs, constraints, error handling, and style before requesting code.</li>
+<li><strong>Use structured formats.</strong> Markdown with clear headings, bulleted constraints, and code examples outperforms prose paragraphs.</li>
+<li><strong>Break complex tasks into focused sub-prompts.</strong> Each prompt should target one function, one module, or one concern. Avoid monolithic prompts.</li>
+<li><strong>Include examples.</strong> One concrete input/output example is worth more than three paragraphs of description (few-shot prompting).</li>
+<li><strong>Define what you don’t want.</strong> Explicit boundaries (“Do not use class components”, “Never store passwords in plaintext”) prevent common AI missteps.</li>
+<li><strong>Iterate, don’t one-shot.</strong> Use conversational refinement. Review output, provide feedback, and regenerate.</li>
+</ol>
+</section>
+<section id="for-teams-and-organisations" class="level3">
+<h3 class="anchored" data-anchor-id="for-teams-and-organisations">For Teams and Organisations</h3>
+<ol type="1">
+<li><strong>Adopt spec-driven workflows.</strong> Use tools like GitHub Spec Kit’s Specify =&gt; Plan =&gt; Tasks =&gt; Implement pipeline.</li>
+<li><strong>Maintain <code>AGENTS.md</code> or <code>CLAUDE.md</code> files</strong> with project-specific context, style guides, and boundaries.</li>
+<li><strong>Invest in test infrastructure.</strong> A robust test suite is a force multiplier—it gives AI agents a fast feedback loop for self-correction.</li>
+<li><strong>Use the three-tier boundary system:</strong> Always do / Ask first / Never do.</li>
+<li><strong>Treat prompts as version-controlled artefacts.</strong> Commit spec files alongside code.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The research confirms that generating human-like code from LLMs requires <strong>substantially more specification effort than most developers initially expect.</strong> This is not a flaw in the technology—it is a consequence of the fundamental gap between ambiguous natural language and precise formal logic.</p>
+<p>However, the finding is nuanced:</p>
+<ul>
+<li><strong>It is not about raw prompt length.</strong> Unstructured verbosity actively degrades output quality.</li>
+<li><strong>It is about structured specificity.</strong> Clear constraints, examples, type information, and architectural guidance produce dramatically better code.</li>
+<li><strong>The effort is redistributed, not eliminated.</strong> Time shifts from writing code to specifying requirements—a shift that, at scale, produces more maintainable and correct software.</li>
+<li><strong>The ratio varies by task complexity.</strong> Simple tasks need minimal prompting. Complex, production-grade tasks often require specifications rivalling the code length.</li>
+</ul>
+<p>The emerging discipline of <strong>spec-driven development</strong> and <strong>context engineering</strong> represents the software engineering community’s recognition that prompt engineering is, at its core, <strong>requirements engineering</strong>—and like all requirements engineering, it demands rigour, structure, and domain expertise.</p>
+<p>As Andrej Karpathy observed: <em>“English is becoming the hottest new programming language.”</em> But as the research makes clear, writing effective “English programs” demands the same discipline we apply to any other programming language.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li><p>Murr, L., Grainger, M., &amp; Gao, D. (2023). <a href="https://arxiv.org/abs/2311.07599"><em>Testing LLMs on Code Generation with Varying Levels of Prompt Specificity.</em></a></p></li>
+<li><p>Liu, C., Bao, X., Zhang, H., et al.&nbsp;(2023). <a href="https://arxiv.org/abs/2305.08360"><em>Improving ChatGPT Prompt for Code Generation.</em></a></p></li>
+<li><p>Shin, J., Tang, C., Mohati, T., et al.&nbsp;(2023/2025). <a href="https://arxiv.org/abs/2310.10508"><em>Prompt Engineering or Fine-Tuning: An Empirical Assessment of LLMs for Code.</em></a></p></li>
+<li><p>Denny, P., Kumar, V., &amp; Giacaman, N. (2022). <a href="https://arxiv.org/abs/2210.15157"><em>Conversing with Copilot: Exploring Prompt Engineering for Solving CS1 Problems Using Natural Language.</em></a></p></li>
+<li><p>Halim, K., Teo, S.G., Feng, R., et al.&nbsp;(2025). <a href="https://arxiv.org/abs/2509.13758"><em>A Study on Thinking Patterns of Large Reasoning Models in Code Generation.</em></a></p></li>
+<li><p>Mohsenimofidi, S., Galster, M., Treude, C., &amp; Baltes, S. (2025/2026). <a href="https://arxiv.org/abs/2510.21413"><em>Context Engineering for AI Agents in Open-Source Software.</em></a></p></li>
+<li><p>Xing, Z., Liu, Y., Cheng, Z., et al.&nbsp;(2025). <a href="https://arxiv.org/abs/2508.06942"><em>When Prompt Engineering Meets Software Engineering: CNL-P as Natural and Robust “APIs” for Human-AI Interaction.</em></a></p></li>
+<li><p>Zhao, J., Yang, D., Zhang, L., et al.&nbsp;(2024). <a href="https://arxiv.org/abs/2408.12056"><em>Enhancing Automated Program Repair with Solution Design.</em></a></p></li>
+<li><p>Osmani, A. (2024). <a href="https://addyo.substack.com/p/the-70-problem-hard-truths-about"><em>The 70% Problem: Hard Truths About AI-Assisted Coding.</em></a> Substack (Elevate).</p></li>
+<li><p>Osmani, A. (2026). <a href="https://addyosmani.com/blog/good-spec/"><em>How to Write a Good Spec for AI Agents.</em></a></p></li>
+<li><p>Osmani, A. (2026). <a href="https://addyosmani.com/blog/ai-coding-workflow/"><em>My LLM Coding Workflow Going Into 2026.</em></a></p></li>
+<li><p>GitHub Blog. (2023). <a href="https://github.blog/ai-and-ml/github-copilot/how-to-write-better-prompts-for-github-copilot/"><em>How to Write Better Prompts for GitHub Copilot.</em></a></p></li>
+<li><p>GitHub Blog. (2026). <a href="https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/"><em>How to Write a Great agents.md: Lessons from Over 2,500 Repositories.</em></a></p></li>
+<li><p>GitHub Blog. (2026). <a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/"><em>Spec-Driven Development with AI: Get Started with a New Open-Source Toolkit.</em></a></p></li>
+<li><p>Willison, S. (2025). <a href="https://simonwillison.net/2025/Oct/7/vibe-engineering/"><em>Vibe Engineering.</em></a></p></li>
+</ol>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {The {Prompt-to-Code} {Paradox:} {Does} {Writing} {Human-Like}
+    {Code} {Require} a {Prompt} {Longer} {Than} the {Code} {Itself?}},
+  date = {2026-02-13},
+  url = {https://toknow.ai/posts/prompt-length-vs-code-quality/},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kabui, Charles. 2026. <span>“The Prompt-to-Code Paradox: Does Writing
+Human-Like Code Require a Prompt Longer Than the Code Itself?”</span> <a href="https://toknow.ai/posts/prompt-length-vs-code-quality/">https://toknow.ai/posts/prompt-length-vs-code-quality/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/toknow\.ai\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="ToKnow-ai/ToKnow-ai.github.io" data-repo-id="R_kgDOL20t9g" data-category="Giscus Comments" data-category-id="DIC_kwDOL20t9s4CfKjw" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2026, ToKnow.ai
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../terms-of-service.html">
+<p>Terms of Service</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+ <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&amp;label=readers%20count">
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

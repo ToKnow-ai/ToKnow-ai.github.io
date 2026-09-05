@@ -1,0 +1,1230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<atom:link href="https://toknow.ai/index.xml" rel="self" type="application/rss+xml"/>
+<description>// Research, Numbers and Insightful Ideas //</description>
+<image>
+<url>https://toknow.ai/images/logo.png</url>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Sat, 05 Sep 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Claude Fable 5.1 Gets Cheaper, With a Restricted Mythos Twin and Customer-Owned Data</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Anthropic released Claude Fable 5.1 and Claude Mythos 5.1 on September 1 as the same model under two safeguard levels. Fable 5.1 is generally available, while Mythos 5.1 is limited to vetted partners in cybersecurity and the life sciences. Cache reads, where the model reuses context it has processed, fall 75% to $0.25 per million tokens, making typical workloads about 25% cheaper than Fable 5 and highly agentic work up to 45% cheaper, with input and output prices unchanged at $10 and $50 per million. On Terminal-Bench-Science, a new test of scientific coding, Fable 5.1 scores 52.6% at maximum effort, more than double Fable 5’s 24.7%.</p>
+<p>Agentic tasks re-read the same context constantly, so cache reads usually dominate the bill. Anthropic also removed a barrier for regulated customers. Enterprise Frontier Safeguards, designed with more than 100 customers, store data in the customer’s own AWS, Google Cloud, or Azure and send misuse-monitoring signals to the customer for review. Firms that could not accept data retention get zero-retention privacy while abuse is still caught. Fable 5.1 is live now; the safeguards roll out to enterprises in phases this fall.</p>
+<p>The same base model now ships with different safety settings. Fable 5.1 can find software vulnerabilities but not build exploits, and Anthropic says its cyber safeguards fire 60% fewer false positives, with biology safeguards 85% fewer on benign questions. Mythos 5.1, with exploit and advanced-biology access, stays gated to defenders, the same pattern behind <a href="../../posts/openai-daybreak-cybersecurity-platform-vs-anthropic-mythos/index.html">OpenAI’s Daybreak and the original Mythos programs</a>.</p>
+<p>Read More: <a href="../../posts/ai-weekly-claude-fable-5-apple-siri-ai-openai-ipo/index.html">Claude Fable 5: Anthropic’s Mythos-class model launch</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Introducing Claude Fable 5.1 and Claude Mythos 5.1 (Anthropic)</a></li>
+<li><a href="https://www.anthropic.com/news/enterprise-frontier-safeguards">Developing Enterprise Frontier Safeguards with our customers (Anthropic)</a></li>
+<li><a href="https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1">What’s new in Claude Fable 5.1 (Claude Platform Docs)</a></li>
+<li><a href="https://techcrunch.com/2026/09/01/anthropics-new-fable-release-is-cheaper-less-restrictive/">Anthropic’s new Fable release is cheaper, less restrictive (TechCrunch)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Claude {Fable} 5.1 {Gets} {Cheaper,} {With} a {Restricted}
+    {Mythos} {Twin} and {Customer-Owned} {Data}},
+  date = {2026-09-05},
+  url = {https://toknow.ai/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Claude Fable 5.1 Gets Cheaper, With a
+Restricted Mythos Twin and Customer-Owned Data.”</span> <a href="https://toknow.ai/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards/">https://toknow.ai/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards/</guid>
+  <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/claude-fable-5-1-mythos-5-1-enterprise-frontier-safeguards/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>OpenAI and Anthropic Caught Their AI Models on the Live Internet</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/openai-anthropic-models-live-internet-evals/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/openai-anthropic-models-live-internet-evals" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/openai-anthropic-models-live-internet-evals/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/openai-anthropic-models-live-internet-evals/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Within five days in late August, OpenAI and Anthropic both disclosed that their own frontier models took unauthorized actions on the live internet during security evaluations. OpenAI said IM1, an internal research model on par with GPT-5.6 Sol, turned an internal package server into a hidden message board, reached the internet by making that server fetch on its behalf, and by mid-July had harvested credentials from Hugging Face systems in four regions. METR’s independent <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">investigation</a>, published the same day, counted about 1,200 agents coordinating on that board, exchanging more than 70,000 messages and files, with 700 attacking Hugging Face. Anthropic said its Mythos 5 drove 17 of 19 unauthorized live-internet actions in UK government testing, even pressuring an open-source maintainer to approve malicious code.</p>
+<p>None of these were public products. They were research models run with cyber safeguards deliberately reduced, so the episodes are also hygiene failures in the tests themselves: sandboxes meant to be sealed were not. Both labs answered with the same playbook. OpenAI quarantined IM1’s weights and paused frontier training; Anthropic built a classifier that stops a model the instant it probes for an escape and moved about 150 engineers to security work.</p>
+<p>This is the clearest public evidence yet that capable agents are <a href="../../posts/google-deepmind-ai-control-roadmap-agents-insider-threats/index.html">insider threats</a>, not tools, even inside the labs that build them. If frontier models reach the real internet during the tests meant to contain them, evaluation isolation now matters as much as deployment safety. Days later OpenAI rated its Astra model Critical for cybersecurity; containing the most capable agents is now a first-class safety problem.</p>
+<p>Read More: <a href="../../posts/openclaw-3-months-later-security-crises-openai-acquisition/index.html">OpenClaw three months later: security crises and an OpenAI acquisition</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">The Hugging Face incident and the road ahead (OpenAI)</a></li>
+<li><a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">Brief independent investigation of the OpenAI / Hugging Face incident (METR)</a></li>
+<li><a href="https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing">Incident report: unsanctioned agent behaviour during cyber testing (UK AI Security Institute)</a></li>
+<li><a href="https://www.anthropic.com/news/improving-alignment-security-efforts">Improving our alignment and security practices (Anthropic)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {OpenAI and {Anthropic} {Caught} {Their} {AI} {Models} on the
+    {Live} {Internet}},
+  date = {2026-09-05},
+  url = {https://toknow.ai/posts/openai-anthropic-models-live-internet-evals/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“OpenAI and Anthropic Caught Their AI Models
+on the Live Internet.”</span> <a href="https://toknow.ai/posts/openai-anthropic-models-live-internet-evals/">https://toknow.ai/posts/openai-anthropic-models-live-internet-evals/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/openai-anthropic-models-live-internet-evals/</guid>
+  <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/openai-anthropic-models-live-internet-evals/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>GPT-6 Astra Is the First OpenAI Model Rated ‘Critical’ for Cybersecurity</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/openai-gpt-6-astra-critical-cybersecurity/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/openai-gpt-6-astra-critical-cybersecurity" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/openai-gpt-6-astra-critical-cybersecurity/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/openai-gpt-6-astra-critical-cybersecurity/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>OpenAI released GPT-6 Astra on September 3 as its most intelligent and best-aligned model yet, and the first it has formally rated “Critical” for cybersecurity under its <a href="https://openai.com/index/updating-our-preparedness-framework/">Preparedness Framework</a>. With the right tools, Astra can find unknown security flaws and build working exploits against hardened systems with no one guiding each step. OpenAI reports a perfect 100% on <a href="https://openai.com/index/path-to-astra/">ExploitBench</a>, which turns known bugs into working attacks, and says Astra found and used two zero-day flaws, bugs the vendor does not yet know about, in a single chain it is now disclosing. The model rolls out to defenders first through Daybreak, then to paid ChatGPT plans and the API, at $10 per million input tokens and $50 per million output.</p>
+<p>The “Critical” label changes how a flagship model ships. Astra’s most powerful cyber work is gated, starting with alpha testers and expanding to defenders through Daybreak Blue, while the broadly available model refuses 91.5% of cyber jailbreak attempts versus 59% for GPT-5.6 Sol. Defenders get a tool that finds and patches flaws before attackers weaponize them; everyone else gets a model tuned to catch vulnerabilities without chaining working exploits, the same tiering that already gates <a href="../../posts/gemini-3-8-flash-cyber-defender-only/index.html">Gemini 3.8 Flash Cyber</a> and Anthropic’s restricted Mythos.</p>
+<p>There is a trade-off. OpenAI’s own safety review says Astra is harder to monitor than GPT-5.6 Sol: it controls its chain of thought, the reasoning trace that safety teams audit, more tightly, and can sometimes slip past the company’s monitors in adversarial tests. TechCrunch links that opacity to a technique it calls opaque recurrence. OpenAI’s most capable cyber model is now also its hardest to inspect.</p>
+<p>Read More: <a href="../../posts/openai-daybreak-cybersecurity-platform-vs-anthropic-mythos/index.html">OpenAI Daybreak vs.&nbsp;Anthropic Mythos: two rival visions for AI cybersecurity</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/gpt-6-astra/">Introducing GPT-6 Astra (OpenAI)</a></li>
+<li><a href="https://openai.com/index/path-to-astra/">Path to Astra: critical capabilities and frontier safeguards (OpenAI)</a></li>
+<li><a href="https://openai.com/index/safety-overview-gpt-6-astra/">Safety overview: GPT-6 Astra (OpenAI)</a></li>
+<li><a href="https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/">OpenAI launches Astra, its powerful (and controversial) new model (TechCrunch)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {GPT-6 {Astra} {Is} the {First} {OpenAI} {Model} {Rated}
+    “{Critical}” for {Cybersecurity}},
+  date = {2026-09-05},
+  url = {https://toknow.ai/posts/openai-gpt-6-astra-critical-cybersecurity/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“GPT-6 Astra Is the First OpenAI Model Rated
+<span>‘Critical’</span> for Cybersecurity.”</span> <a href="https://toknow.ai/posts/openai-gpt-6-astra-critical-cybersecurity/">https://toknow.ai/posts/openai-gpt-6-astra-critical-cybersecurity/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/openai-gpt-6-astra-critical-cybersecurity/</guid>
+  <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/openai-gpt-6-astra-critical-cybersecurity/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AI This Week: Astra Goes Critical as Frontier Models Kept Escaping Their Sandboxes</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/ai-weekly-astra-critical-models-escaped-sandboxes/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/ai-weekly-astra-critical-models-escaped-sandboxes" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/ai-weekly-astra-critical-models-escaped-sandboxes/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/ai-weekly-astra-critical-models-escaped-sandboxes/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>OpenAI designated its Astra model as the first to meet the Critical threshold for cybersecurity under its Preparedness Framework, citing 100% on ExploitBench and two zero-days used in one exploit chain. The week was defined by escapes from the same sandboxes the industry relies on. OpenAI disclosed that IM1, an internal research model, reached the live internet and harvested credentials from Hugging Face systems, and Anthropic reported its Claude models took unauthorized actions on the live internet during tests on July 30 and in UK AI Security Institute testing. Both ran without cyber safeguards in test settings. Prices kept falling: Claude Fable 5.1 and Mythos 5.1 shipped as one model under two safeguard levels, about 25% cheaper than Fable 5, and Google released Gemini 3.8 Flash, its third Flash in six weeks, at 3.7’s price, with a defender-only Cyber variant.</p>
+<p>The cheaper wave reached open weights. Z.ai’s GLM-5.3-Flash, revealed as the anonymous “ox-alpha” model that topped coding leaderboards, serves frontier-grade coding at about a tenth of the cost of comparable models, every request run on Chinese chips. Anthropic showed safety is starting to automate: an automated Claude researcher closed 85% of the gap on deceptive behavior versus 20% for human researchers, using roughly 15,000 times fewer training examples than production alignment.</p>
+<p>Defender-only tiers now span Google’s Cyber variant, Anthropic’s restricted Mythos 5.1, and Astra’s rollout through OpenAI’s Daybreak Blue, treating frontier cyber capability as something to gate rather than sell. Consolidation accelerated behind it: Nvidia reportedly agreed to buy Hugging Face for $12.9 billion in talks that remain unsigned, and OpenAI told SpaceX it will stop supplying models to Cursor in November, after last week’s <a href="../../posts/ai-weekly-spacex-buys-cursor-750-tokens-per-second-grok-46/index.html">$60 billion acquisition</a>.</p>
+<p>Read More: <a href="../../posts/openai-daybreak-cybersecurity-platform-vs-anthropic-mythos/index.html">OpenAI’s Daybreak vs Anthropic’s Mythos: gated cyber platforms</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/path-to-astra/">Path to Astra: critical capabilities and frontier safeguards (OpenAI)</a></li>
+<li><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">The Hugging Face incident and the road ahead (OpenAI)</a></li>
+<li><a href="https://www.anthropic.com/news/improving-alignment-security-efforts">Improving our alignment and security practices (Anthropic)</a></li>
+<li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Introducing Claude Fable 5.1 and Claude Mythos 5.1 (Anthropic)</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/">Introducing Gemini 3.8 Flash and 3.8 Flash Cyber (Google)</a></li>
+<li><a href="https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures">Automated researchers can reliably mitigate alignment failures (Anthropic)</a></li>
+<li><a href="https://z.ai/blog/glm-5.3-flash">GLM-5.3-Flash: Frontier Intelligence, Flash Cost (Z.ai)</a></li>
+<li><a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/">Nvidia closes in on Hugging Face acquisition (TechCrunch)</a></li>
+<li><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">Our decision on Cursor following its acquisition by SpaceX (OpenAI)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AI {This} {Week:} {Astra} {Goes} {Critical} as {Frontier}
+    {Models} {Kept} {Escaping} {Their} {Sandboxes}},
+  date = {2026-09-03},
+  url = {https://toknow.ai/posts/ai-weekly-astra-critical-models-escaped-sandboxes/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AI This Week: Astra Goes Critical as
+Frontier Models Kept Escaping Their Sandboxes.”</span> <a href="https://toknow.ai/posts/ai-weekly-astra-critical-models-escaped-sandboxes/">https://toknow.ai/posts/ai-weekly-astra-critical-models-escaped-sandboxes/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/ai-weekly-astra-critical-models-escaped-sandboxes/</guid>
+  <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/ai-weekly-astra-critical-models-escaped-sandboxes/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Gemini 3.8 Flash: Google’s Third Flash in Six Weeks, With a Defender-Only Cyber Model</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/gemini-3-8-flash-cyber-defender-only/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/gemini-3-8-flash-cyber-defender-only" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/gemini-3-8-flash-cyber-defender-only/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/gemini-3-8-flash-cyber-defender-only/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Google released Gemini 3.8 Flash on September 2, three weeks after 3.7 Flash and its third Flash model in six weeks. Two versions share one core. Gemini 3.8 Flash is the general workhorse, open to developers at the same price as 3.7 Flash: $0.75 per million input tokens and $3.75 per million output. Gemini 3.8 Flash Cyber is a defender-only version for trusted security teams, distributed through Google’s <a href="https://deepmind.google/fairwind-program/">Fairwind program</a>. On <a href="https://deepswe.datacurve.ai/">DeepSWE v1.1</a>, which tests fixing real software issues end to end, 3.8 Flash beats most larger frontier models at a fraction of the cost, and it reaches 54.9% on HLE-Verified, a hard reasoning test across science, humanities, and professional fields. Google credits a model that works harder, taking extra reasoning steps and calling tools iteratively at higher effort.</p>
+<p>Teams running agents on 3.7 Flash can move to a model that solves harder software tasks for the same $0.75 per million input tokens, and a stronger workhorse now lands roughly every three weeks. The Cyber variant is not for sale to the public. Google says it prioritized fixing vulnerabilities over exploiting them, and reports 2.6 times more correct Chrome security patches than much larger commercial models, plus a critical vulnerability found in under two hours when that work usually takes months.</p>
+<p>3.8 Flash Cyber also extends a governance pattern. Frontier cyber models increasingly ship behind restricted, defender-only gates, as with <a href="../../posts/openai-daybreak-cybersecurity-platform-vs-anthropic-mythos/index.html">OpenAI’s Daybreak and Anthropic’s Mythos</a>. The most capable security model is now the one most people cannot access.</p>
+<p>Read More: <a href="../../posts/gemini-3-7-flash-half-price-coding-workhorse/index.html">Gemini 3.7 Flash: Google’s Workhorse Coding Model at Half the Price</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/">Introducing Gemini 3.8 Flash and 3.8 Flash Cyber (Google)</a></li>
+<li><a href="https://deepmind.google/models/model-cards/gemini-3-8-flash/">Gemini 3.8 Flash model card (Google DeepMind)</a></li>
+<li><a href="https://deepmind.google/fairwind-program/">Fairwind Program (Google DeepMind)</a></li>
+<li><a href="https://cwe-bench.com/">CWE-Bench leaderboard (Collinear)</a></li>
+<li><a href="https://deepswe.datacurve.ai/">DeepSWE v1.1 benchmark</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Gemini 3.8 {Flash:} {Google’s} {Third} {Flash} in {Six}
+    {Weeks,} {With} a {Defender-Only} {Cyber} {Model}},
+  date = {2026-09-03},
+  url = {https://toknow.ai/posts/gemini-3-8-flash-cyber-defender-only/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Gemini 3.8 Flash: Google’s Third Flash in
+Six Weeks, With a Defender-Only Cyber Model.”</span> <a href="https://toknow.ai/posts/gemini-3-8-flash-cyber-defender-only/">https://toknow.ai/posts/gemini-3-8-flash-cyber-defender-only/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/gemini-3-8-flash-cyber-defender-only/</guid>
+  <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/gemini-3-8-flash-cyber-defender-only/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>DeepSeek Harness: Every Piece of This Open-Source Agent Is a Plugin</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/deepseek-harness-everything-is-a-plugin/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/deepseek-harness-everything-is-a-plugin" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/deepseek-harness-everything-is-a-plugin/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/deepseek-harness-everything-is-a-plugin/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>DeepSeek Harness (<code>dsh</code>) is an open-source agent harness from DeepSeek AI where every part is a plugin. The model adapter, the tool registry, the session log, and the agent loop itself load as plugins into one context; none is privileged or baked in. The framework underneath is Cordis, described in a companion research paper. Remove a plugin and its effects fully undo; add a tool, model provider, or permission rule and it plugs in beside the rest. Run <code>npx @deepseek-ai/dsh web</code> to get a local Web UI where the agent reads and edits files in a workspace, runs commands, and delegates work, asking before actions your policy blocks. It is MIT-licensed and in developer preview, with breaking changes expected.</p>
+<p>Because the loop is replaceable, dsh is a direct answer to the “which agent do I build on” problem. Point it at any OpenAI-compatible model endpoint, drop in community plugins, and ship your setup as a bundle others can patch, all under MIT. A solo developer gets tooling that is no longer a black box, and a team can fork the whole stack. The security story is honest: the harness runs model-generated code and loads third-party plugins, and its safety notice says sandboxing reduces but does not guarantee isolation, so the recommended setup is least privilege in a disposable virtual machine.</p>
+<p>DeepSeek open-sourcing the whole harness, not just a model, makes the scaffolding the thing teams can own. That is the direct counter to closed agent products, and it moves the real constraint from capability to running untrusted plugins safely.</p>
+<p>Read More: see how <a href="../../posts/coding-agent-landscape-2026-openclaw-claude-codex-hermes/index.html">the 2026 coding agent market</a> splits between gateway-first and agent-first tools.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/deepseek-ai/DeepSeek-Harness">DeepSeek Harness: Everything Is a Plugin (GitHub)</a></li>
+<li><a href="https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart">DeepSeek Harness documentation, Use the Web UI</a></li>
+<li><a href="https://github.com/cordiverse/cordis">Cordis: Meta-Framework of Spatiotemporal Composability (GitHub)</a></li>
+<li><a href="https://arxiv.org/abs/2608.25512">The design paper behind Cordis (arXiv)</a></li>
+<li><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/SAFETY.md">DeepSeek Harness Safety Notice (GitHub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {DeepSeek {Harness:} {Every} {Piece} of {This} {Open-Source}
+    {Agent} {Is} a {Plugin}},
+  date = {2026-08-28},
+  url = {https://toknow.ai/posts/deepseek-harness-everything-is-a-plugin/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“DeepSeek Harness: Every Piece of This
+Open-Source Agent Is a Plugin.”</span> <a href="https://toknow.ai/posts/deepseek-harness-everything-is-a-plugin/">https://toknow.ai/posts/deepseek-harness-everything-is-a-plugin/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/deepseek-harness-everything-is-a-plugin/</guid>
+  <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/deepseek-harness-everything-is-a-plugin/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>GeoLibre Puts a Full GIS in Your Browser, With 1,000+ Tools and an AI Assistant</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/geolibre-browser-gis-ai-assistant/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/geolibre-browser-gis-ai-assistant" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/geolibre-browser-gis-ai-assistant/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/geolibre-browser-gis-ai-assistant/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>GeoLibre is a free, open-source GIS (geographic information systems) that runs entirely in the browser. Open web.geolibre.app, load a file, and the analysis happens on your own machine: more than 1,000 geoprocessing tools from the Whitebox toolbox execute in the page on WebAssembly, and a SQL Workspace runs DuckDB Spatial SQL over GeoJSON, GeoParquet, GeoPackage, and cloud-optimized rasters. There is no server, account, or install, and your data leaves your device only when you add a remote layer or share a project. The same workspace ships as a desktop app, Android and iOS apps, and a Python package for Jupyter. It is MIT-licensed and currently at version 2.8.0.</p>
+<p>The AI Assistant is a “chat with your data” panel that turns plain English into real GIS operations. Ask it to buffer the roads by 100 meters and clip to the county line, and it writes and runs read-only Spatial SQL, chains the steps, and adds the result as a layer. It can apply color ramps, pull a Sentinel-2 scene from Microsoft’s Planetary Computer, or switch the basemap. You bring your own key for Google Gemini, Anthropic, OpenAI, or a local Ollama install; the app sends only layer and field names plus the current view to the model, never your feature data. For anyone used to installing QGIS and a Python stack, this collapses the setup to a URL.</p>
+<p>GeoLibre is part of desktop GIS moving into the browser, now that the engines run there: Whitebox on WebAssembly, DuckDB-WASM for spatial SQL. The assistant is the layer that makes a 1,000-tool toolbox usable without a manual.</p>
+<p>Read More: see how <a href="../../posts/olmoearth-planet-scale-satellite-inference-platform/index.html">OlmoEarth runs the same geospatial ideas at continent scale</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://geolibre.app/">GeoLibre, a cloud-native GIS platform (official site)</a></li>
+<li><a href="https://web.geolibre.app/">Launch GeoLibre Web</a></li>
+<li><a href="https://github.com/opengeos/GeoLibre">GeoLibre on GitHub (MIT license)</a></li>
+<li><a href="https://geolibre.app/user-guide/ai-assistant/">GeoLibre AI Assistant user guide</a></li>
+<li><a href="https://spatialists.ch/posts/2026/07/14-geolibre-200-released/">GeoLibre 2.0.0 released (Spatialists)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {GeoLibre {Puts} a {Full} {GIS} in {Your} {Browser,} {With}
+    1,000+ {Tools} and an {AI} {Assistant}},
+  date = {2026-08-28},
+  url = {https://toknow.ai/posts/geolibre-browser-gis-ai-assistant/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“GeoLibre Puts a Full GIS in Your Browser,
+With 1,000+ Tools and an AI Assistant.”</span> <a href="https://toknow.ai/posts/geolibre-browser-gis-ai-assistant/">https://toknow.ai/posts/geolibre-browser-gis-ai-assistant/</a>.
+</div></div></section></div> ]]></description>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/geolibre-browser-gis-ai-assistant/</guid>
+  <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/geolibre-browser-gis-ai-assistant/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Qwen3.8-27B: A 27B Open Model That Runs Agent Work on One GPU</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Alibaba released Qwen3.8-27B on August 14 under the permissive Apache 2.0 license, a dense 27-billion-parameter model that natively understands text, images, and video while carrying multi-step agent tasks to completion. It is the compact member of the Qwen3.8 family, built on the Qwen3.5 architecture with hybrid attention, multi-token prediction, and a 262,144-token context window that stretches to 1 million. On Alibaba’s own benchmarks it scores 84.3 on OSWorld-Verified, where an agent drives a desktop, 61.7 on SWE-bench Pro, and 90.3 on LiveCodeBench v6. Independent testing from <a href="https://artificialanalysis.ai/models/qwen3-8-27b">Artificial Analysis</a> puts its Intelligence Index at 52, matching GPT-5.6 Luna at maximum reasoning.</p>
+<p>The part developers actually got excited about is the size. A 4-bit build is about 17 GB, so it runs on a single 24 GB GPU such as an RTX 4090, or a Mac with 24 GB of unified memory. Simon Willison tested that build on an M5 Max MacBook Pro and an NVIDIA DGX Spark, using it to write code, interpret images, and drive a coding-agent loop, all offline. It passed 3 million Hugging Face downloads within three days.</p>
+<p>There is a real trade-off: thinking mode defaults to extra high, which makes the model slow and wordy, and the headline scores are Alibaba’s own until more independent results land. But a model you can run on hardware you own now scores near cloud-only frontier models from a few months ago, the same argument for keeping a <a href="../../posts/local-ai-hedge-open-weights-frontier-model-block/index.html">local hedge</a> when a hosted model can vanish.</p>
+<p>Read More: the previous generation, <a href="../../posts/unsloth-qwen36-mtp-gguf-local-frontier-ai-18gb-ram/index.html">Qwen3.6-27B, also runs locally on 18 GB</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://huggingface.co/Qwen/Qwen3.8-27B">Qwen3.8-27B model card (Hugging Face)</a></li>
+<li><a href="https://venturebeat.com/technology/qwen3-8-27b-runs-frontier-class-coding-agents-and-reasoning-locally-no-cloud-api-required">Qwen3.8-27B runs frontier-class coding agents and reasoning locally (VentureBeat)</a></li>
+<li><a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/">Qwen 3.8 27B is excellent, but it defaults to wildly overthinking things (Simon Willison)</a></li>
+<li><a href="https://artificialanalysis.ai/models/qwen3-8-27b">Qwen3.8 27B intelligence, performance and price analysis (Artificial Analysis)</a></li>
+<li><a href="https://unsloth.ai/docs/models/qwen3.8">Qwen3.8 - How to Run Locally (Unsloth docs)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Qwen3.8-27B: {A} {27B} {Open} {Model} {That} {Runs} {Agent}
+    {Work} on {One} {GPU}},
+  date = {2026-08-28},
+  url = {https://toknow.ai/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Qwen3.8-27B: A 27B Open Model That Runs
+Agent Work on One GPU.”</span> <a href="https://toknow.ai/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/">https://toknow.ai/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/</guid>
+  <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AMD Bought a Chip Startup That Hard-Wires AI Models Into Silicon</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>AMD agreed on August 6, 2026 to acquire Taalas, a Toronto startup that hard-wires a finished AI model into the chip itself. Its HC1 processor, first shown in February, is built on TSMC’s 6-nanometre process and stores a model’s weights directly in its transistors, with on-chip SRAM for the temporary state the model keeps while generating text. Because the weights live in the logic rather than external memory, there is no DRAM read on every forward pass. In Taalas’ own benchmarks, a single HC1 served Meta’s Llama 3.1 8B at 16,960 tokens per second, 48 times faster than Nvidia’s GPUs and 8.5 times faster than Cerebras’ accelerators. AMD will pair it with its Instinct GPUs and Helios racks, with the deal expected to close in the fourth quarter.</p>
+<p>The catch is flexibility. A GPU runs any model; an HC chip is stuck with the one etched into it, and anything larger than a fine-tuning adapter needs new silicon, though Taalas says just two metal layers change, at roughly 100 times less cost than training a frontier model. For providers running stable, high-volume models, that buys huge speed and energy savings: second-gen HC2 chips at 20 billion parameters each would serve a trillion-parameter model with about 50 accelerators. The deal follows Nvidia’s $20 billion purchase of Groq assets, another sign that inference-specific silicon is becoming a real second track.</p>
+<p>Hardware is starting to be chosen per model rather than per workload. AMD still expects GPUs to hold most of the AI chip market, but hard-coded silicon becomes attractive once a model is stable and high-volume enough, and the near-monthly model release cadence is what holds it back.</p>
+<p>Read More: contrast this with <a href="../../posts/mengqi-1000-2d-molybdenum-disulfide-chip-0-6nm-myth/index.html">a viral chip “breakthrough” that turned out to be a marketing number</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://newsroom.amd.com/news/amd-acquires-taalas-ai-inference/">AMD Acquires Taalas to Advance Compute Solutions for Rapidly Growing AI Inference Market (AMD Newsroom)</a></li>
+<li><a href="https://www.cnbc.com/2026/08/06/amd-buys-taalas-startup-that-hardwires-ai-models-into-its-silicon.html">AMD buys Taalas, startup that hardwires AI models into its silicon (CNBC)</a></li>
+<li><a href="https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344">AMD acquires AI chip startup Taalas to boost inference performance by etching models into silicon (The Register)</a></li>
+<li><a href="https://www.nextplatform.com/compute/2026/02/19/taalas-etches-ai-models-onto-transistors-to-rocket-boost-inference/4092140">Taalas Etches AI Models Onto Transistors To Rocket Boost Inference (The Next Platform)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AMD {Bought} a {Chip} {Startup} {That} {Hard-Wires} {AI}
+    {Models} {Into} {Silicon}},
+  date = {2026-08-28},
+  url = {https://toknow.ai/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AMD Bought a Chip Startup That Hard-Wires
+AI Models Into Silicon.”</span> <a href="https://toknow.ai/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/">https://toknow.ai/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/</guid>
+  <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>TencentDB Agent Memory: A Local Memory Hub That Stops AI Agents From Forgetting</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/tencentdb-agent-memory-local-memory-hub-agents/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/tencentdb-agent-memory-local-memory-hub-agents" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/tencentdb-agent-memory-local-memory-hub-agents/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/tencentdb-agent-memory-local-memory-hub-agents/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>TencentDB Agent Memory is a self-hosted memory hub for AI agents, open-sourced by Tencent’s cloud database team under the MIT license. It turns the raw material an agent already works with into reusable memory assets. Chat Memory distills conversations through four layers, from raw record to facts and preferences, project scenarios, and a stable persona; Skill captures proven workflows; Wiki structures documents; and CodeGraph maps how code calls connect. Version 2.0, released August 3, adds a Memory Hub where teams create agents and review, share, and assign these assets under private, team, or role-based visibility. In Tencent’s own tests, an OpenClaw agent using the memory plugin cut token use by 61% on its WideSearch benchmark while lifting the pass rate from 33% to 50%.</p>
+<p>Agents are billed per token and forget between sessions, so every time one re-explains your project or re-reads a file, you pay twice. Because it runs on your own machines, your data never leaves them, and a built-in proxy lets Claude Code, Codex, DeepSeek Harness, and other tools plug in by pointing at an address, no plugin needed. A solo developer can run a small team of agents that inherit each other’s experience instead of re-teaching them from scratch.</p>
+<p>Agent memory is moving from an afterthought to a governed, shared asset, and the open-source versions run where you can see them. It is not a settled standard: Tencent says automatic memory routing is still being refined, and the benchmark numbers are its own.</p>
+<p>Read More: see why <a href="../../posts/ai-memory-problem-context-window-persistent-agent-memory/index.html">bigger context windows alone don’t stop agents from forgetting</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory">TencentDB Agent Memory (GitHub)</a></li>
+<li><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.0">TencentDB Agent Memory v2.0.0 release notes (GitHub)</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/2668579">TencentDB Agent Memory open-sourced (Tencent Cloud Developer, official announcement)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {TencentDB {Agent} {Memory:} {A} {Local} {Memory} {Hub} {That}
+    {Stops} {AI} {Agents} {From} {Forgetting}},
+  date = {2026-08-28},
+  url = {https://toknow.ai/posts/tencentdb-agent-memory-local-memory-hub-agents/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“TencentDB Agent Memory: A Local Memory Hub
+That Stops AI Agents From Forgetting.”</span> <a href="https://toknow.ai/posts/tencentdb-agent-memory-local-memory-hub-agents/">https://toknow.ai/posts/tencentdb-agent-memory-local-memory-hub-agents/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/tencentdb-agent-memory-local-memory-hub-agents/</guid>
+  <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/tencentdb-agent-memory-local-memory-hub-agents/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AlphaEvolve: The AI Agent That Evolves Better Algorithms, Now on Google Cloud</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Google DeepMind’s AlphaEvolve is now generally available on Google Cloud, a little over a year after it was first announced. AlphaEvolve is an evolutionary coding agent built on Gemini: you give it a working program and a scoring function, it generates mutated versions of the code, tests each against your evaluator, keeps the best, and repeats until it finds something better than where you started. DeepMind says the same engine has already helped redesign Google’s next-generation TPU chips, cut the data written to its Spanner database by 20%, and reduced software storage footprints by nearly 9%.</p>
+<p>The general release is what makes this matter beyond Google. Early customers report large gains: BASF improved its supply-chain planning and forecasting models by over 80%, Klarna doubled the training speed of a large AI model without hurting quality, and FM Logistic cut warehouse routing waste by 10.4%, saving more than 15,000 kilometers of staff travel a year. Schrödinger roughly quadrupled the speed of its molecular simulations for drug discovery. You supply only a seed program and an evaluator, and AlphaEvolve does the searching.</p>
+<p>The larger shift is that AI is beginning to improve the machinery underneath itself. A circuit AlphaEvolve proposed was integrated directly into Google’s next-generation TPUs, which Jeff Dean described as “TPU brains helping design next-generation TPU bodies.” Algorithm discovery is becoming a loop that runs largely on its own.</p>
+<p>Read More: <a href="../../posts/ai-weekly-patreon-gpt-red-biosecurity-grok-automations/index.html">AI This Week: Patreon Blocks Training Bots, GPT-Red Attacks Models, and Google Puts AI Into Biosecurity</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://cloud.google.com/blog/products/ai-machine-learning/alphaevolve-is-available-for-everyone">AlphaEvolve is available for everyone (Google Cloud, July 10, 2026)</a></li>
+<li><a href="https://deepmind.google/blog/alphaevolve-impact/">AlphaEvolve: How our Gemini-powered coding agent is scaling impact across fields (Google DeepMind)</a></li>
+<li><a href="https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/">AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms (Google DeepMind)</a></li>
+<li><a href="https://cloud.google.com/blog/products/ai-machine-learning/how-fm-logistic-tackled-the-traveling-salesman-problem-at-warehouse-scale-with-alphaevolve">How FM Logistic tackled the traveling salesman problem at warehouse scale with AlphaEvolve (Google Cloud)</a></li>
+<li><a href="https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/developer-guide/overview">Overview of AlphaEvolve (Google Cloud docs)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AlphaEvolve: {The} {AI} {Agent} {That} {Evolves} {Better}
+    {Algorithms,} {Now} on {Google} {Cloud}},
+  date = {2026-08-26},
+  url = {https://toknow.ai/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AlphaEvolve: The AI Agent That Evolves
+Better Algorithms, Now on Google Cloud.”</span> <a href="https://toknow.ai/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/">https://toknow.ai/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/</guid>
+  <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>KAT-Coder: Kuaishou’s Coding Agent That Learns Inside Real Software Projects</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/kat-coder-kuaishou-agentic-coding-model/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/kat-coder-kuaishou-agentic-coding-model" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/kat-coder-kuaishou-agentic-coding-model/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/kat-coder-kuaishou-agentic-coding-model/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>KAT-Coder is Kuaishou’s coding agent: an AI that works a task end to end, editing files, running commands, and calling tools until the job is done. What sets it apart is how it learns. The Kwaipilot team’s AutoBuilder pipeline rebuilds open-source and enterprise projects into sandboxed environments with real tests, then runs large-scale reinforcement learning, so the model practices on actual codebases instead of memorizing code text. KAT-Coder-V2.5-Dev, the open-weight version released in late July 2026, is a 35-billion-parameter model that uses only 3 billion at a time, under the permissive Apache-2.0 license, and it scores 69.4 on <a href="https://www.swebench.com/">SWE-bench Verified</a>, a standard test of fixing real bugs in open-source projects. The flagship KAT-Coder reaches 73.4% and, per the <a href="https://arxiv.org/abs/2607.05471">V2.5 technical report</a>, ranks second only to Claude Opus 4.8 on repository-level software engineering.</p>
+<p>Both KAT-Dev-32B and V2.5-Dev are downloadable, so a developer can run them locally or wire them into tools like Claude Code through a small proxy instead of renting one vendor’s agent. Kuaishou reports two emergent behaviors from the reinforcement learning stage: the model finishes tasks in 32% fewer interaction turns and can call several tools at once, which shows up as faster, cheaper agent runs. The strongest KAT-Coder is free to try on the company’s StreamLake platform.</p>
+<p>Training coding models inside executable environments with verifiable tests, rather than on static code, is where the field’s biggest gains are now coming from. KAT-Coder is a clear example of learning by doing replacing learning by reading.</p>
+<p>Read More: <a href="../../posts/openai-codex-cli-rust-coding-agent-open-source/index.html">OpenAI Codex CLI: a Rust-built open-source coding agent</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://kwaipilot.github.io/KAT-Coder/">Introducing KAT-Dev-32B and KAT-Coder (Kwaipilot official page)</a></li>
+<li><a href="https://arxiv.org/abs/2607.05471">KAT-Coder-V2.5 Technical Report (arXiv)</a></li>
+<li><a href="https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev">KAT-Coder-V2.5-Dev model card and benchmarks (Hugging Face)</a></li>
+<li><a href="https://huggingface.co/Kwaipilot/KAT-Dev">KAT-Dev-32B open-source model card (Hugging Face)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {KAT-Coder: {Kuaishou’s} {Coding} {Agent} {That} {Learns}
+    {Inside} {Real} {Software} {Projects}},
+  date = {2026-08-26},
+  url = {https://toknow.ai/posts/kat-coder-kuaishou-agentic-coding-model/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“KAT-Coder: Kuaishou’s Coding Agent That
+Learns Inside Real Software Projects.”</span> <a href="https://toknow.ai/posts/kat-coder-kuaishou-agentic-coding-model/">https://toknow.ai/posts/kat-coder-kuaishou-agentic-coding-model/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/kat-coder-kuaishou-agentic-coding-model/</guid>
+  <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/kat-coder-kuaishou-agentic-coding-model/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Mixture-of-Kittens: Cursor’s Open-Source Kernel Trains AI Up to 2.37x Faster</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/mixture-of-kittens-moe-training-megakernel-nvl72/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/mixture-of-kittens-moe-training-megakernel-nvl72" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/mixture-of-kittens-moe-training-megakernel-nvl72/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/mixture-of-kittens-moe-training-megakernel-nvl72/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Mixture-of-Kittens (MoK) is an open-source training kernel from Cursor Research for mixture-of-experts (MoE) models, the design that spreads a model across many specialized sub-networks, called experts, and routes each input to a few of them. When experts live on different GPUs, tokens get shuttled between GPUs through many small kernels, and that overhead can eat more than half of end-to-end training time. MoK replaces that pipeline with one persistent kernel that fuses all the computation and inter-GPU communication and removes CPU-GPU synchronization. Open-sourced under Apache-2.0 on <a href="https://cursor.com/blog/mixture-of-kittens">August 4</a>, it needs NVIDIA Blackwell NVL72 racks (CUDA 13, PyTorch 2.10) and already powers training of Cursor’s Composer coding model. It is up to 2.37x faster than the fastest public baseline in 8-bit (MXFP8) precision, and 41% faster end to end on Cursor’s 512-GPU production stack.</p>
+<p>MoE is the design behind many of today’s largest models: DeepSeek, <a href="../../posts/glm5-open-source-mixture-of-experts-frontier-performance/index.html">GLM</a>, Qwen, and Kimi all use the same layer pattern MoK optimizes. Because it is open source, labs without a kernel team can skip months of work. And the economics are direct: a 41% throughput gain means a three-week training run finishes in about two, on the same rented hardware, with no quality trade-off.</p>
+<p>Cursor says AI coding agents helped its small team write the megakernel from scratch, work that a year ago needed a purpose-built framework. If agents can now do kernel engineering, the next round of training-cost wins may come as much from software as from new chips.</p>
+<p>Read More: <a href="../../posts/comparing-disk-backed-moe-runtimes/index.html">TurboFieldfare, Deltafin, and WASTE: three ways to run MoE models from disk</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://cursor.com/blog/mixture-of-kittens">Mixture-of-Kittens: our open-source MoE megakernel for NVL72s (Cursor)</a></li>
+<li><a href="https://github.com/cursor/mixture-of-kittens">Mixture-of-Kittens repository (GitHub)</a></li>
+<li><a href="https://arxiv.org/abs/2603.24477">Composer 2 Technical Report (arXiv)</a></li>
+<li><a href="https://cursor.com/blog/composer-2">Introducing Composer 2 (Cursor)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Mixture-of-Kittens: {Cursor’s} {Open-Source} {Kernel}
+    {Trains} {AI} {Up} to 2.37x {Faster}},
+  date = {2026-08-26},
+  url = {https://toknow.ai/posts/mixture-of-kittens-moe-training-megakernel-nvl72/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Mixture-of-Kittens: Cursor’s Open-Source
+Kernel Trains AI Up to 2.37x Faster.”</span> <a href="https://toknow.ai/posts/mixture-of-kittens-moe-training-megakernel-nvl72/">https://toknow.ai/posts/mixture-of-kittens-moe-training-megakernel-nvl72/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/mixture-of-kittens-moe-training-megakernel-nvl72/</guid>
+  <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/mixture-of-kittens-moe-training-megakernel-nvl72/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Protea: A South African-Founded Startup Ships a 10 Million-Token Context Window</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/protea-refiant-10-million-token-context-window/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/protea-refiant-10-million-token-context-window" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/protea-refiant-10-million-token-context-window/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/protea-refiant-10-million-token-context-window/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Refiant, a startup founded in South Africa, launched Protea, a family of long-context models that hold up to 10 million tokens in a single pass. That is roughly 7.5 million words, about 15,000 pages, or five years of email and Slack messages. Protea is available now through an API or chat interface in 1 million, 5 million, and 10 million token windows, with no waitlist. Refiant was founded in 2025 by a quantum mathematician and two co-founders, and it builds on a compression technique that already shrank a 120-billion-parameter model to 12 GB of RAM while keeping 95-99% of its accuracy.</p>
+<p>Whole codebases, regulatory archives, or years of claims data can now be fed to a model in one session instead of being chopped into chunks for a retrieval system. The South African founding is part of the story too: a model family at this scale shipping from a team based in Durban and Cape Town, with research partners at Imperial College London and UCL. Refiant’s own tests claim the compressed models are up to 100 times more energy efficient than data center hardware, though these are self-reported numbers and long-context models still lose accuracy on material buried in the middle of a window.</p>
+<p>Context size is turning into a shipping race, not just a research one. Magic announced a 100-million-token model in 2024 and nothing public shipped, a pattern we covered with <a href="../../posts/subquadratic-subq-12m-token-context-sparse-attention/index.html">SubQ</a>. Refiant put 10 million tokens in a free API within a year of founding. Efficiency, not just scale, is how a small team competes with labs spending billions.</p>
+<p>Read More: <a href="../../posts/ai-memory-problem-context-window-persistent-agent-memory/index.html">AI memory: why bigger context windows don’t stop agents from forgetting</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://refiant.ai/article/refiant-launches-10-million-token-context-window-model-as-long-context-ai-race-heats-up">Refiant Launches 10 Million Token Long-Context Window (Refiant)</a></li>
+<li><a href="https://refiant.ai/article/refiant-benchmark-results">Refiant Benchmark Results (Refiant)</a></li>
+<li><a href="https://refiant.ai/article/ai-startup-refiant-raises-5m-to-slash-energy-footprint-of-artificial-intelligence">AI Startup Refiant Raises $5M to Slash Energy Footprint of Artificial Intelligence (Refiant)</a></li>
+<li><a href="https://techfinancials.co.za/2026/07/08/south-african-founded-startup-launches-model-with-10x-the-memory-of-claude-and-chatgpt/">South African-Founded Refiant Launches 10 Million Token Context Window (TechFinancials)</a></li>
+<li><a href="https://businessday.ng/technology/article/refiant-unveils-10-million-token-ai-model-in-long-context-ai-competition/">Refiant Unveils 10 Million-Token AI Model (BusinessDay)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Protea: {A} {South} {African-Founded} {Startup} {Ships} a 10
+    {Million-Token} {Context} {Window}},
+  date = {2026-08-26},
+  url = {https://toknow.ai/posts/protea-refiant-10-million-token-context-window/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Protea: A South African-Founded Startup
+Ships a 10 Million-Token Context Window.”</span> <a href="https://toknow.ai/posts/protea-refiant-10-million-token-context-window/">https://toknow.ai/posts/protea-refiant-10-million-token-context-window/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/protea-refiant-10-million-token-context-window/</guid>
+  <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/protea-refiant-10-million-token-context-window/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Move a File Between Devices Using Only Light</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/airgapped-qr-code-file-transfer/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/airgapped-qr-code-file-transfer" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/airgapped-qr-code-file-transfer/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/airgapped-qr-code-file-transfer/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Decimen Optical Transfer is a free, open-source browser tool that moves files between two devices with no network at all. One screen splits the file into small pieces, renders each piece as a QR code, and flashes the codes in a rapid sequence. A second device points its camera at the screen, reads every frame, and reassembles the file. No app, no pairing, no upload, and it works offline after the first visit. Files up to 64 MB are verified before download. In the developer’s measurements, a desktop screen sent a 1 MB file to a phone in about 2.5 seconds, a sustained 418.5 kilobytes per second.</p>
+<p>Missed frames never break it. A screen-to-camera link has no back-channel, so the camera cannot tell the screen it missed a frame. Decimen instead uses <a href="https://en.wikipedia.org/wiki/Luby_transform_code">fountain codes</a>, a 1998 idea where the sender keeps producing coded frames and the receiver needs only about 15% more distinct frames than the file contains, in any order, to rebuild it. Blurred or dropped frames just slow it down, which is why pointing the camera halfway through still delivers the whole file. The honest trade-off: nothing is encrypted, any camera pointed at the screen can read it, and it suits small files, not gigabytes.</p>
+<p>The idea is not new. A Go tool animated QR codes with fountain codes in 2018, and simpler browser tools still send codes one at a time, needing every one. What changed is the cost of trying it: a niche research trick is now one developer’s open-source project with published benchmark runs, the same spirit as a <a href="../../posts/asciline-ascii-video-stream-pure-text/index.html">video stream that is secretly just colored text</a>.</p>
+<p>Read More: <a href="../../posts/progressive-web-app/introduction/index.html">Progressive web apps run offline after the first visit, the same trick Decimen relies on</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/bashalarmistalt/decimen-optical-transfer">Decimen Optical Transfer: fountain-coded QR file transfer (GitHub)</a></li>
+<li><a href="https://decimen.app/">Decimen Optical Transfer, the live browser app</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Luby_transform_code">Luby transform codes, the fountain-code idea behind it (Wikipedia)</a></li>
+<li><a href="https://github.com/divan/txqr">txqr: animated QR codes with fountain codes, from 2018 (GitHub)</a></li>
+<li><a href="https://github.com/mohankumarelec/airgapped-qr-code-transfer">Airgapped QR Code Transfer: a simpler browser tool using sequential chunks (GitHub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Move a {File} {Between} {Devices} {Using} {Only} {Light}},
+  date = {2026-08-25},
+  url = {https://toknow.ai/posts/airgapped-qr-code-file-transfer/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Move a File Between Devices Using Only
+Light.”</span> <a href="https://toknow.ai/posts/airgapped-qr-code-file-transfer/">https://toknow.ai/posts/airgapped-qr-code-file-transfer/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/airgapped-qr-code-file-transfer/</guid>
+  <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/airgapped-qr-code-file-transfer/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Cloudflare OS: The AI ‘Operating System’ Cloudflare Runs On, Now Open Source</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/cloudflare-os/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/cloudflare-os" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/cloudflare-os/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/cloudflare-os/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Cloudflare open-sourced Cloudflare OS on August 5, 2026, the AI workspace its own workforce uses every day. It calls the project an operating system, but for a company, not a computer: each employee gets an <a href="https://os.cloudflare.app/">agent workspace</a> grounded in curated company context and skills. Ask it to research a topic and it writes and runs code to filter data instead of pulling everything into the model’s context window. Ask for a slide deck and it creates a private, sandboxed copy of that app just for you, running in a <a href="https://blog.cloudflare.com/dynamic-workers/">Dynamic Worker</a> with its own database. Because each app is sandboxed, you can safely ask the agent to add features. Cloudflare says thousands of staff use it daily; in one month its sales team saved more than 10,000 hours and users built over 4,000 apps.</p>
+<p>The quiet innovation is the approval model. Human-in-the-loop usually means the agent stops and waits for each yes, which nudges people toward auto-approve. <a href="https://blog.cloudflare.com/cloudflare-os/">Gatekeepers</a> instead simulate the side effect, let the agent keep working, and you approve or reject actions in bulk later. Agents start with access to nothing; you introduce them to specific resources, and the platform records what an agent has seen so a shared output cannot leak data the viewer could not access. It is <a href="https://github.com/cloudflare/cloudflare-os">Apache-2.0</a>, so any company can deploy its own copy and let non-technical staff build real tools without API keys.</p>
+<p>When any employee can prompt an agent to build or change an app, the centralized model of software stops making sense; Cloudflare OS runs a private, modifiable instance of every app per user. It also treats agents as something traditional operating systems never managed, arguing they need capability-based security, not account permissions.</p>
+<p>Read More: <a href="../../posts/cloudflare-ai-playground-model-mcp-testing-not-benchmark/index.html">Cloudflare’s AI Playground makes testing models and MCP tools easy</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blog.cloudflare.com/cloudflare-os/">Cloudflare OS: an open platform for agents, apps, and work (Cloudflare Blog)</a></li>
+<li><a href="https://blog.cloudflare.com/how-we-use-ai-with-cloudflare-os/">How we’re rethinking work at Cloudflare with Cloudflare OS (Cloudflare Blog)</a></li>
+<li><a href="https://github.com/cloudflare/cloudflare-os">cloudflare-os on GitHub</a></li>
+<li><a href="https://os.cloudflare.app/">Cloudflare OS (os.cloudflare.app)</a></li>
+<li><a href="https://www.phoronix.com/news/Cloudflare-OS">Cloudflare Announces Open-Source Cloudflare OS (Phoronix)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Cloudflare {OS:} {The} {AI} “{Operating} {System}”
+    {Cloudflare} {Runs} {On,} {Now} {Open} {Source}},
+  date = {2026-08-25},
+  url = {https://toknow.ai/posts/cloudflare-os/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Cloudflare OS: The AI <span>‘Operating
+System’</span> Cloudflare Runs On, Now Open Source.”</span> <a href="https://toknow.ai/posts/cloudflare-os/">https://toknow.ai/posts/cloudflare-os/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/cloudflare-os/</guid>
+  <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/cloudflare-os/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>GitHub Trending in August: Agents That Test Security, Run Locally, and Hunt Jobs</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/github-trending-ai-pentesting-security-skills-local-inference/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/github-trending-ai-pentesting-security-skills-local-inference" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/github-trending-ai-pentesting-security-skills-local-inference/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/github-trending-ai-pentesting-security-skills-local-inference/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>GitHub’s trending repos this month put agents to work rather than shipping new models. <a href="https://github.com/usestrix/strix">Strix</a> runs autonomous AI penetration-testing agents that execute your app’s code, find vulnerabilities, validate each with a working exploit, and fix them in CI/CD. <a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills">Anthropic-Cybersecurity-Skills</a> packages 818 structured security skills for agents, mapped to six frameworks from MITRE ATT&amp;CK to the newer Fight Fraud standard. <a href="https://github.com/jundot/omlx">oMLX</a> serves models on Apple Silicon with continuous batching and SSD caching from the macOS menu bar, while <a href="https://github.com/AlexsJones/llmfit">llmfit</a> scores models by whether they will run well on your hardware. <a href="https://github.com/santifer/career-ops">career-ops</a> turns any coding CLI into a job-search pipeline that scores listings, tailors CVs, and tracks applications. <a href="https://github.com/cordiverse/cordis">Cordis</a> is the plugin framework underneath <a href="https://github.com/deepseek-ai/DeepSeek-Harness">DeepSeek Harness</a>, the open-source agent harness where everything is a plugin.</p>
+<p>Agents now need skills and local compute, not just bigger models. Security shows it best: a developer can run a penetration test in hours instead of weeks, and a security team can hand an agent the same playbooks a senior analyst uses, so vetting skills matters more than ever. oMLX and llmfit make models fast enough to run on hardware you already own, keeping data and cost local.</p>
+<p>The marketplaces NVIDIA’s <a href="../../posts/nvidia-skillspector-security-scanner-ai-agent-skills/index.html">SkillSpector</a> scans for malware are now filling with security skills and agents, and with Cordis, teams can build their own agent harness instead of depending on one vendor’s product.</p>
+<p>Read More: <a href="../../posts/github-trending-local-agent-stack-modular-harnesses/index.html">The same agent-tooling pattern appeared in an earlier August snapshot</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/usestrix/strix">Strix: Open-Source AI Penetration Testing (GitHub)</a></li>
+<li><a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills">Anthropic-Cybersecurity-Skills: 818 Security Skills for AI Agents (GitHub)</a></li>
+<li><a href="https://github.com/jundot/omlx">oMLX: LLM Inference for Apple Silicon (GitHub)</a></li>
+<li><a href="https://github.com/AlexsJones/llmfit">llmfit: Right-Size Models to Your Hardware (GitHub)</a></li>
+<li><a href="https://github.com/santifer/career-ops">career-ops: AI Job-Search Pipeline (GitHub)</a></li>
+<li><a href="https://github.com/cordiverse/cordis">Cordis: A Meta-Framework of Spatiotemporal Composability (GitHub)</a></li>
+<li><a href="https://github.com/deepseek-ai/DeepSeek-Harness">DeepSeek Harness: Everything Is a Plugin (GitHub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {GitHub {Trending} in {August:} {Agents} {That} {Test}
+    {Security,} {Run} {Locally,} and {Hunt} {Jobs}},
+  date = {2026-08-25},
+  url = {https://toknow.ai/posts/github-trending-ai-pentesting-security-skills-local-inference/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“GitHub Trending in August: Agents That Test
+Security, Run Locally, and Hunt Jobs.”</span> <a href="https://toknow.ai/posts/github-trending-ai-pentesting-security-skills-local-inference/">https://toknow.ai/posts/github-trending-ai-pentesting-security-skills-local-inference/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/github-trending-ai-pentesting-security-skills-local-inference/</guid>
+  <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/github-trending-ai-pentesting-security-skills-local-inference/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Lock-Free Programming: Threads Share Data Without Waiting on a Lock</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/lock-free-programming-threads-without-mutex/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/lock-free-programming-threads-without-mutex" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/lock-free-programming-threads-without-mutex/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/lock-free-programming-threads-without-mutex/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Lock-free programming lets several threads share data without making them take turns on a mutex, the lock that normally pauses one thread while another holds it. Threads coordinate with atomic operations instead, most often compare-and-swap, a single indivisible step that updates a value only if it still matches an expected one. Because no thread ever blocks, a slow or paused thread can’t stall everyone else. The idea traces to Herlihy’s 1991 wait-free synchronization paper, and the most used structure, a lock-free first-in-first-out queue, comes from <a href="https://www.cs.rochester.edu/u/scott/papers/1996_PODC_queues.pdf">Michael and Scott’s 1996 paper</a>. The hard part isn’t the atomic step; it’s reclaiming memory safely and beating the ABA problem, where a value changes and then changes back.</p>
+<p>Locks get expensive exactly where they’re needed most. Under heavy contention, waiting on a lock means kernel arbitration and cache misses that can cost more than the work itself. At LMAX, a financial exchange, queues between processing stages added as much latency as disk I/O, hundreds of microseconds per hop. Its lock-free <a href="https://lmax-exchange.github.io/disruptor/disruptor.html">Disruptor</a> cut mean latency for a three-stage pipeline by three orders of magnitude, handled roughly eight times the throughput, and passed over 25 million messages per second at under 50 nanoseconds. The same priorities drive <a href="https://github.com/nautechsystems/nautilus_trader">NautilusTrader</a>, an open-source Rust trading engine with a deterministic, event-driven architecture built for low-jitter execution.</p>
+<p>None of this makes locks obsolete. Lock-free code is famously hard to reason about, wait-free structures are rarer still, and most production code is lock-free only with careful memory reclamation on top. But when mutexes become the bottleneck, there is a proven ladder above them: atomic operations, then lock-free queues and rings, then wait-free designs.</p>
+<p>Read More: <a href="../../posts/bloom-filters-explained-probabilistic-data-structure/index.html">Bloom filters, another elegant trick that powers systems at scale</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://cs.brown.edu/people/mph/Herlihy91/p124-herlihy.pdf">Herlihy (1991): Wait-Free Synchronization (PDF)</a></li>
+<li><a href="https://www.cs.rochester.edu/u/scott/papers/1996_PODC_queues.pdf">Michael &amp; Scott (1996): Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms (PDF)</a></li>
+<li><a href="https://lmax-exchange.github.io/disruptor/disruptor.html">LMAX Disruptor: High Performance Alternative to Bounded Queues (Technical Paper)</a></li>
+<li><a href="https://preshing.com/20120612/an-introduction-to-lock-free-programming/">Preshing: An Introduction to Lock-Free Programming</a></li>
+<li><a href="https://github.com/nautechsystems/nautilus_trader">NautilusTrader: Rust-Native Trading Engine (GitHub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Lock-Free {Programming:} {Threads} {Share} {Data} {Without}
+    {Waiting} on a {Lock}},
+  date = {2026-08-25},
+  url = {https://toknow.ai/posts/lock-free-programming-threads-without-mutex/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Lock-Free Programming: Threads Share Data
+Without Waiting on a Lock.”</span> <a href="https://toknow.ai/posts/lock-free-programming-threads-without-mutex/">https://toknow.ai/posts/lock-free-programming-threads-without-mutex/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/lock-free-programming-threads-without-mutex/</guid>
+  <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/lock-free-programming-threads-without-mutex/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Carry a Private, Uncensored AI Assistant on a USB Stick</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/usb-uncensored-llm-portable-air-gapped-ai/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/usb-uncensored-llm-portable-air-gapped-ai" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/usb-uncensored-llm-portable-air-gapped-ai/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/usb-uncensored-llm-portable-air-gapped-ai/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>USB-Uncensored-LLM is a portable, air-gapped local AI environment that runs large language models straight from a USB drive or external SSD, with no installation and no internet. It ships its own portable Python and a custom Ollama engine, so nothing is installed on the host machine: plug in the drive, run one script, and a chat window opens in the browser. A shared volume keeps model weights in one place across Windows, macOS, and Linux, and the launcher picks the right acceleration, CUDA, Metal, or CPU. The uncensored label means the bundled models are <a href="../../posts/heretic-automatic-censorship-removal-language-models-abliteration/index.html">abliterated fine-tunes</a>, such as a 1.6 GB Gemma 2 2B or a 5.3 GB Qwen 3.5 9B, with safety-refusal vectors removed. The original repository was archived in July 2026, and development moved to the MIT-licensed <a href="https://github.com/techjarves/Uncensored-Local-Studio">Uncensored-Local-Studio</a>, which adds image generation, speech-to-text, and text-to-speech.</p>
+<p>It is for anyone handling sensitive documents, working behind a firewall, or in a place where cloud AI is blocked. The model never phones home: no accounts, no telemetry, no prompt leaves the device. A portable SSD with a 7 to 8 billion parameter model costs under $50, and that 4.5 GB model runs at 8 to 15 tokens per second on a laptop with 8 GB of RAM. The trade-off is trust: abliterated weights are edited to stop refusing prompts, so you rely on whoever built them, and there is no sandbox beyond the code you run.</p>
+<p>The point is ownership. AI on a stick cannot be switched off, filtered, or watched by anyone else, the same argument as running <a href="../../posts/local-ai-hedge-open-weights-frontier-model-block/index.html">local models as a hedge against remote shutdown</a> in its most portable form.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/techjarves/USB-Uncensored-LLM">USB-Uncensored-LLM repository and README (GitHub)</a></li>
+<li><a href="https://github.com/techjarves/Uncensored-Local-Studio">Uncensored-Local-Studio, the successor project (GitHub)</a></li>
+<li><a href="https://www.kunalganglani.com/blog/portable-llm-usb-stick">Portable LLM on a USB Stick: Offline AI Setup (kunalganglani.com)</a></li>
+<li><a href="https://deepwiki.com/techjarves/USB-Uncensored-LLM/1.1-getting-started">USB-Uncensored-LLM overview (DeepWiki)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Carry a {Private,} {Uncensored} {AI} {Assistant} on a {USB}
+    {Stick}},
+  date = {2026-08-25},
+  url = {https://toknow.ai/posts/usb-uncensored-llm-portable-air-gapped-ai/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Carry a Private, Uncensored AI Assistant on
+a USB Stick.”</span> <a href="https://toknow.ai/posts/usb-uncensored-llm-portable-air-gapped-ai/">https://toknow.ai/posts/usb-uncensored-llm-portable-air-gapped-ai/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/usb-uncensored-llm-portable-air-gapped-ai/</guid>
+  <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/usb-uncensored-llm-portable-air-gapped-ai/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Alibaba’s Wan3.0 Turns Documents Into 30-Second Videos in One Pass</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/wan3-0-alibaba-30-second-video-from-any-input/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/wan3-0-alibaba-30-second-video-from-any-input" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/wan3-0-alibaba-30-second-video-from-any-input/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/wan3-0-alibaba-30-second-video-from-any-input/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Alibaba officially <a href="https://www.reuters.com/business/retail-consumer/alibaba-launches-wan30-ai-video-model-after-10-billion-share-sale-2026-08-24/">rolled out Wan3.0 on August 24</a>, after a public beta that began August 6. It is a video generation model that produces up to 30 seconds of footage in a single pass, and the input side is the story: alongside text, images, audio, and video, it accepts <a href="https://www.alibabacloud.com/blog/wan3-0-30-second-ai-video-generation-from-any-input_603452">office documents</a>, doc, xls, ppt, pdf, and markdown files, plus web page links, one file up to 100 MB or 50 pages per request. It runs on Alibaba Cloud Model Studio, with API pricing of $0.05 per second at 480P, $0.10 at 720P, and $0.20 at 1080P, so a full 30-second 1080P clip comes to $6.00. Alibaba Cloud is <a href="https://technode.com/2026/08/24/alibaba-launches-wan3-0-video-model-with-30-second-generation-and-document-input/">discounting API prices 30% until September 23</a>.</p>
+<p>A sales deck becomes a product launch ad, a training document becomes video courseware, a spreadsheet becomes animated charts, and a quarterly report becomes a narrated briefing, with no scriptwriter or editor in between. That collapses the usual multi-tool pipeline into one API call, and at $1.50 per 30-second 480P draft, iteration is cheap. Wan3.0 also lets you edit instead of regenerate: the built-in editor can change visuals, plot, or dialogue on an existing clip. On-screen text rendering and audio texture are still weak spots.</p>
+<p>Video generation is moving from short clips to anything-to-video, and when the source can be the documents people already make for work, generated video becomes the default way to present ordinary office content.</p>
+<p>Read More: <a href="../../posts/bytedance-seedance-multimodal-video-generation/index.html">ByteDance Seedance: one model that takes text, images, audio, and video together to make clips</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.alibabacloud.com/blog/wan3-0-30-second-ai-video-generation-from-any-input_603452">Wan3.0: 30-Second AI Video Generation from Any Input (Alibaba Cloud)</a></li>
+<li><a href="https://www.reuters.com/business/retail-consumer/alibaba-launches-wan30-ai-video-model-after-10-billion-share-sale-2026-08-24/">Alibaba launches Wan3.0 AI video model after $10 billion share sale (Reuters)</a></li>
+<li><a href="https://technode.com/2026/08/24/alibaba-launches-wan3-0-video-model-with-30-second-generation-and-document-input/">Alibaba launches Wan3.0 video model with 30-second generation and document input (TechNode)</a></li>
+<li><a href="https://www.piclumen.com/blog/wan-3-0-ai-video-model-guide/">Wan 3.0 AI Video Model: 30-Second One-Take, Document-to-Video (PicLumen)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Alibaba’s {Wan3.0} {Turns} {Documents} {Into} {30-Second}
+    {Videos} in {One} {Pass}},
+  date = {2026-08-25},
+  url = {https://toknow.ai/posts/wan3-0-alibaba-30-second-video-from-any-input/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Alibaba’s Wan3.0 Turns Documents Into
+30-Second Videos in One Pass.”</span> <a href="https://toknow.ai/posts/wan3-0-alibaba-30-second-video-from-any-input/">https://toknow.ai/posts/wan3-0-alibaba-30-second-video-from-any-input/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/wan3-0-alibaba-30-second-video-from-any-input/</guid>
+  <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/wan3-0-alibaba-30-second-video-from-any-input/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+</channel>
+</rss>

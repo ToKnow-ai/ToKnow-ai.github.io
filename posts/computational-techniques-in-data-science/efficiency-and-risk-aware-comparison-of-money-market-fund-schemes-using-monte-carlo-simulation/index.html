@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kabui, Charles">
+<meta name="dcterms.date" content="2025-06-10">
+<meta name="keywords" content="Money Market Funds, Monte Carlo Simulation, Risk Analysis, Kenyan Market, Financial Modelling">
+
+<title>Efficiency and Risk-Aware Performance Analysis of Kenyan Money Market Funds Using Monte Carlo Simulation: A Comprehensive Review and Empirical Study – ToKnow.ai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/logo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-b7adde2f1b737e1ab85d341de37ab126.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-a00569dc5e1b9abeeb38d9c5a30072e9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4R9DMKF8S7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R9DMKF8S7', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../_styles.css">
+<link rel="stylesheet" href="../../_post-styles.css">
+<meta property="og:title" content="Efficiency and Risk-Aware Performance Analysis of Kenyan Money Market Funds Using Monte Carlo Simulation: A Comprehensive Review and Empirical Study – ToKnow.ai">
+<meta property="og:description" content="This study presents a comprehensive, risk-aware comparative performance analysis of Kenyan Money Market Funds (MMFs) using Monte Carlo simulation. Traditional deterministic metrics, such as Effective Annual Rates (EAR), often fail to capture the crucial variability and underlying risk of returns, leading to investor uncertainty regarding schemes offering consistent and favorable risk-adjusted returns. This research addresses this gap by providing a probabilistic framework. The general objective is to evaluate and compare the risk-adjusted performance of Kenyan MMF schemes by modeling future return scenarios over a one-year horizon. The methodology involved preprocessing a curated dataset of monthly EAR values for Kenyan MMFs from November 2017 to December 2024, excluding funds with insufficient historical data. For each eligible scheme, historical mean and standard deviation of EARs were computed and converted to monthly equivalents. Subsequently, 1,000 possible one-year return paths were simulated using a normal distribution, and cumulative annual returns were calculated. Results were visualized using boxplots and summarized with descriptive statistics, including median, 25th, 75th, and 5th percentiles. Key findings revealed distinct return profiles among MMFs. Funds like Lofty Corban Unit Trust Scheme demonstrated high median returns (17.2%) with notable stability, while others, such as Etica Capital Limited, showed strong medians (15.8%) but with wider return spreads, indicating higher volatility. The analysis also flagged potential data quality issues for schemes exhibiting near-zero variance. The study concludes that Monte Carlo simulation offers a superior, distribution-based understanding of MMF performance, empowering investors to make more informed, risk-aware decisions by considering the full spectrum of potential outcomes beyond simple averages. This approach is crucial for navigating the dynamic Kenyan financial market. ">
+<meta property="og:image" content="https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.render_files/figure-html/cell-4-output-1.png">
+<meta property="og:site_name" content="ToKnow.ai">
+<meta property="og:image:alt" content="Simulated 12-Month Return Distribution per Scheme">
+<meta property="og:image:height" content="1094">
+<meta property="og:image:width" content="996">
+<meta name="twitter:title" content="Efficiency and Risk-Aware Performance Analysis of Kenyan Money Market Funds Using Monte Carlo Simulation: A Comprehensive Review and Empirical Study – ToKnow.ai">
+<meta name="twitter:description" content="This study presents a comprehensive, risk-aware comparative performance analysis of Kenyan Money Market Funds (MMFs) using Monte Carlo simulation. Traditional deterministic metrics, such as Effective Annual Rates (EAR), often fail to capture the crucial variability and underlying risk of returns, leading to investor uncertainty regarding schemes offering consistent and favorable risk-adjusted returns. This research addresses this gap by providing a probabilistic framework. The general objective is to evaluate and compare the risk-adjusted performance of Kenyan MMF schemes by modeling future return scenarios over a one-year horizon. The methodology involved preprocessing a curated dataset of monthly EAR values for Kenyan MMFs from November 2017 to December 2024, excluding funds with insufficient historical data. For each eligible scheme, historical mean and standard deviation of EARs were computed and converted to monthly equivalents. Subsequently, 1,000 possible one-year return paths were simulated using a normal distribution, and cumulative annual returns were calculated. Results were visualized using boxplots and summarized with descriptive statistics, including median, 25th, 75th, and 5th percentiles. Key findings revealed distinct return profiles among MMFs. Funds like Lofty Corban Unit Trust Scheme demonstrated high median returns (17.2%) with notable stability, while others, such as Etica Capital Limited, showed strong medians (15.8%) but with wider return spreads, indicating higher volatility. The analysis also flagged potential data quality issues for schemes exhibiting near-zero variance. The study concludes that Monte Carlo simulation offers a superior, distribution-based understanding of MMF performance, empowering investors to make more informed, risk-aware decisions by considering the full spectrum of potential outcomes beyond simple averages. This approach is crucial for navigating the dynamic Kenyan financial market. ">
+<meta name="twitter:image" content="https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.render_files/figure-html/cell-4-output-1.png">
+<meta name="twitter:site" content="@ToKnow_ai">
+<meta name="twitter:image:alt" content="Simulated 12-Month Return Distribution per Scheme">
+<meta name="twitter:image-height" content="1094">
+<meta name="twitter:image-width" content="996">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.html">
+<meta name="citation_title" content="Efficiency and Risk-Aware Performance Analysis of Kenyan Money Market Funds Using Monte Carlo Simulation: A Comprehensive Review and Empirical Study">
+<meta name="citation_abstract" content="This study presents a comprehensive, risk-aware comparative performance analysis of Kenyan Money Market Funds (MMFs) using Monte Carlo simulation. Traditional deterministic metrics, such as Effective Annual Rates (EAR), often fail to capture the crucial variability and underlying risk of returns, leading to investor uncertainty regarding schemes offering consistent and favorable risk-adjusted returns. This research addresses this gap by providing a probabilistic framework. The general objective is to evaluate and compare the risk-adjusted performance of Kenyan MMF schemes by modeling future return scenarios over a one-year horizon.
+The methodology involved preprocessing a curated dataset of monthly EAR values for Kenyan MMFs from November 2017 to December 2024, excluding funds with insufficient historical data. For each eligible scheme, historical mean and standard deviation of EARs were computed and converted to monthly equivalents. Subsequently, 1,000 possible one-year return paths were simulated using a normal distribution, and cumulative annual returns were calculated. Results were visualized using boxplots and summarized with descriptive statistics, including median, 25th, 75th, and 5th percentiles.
+Key findings revealed distinct return profiles among MMFs. Funds like Lofty Corban Unit Trust Scheme demonstrated high median returns (17.2%) with notable stability, while others, such as Etica Capital Limited, showed strong medians (15.8%) but with wider return spreads, indicating higher volatility. The analysis also flagged potential data quality issues for schemes exhibiting near-zero variance. The study concludes that Monte Carlo simulation offers a superior, distribution-based understanding of MMF performance, empowering investors to make more informed, risk-aware decisions by considering the full spectrum of potential outcomes beyond simple averages. This approach is crucial for navigating the dynamic Kenyan financial market.
+\newpage">
+<meta name="citation_keywords" content="computational-techniques,data-science,applications,Money Market Funds,Monte Carlo Simulation,Risk Analysis,Kenyan Market,Financial Modelling">
+<meta name="citation_author" content="Kabui, Charles">
+<meta name="citation_publication_date" content="2025-06-10">
+<meta name="citation_cover_date" content="2025-06-10">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-06-10">
+<meta name="citation_fulltext_html_url" content="https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.html">
+<meta name="citation_language" content="en-GB">
+<meta name="citation_reference" content="citation_title=Book review: Marcos lopez de prado: Advances in financial machine learning, wiley, 2018;,citation_author=Peter Schwendner;,citation_publication_date=2019-10;,citation_cover_date=2019-10;,citation_year=2019;">
+<meta name="citation_reference" content="citation_title=The application of monte carlo simulation for risk and behavior analysis in financial markets;,citation_author=Tianyou Xu;,citation_publication_date=2024-12;,citation_cover_date=2024-12;,citation_year=2024;,citation_doi=10.54097/djgy6809;,citation_volume=45;,citation_journal_title=Highlights in Business, Economics and Management;">
+<meta name="citation_reference" content="citation_title=Monte carlo simulations for resolving verifiability paradoxes in forecast risk management and corporate treasury applications;,citation_author=Martin Pavlik;,citation_author=Grzegorz Michalski;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.mdpi.com/2227-7072/13/2/49;,citation_issue=2;,citation_doi=10.3390/ijfs13020049;,citation_issn=2227-7072;,citation_volume=13;,citation_journal_title=International Journal of Financial Studies;">
+<meta name="citation_reference" content="citation_title=Guide to monte carlo simulation in finance and markets;,citation_author=Sarah Lee;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.numberanalytics.com/blog/guide-monte-carlo-finance-markets#applications-in-finance;">
+<meta name="citation_reference" content="citation_title=Kenyan Collective Investment Schemes Dataset;,citation_author=Kabui, Charles;,citation_publication_date=2024-10-04;,citation_cover_date=2024-10-04;,citation_year=2024;,citation_fulltext_html_url=https://toknow.ai/posts/kenyan-collective-investment-schemes-dataset/index.html;,citation_language=en-gb;">
+<meta name="citation_reference" content="citation_title=Top Money Market Funds in Kenya 2025: Comparing the Best Providers - Step By Step Insurance — stepbystepinsurance.co.ke;,citation_author=Step by Step Insurance;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_publisher=https://stepbystepinsurance.co.ke/top-money-market-funds-in-kenya-2025-comparing-the-best-providers/;">
+<meta name="citation_reference" content="citation_title=Introduction to money market funds and ultra-short duration strategies;,citation_author=J.P. Morgan Asset Management;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://am.jpmorgan.com/content/dam/jpm-am-aem/global/en/liq/literature/brochure/introduction-to-mmfs.pdf;">
+<meta name="citation_reference" content="citation_title=Ziidi money market fund tops ksh 6 billion: What kenyan investors need to know;,citation_author=Step by Step Insurance;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://stepbystepinsurance.co.ke/ziidi-money-market-fund-tops-ksh-6-billion-what-kenyan-investors-need-to-know/;">
+<meta name="citation_reference" content="citation_title=Q2’2024 unit trust funds performance note;,citation_author=Cytonn Research;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://cytonn.com/topicals/q22024-unit-trust-1;">
+<meta name="citation_reference" content="citation_title=Q4’2024 unit trust funds performance note;,citation_author=Cytonn Research;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://cytonn.com/uploads/downloads/q42024-utf-performance-notevf6.pdf;">
+<meta name="citation_reference" content="citation_title=Ziidi Money Market Fund (MMF) by Safaricom);,citation_author=Safaricom;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://www.safaricom.co.ke/main-mpesa/m-pesa-services/wealth/ziidi;">
+<meta name="citation_reference" content="citation_title=Why Are Money Market Fund Rates Declining in Kenya?;,citation_author=Lofty-Corban;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://loftycorban.com/?p=7104;">
+<meta name="citation_reference" content="citation_title=EAR Demystified: A Guide to Effective Annual Rate;,citation_author=Sarah Lee;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.numberanalytics.com/blog/ear-demystified-guide-effective-annual-rate;">
+<meta name="citation_reference" content="citation_title=Average Rate of Return (ARR) of An Investment;,citation_author=Jerry Grzegorzek;,citation_publication_date=2022-05;,citation_cover_date=2022-05;,citation_year=2022;,citation_fulltext_html_url=https://www.superbusinessmanager.com/average-rate-of-return-arr-of-an-investment/;">
+<meta name="citation_reference" content="citation_title=What are the limitations of using the accounting rate of return (ARR) method?;,citation_author=Dave;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://www.tutorchase.com/answers/ib/business-management/what-are-the-limitations-of-using-the-accounting-rate-of-return--arr--method;,citation_publisher=TutorChase;">
+<meta name="citation_reference" content="citation_title=5 Behavioral Biases That Can Impact Your Investing Decisions;,citation_author=Raymond A. Mason School of Business;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://online.mason.wm.edu/blog/behavioral-biases-that-can-impact-investing-decisions;">
+<meta name="citation_reference" content="citation_title=The application of monte carlo simulation for risk and behavior analysis in financial markets;,citation_author=Tianyou Xu;,citation_publication_date=2024-12;,citation_cover_date=2024-12;,citation_year=2024;,citation_doi=10.54097/djgy6809;,citation_volume=45;,citation_journal_title=Highlights in Business, Economics and Management;">
+<meta name="citation_reference" content="citation_title= Deep Dive: Monte Carlo Simulation in Economics;,citation_author=Sarah Lee;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.numberanalytics.com/blog/deep-dive-monte-carlo-simulation-economics;">
+<meta name="citation_reference" content="citation_title=Beyond DCF: Enhancing Business Valuation in Emerging Markets through Monte Carlo Simulation Techniques;,citation_author=KPMG Ghana;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://assets.kpmg.com/content/dam/kpmg/gh/pdf/Thought%20Leadership%20-%20Monte%20Carlo.pdf;">
+<meta name="citation_reference" content="citation_title=Money Markets;,citation_author=Auerbach, Michael P.;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_fulltext_html_url=https://www.ebsco.com/research-starters/business-and-management/money-markets;">
+<meta name="citation_reference" content="citation_title=How safe are money market funds?;,citation_author=Marcin Kacperczyk;,citation_author=Philipp Schnabl;,citation_publication_date=2013;,citation_cover_date=2013;,citation_year=2013;,citation_fulltext_html_url=https://pages.stern.nyu.edu/~pschnabl/research/KacperczykSchnabl2013.pdf;">
+<meta name="citation_reference" content="citation_title=Safaricom partners with investment firms to unveil ziidi money market fund powered by m-PESA;,citation_author=Safaricom;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.safaricom.co.ke/media-center-landing/press-releases/safaricom-partners-with-investment-firms-to-unveil-ziidi-money-market-fund-powered-by-m-pesa;">
+<meta name="citation_reference" content="citation_title=Press release: Announcing the launch of ziidi MMF by safaricom PLC &amp;amp;amp; managed by SIB;,citation_author=Standard Investment Bank;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://sib.co.ke/press-release-announcing-the-launch-of-ziidi-mmf-by-safaricom-plc-managed-by-sib/;">
+<meta name="citation_reference" content="citation_title=Monte carlo simulation: What it is, how it works, history, 4 key steps;,citation_author=Will Kenton;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.investopedia.com/terms/m/montecarlosimulation.asp;">
+<meta name="citation_reference" content="citation_title=Financial management strategies in emerging markets: A review of theoretical models and practical applications;,citation_author=Chinelo Ejiofor;,citation_author=Rita Attah;,citation_publication_date=2023-04;,citation_cover_date=2023-04;,citation_year=2023;,citation_doi=10.30574/msarr.2023.7.2.0054;,citation_volume=7;,citation_journal_title=Magna Scientia Advanced Research and Reviews;">
+<meta name="citation_reference" content="citation_title=Consumer price indices and inflation rates - may 2025;,citation_author=Kenya National Bureau of Statistics;,citation_publication_date=2025-05;,citation_cover_date=2025-05;,citation_year=2025;,citation_fulltext_html_url=https://www.knbs.or.ke/reports/consumer-price-indices-and-inflation-rates-may-2025/;">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../images/logo-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">ToKnow.ai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../apps.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../domains-for-sale.html"> 
+<span class="menu-text">Domains 4 Sale</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ToKnow-ai"> <i class="bi bi-github" role="img" aria-label="Github - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ToKnow_ai"> <i class="bi bi-twitter" role="img" aria-label="Twitter - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss" role="img" aria-label="ToKnow.ai RSS">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Efficiency and Risk-Aware Performance Analysis of Kenyan Money Market Funds Using Monte Carlo Simulation: A Comprehensive Review and Empirical Study</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">data-science</div>
+                <div class="quarto-category">computational-techniques</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Authors</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://www.linkedin.com/in/joyce-awuor/">Joyce Naomi Awuor</a> <a href="mailto:naomijoyce90@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+               <p>Kabui, Charles </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2025-06-10</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="block-title">Abstract</div>
+      This study presents a comprehensive, risk-aware comparative performance analysis of Kenyan Money Market Funds (MMFs) using Monte Carlo simulation. Traditional deterministic metrics, such as Effective Annual Rates (EAR), often fail to capture the crucial variability and underlying risk of returns, leading to investor uncertainty regarding schemes offering consistent and favorable risk-adjusted returns. This research addresses this gap by providing a probabilistic framework. The general objective is to evaluate and compare the risk-adjusted performance of Kenyan MMF schemes by modeling future return scenarios over a one-year horizon. The methodology involved preprocessing a curated dataset of monthly EAR values for Kenyan MMFs from November 2017 to December 2024, excluding funds with insufficient historical data. For each eligible scheme, historical mean and standard deviation of EARs were computed and converted to monthly equivalents. Subsequently, 1,000 possible one-year return paths were simulated using a normal distribution, and cumulative annual returns were calculated. Results were visualized using boxplots and summarized with descriptive statistics, including median, 25th, 75th, and 5th percentiles. Key findings revealed distinct return profiles among MMFs. Funds like Lofty Corban Unit Trust Scheme demonstrated high median returns (17.2%) with notable stability, while others, such as Etica Capital Limited, showed strong medians (15.8%) but with wider return spreads, indicating higher volatility. The analysis also flagged potential data quality issues for schemes exhibiting near-zero variance. The study concludes that Monte Carlo simulation offers a superior, distribution-based understanding of MMF performance, empowering investors to make more informed, risk-aware decisions by considering the full spectrum of potential outcomes beyond simple averages. This approach is crucial for navigating the dynamic Kenyan financial market.
+    </div>
+  </div>
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>Money Market Funds, Monte Carlo Simulation, Risk Analysis, Kenyan Market, Financial Modelling</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#keywords" id="toc-keywords" class="nav-link active" data-scroll-target="#keywords">Keywords</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">1 Introduction</a>
+  <ul>
+  <li><a href="#background-the-evolving-landscape-of-money-market-funds-in-emerging-economies" id="toc-background-the-evolving-landscape-of-money-market-funds-in-emerging-economies" class="nav-link" data-scroll-target="#background-the-evolving-landscape-of-money-market-funds-in-emerging-economies">1.1 Background: The Evolving Landscape of Money Market Funds in Emerging Economies</a></li>
+  <li><a href="#problem-statement-addressing-the-limitations-of-deterministic-metrics-in-mmf-evaluation" id="toc-problem-statement-addressing-the-limitations-of-deterministic-metrics-in-mmf-evaluation" class="nav-link" data-scroll-target="#problem-statement-addressing-the-limitations-of-deterministic-metrics-in-mmf-evaluation">1.2 Problem Statement: Addressing the Limitations of Deterministic Metrics in MMF Evaluation</a></li>
+  <li><a href="#research-objectives" id="toc-research-objectives" class="nav-link" data-scroll-target="#research-objectives">1.3 Research Objectives</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">1.4 Research Questions</a></li>
+  <li><a href="#contribution-of-the-study" id="toc-contribution-of-the-study" class="nav-link" data-scroll-target="#contribution-of-the-study">1.5 Contribution of the Study</a></li>
+  </ul></li>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review">2. Literature Review</a>
+  <ul>
+  <li><a href="#money-market-funds-structure-evolution-and-role-in-financial-inclusion" id="toc-money-market-funds-structure-evolution-and-role-in-financial-inclusion" class="nav-link" data-scroll-target="#money-market-funds-structure-evolution-and-role-in-financial-inclusion">2.1 Money Market Funds: Structure, Evolution, and Role in Financial Inclusion</a></li>
+  <li><a href="#monte-carlo-simulation-theoretical-underpinnings-and-applications-in-finance" id="toc-monte-carlo-simulation-theoretical-underpinnings-and-applications-in-finance" class="nav-link" data-scroll-target="#monte-carlo-simulation-theoretical-underpinnings-and-applications-in-finance">2.2 Monte Carlo Simulation: Theoretical Underpinnings and Applications in Finance</a></li>
+  <li><a href="#limitations-of-traditional-performance-metrics-and-the-value-of-probabilistic-approaches" id="toc-limitations-of-traditional-performance-metrics-and-the-value-of-probabilistic-approaches" class="nav-link" data-scroll-target="#limitations-of-traditional-performance-metrics-and-the-value-of-probabilistic-approaches">2.3 Limitations of Traditional Performance Metrics and the Value of Probabilistic Approaches</a></li>
+  <li><a href="#money-market-funds-and-financial-market-dynamics-in-emerging-economies" id="toc-money-market-funds-and-financial-market-dynamics-in-emerging-economies" class="nav-link" data-scroll-target="#money-market-funds-and-financial-market-dynamics-in-emerging-economies">2.4 Money Market Funds and Financial Market Dynamics in Emerging Economies</a></li>
+  </ul></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">3. Methodology</a>
+  <ul>
+  <li><a href="#research-design" id="toc-research-design" class="nav-link" data-scroll-target="#research-design">3.1 Research Design</a></li>
+  <li><a href="#dataset-and-data-preprocessing" id="toc-dataset-and-data-preprocessing" class="nav-link" data-scroll-target="#dataset-and-data-preprocessing">3.2 Dataset and Data Preprocessing</a></li>
+  <li><a href="#monte-carlo-simulation-procedure" id="toc-monte-carlo-simulation-procedure" class="nav-link" data-scroll-target="#monte-carlo-simulation-procedure">3.3 Monte Carlo Simulation Procedure</a></li>
+  <li><a href="#visualization-and-comparative-analysis-techniques" id="toc-visualization-and-comparative-analysis-techniques" class="nav-link" data-scroll-target="#visualization-and-comparative-analysis-techniques">3.4 Visualization and Comparative Analysis Techniques</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">4. Results</a>
+  <ul>
+  <li><a href="#boxplot-visualization-of-simulated-12-month-returns" id="toc-boxplot-visualization-of-simulated-12-month-returns" class="nav-link" data-scroll-target="#boxplot-visualization-of-simulated-12-month-returns">4.1 Boxplot Visualization of Simulated 12-Month Returns</a></li>
+  <li><a href="#summary-statistics-of-simulated-returns" id="toc-summary-statistics-of-simulated-returns" class="nav-link" data-scroll-target="#summary-statistics-of-simulated-returns">4.2 Summary Statistics of Simulated Returns</a></li>
+  <li><a href="#key-observations-from-the-simulation-results" id="toc-key-observations-from-the-simulation-results" class="nav-link" data-scroll-target="#key-observations-from-the-simulation-results">4.3 Key Observations from the Simulation Results</a>
+  <ul>
+  <li><a href="#top-performing-funds-by-median-return" id="toc-top-performing-funds-by-median-return" class="nav-link" data-scroll-target="#top-performing-funds-by-median-return">Top Performing Funds by Median Return:</a></li>
+  <li><a href="#lower-performing-funds" id="toc-lower-performing-funds" class="nav-link" data-scroll-target="#lower-performing-funds">Lower Performing Funds:</a></li>
+  <li><a href="#notable-patterns" id="toc-notable-patterns" class="nav-link" data-scroll-target="#notable-patterns">Notable Patterns:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">5. Discussion</a>
+  <ul>
+  <li><a href="#interpreting-risk-return-trade-offs-in-kenyan-mmfs" id="toc-interpreting-risk-return-trade-offs-in-kenyan-mmfs" class="nav-link" data-scroll-target="#interpreting-risk-return-trade-offs-in-kenyan-mmfs">5.1 Interpreting Risk-Return Trade-offs in Kenyan MMFs</a></li>
+  <li><a href="#the-power-of-distributional-insight-for-informed-investment-decisions" id="toc-the-power-of-distributional-insight-for-informed-investment-decisions" class="nav-link" data-scroll-target="#the-power-of-distributional-insight-for-informed-investment-decisions">5.2 The Power of Distributional Insight for Informed Investment Decisions</a></li>
+  <li><a href="#implications-of-data-quality-for-financial-modeling-in-emerging-markets" id="toc-implications-of-data-quality-for-financial-modeling-in-emerging-markets" class="nav-link" data-scroll-target="#implications-of-data-quality-for-financial-modeling-in-emerging-markets">5.3 Implications of Data Quality for Financial Modeling in Emerging Markets</a></li>
+  <li><a href="#broader-context-kenyan-mmfs-within-the-national-and-regional-financial-ecosystem" id="toc-broader-context-kenyan-mmfs-within-the-national-and-regional-financial-ecosystem" class="nav-link" data-scroll-target="#broader-context-kenyan-mmfs-within-the-national-and-regional-financial-ecosystem">5.4 Broader Context: Kenyan MMFs within the National and Regional Financial Ecosystem</a></li>
+  <li><a href="#comparison-with-global-and-emerging-market-trends-in-mmf-performance-and-risk" id="toc-comparison-with-global-and-emerging-market-trends-in-mmf-performance-and-risk" class="nav-link" data-scroll-target="#comparison-with-global-and-emerging-market-trends-in-mmf-performance-and-risk">5.5 Comparison with Global and Emerging Market Trends in MMF Performance and Risk</a></li>
+  </ul></li>
+  <li><a href="#conclusion-and-recommendations" id="toc-conclusion-and-recommendations" class="nav-link" data-scroll-target="#conclusion-and-recommendations">6. Conclusion and Recommendations</a>
+  <ul>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">6.1 Conclusion</a></li>
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">6.2 Recommendations</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">6.3 Limitations</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">7. References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://kaggle.com/kernels/welcome?src=https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.output.ipynb"><i class="bi bi-code-slash"></i> Open in Kaggle</a>
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.output.ipynb"><i class="bi bi-file-earmark-arrow-down-fill"></i> Download as Notebook</a>
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<section id="keywords" class="level2">
+<h2 class="anchored" data-anchor-id="keywords">Keywords</h2>
+<ul>
+<li>EAR - Effective Annual Rate</li>
+<li>AUM - Assets Under Management</li>
+<li>MMF - Money Market Fund</li>
+<li>VaR - Value at Risk</li>
+<li>ARR - Average Rate of Return</li>
+</ul>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">1 Introduction</h2>
+<section id="background-the-evolving-landscape-of-money-market-funds-in-emerging-economies" class="level3">
+<h3 class="anchored" data-anchor-id="background-the-evolving-landscape-of-money-market-funds-in-emerging-economies">1.1 Background: The Evolving Landscape of Money Market Funds in Emerging Economies</h3>
+<p>Money Market Funds (MMFs) have emerged as preferred low-risk investment vehicles, particularly in emerging markets like Kenya, where financial awareness is growing and demand for reliable returns is increasing. These funds are structured as highly regulated pooled mutual funds that invest in short-term, high-quality debt instruments, often classified as cash equivalents. MMFs typically offer a compelling combination of capital preservation, high liquidity, and relatively predictable returns, making them attractive to both retail and institutional investors seeking a safe haven for their liquid assets <span class="citation" data-cites="stepbystepinsuranceMoneyMarket jpmorgan2023">(<a href="#ref-stepbystepinsuranceMoneyMarket" role="doc-biblioref">Step by Step Insurance 2025a</a>; <a href="#ref-jpmorgan2023" role="doc-biblioref">J.P. Morgan Asset Management 2023</a>)</span>.</p>
+<p>The global MMF industry has experienced substantial growth, reaching over USD 7.4 trillion, with institutional investors accounting for a significant portion of this total. Emerging markets have contributed notably to this expansion; for instance, the Chinese MMF industry has rapidly grown to USD 1.72 trillion, driven by both institutional and retail participation <span class="citation" data-cites="jpmorgan2023">(<a href="#ref-jpmorgan2023" role="doc-biblioref">J.P. Morgan Asset Management 2023</a>)</span>. In Kenya, MMFs have become a go-to savings vehicle for risk-averse investors, pooling money from individuals and institutions for investment in ultra-safe assets like government Treasury bills and blue-chip corporate bonds <span class="citation" data-cites="ziidi2025">(<a href="#ref-ziidi2025" role="doc-biblioref">Step by Step Insurance 2025b</a>)</span>. The Assets Under Management (AUM) for Kenyan MMFs have shown consistent upward trends, with a 5-year Compound Annual Growth Rate (CAGR) of 31.8% from Q2’2019 to Q2’2024, reaching Kshs 254.1 billion by the end of Q2’2024 <span class="citation" data-cites="cytonn2024UnitTrustFundsPerformance">(<a href="#ref-cytonn2024UnitTrustFundsPerformance" role="doc-biblioref">Cytonn Research 2024</a>)</span>. By Q4’2024, MMFs held the largest investment allocation among Unit Trust Funds, totaling Kshs 246.8 billion, representing a 25.4% increase from the previous quarter <span class="citation" data-cites="cytonn2024Q4UnitTrustFundsPerformance">(<a href="#ref-cytonn2024Q4UnitTrustFundsPerformance" role="doc-biblioref">Cytonn Research 2025</a>)</span>. This growth underscores their increasing importance in the Kenyan financial ecosystem.</p>
+<p>The appeal of MMFs in Kenya stems from their ability to offer higher yields than traditional savings accounts (averaging 10-12% annually compared to 4-6% from banks), coupled with excellent liquidity, and some Fund managers processing transcation-free withdrawals instantly without limits on the number of withdrawals you can make in a day <span class="citation" data-cites="ziidi2024Safaricom">(<a href="#ref-ziidi2024Safaricom" role="doc-biblioref">Safaricom 2024</a>)</span>. They are particularly suited for short-term financial goals, such as emergency funds, school fees, or temporary cash parking <span class="citation" data-cites="loftycorban2025MoneyMarketFundRates">(<a href="#ref-loftycorban2025MoneyMarketFundRates" role="doc-biblioref">Lofty-Corban 2025</a>)</span>. Recent innovations, such as the Ziidi Money Market Fund, launched in partnership with Safaricom’s M-PESA platform, have further democratized access to MMFs. Ziidi MMF allows investments from as little as KES 100, offers free deposits and withdrawals via M-PESA, and accrues daily interest, attracting over 680,000 active investors and managing over KES 6.2 billion in assets by early 2025 <span class="citation" data-cites="ziidi2025">(<a href="#ref-ziidi2025" role="doc-biblioref">Step by Step Insurance 2025b</a>)</span>. This mobile-first approach significantly enhances financial inclusion, particularly for low and mid-income earners, aligning with broader economic transformation agendas.</p>
+</section>
+<section id="problem-statement-addressing-the-limitations-of-deterministic-metrics-in-mmf-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="problem-statement-addressing-the-limitations-of-deterministic-metrics-in-mmf-evaluation">1.2 Problem Statement: Addressing the Limitations of Deterministic Metrics in MMF Evaluation</h3>
+<p>Despite their growing popularity and perceived safety, investors in Kenya’s MMFs often base their fund allocation decisions on limited, deterministic metrics, such as the last month’s Effective Annual Rate (EAR) or simple average annual returns <span class="citation" data-cites="stepbystepinsuranceMoneyMarket">(<a href="#ref-stepbystepinsuranceMoneyMarket" role="doc-biblioref">Step by Step Insurance 2025a</a>)</span>. While seemingly straightforward, these single-point estimates inherently fail to capture the crucial variability and underlying risk of returns over time. This reliance on static indicators can lead to several critical shortcomings in investment decision-making.</p>
+<p><span class="math display">\[
+\text{EAR} = \left(1 + \frac{i}{n}\right)^n - 1
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(i\)</span> = <strong>nominal annual interest rate</strong> (as a decimal)</li>
+<li><span class="math inline">\(n\)</span> = <strong>number of compounding periods per year</strong></li>
+</ul>
+<p>Firstly, the Effective Annual Rate (EAR), while useful for understanding the true cost or return of an investment accounting for compounding, has notable limitations. It assumes a constant interest rate throughout the year, which is often unrealistic in dynamic market conditions. Furthermore, EAR calculations typically do not account for additional fees, taxes, or charges associated with financial products, which can significantly impact the actual profitability. Market volatility and inflation can also cause the actual yield to deviate from the calculated EAR, eroding the purchasing power of returns <span class="citation" data-cites="numberanalytics2025EAR">(<a href="#ref-numberanalytics2025EAR" role="doc-biblioref">Sarah Lee 2025b</a>)</span>.</p>
+<p>Secondly, the Average Rate of Return (ARR) method, commonly used for initial screening, presents even more significant drawbacks for comprehensive risk assessment. It disregards the timing of cash flows, assuming all inflows and outflows occur simultaneously, thereby ignoring the time value of money <span class="citation" data-cites="superbusinessmanager2022ARR">(<a href="#ref-superbusinessmanager2022ARR" role="doc-biblioref">Jerry Grzegorzek 2022</a>)</span>. Crucially, ARR does not consider the risk associated with an investment, potentially overestimating returns for high-risk ventures and underestimating them for low-risk ones <span class="citation" data-cites="tutorchase2024ARRLimitations">(<a href="#ref-tutorchase2024ARRLimitations" role="doc-biblioref">Dave 2024</a>)</span>. This focus solely on accounting profits, which can be subject to manipulation, rather than cash flows, further limits its utility for robust decision-making. Such limitations mean that investors relying solely on these metrics may underestimate the true risk exposure or overlook funds that perform consistently within a favorable, yet less volatile, range <span class="citation" data-cites="superbusinessmanager2022ARR tutorchase2024ARRLimitations">(<a href="#ref-superbusinessmanager2022ARR" role="doc-biblioref">Jerry Grzegorzek 2022</a>; <a href="#ref-tutorchase2024ARRLimitations" role="doc-biblioref">Dave 2024</a>)</span>.</p>
+<p>Moreover, investor decision-making is susceptible to behavioral biases, such as overconfidence and herd mentality, which can be exacerbated by the simplicity of traditional metrics <span class="citation" data-cites="mason2025BehavioralBiases">(<a href="#ref-mason2025BehavioralBiases" role="doc-biblioref">Raymond A. Mason School of Business 2025</a>)</span>. Overconfidence can lead investors to make high-risk investments based on an inflated assessment of their expertise, while herd mentality can cause decisions to be driven by group behavior rather than independent analysis, often resulting in market bubbles or panic selling. The lack of a decision-support framework that explicitly accounts for historical variability and projects the range of possible future outcomes leaves investors vulnerable to these biases and market fluctuations.</p>
+<p>Therefore, there is a pressing need for a more sophisticated framework that moves beyond single-point estimates. By visualizing return distributions rather than relying on deterministic figures, investors can assess both expected gains and potential losses, enabling more resilient and risk-aware investment strategies in the dynamic Kenyan MMF landscape.</p>
+</section>
+<section id="research-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="research-objectives">1.3 Research Objectives</h3>
+<p>The general goal of this study is to provide a robust, risk-adjusted performance evaluation of Kenyan Money Market Fund (MMF) schemes using Monte Carlo simulation.</p>
+<p>To achieve this general objective, the study sets forth the following specific objectives:</p>
+<ul>
+<li>To preprocess historical Effective Annual Rate (EAR) data for Kenyan MMFs</li>
+<li>To model the statistical behavior of scheme-specific returns</li>
+<li>To simulate future return scenarios over a one-year horizon</li>
+<li>To visualize return distributions using statistical plots</li>
+<li>To identify MMFs with superior risk-return profiles to aid investor decision-making</li>
+</ul>
+</section>
+<section id="research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="research-questions">1.4 Research Questions</h3>
+<p>The study aims to address the following research questions:</p>
+<ul>
+<li>How does the historical EARs of different MMF schemes in Kenya compare in terms of variability and risk?</li>
+<li>What are the projected future return distributions for these MMFs based on historical data?</li>
+<li>Which MMF schemes demonstrate the most favorable risk-return profiles, as indicated by their simulated return distributions?</li>
+</ul>
+</section>
+<section id="contribution-of-the-study" class="level3">
+<h3 class="anchored" data-anchor-id="contribution-of-the-study">1.5 Contribution of the Study</h3>
+<p>This study makes several significant contributions to the existing body of knowledge and practical application in financial markets, particularly within the context of emerging economies.</p>
+<p>Firstly, it addresses a critical gap in the literature by applying Monte Carlo simulation specifically to Kenyan Money Market Funds. While Monte Carlo simulation is a well-established technique in global financial markets analysis, its application to less volatile instruments like MMFs, and particularly within the Kenyan market, has been limited. This research demonstrates the value of simulation-based analysis even for instruments perceived as low-risk, highlighting that MMFs are still subject to market influences such as interest rate shifts and macroeconomic fluctuations <span class="citation" data-cites="2024XuMonteCarlo">(<a href="#ref-2024XuMonteCarlo" role="doc-biblioref">Xu 2024a</a>)</span>.</p>
+<p>Secondly, the study provides a robust decision-support framework that moves beyond the limitations of traditional, deterministic performance metrics. By generating forward-looking probability distributions of returns, it offers investors a dynamic and comprehensive view of potential future outcomes, including downside risk, which is often overlooked by metrics like average EARs <span class="citation" data-cites="stepbystepinsuranceMoneyMarket">(<a href="#ref-stepbystepinsuranceMoneyMarket" role="doc-biblioref">Step by Step Insurance 2025a</a>)</span>. This probabilistic approach empowers investors to make more informed, risk-aware decisions by understanding the full spectrum of possible returns, not just expected values.</p>
+<p>Thirdly, the research contributes actionable insights for various stakeholders in the Kenyan financial ecosystem. For investors, it offers a nuanced understanding of risk-return trade-offs, enabling them to select MMFs that align with their specific risk tolerance and capital preservation goals. For financial advisors, it provides a tool for communicating complex risk profiles to clients more effectively through visualization. For fund managers, it emphasizes the importance of transparency in reporting not only historical returns but also metrics like volatility and simulated downside risk. For researchers and developers, it lays the groundwork for extending the framework to include additional macroeconomic variables or fund-specific strategies.</p>
+<p>Finally, by utilizing a curated dataset of monthly EAR values for Kenyan MMFs, the study contributes to improving transparency in Kenya’s collective investment landscape <span class="citation" data-cites="kabui2024">(<a href="#ref-kabui2024" role="doc-biblioref">Kabui, Charles 2024</a>)</span>. The methodology is lightweight, transparent, and fully reproducible using open-source tools, making it accessible for both institutional and retail applications. This work underscores the necessity of integrating risk-aware simulation techniques into everyday fund comparison tools, providing a more reliable and informative basis for investment decisions in emerging markets <span class="citation" data-cites="numberanalytics2025MonteCarloEconomics kpmg2024MonteCarlo">(<a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>; <a href="#ref-kpmg2024MonteCarlo" role="doc-biblioref">KPMG Ghana 2024</a>)</span>.</p>
+</section>
+</section>
+<section id="literature-review" class="level2">
+<h2 class="anchored" data-anchor-id="literature-review">2. Literature Review</h2>
+<section id="money-market-funds-structure-evolution-and-role-in-financial-inclusion" class="level3">
+<h3 class="anchored" data-anchor-id="money-market-funds-structure-evolution-and-role-in-financial-inclusion">2.1 Money Market Funds: Structure, Evolution, and Role in Financial Inclusion</h3>
+<p>Money Market Funds (MMFs) are a cornerstone of the global financial system, designed as pooled mutual funds that invest in short-term, high-quality debt instruments <span class="citation" data-cites="jpmorgan2023">(<a href="#ref-jpmorgan2023" role="doc-biblioref">J.P. Morgan Asset Management 2023</a>)</span>. Their primary objectives are capital preservation, high liquidity, and generating competitive returns relative to other cash equivalents <span class="citation" data-cites="jpmorgan2023">(<a href="#ref-jpmorgan2023" role="doc-biblioref">J.P. Morgan Asset Management 2023</a>)</span>. MMFs typically hold a diversified range of securities from various issuers and maturities, focusing on instruments with the highest short-term credit ratings, such as Treasury bills, Certificates of Deposit (CDs), and commercial paper <span class="citation" data-cites="ebsco2021MoneyMarkets">(<a href="#ref-ebsco2021MoneyMarkets" role="doc-biblioref">Auerbach, Michael P. 2021</a>)</span>. This diversification is crucial for preserving capital and ensuring liquidity.</p>
+<p>The concept of MMFs originated in the late 20th century. The first MMF, Conta Garantia, was introduced in the Brazilian marketplace in 1968 by John Oswin Schroy. This was followed by Bruce R. Bent’s Reserve Fund on Wall Street in 1971, which brought the concept to a much grander scale <span class="citation" data-cites="ebsco2021MoneyMarkets">(<a href="#ref-ebsco2021MoneyMarkets" role="doc-biblioref">Auerbach, Michael P. 2021</a>)</span>. Since then, the global MMF industry has expanded significantly, reaching over USD 7.4 trillion, with a substantial portion driven by institutional investors. MMFs have become popular not only in developed markets like the US and Europe but also across Asia and other fast-developing economies <span class="citation" data-cites="jpmorgan2023">(<a href="#ref-jpmorgan2023" role="doc-biblioref">J.P. Morgan Asset Management 2023</a>)</span>.</p>
+<p>Historically, MMFs aimed to maintain a stable Net Asset Value (NAV), typically $1 per share, using amortized cost accounting <span class="citation" data-cites="jpmorgan2023">(<a href="#ref-jpmorgan2023" role="doc-biblioref">J.P. Morgan Asset Management 2023</a>)</span>. However, the financial crisis of 2008-2009 exposed vulnerabilities, as exemplified by the Reserve Primary Fund, which “broke the buck” (NAV fell below $1) due to holdings of Lehman Brothers’ commercial paper <span class="citation" data-cites="ebsco2021MoneyMarkets">(<a href="#ref-ebsco2021MoneyMarkets" role="doc-biblioref">Auerbach, Michael P. 2021</a>)</span>. This incident led to widespread investor redemptions and necessitated government intervention to stabilize the industry <span class="citation" data-cites="kacperczyk2013HowSafe">(<a href="#ref-kacperczyk2013HowSafe" role="doc-biblioref">Kacperczyk and Schnabl 2013</a>)</span>. In response, regulators introduced new guidelines and accounting methodologies, resulting in three main types of MMF NAV structures: Constant NAV (CNAV), Low Volatility NAV (LVNAV), and Variable/Floating NAV (VNAV/FNAV), each reflecting different risk and accounting approaches <span class="citation" data-cites="jpmorgan2023">(<a href="#ref-jpmorgan2023" role="doc-biblioref">J.P. Morgan Asset Management 2023</a>)</span>.</p>
+<p>In emerging markets like Kenya, MMFs play a vital role in financial development and inclusion. They serve as a crucial alternative to traditional savings accounts, offering higher yields and greater liquidity <span class="citation" data-cites="stepbystepinsuranceMoneyMarket">(<a href="#ref-stepbystepinsuranceMoneyMarket" role="doc-biblioref">Step by Step Insurance 2025a</a>)</span>. The growth of MMFs in Kenya has been substantial, with Assets Under Management (AUM) consistently increasing. For instance, in Q4 2024, MMF AUM totalled Kshs 246.8 billion, accounting for 63.4% of all unit trust investments <span class="citation" data-cites="cytonn2024Q4UnitTrustFundsPerformance">(<a href="#ref-cytonn2024Q4UnitTrustFundsPerformance" role="doc-biblioref">Cytonn Research 2025</a>)</span>, demonstrating their dominant position as a preferred investment choice. This preference is driven by ease of investing, high liquidity, and competitive returns.</p>
+<p>A key aspect of MMFs’ role in financial inclusion in Kenya is their integration with mobile money platforms. The launch of Ziidi Money Market Fund, in partnership with Safaricom’s M-PESA, exemplifies this trend <span class="citation" data-cites="safaricomZiidi2025 ziidi2024Safaricom">(<a href="#ref-safaricomZiidi2025" role="doc-biblioref">Safaricom 2025</a>, <a href="#ref-ziidi2024Safaricom" role="doc-biblioref">2024</a>)</span>. This initiative allows customers to invest from as little as KES 100, earn daily interest, and manage funds directly from their M-PESA wallets, thereby making wealth creation accessible to a broader segment of the population, including low and mid-income earners <span class="citation" data-cites="standardinvestmentbankZiidi2025">(<a href="#ref-standardinvestmentbankZiidi2025" role="doc-biblioref">Standard Investment Bank 2025</a>)</span>. Such innovations are critical for deepening financial wellness and aligning with national economic transformation agendas that aim to empower more Kenyans financially.</p>
+</section>
+<section id="monte-carlo-simulation-theoretical-underpinnings-and-applications-in-finance" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-simulation-theoretical-underpinnings-and-applications-in-finance">2.2 Monte Carlo Simulation: Theoretical Underpinnings and Applications in Finance</h3>
+<p>Monte Carlo simulation is a powerful computational technique that leverages randomness to model and analyze complex systems and predict possible outcomes of uncertain events <span class="citation" data-cites="numberanalytics2025MonteCarloEconomics">(<a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>)</span>. Named after the famous casino city of Monaco, it was invented by John von Neumann and Stanislaw Ulam during World War II, initially for applications in nuclear science, such as understanding the statistical behavior of neutrons in nuclear explosions <span class="citation" data-cites="numberanalytics2025MonteCarloEconomics investopediaMonteCarloSimulation2025">(<a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>; <a href="#ref-investopediaMonteCarloSimulation2025" role="doc-biblioref">Kenton 2025</a>)</span>.</p>
+<p>The theoretical foundation of Monte Carlo simulation rests on several key principles:</p>
+<ol type="1">
+<li><strong>Randomness and Probability</strong>: At its heart, the method involves performing a large number of simulations using random variables drawn from specified probability distributions (e.g., normal, uniform, triangular) to approximate a solution. This allows for the assessment of a wide range of possible outcomes under various conditions, capturing the inherent uncertainty of input parameters <span class="citation" data-cites="numberanalytics2025MonteCarloEconomics">(<a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>)</span></li>
+<li><strong>Law of Large Numbers</strong>: The methodology is grounded in the law of large numbers, which guarantees that as the number of trials or simulations increases, the average outcome of the simulation will converge towards the expected value. This means that the accuracy of the results is directly proportional to the number of simulations performed <span class="citation" data-cites="numberanalytics2025MonteCarloEconomics">(<a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>)</span></li>
+<li><strong>Reproducibility</strong>: Despite the use of random numbers, when the underlying probability distribution is accurately specified and the simulation is rigorously implemented (e.g., by setting random seeds), the results are both reproducible and statistically significant <span class="citation" data-cites="numberanalytics2025MonteCarloEconomics">(<a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>)</span></li>
+</ol>
+<p>In finance, Monte Carlo simulation has become an indispensable tool for managing uncertainty, modeling complex markets, and evaluating policy decisions. Its applications span various domains, including:</p>
+<ul>
+<li><strong>Risk Assessment</strong>: It is widely used to assess Value-at-Risk (VaR) and quantify how likely outcomes will deviate significantly from average predictions. By simulating potential market losses under extreme conditions, financial institutions can identify vulnerabilities and set capital adequacy ratios <span class="citation" data-cites="2024Xu">(<a href="#ref-2024Xu" role="doc-biblioref">Xu 2024b</a>)</span></li>
+<li><strong>Portfolio Optimization and Valuation</strong>: The method allows for simulating the performance of investment portfolios under a variety of market scenarios, providing quantitative evidence to support risk management and aid in portfolio valuation <span class="citation" data-cites="2024Xu">(<a href="#ref-2024Xu" role="doc-biblioref">Xu 2024b</a>)</span></li>
+<li><strong>Performance Forecasting</strong>: Monte Carlo simulation generates forward-looking probability distributions, offering a dynamic view of potential future outcomes for asset prices and investment performance, rather than relying on static historical insights <span class="citation" data-cites="2024Xu numberanalytics2025MonteCarloEconomics">(<a href="#ref-2024Xu" role="doc-biblioref">Xu 2024b</a>; <a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>)</span></li>
+<li><strong>Derivative Pricing</strong>: It is an effective method for estimating the value of derivatives, whose prices are contingent upon the future prices of underlying assets subject to multiple random factors <span class="citation" data-cites="2024Xu">(<a href="#ref-2024Xu" role="doc-biblioref">Xu 2024b</a>)</span></li>
+<li><strong>Stress Testing</strong>: Financial institutions use Monte Carlo simulations for stress testing business performance under extreme market conditions, providing a foundation for robust risk management <span class="citation" data-cites="2024Xu">(<a href="#ref-2024Xu" role="doc-biblioref">Xu 2024b</a>)</span></li>
+</ul>
+<p>The process typically involves defining a mathematical model that links input and output variables, determining appropriate probability distributions for input values, generating a large sample dataset, running the simulation, and finally analyzing the results using statistical tools like histograms to visualize the output distribution. This approach provides a clearer, probabilistic picture compared to deterministic forecasts, especially when dealing with numerous interconnected risk factors.</p>
+</section>
+<section id="limitations-of-traditional-performance-metrics-and-the-value-of-probabilistic-approaches" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-of-traditional-performance-metrics-and-the-value-of-probabilistic-approaches">2.3 Limitations of Traditional Performance Metrics and the Value of Probabilistic Approaches</h3>
+<p>Traditional fund evaluation metrics, such as trailing returns, average annual returns, or even the Effective Annual Rate (EAR), provide static insights that often overlook crucial distributional nuances and inherent risks. While seemingly straightforward, their deterministic nature presents significant limitations for comprehensive investment decision-making <span class="citation" data-cites="superbusinessmanager2022ARR tutorchase2024ARRLimitations">(<a href="#ref-superbusinessmanager2022ARR" role="doc-biblioref">Jerry Grzegorzek 2022</a>; <a href="#ref-tutorchase2024ARRLimitations" role="doc-biblioref">Dave 2024</a>)</span>.</p>
+<p>The Effective Annual Rate (EAR) is valuable for comparing interest rates with different compounding frequencies, reflecting the true cost or return over a year. However, its fundamental limitations include the assumption of a constant interest rate, which is rarely the case in volatile financial markets. EAR also typically excludes fees, taxes, and other charges, which can significantly distort the actual profitability of an investment <span class="citation" data-cites="numberanalytics2025EAR">(<a href="#ref-numberanalytics2025EAR" role="doc-biblioref">Sarah Lee 2025b</a>)</span>. The impact of inflation can also erode the real purchasing power of returns, even with a high nominal EAR <span class="citation" data-cites="tutorchase2024ARRLimitations">(@ <a href="#ref-tutorchase2024ARRLimitations" role="doc-biblioref">Dave 2024</a>)</span>.</p>
+<p>Similarly, the Average Rate of Return (ARR) method, while simple, suffers from several critical drawbacks that undermine its effectiveness in risk assessment. A primary limitation is its disregard for the timing of cash flows, assuming they occur simultaneously, thus failing to account for the time value of money <span class="citation" data-cites="superbusinessmanager2022ARR">(<a href="#ref-superbusinessmanager2022ARR" role="doc-biblioref">Jerry Grzegorzek 2022</a>)</span>. This can lead to inaccurate calculations, as the value of money changes over time due to inflation and interest rates. Crucially, ARR does not consider the inherent risk associated with an investment, potentially overestimating returns for high-risk assets and underestimating them for low-risk ones. Moreover, ARR relies on accounting profits, which can be manipulated, rather than more reliable cash flows <span class="citation" data-cites="tutorchase2024ARRLimitations">(<a href="#ref-tutorchase2024ARRLimitations" role="doc-biblioref">Dave 2024</a>)</span>. It also fails to provide a clear indication of the payback period or opportunity cost of capital, which are vital for liquidity management and comparative analysis. Relying solely on ARR can encourage a short-term investment approach, potentially leading to the rejection of attractive long-term projects with initially lower average returns <span class="citation" data-cites="superbusinessmanager2022ARR">(<a href="#ref-superbusinessmanager2022ARR" role="doc-biblioref">Jerry Grzegorzek 2022</a>)</span>.</p>
+<p>These limitations of traditional metrics are particularly problematic because investor behavior is often influenced by cognitive biases <span class="citation" data-cites="mason2025BehavioralBiases">(<a href="#ref-mason2025BehavioralBiases" role="doc-biblioref">Raymond A. Mason School of Business 2025</a>)</span>. Overconfidence bias, where investors overestimate their abilities, can lead to high-risk investments based on an inflated assessment of expertise. Herd mentality, driven by fear of missing out (FOMO), can cause investors to follow group behavior without independent analysis, contributing to market bubbles or panic selling. Prospect theory highlights loss aversion, where individuals feel the pain of losses more acutely than the pleasure of equivalent gains, influencing decisions to avoid selling losing assets. Regret aversion can cause investors to skip periodic portfolio assessments. When investment decisions are based on simplified metrics that do not fully capture risk, these biases are amplified, leading to potentially suboptimal outcomes.</p>
+<p>In contrast, probabilistic approaches, such as Monte Carlo simulation, offer a superior framework for financial analysis by capturing the full spectrum of uncertainty and variability. By generating thousands of simulated future return paths, Monte Carlo methods provide forward-looking probability distributions, offering a dynamic view of potential outcomes <span class="citation" data-cites="2024Xu">(<a href="#ref-2024Xu" role="doc-biblioref">Xu 2024b</a>)</span>. This allows investors to assess not just expected gains, but also the likelihood of various outcomes, including potential losses (tail risk), which is crucial for risk-aware decision-making <span class="citation" data-cites="numberanalytics2025MonteCarloEconomics">(<a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>)</span>. The ability to quantify uncertainty and visualize return distributions (e.g., through boxplots) enables a nuanced understanding of volatility and downside exposure, fostering more resilient investment strategies <span class="citation" data-cites="2024Xu">(<a href="#ref-2024Xu" role="doc-biblioref">Xu 2024b</a>)</span>. This approach provides a more comprehensive and accurate picture of an investment’s true risk-return profile, mitigating the pitfalls associated with relying solely on static, deterministic metrics <span class="citation" data-cites="ijfs13020049">(<a href="#ref-ijfs13020049" role="doc-biblioref">Pavlik and Michalski 2025</a>)</span>.</p>
+</section>
+<section id="money-market-funds-and-financial-market-dynamics-in-emerging-economies" class="level3">
+<h3 class="anchored" data-anchor-id="money-market-funds-and-financial-market-dynamics-in-emerging-economies">2.4 Money Market Funds and Financial Market Dynamics in Emerging Economies</h3>
+<p>Money Market Funds in emerging economies operate within unique financial market dynamics characterized by distinct opportunities and challenges. While MMFs globally are designed for capital preservation and liquidity, their behavior and evaluation in emerging markets like Kenya can differ significantly from developed markets due to varying economic stability, regulatory environments, and investor behaviors <span class="citation" data-cites="kpmg2024MonteCarlo">(<a href="#ref-kpmg2024MonteCarlo" role="doc-biblioref">KPMG Ghana 2024</a>)</span>.</p>
+<p>Emerging markets often present higher volatility and less predictable financial conditions compared to developed markets <span class="citation" data-cites="kpmg2024MonteCarlo">(<a href="#ref-kpmg2024MonteCarlo" role="doc-biblioref">KPMG Ghana 2024</a>)</span>. This can be attributed to factors such as economic instability, limited access to capital, and the need for robust risk management strategies. For instance, currency fluctuations can significantly undermine profitability and financial stability for businesses in these regions <span class="citation" data-cites="2023EjioforAttah">(<a href="#ref-2023EjioforAttah" role="doc-biblioref">Ejiofor and Attah 2023</a>)</span>. While MMFs are generally considered low-risk, even they are subject to market influences such as interest rate shifts and macroeconomic fluctuations <span class="citation" data-cites="loftycorban2025MoneyMarketFundRates">(<a href="#ref-loftycorban2025MoneyMarketFundRates" role="doc-biblioref">Lofty-Corban 2025</a>)</span>. The Central Bank of Kenya (CBK) plays a crucial role in managing financial markets through monetary policy implementation, foreign exchange reserve management, and domestic debt management, which directly influence the environment for MMFs. Changes in government paper yields, for example, directly impact MMF returns, as these funds invest heavily in short-term government securities.</p>
+<p>Investor behavior in emerging markets can also exhibit unique characteristics. While MMFs are popular for their low risk and liquidity, fund inflows can be highly responsive to fund yields, creating incentives for fund managers to take on more risk in pursuit of higher returns. This was observed during the 2007-2010 financial crisis, where MMFs, despite their perceived safety, expanded their risk-taking opportunities due to increased spreads between risky instruments and safe government securities. This highlights a potential vulnerability to runs, where illiquid assets backing demand deposits, coupled with stable NAV accounting, can lead to forced asset liquidation if market values drop <span class="citation" data-cites="kacperczyk2013HowSafe">(<a href="#ref-kacperczyk2013HowSafe" role="doc-biblioref">Kacperczyk and Schnabl 2013</a>)</span>.</p>
+<p>The regulatory environment, particularly the Capital Markets Authority (CMA) in Kenya, plays a vital role in overseeing MMFs. CMA reports provide crucial data on AUM growth and investment allocations, showing MMFs’ dominance in the Unit Trust Funds sector <span class="citation" data-cites="cytonn2024UnitTrustFundsPerformance">(<a href="#ref-cytonn2024UnitTrustFundsPerformance" role="doc-biblioref">Cytonn Research 2024</a>)</span>. However, challenges in MMF evaluation in emerging markets can stem from data quality and completeness issues, as some schemes may exhibit flat or suspiciously low-variance return profiles, potentially due to stale or synthetic historical data. This necessitates robust data preprocessing and careful interpretation of results <span class="citation" data-cites="kabui2024">(<a href="#ref-kabui2024" role="doc-biblioref">Kabui, Charles 2024</a>)</span>.</p>
+<p>Traditional valuation methods, such as Discounted Cash Flow and Market Multiples, often fall short in emerging markets due to a lack of transparency, inefficiency, and significant economic, political, and social risks. The assumptions underlying models like the Capital Asset Pricing Model (CAPM), such as the availability of a risk-free rate and the efficient market hypothesis, may not hold true in these contexts <span class="citation" data-cites="kpmg2024MonteCarlo">(<a href="#ref-kpmg2024MonteCarlo" role="doc-biblioref">KPMG Ghana 2024</a>)</span>. This further underscores the need for alternative, more robust evaluation techniques.</p>
+<p>In this context, Monte Carlo simulation offers significant advantages. It can model complex, non-linear economic systems by capturing inherent randomness and variability, making it suitable for risk analysis and performance forecasting in volatile emerging markets <span class="citation" data-cites="kpmg2024MonteCarlo">(<a href="#ref-kpmg2024MonteCarlo" role="doc-biblioref">KPMG Ghana 2024</a>)</span>. By quantifying uncertainty and providing probability distributions of potential outcomes, Monte Carlo methods offer a more precise and detailed approach to risk analysis and decision-making than traditional methods, which is particularly beneficial in environments with limited transparency and higher unpredictability <span class="citation" data-cites="numberanalytics2025MonteCarloEconomics">(<a href="#ref-numberanalytics2025MonteCarloEconomics" role="doc-biblioref">Sarah Lee 2025a</a>)</span>. This allows for a more accurate assessment of potential errors in cash flow forecasts, prediction of corporate treasury growth under various scenarios, and optimization of investment decisions by identifying associated risks.</p>
+</section>
+</section>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">3. Methodology</h2>
+<section id="research-design" class="level3">
+<h3 class="anchored" data-anchor-id="research-design">3.1 Research Design</h3>
+<p>The study employs a simulation-based computational research design. This approach is analytical, relying on the robust statistical modeling of historical return data to project future fund performance through computational simulation. Unlike experimental or survey-based data collection, this design focuses on quantitative analysis and probabilistic forecasting. This computational design is particularly well-suited for financial market analysis where complex interactions and uncertainties necessitate probabilistic modeling to generate a comprehensive range of potential outcomes, rather than relying on single deterministic predictions.</p>
+</section>
+<section id="dataset-and-data-preprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-and-data-preprocessing">3.2 Dataset and Data Preprocessing</h3>
+<p>The analysis utilizes a curated dataset of monthly Effective Annual Rate (EAR) values for all Kenyan Money Market Funds (MMFs) spanning from November 2017 to December 2024, <span class="citation" data-cites="kabui2024">(<a href="#ref-kabui2024" role="doc-biblioref">Kabui, Charles 2024</a>)</span>. This dataset was compiled, cleaned, and processed and <a href="https://toknow.ai/posts/kenyan-collective-investment-schemes-dataset/">published on October 4, 2024, with its last modification on December 22, 2024</a>. Data collection involved automated web crawling of Capital Markets Authority (CMA) and Cytonn Research reports. This comprehensive approach to data acquisition contributes to improving transparency within Kenya’s collective investment landscape and serves as a reliable resource for academic and market research.</p>
+<p>The dataset also included supplementary details on Assets Under Management (AUM); however, AUM values were intentionally excluded from the current analysis to maintain a focused examination purely on the return behavior of the MMFs. <strong>It is important to note that data completeness varied across schemes due to differences in their inception dates and reporting practices</strong>.</p>
+<p>To ensure statistical reliability and the integrity of the simulation, a rigorous data preprocessing procedure was followed:</p>
+<ul>
+<li>MMFs with insufficient historical data were identified and excluded from the analysis. This step was crucial to prevent unreliable statistical inferences that could arise from limited data points.</li>
+<li>The remaining data was systematically grouped by scheme, and all <code>NaN</code> (Not a Number) values, representing missing or invalid entries, were cleaned to ensure a complete and consistent dataset for each fund.</li>
+<li>As previously mentioned, Assets Under Management (AUM) data was deliberately excluded to narrow the focus of the study to the dynamics of return behavior, avoiding confounding variables related to fund size or operational scale</li>
+</ul>
+</section>
+<section id="monte-carlo-simulation-procedure" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-simulation-procedure">3.3 Monte Carlo Simulation Procedure</h3>
+<p>Monte Carlo simulation was systematically employed to generate probabilistic return distributions for each eligible MMF scheme. The procedure was meticulously designed to model future return paths based on historical performance, thereby capturing the inherent uncertainty in financial markets. The following steps detail the simulation process:</p>
+<ol type="1">
+<li><p><strong>Compute Scheme-Specific Parameters:</strong> For each MMF scheme, the historical mean (<span class="math inline">\(\mu\)</span>) and standard deviation (<span class="math inline">\(\sigma\)</span>) of the Effective Annual Rate (EAR) values were calculated. These parameters are critical as they define the central tendency and dispersion of historical returns, serving as the basis for projecting future behavior.</p></li>
+<li><p><strong>Convert Annual to Monthly Parameters:</strong> The calculated annual mean (<span class="math inline">\(\mu\)</span>) and standard deviation (<span class="math inline">\(\sigma\)</span>) of EAR were converted to their monthly equivalents. This conversion is necessary because the simulation models monthly return paths. The monthly mean (<span class="math inline">\(\mu_{monthly}\)</span>) was derived using the formula for compounding: <span class="math display">\[
+   \mu_{monthly} = (1 + \mu / 100)^{(1/12)} − 1
+   \]</span></p></li>
+</ol>
+<p>The monthly standard deviation (<span class="math inline">\(\sigma_{monthly}\)</span>) was approximated by dividing the annual standard deviation by the square root of 12 (number of months in a year) and converting to decimal: <span class="math display">\[
+   \sigma_{monthly} = \sigma / \sqrt{12} / 100
+   \]</span></p>
+<p>This adjustment ensures that the simulated monthly volatility is consistent with the observed annual volatility.</p>
+<ol start="3" type="1">
+<li><strong>Simulate Return Paths</strong>: Using the NumPy library in Python, <code>1,000</code> possible return paths were generated for each MMF over a 12-month horizon (equivalent to one year). These paths were generated based on a normal distribution, parameterized by the calculated monthly mean (<span class="math inline">\(\mu_{monthly}\)</span>) and monthly standard deviation (<span class="math inline">\(\sigma_{monthly}\)</span>). The formula used was:</li>
+</ol>
+<pre><code>simulated_paths = np.random.normal(mu_monthly, sigma_monthly, size=(1000, 12))</code></pre>
+<p>This step creates a diverse set of hypothetical future scenarios, reflecting the probabilistic nature of financial returns.</p>
+<ol start="4" type="1">
+<li><strong>Calculate Cumulative Annual Returns:</strong> The simulated monthly returns for each path were compounded to obtain 1-year cumulative return outcomes. The compounding formula applied was:</li>
+</ol>
+<pre><code>cumulative_returns = (1 + simulated_paths).prod(axis=1) - 1</code></pre>
+<p>This step aggregates the monthly simulations into a single annual return figure for each of the 1,000 paths, providing a distribution of potential annual returns for each fund. The results were then stored as percentages for ease of interpretation.</p>
+<p>This systematic procedure allows for the generation of a comprehensive distribution of potential future returns for each MMF, moving beyond simple historical averages to incorporate the inherent uncertainty and variability that characterize financial markets.</p>
+</section>
+<section id="visualization-and-comparative-analysis-techniques" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-and-comparative-analysis-techniques">3.4 Visualization and Comparative Analysis Techniques</h3>
+<p>To effectively communicate the complex probabilistic outcomes of the Monte Carlo simulation and facilitate a nuanced understanding of MMF performance, specific visualization and comparative analysis techniques were employed.</p>
+<p>The primary visualization tool utilized was <strong>boxplots</strong>, generated using Matplotlib. Boxplots are particularly effective for displaying the spread and distribution of 1-year simulated returns for each MMF scheme. A boxplot visually represents the median, interquartile range (IQR), and potential outliers of a dataset. The “box” itself spans from the first quartile (25th percentile) to the third quartile (75th percentile), indicating the central 50% of the data. The line within the box marks the median (50th percentile), which represents the typical return. The “whiskers” extend from the box to indicate the variability outside the interquartile range, and individual points beyond the whiskers are often plotted as outliers. This visualization allows for an immediate qualitative comparison of the central tendency, dispersion, and skewness of returns across different MMFs, providing a clear picture of their potential performance ranges and volatility.</p>
+<p>For a more quantitative and precise comparison of risk-return profiles, descriptive statistics were computed from the simulated return distributions. Key statistics included:</p>
+<ol type="1">
+<li><strong>Median Return:</strong> This metric provides a robust measure of central tendency, less susceptible to extreme values than the mean, representing the typical return an investor might expect.</li>
+<li><strong>25th and 75th Percentiles (Interquartile Range):</strong> These values delineate the middle 50% of the simulated returns, offering a clear indication of the typical spread and consistency of a fund’s performance. A narrower interquartile range generally suggests lower volatility and more predictable returns.</li>
+<li><strong>5th Percentile:</strong> This critical metric quantifies downside risk, indicating the return below which only 5% of simulated outcomes fall. For risk-averse investors, a higher 5th percentile is highly desirable, as it suggests a lower probability of significant losses.</li>
+</ol>
+<p>The summary statistics were rounded to one decimal place for readability and sorted by median return in descending order to easily identify top-performing funds. This combination of simulation and visual analytics, complemented by precise statistical measures, enables a significantly more nuanced understanding of return volatility and downside exposure across different MMFs compared to traditional single-point estimates. It allows investors to assess risk-adjusted outcomes and make more informed decisions by considering the full distribution of potential returns.</p>
+</section>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">4. Results</h2>
+<section id="boxplot-visualization-of-simulated-12-month-returns" class="level3">
+<h3 class="anchored" data-anchor-id="boxplot-visualization-of-simulated-12-month-returns">4.1 Boxplot Visualization of Simulated 12-Month Returns</h3>
+<p>The Monte Carlo simulation produced 1,000 possible 12-month return paths for 30 Money Market Fund (MMF) schemes in Kenya. These simulated returns were then visualized using boxplots, providing a comprehensive graphical representation of their respective distributions. The boxplot visualization, titled “Simulated 12-Month Return Distribution per Scheme,” illustrates the median, interquartile range, and overall spread of potential returns for each fund.</p>
+<!-- The boxplots reveal distinct profiles across the MMFs, highlighting variations in both expected returns and their associated variability. Funds with taller boxes and longer whiskers indicate higher volatility and a wider range of possible outcomes, suggesting greater risk. Conversely, funds with shorter boxes and tighter whiskers demonstrate more consistent performance and lower volatility. The position of the median line within the box provides insight into the skewness of the distribution, indicating whether returns are more concentrated towards higher or lower values. This visual representation is crucial for investors to quickly grasp the risk-return trade-offs inherent in each MMF, moving beyond simple average returns to understand the full spectrum of potential gains and losses. -->
+<div id="b3fc6a48" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tbl-colwidths="[30,30,15,60]">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> <span class="st">"ToKnow-ai/Kenyan-Collective-Investment-Schemes-Dataset"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">"Processed Investment Schemes Records"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    split <span class="op">=</span> <span class="st">'data'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to pandas DataFrame</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> dataset.to_pandas()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, label <span class="kw">in</span> <span class="bu">enumerate</span>(dataset.features[<span class="st">'entry_type'</span>].names):</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'entry_type'</span>] <span class="op">=</span> df[<span class="st">'entry_type'</span>].replace(index, label)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>df.tail(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<div class="table-responsive">
+<table class="dataframe caption-top table-striped table table-sm small" data-quarto-postprocess="true" data-border="1">
+<caption>Kenyan Collective Investment Schemes Dataset</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">entry_type</th>
+<th data-quarto-table-cell-role="th">entry_date</th>
+<th data-quarto-table-cell-role="th">entry_value</th>
+<th data-quarto-table-cell-role="th">entry_scheme</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86848</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>13.0</td>
+<td>ICEA Unit Trust Scheme</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">86849</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>12.7</td>
+<td>CIC Unit Trust Scheme</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86850</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>12.7</td>
+<td>Absa Unit Trust Funds</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">86851</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>12.5</td>
+<td>Mayfair umbrella Collective investment scheme</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86852</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>12.2</td>
+<td>African Alliance Kenya Unit Trust Scheme</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">86853</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>12.2</td>
+<td>Ziidi Money Market Fund</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86854</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>11.8</td>
+<td>Stanbic Unit Trust Funds</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">86855</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>8.5</td>
+<td>Equity Investment Bank Collective Investment S...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86856</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>13.9</td>
+<td>Dry Associates Unit Trust Scheme</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">86857</td>
+<td>EFFECTIVE_ANNUAL_RATE</td>
+<td>2024-12-22</td>
+<td>17.1</td>
+<td>Cytonn Unit Trust Scheme</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+<div id="2853e232" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>group_df <span class="op">=</span> df.groupby([<span class="st">'entry_scheme'</span>, <span class="st">'entry_type'</span>])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>simulations <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>entry_schemes <span class="op">=</span> df[<span class="st">'entry_scheme'</span>].unique()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> {}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> entry_scheme <span class="kw">in</span> entry_schemes:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (entry_scheme, <span class="st">'EFFECTIVE_ANNUAL_RATE'</span>) <span class="kw">not</span> <span class="kw">in</span> group_df.groups:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  ear_data <span class="op">=</span> group_df.get_group(</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>     (entry_scheme, <span class="st">'EFFECTIVE_ANNUAL_RATE'</span>))[<span class="st">"entry_value"</span>].dropna()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="bu">len</span>(ear_data) <span class="op">&lt;</span> <span class="dv">6</span>:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span>  <span class="co"># not enough history</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  mu <span class="op">=</span> ear_data.mean()</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  sigma <span class="op">=</span> ear_data.std()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert EAR mean and std deviation (annual %) to monthly decimal</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  mu_monthly <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> mu <span class="op">/</span> <span class="dv">100</span>) <span class="op">**</span> (<span class="dv">1</span> <span class="op">/</span> <span class="dv">12</span>) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  sigma_monthly <span class="op">=</span> sigma <span class="op">/</span> np.sqrt(<span class="dv">12</span>) <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate 12 months of returns</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  simulated_paths <span class="op">=</span> np.random.normal(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>     mu_monthly, sigma_monthly, size<span class="op">=</span>(simulations, months))</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compound returns over 12 months</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  cumulative_returns <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> simulated_paths).prod(axis<span class="op">=</span><span class="dv">1</span>) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store in results as percentage</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  results[entry_scheme] <span class="op">=</span> cumulative_returns <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>simulated_df <span class="op">=</span> pd.DataFrame(results)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate medians per scheme (column)</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>medians <span class="op">=</span> simulated_df.median()</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort columns by median descending</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>sorted_columns <span class="op">=</span> medians.sort_values(ascending<span class="op">=</span><span class="va">False</span>).index</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder simulated_df</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>sorted_simulated_df <span class="op">=</span> simulated_df[sorted_columns]</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot sorted boxplot</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>sorted_simulated_df.boxplot(rot<span class="op">=</span><span class="dv">90</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Simulated 12-Month Return Distribution per Scheme"</span>)</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Total Return (%)"</span>)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="index.render_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Simulated 12-Month Return Distribution per Scheme"><img src="index.render_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img" decoding="async" loading="lazy" alt="Simulated 12-Month Return Distribution per Scheme"></a></p>
+<figcaption>Simulated 12-Month Return Distribution per Scheme</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-statistics-of-simulated-returns" class="level3">
+<h3 class="anchored" data-anchor-id="summary-statistics-of-simulated-returns">4.2 Summary Statistics of Simulated Returns</h3>
+<p>To complement the visual insights from the boxplots, detailed summary statistics were computed for the simulated 12-month returns of each MMF scheme. These statistics provide quantitative measures of central tendency, dispersion, and downside risk, enabling a precise comparison of fund performance. The table below presents the median, 25th percentile, 75th percentile, and 5th percentile for each scheme, sorted by median return in descending order.</p>
+<div class="cell" data-tbl-colwidths="[60,40,40,40,40]">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute symmary statistic</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Scheme'</span>: simulated_df.columns,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Median (%)'</span>: simulated_df.median(),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'25th (%)'</span>: simulated_df.quantile(<span class="fl">0.25</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'75th (%)'</span>: simulated_df.quantile(<span class="fl">0.75</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'5th (%)'</span>: simulated_df.quantile(<span class="fl">0.05</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Round values for readability</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="op">=</span> summary_stats.<span class="bu">round</span>(<span class="dv">1</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by Median if desired</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="op">=</span> summary_stats.sort_values(</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    by<span class="op">=</span><span class="st">'Median (%)'</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Display top result</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>summary_stats.head(<span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<div class="table-responsive">
+<table class="dataframe caption-top table-striped table table-sm small" data-quarto-postprocess="true" data-border="1">
+<caption>Median, 25th Percentile, 75th Percentile, and 5th Percentile</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Scheme</th>
+<th data-quarto-table-cell-role="th">Median (%)</th>
+<th data-quarto-table-cell-role="th">25th (%)</th>
+<th data-quarto-table-cell-role="th">75th (%)</th>
+<th data-quarto-table-cell-role="th">5th (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Lofty Corban Unit Trust Scheme</td>
+<td>17.2</td>
+<td>16.5</td>
+<td>18.0</td>
+<td>15.2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Arvocap Unit Trust Scheme</td>
+<td>16.9</td>
+<td>16.5</td>
+<td>17.2</td>
+<td>15.9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>GenAfrica Unit Trust Scheme</td>
+<td>15.9</td>
+<td>14.6</td>
+<td>17.1</td>
+<td>12.9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Etica Capital Limited</td>
+<td>15.8</td>
+<td>13.5</td>
+<td>17.8</td>
+<td>10.3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Waanzilishi Capital Limited</td>
+<td>15.5</td>
+<td>15.5</td>
+<td>15.5</td>
+<td>15.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Mayfair umbrella Collective investment scheme</td>
+<td>14.2</td>
+<td>13.2</td>
+<td>15.2</td>
+<td>11.9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Enwealth Capital Unit Trust Scheme</td>
+<td>14.0</td>
+<td>12.7</td>
+<td>15.5</td>
+<td>10.7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Kuza Asset Management Unit Trust Scheme</td>
+<td>13.8</td>
+<td>11.4</td>
+<td>16.0</td>
+<td>8.6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Stanbic Unit Trust Funds</td>
+<td>13.7</td>
+<td>12.9</td>
+<td>14.5</td>
+<td>11.7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Jubilee Unit Trust Collective Investment Scheme</td>
+<td>13.7</td>
+<td>12.1</td>
+<td>15.1</td>
+<td>9.9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>KCB Unit Trust Scheme (formerly Natbank Unit T...</td>
+<td>12.9</td>
+<td>11.2</td>
+<td>14.7</td>
+<td>9.1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Mali Money Market Fund</td>
+<td>12.3</td>
+<td>10.2</td>
+<td>14.7</td>
+<td>7.3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Absa Unit Trust Funds</td>
+<td>11.8</td>
+<td>9.8</td>
+<td>14.0</td>
+<td>6.7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Cytonn Unit Trust Scheme</td>
+<td>11.7</td>
+<td>10.3</td>
+<td>13.2</td>
+<td>8.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Nabo Africa Funds</td>
+<td>10.7</td>
+<td>9.2</td>
+<td>12.2</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Apollo Unit Trust Scheme</td>
+<td>10.6</td>
+<td>9.2</td>
+<td>12.3</td>
+<td>7.1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Co-op Trust Fund</td>
+<td>10.6</td>
+<td>8.6</td>
+<td>12.5</td>
+<td>5.7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Dry Associates Unit Trust Scheme</td>
+<td>10.2</td>
+<td>9.0</td>
+<td>11.5</td>
+<td>7.3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Genghis Unit Trust Funds</td>
+<td>10.1</td>
+<td>8.8</td>
+<td>11.4</td>
+<td>7.2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Equity Investment Bank Collective Investment S...</td>
+<td>10.1</td>
+<td>8.1</td>
+<td>12.3</td>
+<td>5.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Orient Umbrella Collective Investment Scheme (...</td>
+<td>10.0</td>
+<td>9.3</td>
+<td>10.8</td>
+<td>8.2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Madison Unit Trust Fund</td>
+<td>9.9</td>
+<td>9.0</td>
+<td>10.8</td>
+<td>7.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>Zimele Unit Trust Scheme</td>
+<td>9.9</td>
+<td>9.9</td>
+<td>9.9</td>
+<td>9.8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>CIC Unit Trust Scheme</td>
+<td>9.8</td>
+<td>9.3</td>
+<td>10.3</td>
+<td>8.6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>ICEA Unit Trust Scheme</td>
+<td>9.7</td>
+<td>8.4</td>
+<td>11.1</td>
+<td>6.4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>Old Mutual Unit Trust Scheme</td>
+<td>9.7</td>
+<td>7.7</td>
+<td>11.8</td>
+<td>5.1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Sanlam Unit Trust Scheme</td>
+<td>9.7</td>
+<td>8.7</td>
+<td>10.7</td>
+<td>7.3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>African Alliance Kenya Unit Trust Scheme</td>
+<td>9.5</td>
+<td>7.2</td>
+<td>12.0</td>
+<td>4.1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>NCBA Unit Trust Funds</td>
+<td>9.3</td>
+<td>8.8</td>
+<td>9.9</td>
+<td>8.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>British-American Unit Trust Scheme</td>
+<td>9.1</td>
+<td>8.0</td>
+<td>10.3</td>
+<td>6.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+<section id="key-observations-from-the-simulation-results" class="level3">
+<h3 class="anchored" data-anchor-id="key-observations-from-the-simulation-results">4.3 Key Observations from the Simulation Results</h3>
+<p>The Monte Carlo simulations revealed distinct return profiles among the 30 Money Market Fund (MMF) schemes in Kenya, offering a granular view beyond simple average returns. Several important patterns emerged from the updated summary statistics and boxplot visualizations:</p>
+<section id="top-performing-funds-by-median-return" class="level4">
+<h4 class="anchored" data-anchor-id="top-performing-funds-by-median-return">Top Performing Funds by Median Return:</h4>
+<ul>
+<li><strong>Lofty Corban Unit Trust Scheme</strong> demonstrated the highest simulated median annual return at <code>17.2%</code>, followed closely by <strong>Arvocap Unit Trust Scheme</strong> at <code>16.9%</code>. These funds also exhibited relatively narrow percentile ranges, particularly evident in Arvocap’s tight spread (<code>16.5%</code> to <code>17.2%</code> between the 25th and 75th percentiles), suggesting both high performance and a notable degree of stability. This combination of high returns and low variability makes them particularly attractive for investors prioritizing consistent growth.</li>
+<li><strong>Etica Capital Limited</strong> and <strong>GenAfrica Unit Trust Scheme</strong> achieved strong median returns of <code>15.8%</code>. However, their wider spreads between the 25th and 75th percentiles (e.g., Etica: <code>13.5%</code> to <code>17.8%</code>) indicate higher volatility compared to Lofty Corban and Arvocap, implying greater potential for both higher gains and larger fluctuations.</li>
+<li><strong>Waanzilishi Capital Limited</strong> reported a highly compressed distribution, with identical values for all percentiles (<code>15.5%</code>). This flat distribution raises concerns about the underlying historical return series, suggesting it might be static or incomplete, as genuine market-driven returns typically exhibit some degree of variability.</li>
+</ul>
+</section>
+<section id="lower-performing-funds" class="level4">
+<h4 class="anchored" data-anchor-id="lower-performing-funds">Lower Performing Funds:</h4>
+<ul>
+<li>At the lower end of the rankings, <strong>NCBA Unit Trust Funds</strong> and <strong>British-American Unit Trust Scheme</strong> showed median returns of <code>9.3%</code>. These funds generally exhibited relatively tight distributions (e.g., NCBA: <code>8.8%</code> to <code>9.9%</code>), reflecting a pattern of lower but more stable performance. For investors with a very low-risk appetite, such funds might be considered for capital preservation, even if returns are modest.</li>
+<li><strong>African Alliance Kenya Unit Trust Scheme</strong> presented one of the widest spreads among the lower-performing funds, with a median of <code>9.7%</code> but a 5th percentile as low as <code>4.1%</code>. This wide range, especially the low 5th percentile, suggests significant downside risk, indicating that while the median return is near the average, there is a non-trivial probability of experiencing substantially lower returns.</li>
+</ul>
+</section>
+<section id="notable-patterns" class="level4">
+<h4 class="anchored" data-anchor-id="notable-patterns">Notable Patterns:</h4>
+<ul>
+<li><strong>Data Quality Indicators:</strong> Several schemes, such as Zimele Unit Trust Scheme and Waanzilishi Capital Limited, displayed zero or near-zero variance across their simulated returns. Zimele, for instance, showed a median of 9.9% with 25th, 75th, and 5th percentiles all at <code>9.9%</code> or <code>9.8%</code>. This lack of variability strongly suggests issues with stale, incomplete, or potentially synthetic historical data, which can significantly impact the reliability of any simulation-based analysis. Such observations highlight the critical importance of robust data quality checks in financial modeling.</li>
+<li><strong>Balance of Return and Risk:</strong> Funds like Kuza Asset Management Unit Trust Scheme, Enwealth Capital Unit Trust Scheme, and Mayfair umbrella Collective investment scheme offered solid median returns (ranging from <code>13.8%</code> to <code>14.2%</code>) with moderate variability. For example, Kuza’s 5th percentile was <code>8.6%</code>, indicating a reasonable downside protection despite a wider interquartile range. These funds potentially offer a good balance between achieving competitive returns and managing risk, appealing to a broader range of investors who seek more than just capital preservation but are still risk-averse.</li>
+</ul>
+<p>These observations collectively demonstrate that relying solely on average EARs would provide an incomplete and potentially misleading picture of MMF performance. The distributional insights derived from Monte Carlo simulation reveal crucial differences in risk exposure and return consistency across funds, empowering investors to make more informed and risk-adjusted decisions.</p>
+</section>
+</section>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">5. Discussion</h2>
+<section id="interpreting-risk-return-trade-offs-in-kenyan-mmfs" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-risk-return-trade-offs-in-kenyan-mmfs">5.1 Interpreting Risk-Return Trade-offs in Kenyan MMFs</h3>
+<p>The simulation results provide a nuanced perspective on the risk-return trade-offs prevalent within Kenyan Money Market Funds, moving beyond the simplistic view offered by traditional metrics. While MMFs are generally considered low-risk instruments, the analysis reveals significant variability in their performance profiles, underscoring that even within this asset class, higher returns are often accompanied by greater volatility and potential for downside risk.</p>
+<p>Funds such as Lofty Corban Unit Trust Scheme and Arvocap Unit Trust Scheme demonstrated both high median returns (<code>17.2%</code> and <code>16.9%</code> respectively) and relatively narrow percentile ranges, particularly Arvocap’s tight distribution. This combination suggests that these funds have historically managed to deliver superior returns with a degree of consistency, making them attractive for investors seeking strong performance without excessive volatility. Their narrow spreads indicate a lower probability of significant deviations from their median return.</p>
+<p>Conversely, funds like Etica Capital Limited and Kuza Asset Management Unit Trust Scheme also exhibited elevated median performance (<code>15.8%</code> and <code>13.8%</code>respectively) but were characterized by wider interquartile ranges and lower 5th percentile values. For example, Etica’s 5th percentile was <code>10.3%</code>, and Kuza’s was <code>8.6%</code>. This pattern indicates increased downside potential, meaning that while these funds might offer higher average returns, investors face a greater probability of experiencing returns significantly below the median. This highlights a classic risk-return trade-off: pursuing higher potential gains often entails accepting a broader range of possible outcomes, including less favorable ones.</p>
+<p>For risk-averse investors, the stability and consistency of returns are paramount. Funds like Stanbic Unit Trust Funds and Arvocap Unit Trust Scheme (despite its higher median) offer strong returns (<code>13.7%</code> and <code>16.8%</code> respectively) with relatively narrow spreads. This makes them appealing to those prioritizing capital preservation and predictable income over maximizing absolute returns. The 5th percentile, in particular, becomes a crucial metric for such investors, as it provides a quantifiable measure of the worst-case scenario within a high degree of confidence. A fund with a higher 5th percentile, even if its median is slightly lower, may be preferred by investors who are more concerned about avoiding losses than achieving maximum gains, aligning with the concept of loss aversion in behavioral finance.</p>
+<p>The analysis also revealed funds like African Alliance Kenya Unit Trust Scheme, which, despite a median return of <code>9.5%</code>, had a notably low 5th percentile of <code>4.1%</code>. This wide spread and significant downside exposure indicate that while the fund might appear average based on its median, it carries substantial risk of underperforming expectations, which would not be evident from a simple EAR figure. This emphasizes that investors must consider the entire distribution of potential returns to accurately assess the risk-adjusted performance of an MMF.</p>
+</section>
+<section id="the-power-of-distributional-insight-for-informed-investment-decisions" class="level3">
+<h3 class="anchored" data-anchor-id="the-power-of-distributional-insight-for-informed-investment-decisions">5.2 The Power of Distributional Insight for Informed Investment Decisions</h3>
+<p>This study strongly confirms that Monte Carlo simulation adds substantial value to the evaluation of financial instruments, even for those traditionally considered low-volatility like Money Market Funds. The primary strength of this approach lies in its ability to capture the full return distribution, providing investors with a deeper and more realistic understanding of potential outcomes than traditional single-point estimates.</p>
+<p>Traditional metrics, such as trailing EAR or average annual return, inherently fail to expose hidden risks or accurately convey performance stability. For instance, an MMF might report a high average EAR, leading investors to believe it is consistently top-performing. However, the simulation can reveal that this average is achieved through significant volatility, with a high probability of both very high and very low returns. This is precisely where distributional insight becomes invaluable. By visualizing the spread of returns through boxplots and quantifying it with percentiles (e.g., 25th, 75th, and 5th percentiles), investors gain a comprehensive view of the fund’s risk profile.</p>
+<p>The 5th percentile, in particular, serves as a critical indicator of downside risk, providing a quantifiable measure of potential losses that is absent from average return figures. For a risk-averse investor, knowing that a fund’s return is unlikely to fall below a certain threshold (e.g., 5th percentile) offers a more robust basis for decision-making than simply observing its median return. This allows investors to align their choices with their actual risk tolerance and capital preservation goals, rather than being misled by headline figures.</p>
+<p>Furthermore, understanding the full distribution helps mitigate behavioral biases that often influence investment decisions. For example, herd mentality, where investors follow popular trends, can be challenged by presenting a clear picture of the underlying volatility and downside potential of a “hot” fund. Similarly, overconfidence, which can lead to underestimation of risk, is addressed by explicitly showing the range of possible outcomes, including less favorable ones. By providing a probabilistic framework, the Monte Carlo simulation encourages a more rational and data-driven approach, fostering a deeper understanding of market dynamics and the inherent uncertainties.</p>
+<p>Ultimately, the findings support the integration of risk-aware simulation techniques into everyday fund comparison tools. These methods are lightweight, transparent, and significantly more informative than relying on historical EAR snapshots alone. They empower investors to assess risk-adjusted outcomes, leading to more resilient and informed investment strategies in the dynamic financial landscape of Kenya.</p>
+</section>
+<section id="implications-of-data-quality-for-financial-modeling-in-emerging-markets" class="level3">
+<h3 class="anchored" data-anchor-id="implications-of-data-quality-for-financial-modeling-in-emerging-markets">5.3 Implications of Data Quality for Financial Modeling in Emerging Markets</h3>
+<p>The simulation results highlighted a critical aspect of financial modeling in emerging markets: the paramount importance of data quality and completeness. The observation of flat or suspiciously low-variance return profiles for certain schemes, such as Waanzilishi Capital Limited and Zimele Unit Trust Scheme, directly points to potential issues with the underlying historical data.</p>
+<p>When a fund’s simulated return distribution shows little to no variability (e.g., identical values for median, 25th, 75th, and 5th percentiles), it suggests that the historical data used to derive the mean and standard deviation might be stale, incomplete, or even synthetic. In a dynamic financial market, even for relatively low-volatility instruments like MMFs, some degree of fluctuation in returns is expected due to changing interest rates, macroeconomic conditions, and fund management decisions. A lack of such variability in historical data can lead to an artificially narrow, and therefore misleading, simulated distribution.</p>
+<p>This phenomenon has several significant implications for financial modeling and investor decision-making in emerging markets:</p>
+<ul>
+<li><strong>Reliability of Projections:</strong> If the input data does not accurately reflect the true historical variability of a fund, any simulation built upon it will produce unreliable projections. This can lead investors to misjudge the actual risk and return characteristics of a fund, potentially making decisions based on flawed assumptions.</li>
+<li><strong>Transparency and Trust:</strong> The presence of such data anomalies can erode trust in publicly available financial information. For regulators and market participants, it underscores the need for enhanced data reporting standards and more rigorous validation processes.</li>
+<li><strong>Challenges in Emerging Markets:</strong> Emerging markets often face unique challenges in data transparency and availability compared to more developed markets. Economic, political, and social risks can be significant, and the unique cultural and regulatory environments can make it difficult to obtain accurate and consistent market data for valuation purposes. This makes robust data preprocessing and critical assessment of data sources even more crucial.</li>
+<li><strong>Methodological Robustness:</strong> While Monte Carlo simulation is a powerful tool, its effectiveness is inherently tied to the quality of the input data. The principle that “the outcomes generated by the simulation follow a normal distribution, forming a bell curve. However, the simulation assumes a perfectly efficient market and neglects external factors influencing price movements” means that if the historical data itself is flawed, the resulting bell curve may not accurately represent true market behavior.</li>
+</ul>
+<p>Therefore, this study’s findings serve as a flag for data quality issues, emphasizing that even with advanced simulation techniques, the integrity of the input data remains foundational. Future research and practical applications in emerging markets must prioritize rigorous data validation and, where necessary, explore methods to impute or adjust for missing or anomalous historical data to ensure the reliability and validity of financial models.</p>
+</section>
+<section id="broader-context-kenyan-mmfs-within-the-national-and-regional-financial-ecosystem" class="level3">
+<h3 class="anchored" data-anchor-id="broader-context-kenyan-mmfs-within-the-national-and-regional-financial-ecosystem">5.4 Broader Context: Kenyan MMFs within the National and Regional Financial Ecosystem</h3>
+<p>Kenyan Money Market Funds operate within a dynamic national and regional financial ecosystem, influenced by macroeconomic conditions, regulatory frameworks, and technological advancements. Their increasing prominence reflects broader trends in financial deepening and inclusion within East Africa.</p>
+<p><strong>Macroeconomic and Regulatory Environment:</strong> The Central Bank of Kenya (CBK) plays a pivotal role in shaping the financial markets through its monetary policy implementation, management of foreign exchange reserves, and domestic debt management. These functions directly impact interest rates and liquidity, which in turn influence the yields offered by MMFs. For instance, a decline in Treasury bill rates directly affects MMF returns given their significant investment in short-term government securities. The Capital Markets Authority (CMA) provides regulatory oversight, ensuring MMFs adhere to investment guidelines.</p>
+<p><strong>Financial Inclusion and Digital Transformation:</strong> A significant driver of MMF growth in Kenya is the pervasive mobile money ecosystem, particularly M-PESA. Initiatives like the Ziidi Money Market Fund, a partnership between Safaricom and fund managers, exemplify how digital platforms are democratizing access to investment products. With minimum investments as low as KES 100 and instant withdrawals via M-PESA, these mobile-first MMFs have attracted hundreds of thousands of new investors, significantly enhancing financial inclusion for previously underserved populations. This aligns with the government’s bottom-up economic transformation agenda by enabling low and mid-income earners to participate in wealth creation. The ability to earn daily compounded interest and the transparency of daily interest rates further incentivize participation.</p>
+<p><strong>Investor Behavior and Market Dynamics:</strong> Kenyan investors increasingly view MMFs as a preferred savings vehicle for emergency funds and short-term goals due to their capital preservation focus and liquidity. However, the analysis highlights that even within MMFs, investors face choices with varying risk-return profiles. The observed responsiveness of fund inflows to yields can create incentives for fund managers to take on more risk, as seen in global contexts during financial crises. This dynamic, coupled with the potential for behavioral biases, necessitates robust analytical tools like Monte Carlo simulation to provide a clearer, risk-adjusted view of performance.</p>
+<p><strong>Comparison with Other Investment Avenues:</strong> While MMFs offer competitive returns compared to bank savings accounts, their real returns can be impacted by inflation. For example, with Kenya’s 2025 inflation at 3.8% in May 2025 <span class="citation" data-cites="knbs2025CPIInflation">(<a href="#ref-knbs2025CPIInflation" role="doc-biblioref">Kenya National Bureau of Statistics 2025</a>)</span>, a 10-12% average MMF return translates to a real return of approximately <code>7.2%</code>. This suggests that while MMFs are excellent for short-term capital preservation and liquidity, they may not be sufficient for long-term wealth creation that significantly outpaces inflation. Diversification across different asset classes, including real estate and government securities remains crucial for maximizing returns and minimizing systematic risk over longer horizons.</p>
+<p>In essence, Kenyan MMFs are not isolated financial products but integral components of a rapidly evolving financial landscape. Their growth is intertwined with digital innovation, regulatory oversight, and shifting investor preferences, making a nuanced, risk-aware evaluation essential for sustainable financial development.</p>
+</section>
+<section id="comparison-with-global-and-emerging-market-trends-in-mmf-performance-and-risk" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-with-global-and-emerging-market-trends-in-mmf-performance-and-risk">5.5 Comparison with Global and Emerging Market Trends in MMF Performance and Risk</h3>
+<p>The performance and risk characteristics of Kenyan MMFs, as revealed by this study, resonate with broader global and emerging market trends, while also exhibiting unique local nuances.</p>
+<p><strong>Global MMF Industry Growth and Structure:</strong> The significant growth of Kenyan MMFs, with AUM reaching Kshs 246.8 billion by Q4’2024 and a 5-year CAGR of 31.8% <span class="citation" data-cites="cytonn2024Q4UnitTrustFundsPerformance">(<a href="#ref-cytonn2024Q4UnitTrustFundsPerformance" role="doc-biblioref">Cytonn Research 2025</a>)</span>, mirrors the global expansion of the MMF industry to over USD 7.4 trillion <span class="citation" data-cites="jpmorgan2023">(<a href="#ref-jpmorgan2023" role="doc-biblioref">J.P. Morgan Asset Management 2023</a>)</span>. This global trend is driven by both institutional and retail investors seeking liquidity and capital preservation. The structure of Kenyan MMFs, investing in short-term, high-quality debt instruments like Treasury bills and commercial paper, aligns with international norms.</p>
+<!-- However, Kenya's MMF assets to GDP ratio of 1.6% in Q4'2024 remains below the global average of 8.6%, indicating substantial room for further growth and financial deepening. -->
+<p><strong>Risk-Taking Incentives and Vulnerability:</strong> Globally, MMFs have historically been perceived as safe, almost cash-like investments. However, the 2008 financial crisis exposed their vulnerabilities, particularly their incentives to take on risk due to fund inflows being highly responsive to yields. This led to an unprecedented expansion of risk-taking opportunities as spreads between risky and safe instruments widened. While Kenyan MMFs are less volatile than their global counterparts, the observed variability in simulated returns and the presence of funds with wider downside spreads suggest that similar risk-taking incentives, though perhaps less pronounced, may exist. The flat distributions observed for some Kenyan funds could also be indicative of data issues that mask underlying risks.</p>
+<p><strong>Challenges in Emerging Market Evaluation:</strong> Evaluating MMFs in emerging markets presents unique challenges that resonate across academic studies. These include economic instability, limited access to capital, and the need for robust risk management strategies. The difficulty in obtaining accurate market data and the potential for significant economic, political, and social risks in these regions make traditional valuation methods less reliable. Assumptions underpinning conventional financial models, such as the efficient market hypothesis, may not hold true in emerging markets, necessitating alternative approaches. This study’s use of Monte Carlo simulation directly addresses these challenges by providing a probabilistic framework that can model complex systems and quantify uncertainty, a recognized benefit in emerging market finance.</p>
+<p><strong>Role in Financial Inclusion:</strong> The role of MMFs in driving financial inclusion is a shared trend across many emerging economies. The success of mobile-integrated MMFs in Kenya, such as Ziidi MMF, which allows micro-investments and instant access via M-PESA, exemplifies how fintech innovations are bridging the gap between traditional financial services and underserved populations. This aligns with broader efforts to empower local entrepreneurs and stimulate economic growth by improving access to capital and fostering financial literacy.</p>
+<p>In summary, Kenyan MMFs are part of a global financial phenomenon, adapting to local market conditions and leveraging technological advancements to expand financial access. However, they also share common challenges with other emerging markets, particularly regarding data quality and the need for sophisticated risk assessment tools that move beyond simplistic metrics to provide a true picture of risk-adjusted performance.</p>
+</section>
+</section>
+<section id="conclusion-and-recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-and-recommendations">6. Conclusion and Recommendations</h2>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">6.1 Conclusion</h3>
+<p>This study demonstrates the effectiveness of Monte Carlo simulation in evaluating the performance of Money Market Fund (MMF) schemes under uncertainty. By modeling 1,000 possible future return paths per fund using historical EAR data, the analysis captures both expected returns and the variability around them - providing a richer, distribution-based perspective on performance.</p>
+<p>Key conclusions include:</p>
+<ul>
+<li><strong>Return variability across MMFs is significant</strong>, even when average EARs appear similar. Some funds offer higher potential returns but with greater downside risk</li>
+<li><strong>Median return alone is insufficient</strong> as a decision metric. Distributional characteristics such as the 5th percentile or interquartile range reveal crucial risk exposures</li>
+<li><strong>Probabilistic modeling enables more informed investment decisions</strong> by allowing investors to assess risk-adjusted outcomes rather than relying on point estimates</li>
+<li>The simulation framework is <strong>lightweight and fully reproducible</strong> using open-source tools like NumPy and pandas, making it suitable for both institutional and retail applications</li>
+</ul>
+</section>
+<section id="recommendations" class="level3">
+<h3 class="anchored" data-anchor-id="recommendations">6.2 Recommendations</h3>
+<ol type="1">
+<li><strong>For Investors</strong>: Consider both median and lower-percentile returns when selecting MMFs. Funds with moderate but consistent performance may be more suitable for capital preservation goals.</li>
+<li><strong>For Financial Advisors</strong>: Use simulation-based visualizations (e.g., boxplots, risk-return maps) to communicate risk profiles to clients. This can help steer conversations beyond headline EARs toward more robust decision-making.</li>
+<li><strong>For Fund Managers</strong>: Enhance transparency by reporting not only historical returns but also metrics like volatility, simulated downside risk, and range of possible outcomes.</li>
+<li><strong>For Researchers and Developers</strong>: Extend this framework to include macroeconomic variables (e.g., interest rate trends), fund-specific strategies, or peer clustering to develop more nuanced fund comparison models.</li>
+</ol>
+</section>
+<section id="limitations" class="level3">
+<h3 class="anchored" data-anchor-id="limitations">6.3 Limitations</h3>
+<p>While the Monte Carlo simulation approach offers a more nuanced and risk-aware evaluation of Money Market Funds (MMFs), several limitations must be acknowledged:</p>
+<ol type="1">
+<li><strong>Assumption of Normally Distributed Returns</strong></li>
+</ol>
+<p>The simulation assumes that monthly EARs follow a normal distribution. In practice, financial return distributions can be skewed or fat-tailed, especially in turbulent market conditions. This assumption may understate the likelihood of extreme events (i.e., tail risk).</p>
+<ol start="2" type="1">
+<li><strong>Dependence on Historical Data</strong></li>
+</ol>
+<p>The simulation relies entirely on past EAR values. This approach assumes that historical patterns will persist, which may not hold true during regime shifts, interest rate shocks, or macroeconomic disruptions.</p>
+<ol start="3" type="1">
+<li><strong>Exclusion of AUM and Portfolio Composition</strong></li>
+</ol>
+<p>This study focused purely on return behavior and did not consider Assets Under Management (AUM) or fund asset allocation. Larger funds may benefit from economies of scale or more diversified portfolios—factors that can affect performance stability and liquidity.</p>
+<ol start="4" type="1">
+<li><strong>Static Simulation Horizon</strong></li>
+</ol>
+<p>All simulations were conducted over a 12-month horizon. While this is practical for annual return analysis, investors with shorter or longer investment timelines may require customized modeling to capture different risk dynamics.</p>
+<ol start="5" type="1">
+<li><strong>Data Quality and Completeness</strong></li>
+</ol>
+<p>Some schemes exhibited flat or suspiciously low-variance return profiles, possibly due to stale, incomplete data. Although schemes with insufficient data were excluded, the quality of publicly disclosed EAR figures can still affect simulation reliability.</p>
+<ol start="6" type="1">
+<li><strong>Simplified Risk Metrics</strong></li>
+</ol>
+<p>This analysis focused on percentile-based statistics and did not incorporate formal risk-adjusted metrics like Sharpe Ratio, Sortino Ratio, or Conditional Value at Risk (CVaR), which may be useful in further evaluation.</p>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">7. References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ebsco2021MoneyMarkets" class="csl-entry" role="listitem">
+Auerbach, Michael P. 2021. <span>‘<span>Money Markets</span>’</span>. <a href="https://www.ebsco.com/research-starters/business-and-management/money-markets">https://www.ebsco.com/research-starters/business-and-management/money-markets</a>.
+</div>
+<div id="ref-cytonn2024UnitTrustFundsPerformance" class="csl-entry" role="listitem">
+Cytonn Research. 2024. <span>‘Q2’2024 Unit Trust Funds Performance Note’</span>. <a href="https://cytonn.com/topicals/q22024-unit-trust-1">https://cytonn.com/topicals/q22024-unit-trust-1</a>.
+</div>
+<div id="ref-cytonn2024Q4UnitTrustFundsPerformance" class="csl-entry" role="listitem">
+———. 2025. <span>‘Q4’2024 Unit Trust Funds Performance Note’</span>. <a href="https://cytonn.com/uploads/downloads/q42024-utf-performance-notevf6.pdf">https://cytonn.com/uploads/downloads/q42024-utf-performance-notevf6.pdf</a>.
+</div>
+<div id="ref-tutorchase2024ARRLimitations" class="csl-entry" role="listitem">
+Dave. 2024. <span>‘<span class="nocase">What are the limitations of using the accounting rate of return (ARR) method?</span>’</span> <span>TutorChase</span>. <a href="https://www.tutorchase.com/answers/ib/business-management/what-are-the-limitations-of-using-the-accounting-rate-of-return--arr--method">https://www.tutorchase.com/answers/ib/business-management/what-are-the-limitations-of-using-the-accounting-rate-of-return--arr--method</a>.
+</div>
+<div id="ref-2023EjioforAttah" class="csl-entry" role="listitem">
+Ejiofor, Chinelo, and Rita Attah. 2023. <span>‘Financial Management Strategies in Emerging Markets: A Review of Theoretical Models and Practical Applications’</span>. <em>Magna Scientia Advanced Research and Reviews</em> 7 (April): 123–40. <a href="https://doi.org/10.30574/msarr.2023.7.2.0054">https://doi.org/10.30574/msarr.2023.7.2.0054</a>.
+</div>
+<div id="ref-superbusinessmanager2022ARR" class="csl-entry" role="listitem">
+Jerry Grzegorzek. 2022. <span>‘<span class="nocase">Average Rate of Return (ARR) of An Investment</span>’</span>. <a href="https://www.superbusinessmanager.com/average-rate-of-return-arr-of-an-investment/">https://www.superbusinessmanager.com/average-rate-of-return-arr-of-an-investment/</a>.
+</div>
+<div id="ref-jpmorgan2023" class="csl-entry" role="listitem">
+J.P. Morgan Asset Management. 2023. <span>‘Introduction to Money Market Funds and Ultra-Short Duration Strategies’</span>. <a href="https://am.jpmorgan.com/content/dam/jpm-am-aem/global/en/liq/literature/brochure/introduction-to-mmfs.pdf">https://am.jpmorgan.com/content/dam/jpm-am-aem/global/en/liq/literature/brochure/introduction-to-mmfs.pdf</a>.
+</div>
+<div id="ref-kabui2024" class="csl-entry" role="listitem">
+Kabui, Charles. 2024. <span>‘Kenyan <span>Collective</span> <span>Investment</span> <span>Schemes</span> <span>Dataset</span>’</span>. <a href="https://toknow.ai/posts/kenyan-collective-investment-schemes-dataset/index.html">https://toknow.ai/posts/kenyan-collective-investment-schemes-dataset/index.html</a>.
+</div>
+<div id="ref-kacperczyk2013HowSafe" class="csl-entry" role="listitem">
+Kacperczyk, Marcin, and Philipp Schnabl. 2013. <span>‘How Safe Are Money Market Funds?’</span> <a href="https://pages.stern.nyu.edu/~pschnabl/research/KacperczykSchnabl2013.pdf">https://pages.stern.nyu.edu/~pschnabl/research/KacperczykSchnabl2013.pdf</a>.
+</div>
+<div id="ref-investopediaMonteCarloSimulation2025" class="csl-entry" role="listitem">
+Kenton, Will. 2025. <span>‘Monte Carlo Simulation: What It Is, How It Works, History, 4 Key Steps’</span>. <a href="https://www.investopedia.com/terms/m/montecarlosimulation.asp">https://www.investopedia.com/terms/m/montecarlosimulation.asp</a>.
+</div>
+<div id="ref-knbs2025CPIInflation" class="csl-entry" role="listitem">
+Kenya National Bureau of Statistics. 2025. <span>‘Consumer Price Indices and Inflation Rates - May 2025’</span>. <a href="https://www.knbs.or.ke/reports/consumer-price-indices-and-inflation-rates-may-2025/">https://www.knbs.or.ke/reports/consumer-price-indices-and-inflation-rates-may-2025/</a>.
+</div>
+<div id="ref-kpmg2024MonteCarlo" class="csl-entry" role="listitem">
+KPMG Ghana. 2024. <span>‘<span class="nocase">Beyond DCF: Enhancing Business Valuation in Emerging Markets through Monte Carlo Simulation Techniques</span>’</span>. <a href="https://assets.kpmg.com/content/dam/kpmg/gh/pdf/Thought%20Leadership%20-%20Monte%20Carlo.pdf">https://assets.kpmg.com/content/dam/kpmg/gh/pdf/Thought%20Leadership%20-%20Monte%20Carlo.pdf</a>.
+</div>
+<div id="ref-loftycorban2025MoneyMarketFundRates" class="csl-entry" role="listitem">
+Lofty-Corban. 2025. <span>‘<span class="nocase">Why Are Money Market Fund Rates Declining in Kenya?</span>’</span> <a href="https://loftycorban.com/?p=7104">https://loftycorban.com/?p=7104</a>.
+</div>
+<div id="ref-ijfs13020049" class="csl-entry" role="listitem">
+Pavlik, Martin, and Grzegorz Michalski. 2025. <span>‘Monte Carlo Simulations for Resolving Verifiability Paradoxes in Forecast Risk Management and Corporate Treasury Applications’</span>. <em>International Journal of Financial Studies</em> 13 (2). <a href="https://doi.org/10.3390/ijfs13020049">https://doi.org/10.3390/ijfs13020049</a>.
+</div>
+<div id="ref-mason2025BehavioralBiases" class="csl-entry" role="listitem">
+Raymond A. Mason School of Business. 2025. <span>‘<span>5 Behavioral Biases That Can Impact Your Investing Decisions</span>’</span>. <a href="https://online.mason.wm.edu/blog/behavioral-biases-that-can-impact-investing-decisions">https://online.mason.wm.edu/blog/behavioral-biases-that-can-impact-investing-decisions</a>.
+</div>
+<div id="ref-ziidi2024Safaricom" class="csl-entry" role="listitem">
+Safaricom. 2024. <span>‘<span class="nocase">Ziidi Money Market Fund (MMF) by Safaricom)</span>’</span>. <a href="https://www.safaricom.co.ke/main-mpesa/m-pesa-services/wealth/ziidi">https://www.safaricom.co.ke/main-mpesa/m-pesa-services/wealth/ziidi</a>.
+</div>
+<div id="ref-safaricomZiidi2025" class="csl-entry" role="listitem">
+———. 2025. <span>‘Safaricom Partners with Investment Firms to Unveil Ziidi Money Market Fund Powered by m-PESA’</span>. <a href="https://www.safaricom.co.ke/media-center-landing/press-releases/safaricom-partners-with-investment-firms-to-unveil-ziidi-money-market-fund-powered-by-m-pesa">https://www.safaricom.co.ke/media-center-landing/press-releases/safaricom-partners-with-investment-firms-to-unveil-ziidi-money-market-fund-powered-by-m-pesa</a>.
+</div>
+<div id="ref-numberanalytics2025MonteCarloEconomics" class="csl-entry" role="listitem">
+Sarah Lee. 2025a.<span>‘<span class="nocase"> Deep Dive: Monte Carlo Simulation in Economics</span>’</span>. <a href="https://www.numberanalytics.com/blog/deep-dive-monte-carlo-simulation-economics">https://www.numberanalytics.com/blog/deep-dive-monte-carlo-simulation-economics</a>.
+</div>
+<div id="ref-numberanalytics2025EAR" class="csl-entry" role="listitem">
+———. 2025b. <span>‘<span class="nocase">EAR Demystified: A Guide to Effective Annual Rate</span>’</span>. <a href="https://www.numberanalytics.com/blog/ear-demystified-guide-effective-annual-rate">https://www.numberanalytics.com/blog/ear-demystified-guide-effective-annual-rate</a>.
+</div>
+<div id="ref-standardinvestmentbankZiidi2025" class="csl-entry" role="listitem">
+Standard Investment Bank. 2025. <span>‘Press Release: Announcing the Launch of Ziidi MMF by Safaricom PLC &amp; Managed by SIB’</span>. <a href="https://sib.co.ke/press-release-announcing-the-launch-of-ziidi-mmf-by-safaricom-plc-managed-by-sib/">https://sib.co.ke/press-release-announcing-the-launch-of-ziidi-mmf-by-safaricom-plc-managed-by-sib/</a>.
+</div>
+<div id="ref-stepbystepinsuranceMoneyMarket" class="csl-entry" role="listitem">
+Step by Step Insurance. 2025a. <span>‘<span>T</span>op <span>M</span>oney <span>M</span>arket <span>F</span>unds in <span>K</span>enya 2025: <span>C</span>omparing the <span>B</span>est <span>P</span>roviders - <span>S</span>tep <span>B</span>y <span>S</span>tep <span>I</span>nsurance — Stepbystepinsurance.co.ke’</span>. <a href="https://stepbystepinsurance.co.ke/top-money-market-funds-in-kenya-2025-comparing-the-best-providers/" class="uri">https://stepbystepinsurance.co.ke/top-money-market-funds-in-kenya-2025-comparing-the-best-providers/</a>.
+</div>
+<div id="ref-ziidi2025" class="csl-entry" role="listitem">
+———. 2025b. <span>‘Ziidi Money Market Fund Tops Ksh 6 Billion: What Kenyan Investors Need to Know’</span>. <a href="https://stepbystepinsurance.co.ke/ziidi-money-market-fund-tops-ksh-6-billion-what-kenyan-investors-need-to-know/">https://stepbystepinsurance.co.ke/ziidi-money-market-fund-tops-ksh-6-billion-what-kenyan-investors-need-to-know/</a>.
+</div>
+<div id="ref-2024Xu" class="csl-entry" role="listitem">
+Xu, Tianyou. 2024b. <span>‘The Application of Monte Carlo Simulation for Risk and Behavior Analysis in Financial Markets’</span>. <em>Highlights in Business, Economics and Management</em> 45 (December): 19–24. <a href="https://doi.org/10.54097/djgy6809">https://doi.org/10.54097/djgy6809</a>.
+</div>
+<div id="ref-2024XuMonteCarlo" class="csl-entry" role="listitem">
+———. 2024a. <span>‘The Application of Monte Carlo Simulation for Risk and Behavior Analysis in Financial Markets’</span>. <em>Highlights in Business, Economics and Management</em> 45 (December): 19–24. <a href="https://doi.org/10.54097/djgy6809">https://doi.org/10.54097/djgy6809</a>.
+</div>
+</div>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2025,
+  author = {{Kabui, Charles}},
+  title = {Efficiency and {Risk-Aware} {Performance} {Analysis} of
+    {Kenyan} {Money} {Market} {Funds} {Using} {Monte} {Carlo}
+    {Simulation:} {A} {Comprehensive} {Review} and {Empirical} {Study}},
+  date = {2025-06-10},
+  url = {https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.html},
+  langid = {en-GB},
+  abstract = {This study presents a comprehensive, risk-aware
+    comparative performance analysis of Kenyan Money Market Funds (MMFs)
+    using Monte Carlo simulation. Traditional deterministic metrics,
+    such as Effective Annual Rates (EAR), often fail to capture the
+    crucial variability and underlying risk of returns, leading to
+    investor uncertainty regarding schemes offering consistent and
+    favorable risk-adjusted returns. This research addresses this gap by
+    providing a probabilistic framework. The general objective is to
+    evaluate and compare the risk-adjusted performance of Kenyan MMF
+    schemes by modeling future return scenarios over a one-year horizon.
+    The methodology involved preprocessing a curated dataset of monthly
+    EAR values for Kenyan MMFs from November 2017 to December 2024,
+    excluding funds with insufficient historical data. For each eligible
+    scheme, historical mean and standard deviation of EARs were computed
+    and converted to monthly equivalents. Subsequently, 1,000 possible
+    one-year return paths were simulated using a normal distribution,
+    and cumulative annual returns were calculated. Results were
+    visualized using boxplots and summarized with descriptive
+    statistics, including median, 25th, 75th, and 5th percentiles. Key
+    findings revealed distinct return profiles among MMFs. Funds like
+    Lofty Corban Unit Trust Scheme demonstrated high median returns
+    (17.2\%) with notable stability, while others, such as Etica Capital
+    Limited, showed strong medians (15.8\%) but with wider return
+    spreads, indicating higher volatility. The analysis also flagged
+    potential data quality issues for schemes exhibiting near-zero
+    variance. The study concludes that Monte Carlo simulation offers a
+    superior, distribution-based understanding of MMF performance,
+    empowering investors to make more informed, risk-aware decisions by
+    considering the full spectrum of potential outcomes beyond simple
+    averages. This approach is crucial for navigating the dynamic Kenyan
+    financial market. \textbackslash newpage}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kabui, Charles. 2025. <span>“Efficiency and Risk-Aware Performance
+Analysis of Kenyan Money Market Funds Using Monte Carlo Simulation: A
+Comprehensive Review and Empirical Study.”</span> <a href="https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.html">https://toknow.ai/posts/computational-techniques-in-data-science/efficiency-and-risk-aware-comparison-of-money-market-fund-schemes-using-monte-carlo-simulation/index.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/toknow\.ai\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="ToKnow-ai/ToKnow-ai.github.io" data-repo-id="R_kgDOL20t9g" data-category="Giscus Comments" data-category-id="DIC_kwDOL20t9s4CfKjw" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2026, ToKnow.ai
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../terms-of-service.html">
+<p>Terms of Service</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../LICENSE">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+ <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&amp;label=readers%20count">
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

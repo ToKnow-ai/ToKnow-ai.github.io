@@ -1,0 +1,23 @@
+[
+  {
+    "relation": ["lookalikes/allowlist"],
+    "target": { 
+        "namespace": "web", 
+        "site": "https://toknow.ai" 
+    }
+  },
+  {
+    "relation": ["lookalikes/allowlist"],
+    "target": { 
+        "namespace": "web", 
+        "site": "https://toknow-ai-private-domain-checker.hf.space" 
+    }
+  },
+  {
+    "relation": ["lookalikes/allowlist"],
+    "target": { 
+        "namespace": "web", 
+        "site": "https://toknow-ai-shazam-playlist-to-youtube-playlist.hf.space" 
+    }
+  }
+]

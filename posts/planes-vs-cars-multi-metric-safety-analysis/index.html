@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kabui, Charles">
+<meta name="dcterms.date" content="2026-05-06">
+<meta name="keywords" content="aviation-safety-statistics, plane-vs-car-fatality-rate, per-vehicle-death-rate, general-aviation-danger, transportation-risk-metrics, transportation-risk-analysis, ntsb-accident-data, per-mile-bias">
+<meta name="description" content="The standard per-mile metric shows planes are 519x safer than cars. But per vehicle, per hour of general aviation, and per accident, the numbers tell a different story. This analysis runs the calculations across six metrics.">
+
+<title>Planes vs Cars: A Multi-Metric Safety Analysis – ToKnow.ai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b7adde2f1b737e1ab85d341de37ab126.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-a00569dc5e1b9abeeb38d9c5a30072e9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4R9DMKF8S7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R9DMKF8S7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../_styles.css">
+<link rel="stylesheet" href="../_post-styles.css">
+<meta property="og:title" content="Planes vs Cars: A Multi-Metric Safety Analysis – ToKnow.ai">
+<meta property="og:description" content="The standard per-mile metric shows planes are 519x safer than cars. But per vehicle, per hour of general aviation, and per accident, the numbers tell a different story. This analysis runs the calculations across six metrics.">
+<meta property="og:image" content="https://toknow.ai/posts/planes-vs-cars-multi-metric-safety-analysis/image.png">
+<meta property="og:site_name" content="ToKnow.ai">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="Planes vs Cars: A Multi-Metric Safety Analysis – ToKnow.ai">
+<meta name="twitter:description" content="The standard per-mile metric shows planes are 519x safer than cars. But per vehicle, per hour of general aviation, and per accident, the numbers tell a different story. This analysis runs the calculations across six metrics.">
+<meta name="twitter:image" content="https://toknow.ai/posts/planes-vs-cars-multi-metric-safety-analysis/image.png">
+<meta name="twitter:site" content="@ToKnow_ai">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://toknow.ai/posts/planes-vs-cars-multi-metric-safety-analysis/">
+<meta name="citation_title" content="Planes vs Cars: A Multi-Metric Safety Analysis">
+<meta name="citation_keywords" content="aviation-safety-statistics,plane-vs-car-fatality-rate,per-vehicle-death-rate,general-aviation-danger,transportation-risk-metrics,transportation-risk-analysis,ntsb-accident-data,per-mile-bias">
+<meta name="citation_author" content="Kabui, Charles">
+<meta name="citation_publication_date" content="2026-05-06">
+<meta name="citation_cover_date" content="2026-05-06">
+<meta name="citation_year" content="2026">
+<meta name="citation_online_date" content="2026-05-06">
+<meta name="citation_fulltext_html_url" content="https://toknow.ai/posts/planes-vs-cars-multi-metric-safety-analysis/">
+<meta name="citation_language" content="en-GB">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ToKnow.ai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../apps.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../domains-for-sale.html"> 
+<span class="menu-text">Domains 4 Sale</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ToKnow-ai"> <i class="bi bi-github" role="img" aria-label="Github - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ToKnow_ai"> <i class="bi bi-twitter" role="img" aria-label="Twitter - ToKnow.ai">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img" aria-label="ToKnow.ai RSS">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Planes vs Cars: A Multi-Metric Safety Analysis</h1>
+                  <div>
+        <div class="description">
+          The standard per-mile metric shows planes are 519x safer than cars. But per vehicle, per hour of general aviation, and per accident, the numbers tell a different story. This analysis runs the calculations across six metrics.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">data-science</div>
+                <div class="quarto-category">software-engineering</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kabui, Charles <a href="mailto:kabui@toknow.ai" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2026-05-06</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>aviation-safety-statistics, plane-vs-car-fatality-rate, per-vehicle-death-rate, general-aviation-danger, transportation-risk-metrics, transportation-risk-analysis, ntsb-accident-data, per-mile-bias</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-data-global-fleet-and-fatalities-2025" id="toc-the-data-global-fleet-and-fatalities-2025" class="nav-link" data-scroll-target="#the-data-global-fleet-and-fatalities-2025">1. The Data: Global Fleet and Fatalities (2025)</a></li>
+  <li><a href="#metric-1-deaths-per-passenger-mile" id="toc-metric-1-deaths-per-passenger-mile" class="nav-link" data-scroll-target="#metric-1-deaths-per-passenger-mile">2. Metric 1: Deaths per Passenger Mile</a></li>
+  <li><a href="#metric-2-deaths-per-vehicle-per-year-unit-risk" id="toc-metric-2-deaths-per-vehicle-per-year-unit-risk" class="nav-link" data-scroll-target="#metric-2-deaths-per-vehicle-per-year-unit-risk">3. Metric 2: Deaths per Vehicle per Year (Unit Risk)</a></li>
+  <li><a href="#metric-3-deaths-per-hour-of-exposure" id="toc-metric-3-deaths-per-hour-of-exposure" class="nav-link" data-scroll-target="#metric-3-deaths-per-hour-of-exposure">4. Metric 3: Deaths per Hour of Exposure</a></li>
+  <li><a href="#metric-4-accident-severity-and-survival" id="toc-metric-4-accident-severity-and-survival" class="nav-link" data-scroll-target="#metric-4-accident-severity-and-survival">5. Metric 4: Accident Severity and Survival</a></li>
+  <li><a href="#the-aviation-fatality-breakdown-general-aviation-vs-airlines" id="toc-the-aviation-fatality-breakdown-general-aviation-vs-airlines" class="nav-link" data-scroll-target="#the-aviation-fatality-breakdown-general-aviation-vs-airlines">6. The Aviation Fatality Breakdown: General Aviation vs Airlines</a></li>
+  <li><a href="#the-population-exposure-question" id="toc-the-population-exposure-question" class="nav-link" data-scroll-target="#the-population-exposure-question">7. The Population Exposure Question</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">8. Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/planes-vs-cars-multi-metric-safety-analysis" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/planes-vs-cars-multi-metric-safety-analysis/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The claim that flying is safer than driving is one of the most repeated statistics in public discourse. It is grounded in a specific metric: deaths per passenger mile. By that measure, commercial aviation is roughly <strong>519 times safer</strong> than driving (<a href="https://usafacts.org/articles/is-flying-safer-than-driving/">USAFacts, 2026</a>). That number is real. But it is one metric among many, and different metrics produce different conclusions. This analysis computes the comparison across six different frameworks, shows the math for each, and lets the numbers determine where each mode of transport is more or less dangerous. A Python script (<a href="calculations.py">calculations.py</a>) executes every computation shown in this post.</p>
+<hr>
+</section>
+<section id="the-data-global-fleet-and-fatalities-2025" class="level2">
+<h2 class="anchored" data-anchor-id="the-data-global-fleet-and-fatalities-2025">1. The Data: Global Fleet and Fatalities (2025)</h2>
+<p>Before comparing anything, the raw inputs. These come from the IATA 2025 Safety Report, the WHO, and the Bureau of Transportation Statistics.</p>
+<div class="table-responsive">
+<table class="caption-top table-striped table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Global passenger vehicles</td>
+<td>1,644,000,000</td>
+<td>OICA / industry estimates</td>
+</tr>
+<tr class="even">
+<td>Global commercial aircraft</td>
+<td>30,300</td>
+<td><a href="https://www.iata.org/">IATA, 2026</a></td>
+</tr>
+<tr class="odd">
+<td>US general aviation aircraft</td>
+<td>~200,000</td>
+<td>FAA registry</td>
+</tr>
+<tr class="even">
+<td>Global road deaths (annual)</td>
+<td>1,190,000</td>
+<td><a href="https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries">WHO, 2025</a></td>
+</tr>
+<tr class="odd">
+<td>Commercial plane deaths (2025)</td>
+<td>394</td>
+<td><a href="https://www.iata.org/">IATA, 2026</a></td>
+</tr>
+<tr class="even">
+<td>Commercial flights (2025)</td>
+<td>38,700,000</td>
+<td>IATA</td>
+</tr>
+<tr class="odd">
+<td>Fatal commercial accidents (2025)</td>
+<td>8</td>
+<td>IATA</td>
+</tr>
+<tr class="even">
+<td>Total commercial accidents (2025)</td>
+<td>51</td>
+<td>IATA</td>
+</tr>
+<tr class="odd">
+<td>US car deaths (2023)</td>
+<td>~43,000</td>
+<td><a href="https://www.nhtsa.gov/">NHTSA</a></td>
+</tr>
+<tr class="even">
+<td>US car passenger miles (2023)</td>
+<td>3.2 trillion</td>
+<td><a href="https://www.bts.gov/topics/national-transportation-statistics">BTS</a></td>
+</tr>
+<tr class="odd">
+<td>US airline passenger miles (2023)</td>
+<td>773 billion</td>
+<td>BTS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The ratio of cars to planes is roughly <strong>54,257 to 1</strong>.</p>
+<hr>
+</section>
+<section id="metric-1-deaths-per-passenger-mile" class="level2">
+<h2 class="anchored" data-anchor-id="metric-1-deaths-per-passenger-mile">2. Metric 1: Deaths per Passenger Mile</h2>
+<p>This is the standard metric. It measures how many people die for every 100 million passenger miles traveled.</p>
+<p><strong>Calculation (US 2023):</strong></p>
+<ul>
+<li>Cars: 43,000 / 3,200,000,000,000 x 100,000,000 = <strong>1.34 deaths per 100M miles</strong></li>
+<li>Planes: 20 / 773,000,000,000 x 100,000,000 = <strong>0.0026 deaths per 100M miles</strong></li>
+<li>Ratio: 1.34 / 0.0026 = <strong>519x</strong></li>
+</ul>
+<p><strong>Result:</strong> Per mile traveled, cars are <strong>519 times</strong> more dangerous than commercial planes. This is the metric cited in nearly all aviation safety communications.</p>
+<p><strong>Structural note:</strong> A plane cruising at 525 mph covers roughly <strong>11.7 times</strong> more distance per hour than a car averaging 45 mph. If both modes produced identical fatality rates per hour of exposure, the faster vehicle would still appear 11.7x safer in a per-mile chart because each death is diluted across more miles. This does not make the metric invalid. But it does mean per-mile comparisons structurally favor faster vehicles.</p>
+<hr>
+</section>
+<section id="metric-2-deaths-per-vehicle-per-year-unit-risk" class="level2">
+<h2 class="anchored" data-anchor-id="metric-2-deaths-per-vehicle-per-year-unit-risk">3. Metric 2: Deaths per Vehicle per Year (Unit Risk)</h2>
+<p>This metric asks: for any single vehicle in the global fleet, how many deaths is it associated with annually?</p>
+<p><strong>Calculation (Global 2025):</strong></p>
+<ul>
+<li>Cars: 1,190,000 deaths / 1,644,000,000 vehicles = <strong>0.000724 deaths per car per year</strong></li>
+<li>Commercial planes: 394 deaths / 30,300 aircraft = <strong>0.013003 deaths per plane per year</strong></li>
+<li>Ratio: 0.013 / 0.000724 = <strong>18.0x</strong></li>
+</ul>
+<p><strong>Result:</strong> A single commercial aircraft is associated with <strong>18 times</strong> more deaths per year than a single car.</p>
+<p>The reason is structural. A commercial plane operates 12 to 16 hours per day, carries 100 to 400 passengers per flight, and covers 5,000+ miles daily. A car sits parked roughly 95% of the time and carries 1 to 2 people on average. The plane is a far more intensively used machine. When a failure occurs, the number of people exposed to it is orders of magnitude higher.</p>
+<hr>
+</section>
+<section id="metric-3-deaths-per-hour-of-exposure" class="level2">
+<h2 class="anchored" data-anchor-id="metric-3-deaths-per-hour-of-exposure">4. Metric 3: Deaths per Hour of Exposure</h2>
+<p>This metric normalizes for the speed difference by measuring risk per hour spent in the vehicle rather than per mile traveled.</p>
+<p><strong>Rates (from NTSB, IATA, NHTSA-derived data):</strong></p>
+<ul>
+<li>Cars: <strong>0.33 deaths per million hours</strong> of exposure</li>
+<li>Commercial planes: <strong>0.037 deaths per million hours</strong></li>
+<li>General aviation: <strong>9.5 fatal accidents per million flight hours</strong></li>
+</ul>
+<p><strong>Results:</strong></p>
+<ul>
+<li>Per hour, cars are <strong>9x more dangerous</strong> than commercial planes</li>
+<li>Per hour, general aviation is <strong>29x more dangerous</strong> than cars</li>
+</ul>
+<p>The per-hour comparison narrows the gap between cars and commercial planes from 519x (per mile) to 9x. For general aviation, the relationship inverts entirely.</p>
+<hr>
+</section>
+<section id="metric-4-accident-severity-and-survival" class="level2">
+<h2 class="anchored" data-anchor-id="metric-4-accident-severity-and-survival">5. Metric 4: Accident Severity and Survival</h2>
+<p>This metric examines what happens when an accident occurs, regardless of how often accidents happen.</p>
+<p><strong>Cars (US annual):</strong></p>
+<ul>
+<li>Total accidents: ~6,000,000</li>
+<li>Deaths: ~43,000</li>
+<li>Fatality rate per accident: 43,000 / 6,000,000 = <strong>0.72%</strong></li>
+<li>Survival rate: <strong>99.28%</strong></li>
+</ul>
+<p><strong>Commercial planes (global 2025):</strong></p>
+<ul>
+<li>Total accidents: 51</li>
+<li>Fatal accidents: 8</li>
+<li>Percentage of accidents that are fatal: 8 / 51 = <strong>15.7%</strong></li>
+<li>Average deaths per fatal accident: 394 / 8 = <strong>49.2</strong></li>
+</ul>
+<p><strong>Result:</strong> When a car accident occurs, there is a <strong>0.72%</strong> chance someone dies. When a plane accident occurs, there is a <strong>15.7%</strong> chance it involves fatalities. The per-event lethality is <strong>22x higher</strong> for planes.</p>
+<p>This is a structural difference. A car collides at 30 to 70 mph with crumple zones and airbags. A plane at cruise altitude carries hundreds of people and enormous kinetic energy. The overall aviation survival rate across all incident types is <strong>90% to 95%</strong>, but that includes non-catastrophic events like runway excursions and hard landings. In the catastrophic subset (mid-air structural failure, controlled flight into terrain), survival rates approach zero. In 2025, two specific accidents (Air India 171 and PSA 5342) accounted for over <strong>77%</strong> of all global aviation fatalities (<a href="https://www.iata.org/">IATA, 2026</a>).</p>
+<hr>
+</section>
+<section id="the-aviation-fatality-breakdown-general-aviation-vs-airlines" class="level2">
+<h2 class="anchored" data-anchor-id="the-aviation-fatality-breakdown-general-aviation-vs-airlines">6. The Aviation Fatality Breakdown: General Aviation vs Airlines</h2>
+<p>“Aviation” is not a single category. NTSB data from 2013 (the most recent full annual review available) breaks US civil aviation into regulatory segments:</p>
+<div class="table-responsive">
+<table class="caption-top table-striped table">
+<thead>
+<tr class="header">
+<th>Segment</th>
+<th>Accidents</th>
+<th>Fatal Accidents</th>
+<th>Deaths</th>
+<th>% of Total Deaths</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Part 121 (Airlines)</td>
+<td>23</td>
+<td>2</td>
+<td>9</td>
+<td>2.1%</td>
+</tr>
+<tr class="even">
+<td>Part 135 (Commuter/On-demand)</td>
+<td>51</td>
+<td>12</td>
+<td>30</td>
+<td>7.0%</td>
+</tr>
+<tr class="odd">
+<td>General Aviation</td>
+<td>1,224</td>
+<td>222</td>
+<td>390</td>
+<td>90.9%</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong>1,298</strong></td>
+<td><strong>236</strong></td>
+<td><strong>429</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Source: <a href="https://www.ntsb.gov/safety/data/Pages/AviationDataStats.aspx">NTSB, 2015</a></em></p>
+<p><strong>91%</strong> of US aviation deaths come from general aviation. USAFacts reports a similar pattern across 2003 to 2023: <strong>77%</strong> of the 787 total US air travel deaths in that period occurred on smaller aircraft, not scheduled commercial flights (<a href="https://usafacts.org/articles/is-flying-safer-than-driving/">USAFacts, 2026</a>).</p>
+<p>General aviation includes private propeller planes, air taxis, charter flights, and flight training. These aircraft operate under less stringent regulations (Part 91/135 vs Part 121), are flown by pilots with fewer training hours, and lack the redundant safety systems of commercial airliners. When safety statistics cite “aviation,” the commercial subset produces the per-mile figures while the general aviation subset produces the majority of fatalities.</p>
+<hr>
+</section>
+<section id="the-population-exposure-question" class="level2">
+<h2 class="anchored" data-anchor-id="the-population-exposure-question">7. The Population Exposure Question</h2>
+<p>A distinct argument concerns the composition of the groups at risk. The global population exposed to road risk is nearly universal, roughly <strong>6.8 billion</strong> people (85% of the world). The population that flies commercially is a concentrated subset of approximately <strong>1.2 billion unique people</strong> per year (<a href="https://www.iata.org/">IATA</a>), roughly 15% of humanity.</p>
+<p><strong>Deaths per unique participant per year:</strong></p>
+<ul>
+<li>Cars: 1,190,000 / 6,800,000,000 = <strong>0.000175</strong></li>
+<li>Planes: 394 / 1,200,000,000 = <strong>0.00000033</strong></li>
+<li>Ratio: <strong>533x</strong> (cars more dangerous per participant)</li>
+</ul>
+<p>By this measure, cars are overwhelmingly more dangerous per person in the exposed group. However, several structural factors merit consideration:</p>
+<p><strong>Exposure time disparity:</strong> Americans spend roughly <strong>700 hours per year</strong> in cars and about <strong>20 hours per year</strong> flying. The exposure time difference is <strong>35x</strong>. The NSC’s lifetime odds data reflects this: motor vehicle death odds are 1 in 101, while airplane passenger death odds are listed as “too few deaths in 2024 to calculate” (<a href="https://injuryfacts.nsc.org/all-injuries/preventable-death-overview/odds-of-dying/">NSC, 2026</a>). This is substantially a function of exposure volume.</p>
+<p><strong>Group composition:</strong> The flying population skews wealthier, healthier, and more urban. The road-exposed population includes pedestrians, cyclists, motorcyclists, and passengers in developing countries with minimal safety infrastructure. Comparing the two groups involves confounding variables beyond the vehicle itself.</p>
+<p><strong>Agency:</strong> A car occupant has some control over outcomes (seatbelt usage, speed, sobriety). A plane passenger has zero control. This distinction does not change the statistics, but it changes the nature of the risk: driving is a partially controllable hazard, while flying is an entirely delegated one.</p>
+<hr>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">8. Conclusion</h2>
+<p>The question “are planes safer than cars?” does not produce a single answer. It produces several, depending on the unit of measurement.</p>
+<div class="table-responsive">
+<table class="caption-top table-striped table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Safer Mode</th>
+<th>Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Deaths per billion passenger miles</td>
+<td>Plane</td>
+<td>~519x</td>
+</tr>
+<tr class="even">
+<td>Deaths per million hours (commercial)</td>
+<td>Plane</td>
+<td>~9x</td>
+</tr>
+<tr class="odd">
+<td>Deaths per unique participant</td>
+<td>Plane</td>
+<td>~533x</td>
+</tr>
+<tr class="even">
+<td>Deaths per vehicle per year</td>
+<td>Car</td>
+<td>~18x</td>
+</tr>
+<tr class="odd">
+<td>Deaths per million hours (general aviation)</td>
+<td>Car</td>
+<td>~29x</td>
+</tr>
+<tr class="even">
+<td>% of accidents that are fatal</td>
+<td>Car (lower %)</td>
+<td>0.7% vs 15.7%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Key observations:</p>
+<ul>
+<li>Commercial aviation is safer than driving by per-mile, per-hour, and per-participant measures</li>
+<li>General aviation (private planes, charters, air taxis) is <strong>29 times more dangerous</strong> than driving per hour of exposure</li>
+<li><strong>91%</strong> of US aviation fatalities come from general aviation, not the airlines referenced in per-mile safety statistics</li>
+<li>The per-mile metric structurally favors faster vehicles by a factor proportional to the speed difference (~12x)</li>
+<li>Per vehicle, a single commercial plane is associated with <strong>18x more deaths</strong> per year than a single car, a consequence of intensive usage and high passenger counts</li>
+<li>When a plane accident occurs, the per-event fatality rate is <strong>22x higher</strong> than a car accident</li>
+<li>The flying population (1.2 billion unique people) is a concentrated subset of the general population, while road exposure is near-universal</li>
+</ul>
+<p>No single metric captures the full picture. A rigorous understanding of transportation safety requires examining multiple metrics simultaneously.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li>USAFacts. (2026). <a href="https://usafacts.org/articles/is-flying-safer-than-driving/"><em>Is flying safer than driving?</em></a> USAFacts analysis of Bureau of Transportation Statistics data.</li>
+<li>Bureau of Transportation Statistics. (2024). <a href="https://www.bts.gov/topics/national-transportation-statistics"><em>National Transportation Statistics.</em></a> US Department of Transportation.</li>
+<li>NTSB. (2015). <a href="https://www.ntsb.gov/safety/data/Pages/AviationDataStats.aspx"><em>Summary of US Civil Aviation Accidents for Calendar Year 2013.</em></a> National Transportation Safety Board.</li>
+<li>National Safety Council. (2026). <a href="https://injuryfacts.nsc.org/all-injuries/preventable-death-overview/odds-of-dying/"><em>Odds of Dying.</em></a> Injury Facts.</li>
+<li>NHTSA. (2024). <a href="https://www.nhtsa.gov/"><em>Traffic Safety Facts.</em></a> National Highway Traffic Safety Administration.</li>
+<li>World Health Organization. (2025). <a href="https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries"><em>Road Traffic Injuries.</em></a> WHO Fact Sheet.</li>
+<li>IATA. (2026). <a href="https://www.iata.org/"><em>IATA Releases 2025 Safety Report.</em></a> International Air Transport Association.</li>
+<li>Airbus. (2026). <a href="https://www.airbus.com/en/newsroom/stories/2026-03-flight-safety-statistics-understanding-2025-aviation-accidents-and-safety-trends"><em>Flight Safety Statistics and Accident Trends 2025.</em></a> Airbus Newsroom.</li>
+<li>Federal Aviation Administration. (2025). <a href="https://www.faa.gov/data_research/accident_incident"><em>General Aviation Safety.</em></a> FAA Data and Research.</li>
+<li>ICAO. (2025). <a href="https://www.icao.int/"><em>State of Global Aviation Safety.</em></a> International Civil Aviation Organization.</li>
+</ol>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Planes Vs {Cars:} {A} {Multi-Metric} {Safety} {Analysis}},
+  date = {2026-05-06},
+  url = {https://toknow.ai/posts/planes-vs-cars-multi-metric-safety-analysis/},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kabui, Charles. 2026. <span>“Planes Vs Cars: A Multi-Metric Safety
+Analysis.”</span> <a href="https://toknow.ai/posts/planes-vs-cars-multi-metric-safety-analysis/">https://toknow.ai/posts/planes-vs-cars-multi-metric-safety-analysis/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/toknow\.ai\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="ToKnow-ai/ToKnow-ai.github.io" data-repo-id="R_kgDOL20t9g" data-category="Giscus Comments" data-category-id="DIC_kwDOL20t9s4CfKjw" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2026, ToKnow.ai
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../terms-of-service.html">
+<p>Terms of Service</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+ <img style="vertical-align:bottom;" src="https://toknow.ai/pageviews?page_path=/&amp;label=readers%20count">
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToKnow-ai/ToKnow-ai.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
