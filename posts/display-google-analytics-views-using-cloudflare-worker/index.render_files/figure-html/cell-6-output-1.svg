@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="204" height="20">
+      <!-- METADATA: / :: 372 -->
+      <!-- METADATA: /apps/shazam-playlist-to-youtube-playlist.html :: 152 -->
+      <!-- METADATA: /posts/quarto-resume-template/ :: 104 -->
+      <!-- METADATA: /posts/shazam-playlist-to-youtube-playlist/ :: 104 -->
+      <!-- METADATA: /posts/private-domain-checker/ :: 88 -->
+      <!-- METADATA: /posts/kenya-unit-trusts-money-market-funds-analysis/ :: 73 -->
+      <!-- METADATA: /apps.html :: 49 -->
+      <!-- METADATA: /posts/kenyan-collective-investment-schemes-dataset/ :: 45 -->
+      <!-- METADATA: /posts/shazam-playlist-to-youtube-playlist/index.html :: 45 -->
+      <!-- METADATA: /posts/balancing-between-paywalls-and-search-engine-optimization/ :: 42 -->
+      <!-- METADATA: /posts/kenya-population-from-1974-to-2022/ :: 37 -->
+      <!-- METADATA: /domains-for-sale.html :: 27 -->
+      <!-- METADATA: /posts/summary-of-registered-entities-and-companies-in-kenya/ :: 27 -->
+      <!-- METADATA: /apps/private-domain-checker.html :: 20 -->
+      <!-- METADATA: /posts/display-google-analytics-views-using-cloudflare-worker/ :: 19 -->
+      <!-- METADATA: /index.html :: 15 -->
+      <!-- METADATA: /posts/artificial-general-intelligence/ :: 14 -->
+      <!-- METADATA: /apps/shazam-playlist-to-youtube-playlist :: 9 -->
+      <!-- METADATA: /about.html :: 8 -->
+      <!-- METADATA: /pageviews :: 6 -->
+      <!-- METADATA: /posts/private-domain-checker/index.html :: 5 -->
+      <!-- METADATA: /apps/private-domain-checker :: 4 -->
+      <!-- METADATA: /posts/ :: 4 -->
+      <!-- METADATA: /about :: 3 -->
+      <!-- METADATA: /posts/kenya-population-from-1974-to-2022/index.ipynb.html :: 2 -->
+      <!-- METADATA: /posts/kenya-unit-trusts-money-market-funds-analysis/index.ipynb.html :: 2 -->
+      <!-- METADATA: /posts/kenya-unit-trusts-money-market-funds-analysis/test-demo.html :: 2 -->
+      <!-- METADATA: /posts/kenyan-collective-investment-schemes-dataset/index.html :: 2 -->
+      <!-- METADATA: /posts/private-domain-checker :: 2 -->
+      <!-- METADATA: /apps/shazam-playlist-to-youtube-playlist.qmd :: 1 -->
+      <!-- METADATA: /domains-for-sale :: 1 -->
+      <!-- METADATA: /posts/balancing-between-paywalls-and-search-engine-optimization/index.html :: 1 -->
+      <!-- METADATA: /posts/how-online-media-paywalls-should-work/ :: 1 -->
+      <!-- METADATA: /posts/kenya-unit-trusts-money-market-funds-analysis/index.out.ipynb :: 1 -->
+      <!-- METADATA: /posts/summary-of-registered-entities-and-companies-in-kenya/index.html :: 1 -->
+      <!-- METADATA: /posts/summary-of-registered-entities-companies-in-kenya/index.pdf :: 1 -->
+      <!-- METADATA: /terms-of-service :: 1 -->
+      <!-- METADATA: /terms-of-service.html :: 1 -->
+      <!-- METADATA: /wachawi.com :: 1 -->
+      <linearGradient id="b" x2="0" y2="100%">
+        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+        <stop offset="1" stop-opacity=".1"/>
+      </linearGradient>
+      <mask id="a">
+        <rect width="204" height="20" rx="3" fill="#fff"/>
+      </mask>
+      <g mask="url(#a)">
+        <rect width="162" height="20" fill="#555"/>
+        <rect x="162" width="42" height="20" fill="#4c1"/>
+        <rect width="204" height="20" fill="url(#b)"/>
+      </g>
+      <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="13">
+        <text x="81.0" y="15" fill="#010101" fill-opacity=".3">total website views</text>
+        <text x="81.0" y="14">total website views</text>
+        <text x="183.0" y="15" fill="#010101" fill-opacity=".3">1.3K</text>
+        <text x="183.0" y="14">1.3K</text>
+      </g>
+    </svg>

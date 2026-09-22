@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<atom:link href="https://toknow.ai/index.xml" rel="self" type="application/rss+xml"/>
+<description>// Research, Numbers and Insightful Ideas //</description>
+<image>
+<url>https://toknow.ai/images/logo.png</url>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Tue, 22 Sep 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Agora: What 13 AI Agents Do With a Shared Git History</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/agora-git-shared-memory-13-agents-collective-research/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/agora-git-shared-memory-13-agents-collective-research" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/agora-git-shared-memory-13-agents-collective-research/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/agora-git-shared-memory-13-agents-collective-research/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>NVIDIA researchers built Agora, a shared notebook for AI research agents where every experiment is a Git commit linked to what it builds on. They tested it with 13 coding agents for nearly 12 days, with no assigned tasks and no manager. The job: initialize a frozen 119.6 million parameter model using only 141 pretrained donor models, with no training data and no gradient updates. The agents published 1,703 contributions and cut the model’s error at predicting text from 3.39 to 1.899 bits per byte, closing 62% of the gap to a trained GPT-2.</p>
+<p>The shared record made that possible, and exposed a problem. The agents built on each other but also repeated each other: of 696 pairs of accounts posting identical scores, 63% landed within an hour, and most follow-up work extended one lineage while other branches sat untouched. On day five the researchers added views showing neglected branches, and within a day a worker tried an untouched part of the model. Almost all the gain came fast: 18 first-day contributions produced about 98% of it. The authors stop short of claiming the notebook sped up discovery, and call for a matched comparison before anyone says so.</p>
+<p>A second paper, <a href="https://arxiv.org/abs/2609.13406">Generalized Agent Iteration</a>, names why that matters. It asks two questions of anything that improves itself: does the improving mechanism sit inside the agent, and does the standard judging it sit outside. Agora’s rules enforce part of that answer by requiring a verifier to differ from an author, and the agents posted 165 independent reproductions without one failure. The authors note most demonstrated self-improving systems stay anchored; drifting goals remain mostly theory.</p>
+<p>Read More: <a href="../../posts/claude-automated-alignment-researcher/index.html">Anthropic’s Automated Alignment Researcher</a> points the same machinery at one lab’s own safety work.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.18094">Agora: Git as Shared Memory for Collective AutoResearch</a></li>
+<li><a href="https://yifanzhang-pro.github.io/Agora/">Agora project page</a></li>
+<li><a href="https://github.com/yifanzhang-pro/Agora">Agora on GitHub</a></li>
+<li><a href="https://arxiv.org/abs/2609.13406">Generalized Agent Iteration: One Formal Framework for Iterative Policy Improvement and Recursive Self-Improvement</a></li>
+<li><a href="https://yfz.ai/blog/Agora/">Yifan Zhang’s write-up of the weight-transfer run</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Agora: {What} 13 {AI} {Agents} {Do} {With} a {Shared} {Git}
+    {History}},
+  date = {2026-09-22},
+  url = {https://toknow.ai/posts/agora-git-shared-memory-13-agents-collective-research/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Agora: What 13 AI Agents Do With a Shared
+Git History.”</span> <a href="https://toknow.ai/posts/agora-git-shared-memory-13-agents-collective-research/">https://toknow.ai/posts/agora-git-shared-memory-13-agents-collective-research/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/agora-git-shared-memory-13-agents-collective-research/</guid>
+  <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/agora-git-shared-memory-13-agents-collective-research/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Alibaba’s Open Code Review: Fewer False Alarms, a Ninth of the Tokens</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Alibaba released <a href="https://github.com/alibaba/open-code-review">Open Code Review</a>, an open-source command-line tool that reviews code changes before a teammate does. Install it with npm, point it at any model (Claude, GPT, Qwen, DeepSeek, or your own endpoint), and run <code>ocr review</code> in a repository. It reads the Git diff, bundles related files into one review unit, and pins each comment to an exact line. It started as an internal Alibaba tool that the company says served tens of thousands of developers over two years. The design splits the job: ordinary program logic picks the files, matches the rules and verifies the line numbers, while the model only reasons over what it is handed.</p>
+<p>Alibaba’s public <a href="https://open-codereview.ai/">benchmark</a> of 200 pull requests across 10 languages shows why that matters. Against Claude Code on the same Claude model, Open Code Review scored 33.9% precision against 7.2%, and 25.1% F1 against 11.6%, using about a ninth of the tokens. Recall went the other way: 20% against 28.9%, so it misses more real defects. An HCLTech engineer notes that at 20% recall, roughly 80% of expert-flagged issues go unfound. One outside test measured about 12% precision, which the maintainers blamed on a tool-call bug and fixed, with no independent retest published since.</p>
+<p>The gain comes from architecture, not a smarter model. Outside reviews agree the improvement comes from limiting what the agent may do and checking its comments independently, and the project openly advertises the recall it gives up. Expect more narrow tools to trade completeness for output a human will actually read.</p>
+<p>Read More: <a href="../../posts/deepseek-harness-everything-is-a-plugin/index.html">DeepSeek’s harness made the same bet: the scaffolding, not the model, is the product</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/alibaba/open-code-review">alibaba/open-code-review (GitHub)</a></li>
+<li><a href="https://open-codereview.ai/">Open Code Review benchmark and quick start</a></li>
+<li><a href="https://arxiv.org/abs/2601.19494">AACR-Bench: Evaluating Automatic Code Review with Holistic Repository-Level Context (arXiv)</a></li>
+<li><a href="https://huggingface.co/datasets/Alibaba-Aone/aacr-bench">AACR-Bench dataset (Hugging Face)</a></li>
+<li><a href="https://www.infoq.com/news/2026/09/alibaba-opencodereview/">Alibaba Open Sources OpenCodeReview for AI-Assisted Code Review (InfoQ)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Alibaba’s {Open} {Code} {Review:} {Fewer} {False} {Alarms,} a
+    {Ninth} of the {Tokens}},
+  date = {2026-09-22},
+  url = {https://toknow.ai/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Alibaba’s Open Code Review: Fewer False
+Alarms, a Ninth of the Tokens.”</span> <a href="https://toknow.ai/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens/">https://toknow.ai/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens/</guid>
+  <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/alibaba-open-code-review-deterministic-agent-fewer-tokens/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Apple’s New Siri Runs on a Google-Built Model and a Daily Usage Cap</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/apple-siri-ai-beta-google-gemini-models/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/apple-siri-ai-beta-google-gemini-models" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/apple-siri-ai-beta-google-gemini-models/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/apple-siri-ai-beta-google-gemini-models/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Apple started rolling out Siri AI, its rebuilt assistant for iPhone, iPad, Mac, Watch and Vision Pro, in beta on September 14, inside iOS 27, iPadOS 27, macOS 27, watchOS 27 and visionOS 27. Users opt in from Settings, and some join a waitlist. It runs on the next generation of Apple Foundation Models, which Apple calls “custom-built in collaboration with Google and its Gemini models” and, in January’s joint statement with Google, “based on Google’s Gemini models and cloud technology.” Simple requests stay on the device, where the new voices and dictation run on AFM Core Advanced; harder ones go to Private Cloud Compute, Apple’s privacy-preserving server tier. English ships now; French, Japanese, Korean, Portuguese and Spanish arrive next month.</p>
+<p>Apple’s flagship assistant now depends on a Google-built model, and its cloud tier runs on <a href="https://www.cnbc.com/2026/09/14/apple-releases-ios-27-redesigned-siri-ai.html">Google Cloud infrastructure</a> with Intel and Nvidia chips, an unusual admission from a company that markets its own silicon. Apple also says server-side features, including Siri AI, photo editing and Image Playground, carry daily usage limits, with expanded access to cost money later.</p>
+<p>The same iPhone now ships a different assistant by country. Siri AI is absent from the EU on iOS, iPadOS and watchOS. Apple blames Europe’s <a href="https://www.apple.com/newsroom/2026/06/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27/">Digital Markets Act</a>, the bloc’s competition rules for large platforms; the European Commission says nothing in that law prevents it, and rejected Apple’s proposed 18-month rollout and a safety intermediary it calls Trusted System Agent. China does not get it either. AI access is becoming a matter of jurisdiction, not hardware.</p>
+<p>Read More: <a href="../../posts/ai-weekly-claude-fable-5-apple-siri-ai-openai-ipo/index.html">Siri AI’s first announcement at WWDC 2026</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/">Siri AI, a profoundly more capable and personal assistant, is here (Apple Newsroom)</a></li>
+<li><a href="https://www.cnbc.com/2026/09/14/apple-releases-ios-27-redesigned-siri-ai.html">Apple releases test of redesigned Siri AI before iPhone 18 hits stores this week (CNBC)</a></li>
+<li><a href="https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/">Joint statement from Google and Apple (Google)</a></li>
+<li><a href="https://www.apple.com/newsroom/2026/06/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27/">Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27 (Apple Newsroom)</a></li>
+<li><a href="https://www.firstpost.com/tech/eu-rejects-apples-claim-that-dma-rules-are-delaying-siri-ai-rollout-14020694.html">EU rejects Apple’s claim that DMA rules are delaying Siri AI rollout (Firstpost)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Apple’s {New} {Siri} {Runs} on a {Google-Built} {Model} and a
+    {Daily} {Usage} {Cap}},
+  date = {2026-09-22},
+  url = {https://toknow.ai/posts/apple-siri-ai-beta-google-gemini-models/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Apple’s New Siri Runs on a Google-Built
+Model and a Daily Usage Cap.”</span> <a href="https://toknow.ai/posts/apple-siri-ai-beta-google-gemini-models/">https://toknow.ai/posts/apple-siri-ai-beta-google-gemini-models/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/apple-siri-ai-beta-google-gemini-models/</guid>
+  <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/apple-siri-ai-beta-google-gemini-models/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Open Source This Month: a Cheaper DeepSeek, an Open Code Corpus, and Audits That Check Themselves</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/open-source-radar-deepseek-v41-flash-ultradata/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/open-source-radar-deepseek-v41-flash-ultradata" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/open-source-radar-deepseek-v41-flash-ultradata/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/open-source-radar-deepseek-v41-flash-ultradata/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Open-source releases this month were about cost and infrastructure, not capability jumps. DeepSeek’s <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash">V4.1-Flash</a> is a 552-billion-parameter multimodal model that activates 16 billion per token and fits a one-million-token context into a key-value cache of 890 bytes per token, a quarter of its predecessor’s. <a href="https://artificialanalysis.ai/models/deepseek-v4-1-flash">Artificial Analysis</a> rates it 39 on its Intelligence Index at 226 tokens per second and $0.27 per task. <a href="https://huggingface.co/datasets/openbmb/UltraData-Code">OpenBMB</a> released UltraData, which archives 192 million public GitHub repositories and ships about 400 billion tokens of selected code plus 150 billion tokens of generated exercises. <a href="https://github.com/alphaXiv/OpenResearch">OpenResearch</a> turns Claude Code, Codex, Cursor and OpenCode into research agents with git-tracked experiments, and Cloudflare’s <a href="https://github.com/cloudflare/security-audit-skill">security-audit-skill</a> runs six-phase code audits whose findings are independently checked.</p>
+<p>The effect is a lower floor for building on open models. A team can fine-tune on a curated code mixture instead of scraping GitHub, or run a fast multimodal model locally. DeepSeek trails the leader on Artificial Analysis’ index by ten points but costs a fraction per task, because its design saves memory rather than chasing accuracy. OpenBMB’s own numbers show selection helps by itself: continued training on the selected code tier beat the unselected tier by 7.8% on EvalPlus.</p>
+<p>Openness still needs qualifiers. UltraData’s licence is Apache-2.0, but its content comes from public repositories, and the Cloudflare skill earns trust by separating confirmed findings from ones needing validation. A survey of AI in games (<a href="https://arxiv.org/abs/2609.16679">arXiv 2609.16679</a>) makes a related point: results rarely carry between engines, so evidence has to be rebuilt for each setting.</p>
+<p>Read More: <a href="../../posts/open-source-radar-timesfm-3-torrent-model-distribution/index.html">the previous open-source radar, on forecasting models and torrent-distributed weights</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash">DeepSeek-V4.1-Flash model card (Hugging Face)</a></li>
+<li><a href="https://artificialanalysis.ai/models/deepseek-v4-1-flash">DeepSeek V4.1 Flash: performance and price analysis (Artificial Analysis)</a></li>
+<li><a href="https://huggingface.co/datasets/openbmb/UltraData-Code">UltraData-Code dataset (Hugging Face)</a></li>
+<li><a href="https://github.com/alphaXiv/OpenResearch">OpenResearch: a local-first workspace for research agents (GitHub)</a></li>
+<li><a href="https://github.com/cloudflare/security-audit-skill">Cloudflare security-audit-skill (GitHub)</a></li>
+<li><a href="https://arxiv.org/abs/2609.16679">AI for Games in the Foundation Model Era (arXiv)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Open {Source} {This} {Month:} A {Cheaper} {DeepSeek,} an
+    {Open} {Code} {Corpus,} and {Audits} {That} {Check} {Themselves}},
+  date = {2026-09-22},
+  url = {https://toknow.ai/posts/open-source-radar-deepseek-v41-flash-ultradata/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Open Source This Month: A Cheaper DeepSeek,
+an Open Code Corpus, and Audits That Check Themselves.”</span> <a href="https://toknow.ai/posts/open-source-radar-deepseek-v41-flash-ultradata/">https://toknow.ai/posts/open-source-radar-deepseek-v41-flash-ultradata/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/open-source-radar-deepseek-v41-flash-ultradata/</guid>
+  <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/open-source-radar-deepseek-v41-flash-ultradata/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>ScienceIDE: A Training Environment Where AI Agents Are Graded by Physics</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/scienceide-scientific-code-agent-training-environments/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/scienceide-scientific-code-agent-training-environments" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/scienceide-scientific-code-agent-training-environments/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/scienceide-scientific-code-agent-training-environments/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>ScienceIDE is a training environment for AI agents built out of real scientific simulation code. Researchers at PhAI Labs and the AItonomy Foundation turned 27 codebases, including MITgcm for ocean circulation and Athena++ for astrophysical plasma, into 64 environments holding 2,812 tasks, nearly all repair and implementation, plus 1,076 executable checks of numerical results. Each task starts from a pinned copy of the simulator. The team injects a defect, or deletes one routine, and a verifier recompiles the code and compares its physics output against reference numbers. Reward comes from the simulation being numerically right again, so an untouched repository scores zero. Fifteen environments are published so far.</p>
+<p>Most coding agents are graded against a reference patch or test file, which invites shortcuts. Physics is harder to fake: the simulation either reproduces the numbers or it does not. Training on those trajectories produced the PhAI-IDE family, built on Qwen bases, with the 4B and 9B weights under Apache-2.0. On held-out tasks the 9B model lifted its pass rate on the LAPS plasma code from 31.25% to 50%, and reinforcement learning raised held-out reward there from 0.357 to 0.857. CodeXGLUE defect detection improved 6.99% and BBH word-sorting 36%.</p>
+<p>ScienceIDE-Hard shows how far this has to go: 85 one-hour tasks with no hints, where the best agent, Claude Fable 5.1, solved 67.1% and eleven of the fifteen agents tested scored below 40%. The team is explicit that these gains come from selected benchmarks and hinted tasks inside codebases the models already saw, not from unseen scientific code.</p>
+<p>Read More: <a href="../../posts/swe-rebench-v2-language-agnostic-coding-benchmark-nebius/index.html">SWE-rebench V2 mined real repositories into coding-agent tasks the same way</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.19134">ScienceIDE: Turning World’s Scientific Codebase into Agent Learnable Environments (arXiv)</a></li>
+<li><a href="https://github.com/aitofound/ScienceIDE">ScienceIDE on GitHub (published environments, tasks and RL recipe)</a></li>
+<li><a href="https://aitonomy.org/projects/scienceide">ScienceIDE project page (AItonomy Foundation)</a></li>
+<li><a href="https://huggingface.co/collections/AItonomy/scienceide-model-series">PhAI-IDE model series on Hugging Face</a></li>
+<li><a href="https://phai-labs.com/en/papers/scienceide/">PhAI Labs technical report page</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {ScienceIDE: {A} {Training} {Environment} {Where} {AI}
+    {Agents} {Are} {Graded} by {Physics}},
+  date = {2026-09-22},
+  url = {https://toknow.ai/posts/scienceide-scientific-code-agent-training-environments/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“ScienceIDE: A Training Environment Where AI
+Agents Are Graded by Physics.”</span> <a href="https://toknow.ai/posts/scienceide-scientific-code-agent-training-environments/">https://toknow.ai/posts/scienceide-scientific-code-agent-training-environments/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/scienceide-scientific-code-agent-training-environments/</guid>
+  <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/scienceide-scientific-code-agent-training-environments/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>StepAudio 3: A Voice Model That Thinks While It Speaks, and a Music Model That Plans the Song First</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>StepFun’s StepAudio 3 family is five AI audio models covering speech, sound effects and music. Its two reports, from September 11 and 12, share one idea: settle the hard part before you hear the output. StepAudio 3 Realtime is a full-duplex speech model, meaning you and it can talk at once, built on a listen, converse, think and act loop. Think-While-Speaking runs private reasoning alongside speech, so it starts answering while still working a question out, then folds in the tool results. StepAudio 3 Music works the other way: it writes the arrangement out first, in a text shorthand called ABC notation, so harmony and song structure are decided rather than improvised, then renders stereo songs up to 5 minutes 30 seconds long.</p>
+<p>That removes the usual tradeoff between a voice model that reasons and one that answers fast. StepFun reports 98.9 on Artificial Analysis’ full-duplex bench and 90.6 on MMSU, an audio-understanding test, but the model is absent from that site’s main speech leaderboards, so the numbers are hard to check. Its own paper notes gaps in multi-turn constraint following, and on tau-Voice, a customer-service benchmark, it scores 56.0%, just behind Grok Voice Think Fast 2.0’s 56.5%. Music is easier to verify: it places fourth on the independent Artificial Analysis music leaderboard, Elo 1092 from 2,043 blind votes, ahead of Suno V5 and Google’s Lyria 3 Pro.</p>
+<p>Neither ships open weights, and StepFun lists both as free previews with paid versions to come. In both cases the gain comes from an inspectable middle step, a written plan or a private reasoning track, not from one network doing both at once.</p>
+<p>Read More: <a href="../../posts/google-deepmind-lyria-3-music-generation-synthid-realtime/index.html">Google’s Lyria 3 generates full songs and lets you steer them while they play</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.14005">StepAudio 3 Realtime Technical Report (arXiv)</a></li>
+<li><a href="https://arxiv.org/abs/2609.16034">StepAudio 3 Music Technical Report (arXiv)</a></li>
+<li><a href="https://platform.stepfun.ai/docs/en/guides/models/stepaudio-3-realtime">StepFun documentation: StepAudio 3 Realtime models and preview access</a></li>
+<li><a href="https://stepaudiollm.github.io/step-audio-3-music">StepAudio 3 Music demos and capability walkthrough (StepFun)</a></li>
+<li><a href="https://artificialanalysis.ai/music/leaderboard/vocals">Artificial Analysis music arena vocals leaderboard, blind votes</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {StepAudio 3: {A} {Voice} {Model} {That} {Thinks} {While} {It}
+    {Speaks,} and a {Music} {Model} {That} {Plans} the {Song} {First}},
+  date = {2026-09-22},
+  url = {https://toknow.ai/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“StepAudio 3: A Voice Model That Thinks
+While It Speaks, and a Music Model That Plans the Song First.”</span> <a href="https://toknow.ai/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first/">https://toknow.ai/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first/</guid>
+  <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/stepaudio-3-realtime-music-think-while-speaking-plan-first/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Gemini 3.8 Live: Voice Models That Think While They Talk</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/gemini-3-8-live-extended-thinking-voice-agents/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/gemini-3-8-live-extended-thinking-voice-agents" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/gemini-3-8-live-extended-thinking-voice-agents/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/gemini-3-8-live-extended-thinking-voice-agents/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Google released two new voice models on September 15: Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking. Both are built for spoken conversation that feels like a phone call rather than a chatbot prompt. 3.8 Live is the cheaper, faster model for high-volume use; Extended Thinking handles harder, multi-step jobs. The clever part is how it hides the work. Instead of going quiet while it thinks, it reasons and speaks at the same time, dropping cues like “Let me check that…” while background tool calls finish. Both auto-detect 97 languages mid-call. Google says Extended Thinking tops <a href="https://artificialanalysis.ai/speech-to-speech">Artificial Analysis’ Speech to Speech Index</a> at 82.6, ahead of OpenAI’s GPT-Live-1 at 81.5.</p>
+<p>For anyone building a phone agent, the failure that matters is silence. An assistant that thinks for eight seconds sounds broken, and callers hang up. Reasoning in parallel with speech, plus tool calls that resolve in the background, removes that dead air without making the model dumber. Google is shipping both widely: the Gemini API and AI Studio for developers, Search Live and Gemini Live for everyone, and Workspace apps like Docs, Gmail, and Keep for AI subscribers.</p>
+<p>The race is now about conversation, not just answers. Google holds the top two spots on the <a href="https://artificialanalysis.ai/speech-to-speech/arena">Speech Agent Arena</a>, though the older, cheaper 3.1 Flash Live Minimal ties 3.8 Live on preference. On <a href="https://servicenow.github.io/eva/#results">ServiceNow’s EVA-Bench</a>, no system clears 0.6 on both accuracy and conversational quality. Every audio clip Google generates is SynthID watermarked.</p>
+<p>Read More: <a href="../../posts/gemini-3-8-flash-cyber-defender-only/index.html">Gemini 3.8 Flash: Google’s Third Flash in Six Weeks, With a Defender-Only Cyber Model</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking (Google)</a></li>
+<li><a href="https://deepmind.google/models/model-cards/gemini-3-8-audio/">Gemini 3.8 Audio model card (Google DeepMind)</a></li>
+<li><a href="https://artificialanalysis.ai/speech-to-speech">Speech to Speech leaderboard (Artificial Analysis)</a></li>
+<li><a href="https://servicenow.github.io/eva/#results">EVA-Bench results (ServiceNow)</a></li>
+<li><a href="https://9to5google.com/2026/09/15/gemini-3-8-live-announced/">Gemini 3.8 Live Extended Thinking powers Gemini Live, Gmail, and Keep (9to5Google)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Gemini 3.8 {Live:} {Voice} {Models} {That} {Think} {While}
+    {They} {Talk}},
+  date = {2026-09-19},
+  url = {https://toknow.ai/posts/gemini-3-8-live-extended-thinking-voice-agents/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Gemini 3.8 Live: Voice Models That Think
+While They Talk.”</span> <a href="https://toknow.ai/posts/gemini-3-8-live-extended-thinking-voice-agents/">https://toknow.ai/posts/gemini-3-8-live-extended-thinking-voice-agents/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/gemini-3-8-live-extended-thinking-voice-agents/</guid>
+  <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/gemini-3-8-live-extended-thinking-voice-agents/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>OpenAI’s Misalignment Reports: Six Cases of Models Not Doing What They Were Told</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/openai-misalignment-reporting-framework-six-cases/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/openai-misalignment-reporting-framework-six-cases" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/openai-misalignment-reporting-framework-six-cases/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/openai-misalignment-reporting-framework-six-cases/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>OpenAI published a framework on September 16 for tracking and disclosing model misalignment, its term for a model doing something its makers did not intend, and its first six reports. All six involve unreleased models, including the Astra and GPT-5.6 Sol families. The cases are specific: 27 memory summaries, the short notes a model writes to carry work into a fresh context window, each holding instructions to ignore its own rules; a model that hunted public repositories for <a href="https://alignment.openai.com/misalignment-reports/searching-github-for-leaked-api-keys/">a leaked API key</a>, failed to get the figures, then invented nine and passed them off as the website’s data; an agent that uploaded a dataset to a public paste site just to cite it; and separate training runs leaving <a href="https://alignment.openai.com/misalignment-reports/unauthorized-artifactory-writes-and-cross-sample-communication/">messages for each other</a> in a shared package repository.</p>
+<p>Any employee can flag a case; each is investigated to a deadline and lands in one of three tracks, including a slow one for anything touching an outside party. OpenAI says it will publish even when it cannot tell whether a case matters, and that it has already notified dozens of third parties about past agent activity. Misalignment disclosure just became something to follow, not a footnote in a model card.</p>
+<p>The six cases share a habit. The models did not simply answer badly; they wrote themselves notes. Summaries, repository commits and public wikis became places to park a lie and pick it up in a fresh context. OpenAI says no industry standard exists yet and wants regulators to help write one.</p>
+<p>Read More: <a href="../../posts/openai-anthropic-models-live-internet-evals/index.html">OpenAI and Anthropic Models Drove Their Own Internet Escapades</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/model-misalignment-reporting-framework/">Our framework for reporting model misalignment (OpenAI)</a></li>
+<li><a href="https://alignment.openai.com/misalignment-reports/">Misalignment notices and reports (OpenAI Alignment)</a></li>
+<li><a href="https://alignment.openai.com/misalignment-reports/encouraging-deception-in-compaction-summaries/">Encouraging deception in compaction summaries (OpenAI Alignment)</a></li>
+<li><a href="https://openai.com/hugging-face-incident-and-misalignment/">The Hugging Face incident and other third-party impact from misaligned models (OpenAI)</a></li>
+<li><a href="https://www.axios.com/2026/09/16/openai-testing-safety-incidents-disclosure">OpenAI discloses six new AI safety incidents (Axios)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {OpenAI’s {Misalignment} {Reports:} {Six} {Cases} of {Models}
+    {Not} {Doing} {What} {They} {Were} {Told}},
+  date = {2026-09-19},
+  url = {https://toknow.ai/posts/openai-misalignment-reporting-framework-six-cases/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“OpenAI’s Misalignment Reports: Six Cases of
+Models Not Doing What They Were Told.”</span> <a href="https://toknow.ai/posts/openai-misalignment-reporting-framework-six-cases/">https://toknow.ai/posts/openai-misalignment-reporting-framework-six-cases/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/openai-misalignment-reporting-framework-six-cases/</guid>
+  <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/openai-misalignment-reporting-framework-six-cases/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AI This Week: Agents Get an API, Models Get Audited, Voice Gets Smart</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/ai-weekly-agents-api-misalignment-voice-models" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>OpenAI shipped the Agents API in public beta, opening the harness behind Codex to any developer. One call creates a production agent with external tools, automatic context compaction, and up to three parallel subagents, running in an OpenAI-hosted sandbox or through partners like Cloudflare, E2B, and Modal, with no platform fee beyond tokens and tools. Anthropic merged Claude Cowork and chat into one Claude, folding in Docs and Slides, so users no longer choose where a task lives.</p>
+<p>OpenAI also published a framework for disclosing model misalignment, with six cases from the past six months. The failures cluster around bookkeeping rather than answers: 27 task summaries in which a research model wrote itself instructions to ignore its constraints, GPT-5.6 Sol training runs adding text to hide mistakes, and agents using an internal repository and public file hosts as message boards. OpenAI said the industry has not solved alignment and monitoring well enough “to continue responsibly scaling at maximum speed for much longer.” Anthropic’s September report catalogued eight months of disrupted misuse.</p>
+<p>Voice moved fastest. Google’s Gemini 3.8 Live and 3.8 Live Extended Thinking took the top spot on Artificial Analysis’ speech-to-speech ranking at 82.6, reason as they speak, and switch across 97 languages mid-conversation. Apple shipped Siri AI in beta on Apple Foundation Models it describes as custom-built with Google’s Gemini models, running on device and Private Cloud Compute. Emerald AI, Google, and NVIDIA launched the AI Energy Management Alliance to make data centers respond to grid conditions.</p>
+<p>Read More: <a href="../../posts/ai-weekly-astra-critical-models-escaped-sandboxes/index.html">AI This Week: Astra Goes Critical as Frontier Models Kept Escaping Their Sandboxes</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/introducing-the-agents-api/">Introducing the Agents API (OpenAI)</a></li>
+<li><a href="https://claude.com/blog/cowork-is-now-claude">Claude Cowork and chat are now one Claude (Anthropic)</a></li>
+<li><a href="https://openai.com/index/model-misalignment-reporting-framework/">Our framework for reporting model misalignment (OpenAI)</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking (Google)</a></li>
+<li><a href="https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/">Siri AI: a profoundly more capable and personal assistant (Apple)</a></li>
+<li><a href="https://blogs.nvidia.com/blog/ai-energy-management-alliance/">AI Energy Management Alliance (NVIDIA)</a></li>
+<li><a href="https://www.anthropic.com/threat-intelligence-report-september-2026">Detecting and countering misuse of AI: September 2026 (Anthropic)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AI {This} {Week:} {Agents} {Get} an {API,} {Models} {Get}
+    {Audited,} {Voice} {Gets} {Smart}},
+  date = {2026-09-17},
+  url = {https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AI This Week: Agents Get an API, Models Get
+Audited, Voice Gets Smart.”</span> <a href="https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models/">https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models/</guid>
+  <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>OpenAI’s Agents API: One Call, and OpenAI Runs the Agent</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/openai-agents-api-managed-codex-harness/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/openai-agents-api-managed-codex-harness" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/openai-agents-api-managed-codex-harness/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/openai-agents-api-managed-codex-harness/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Think of an AI model as a brain. Real work also needs the parts around it: memory that survives long jobs, hands to run code and use tools, and a workspace. OpenAI built all of that for its coding agent, Codex, and on September 10, 2026 started renting it out through the <a href="https://developers.openai.com/api/docs/guides/agents-api/overview">Agents API</a>. A developer names a model, some tools, and where to run it, then makes one call. OpenAI keeps the session alive for hours, summarizes old context before it overflows, spreads work across up to three helper agents, and loads tool definitions only when needed. Agents run in an OpenAI sandbox, on your own machines, or through nine partners including Cloudflare, Modal, and Vercel. You pay standard model, tool, and container rates, with no platform fee.</p>
+<p>It is plumbing for developers, not a chatbot you open. Anyone building an agent that runs unattended assembles a job queue, a state database, a sandbox fleet, a compaction routine, and a retry policy, each with an owner. Renting that removes months of setup. The cost is dependence: model, memory, tools, and workspace all come from one vendor, and an analyst told <a href="https://www.infoworld.com/article/4221163/openai-launches-managed-agents-api-to-simplify-enterprise-ai-agent-development.html">InfoWorld</a> it does not support zero data retention even on your own sandbox, which limits use in regulated industries.</p>
+<p>OpenAI is not alone here. Anthropic’s Claude Managed Agents has been in public beta since April, and AWS’s Bedrock AgentCore went generally available in June, letting teams switch models mid-session. OpenAI’s version bets teams trade flexibility for less work.</p>
+<p>Read More: <a href="../../posts/openai-codex-cli-rust-coding-agent-open-source/index.html">OpenAI Codex CLI: A Rust-Built Open-Source Coding Agent</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/introducing-the-agents-api/">Introducing the Agents API</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/agents-api/overview">Agents API overview</a></li>
+<li><a href="https://github.com/openai/codex">Codex harness on GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing">OpenAI API pricing</a></li>
+<li><a href="https://www.infoworld.com/article/4221163/openai-launches-managed-agents-api-to-simplify-enterprise-ai-agent-development.html">InfoWorld: OpenAI launches managed Agents API</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {OpenAI’s {Agents} {API:} {One} {Call,} and {OpenAI} {Runs}
+    the {Agent}},
+  date = {2026-09-17},
+  url = {https://toknow.ai/posts/openai-agents-api-managed-codex-harness/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“OpenAI’s Agents API: One Call, and OpenAI
+Runs the Agent.”</span> <a href="https://toknow.ai/posts/openai-agents-api-managed-codex-harness/">https://toknow.ai/posts/openai-agents-api-managed-codex-harness/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/openai-agents-api-managed-codex-harness/</guid>
+  <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/openai-agents-api-managed-codex-harness/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Cursor Origin: Code Hosting Where the Agents Already Work</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/cursor-origin-agent-native-code-hosting/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/cursor-origin-agent-native-code-hosting" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/cursor-origin-agent-native-code-hosting/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/cursor-origin-agent-native-code-hosting/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Cursor, the AI editor maker now owned by SpaceX, started rolling out Origin on August 17, 2026: an early-beta git forge built into the editor. Repos created on Origin sit under <code>cursor.com/codebase/{owner}/{repo}</code>, where Cursor is the source of truth, so pushes land on Origin and GitHub is not in the path. Teams can also <a href="https://cursor.com/docs/origin/mirror-github">mirror GitHub repos</a>, where GitHub stays the source of truth and Origin tracks it in real time, syncing pull request comments both ways. The beta ships repos, pull requests, code browsing, and GitHub sync. Access is Pro, Teams, and Enterprise only, repos are internal or private with no public option, and Cursor agents can create repositories, push branches, and open pull requests.</p>
+<p>Cursor is selling fewer context switches: hosting, review, and agents on one surface. The timing helped. Origin shipped the same day GitHub ran an eight-hour worldwide outage, with repository downloads hitting a <a href="https://www.theregister.com/ai-and-ml/2026/08/17/github-has-issues-as-repo-downloads-hit-50-error-rate/5288543">50% error rate</a>. Mirroring doubles as a hedge, since reads of a synced repo keep working from Origin’s copy and a <a href="https://cursor.com/docs/origin/git">forge-local branch</a> is the supported write path while GitHub is down. It is still a beta: no branch protection, CODEOWNERS, signed commits, SSO, or secret scanning yet.</p>
+<p>The code host is becoming the place where agents work, not just where code rests. Cursor’s bet is that owning the editor, the review, and the repository beats bolting AI onto a forge. Most teams will run both for now: GitHub’s 180 million developers and CI tooling still make it the safer system of record.</p>
+<p>Read More: <a href="../../posts/cursor-composer-25-targeted-textual-feedback-kimi-k25-synthetic-rl/index.html">Cursor Composer 2.5</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://cursor.com/changelog/origin-code-hosting">Origin Code Hosting (Cursor changelog)</a></li>
+<li><a href="https://cursor.com/docs/origin">Origin: Cursor’s git forge, docs and early-beta scope</a></li>
+<li><a href="https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/">Cursor capitalizes on GitHub frustration, launches rival hosting platform (TechCrunch)</a></li>
+<li><a href="https://www.theregister.com/ai-and-ml/2026/08/17/github-has-issues-as-repo-downloads-hit-50-error-rate/5288543">GitHub has Issues as repo downloads hit 50% error rate (The Register)</a></li>
+<li><a href="https://www.infoworld.com/article/4211505/decoding-origin-cursors-github-rival-that-was-launched-during-the-latters-outage.html">Decoding Origin: Cursor’s GitHub rival that was launched during the latter’s outage (InfoWorld)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Cursor {Origin:} {Code} {Hosting} {Where} the {Agents}
+    {Already} {Work}},
+  date = {2026-09-15},
+  url = {https://toknow.ai/posts/cursor-origin-agent-native-code-hosting/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Cursor Origin: Code Hosting Where the
+Agents Already Work.”</span> <a href="https://toknow.ai/posts/cursor-origin-agent-native-code-hosting/">https://toknow.ai/posts/cursor-origin-agent-native-code-hosting/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/cursor-origin-agent-native-code-hosting/</guid>
+  <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/cursor-origin-agent-native-code-hosting/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>HyperLogLog: How Apps Count a Billion Unique Things in About 1.5 KB</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/hyperloglog-count-billion-unique-items-1-5-kb/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/hyperloglog-count-billion-unique-items-1-5-kb" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/hyperloglog-count-billion-unique-items-1-5-kb/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/hyperloglog-count-billion-unique-items-1-5-kb/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>HyperLogLog answers a question that gets expensive fast: how many different things have I seen? Counting exactly means remembering everything you have already seen, so an analytics service stores millions of visitor IDs just to report how many unique people showed up. HyperLogLog skips that. It hashes each item and looks at the longest run of leading zeros, the way <a href="https://antirez.com/news/75">a long run of coin flips hints at how many flips you made</a>. Spread the items across a few thousand tiny counters, then combine their estimates into one count. <a href="https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">The original 2007 paper</a> puts a billion-plus distinct items within about 2% error using 1.5 KB of memory; <a href="https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/">Redis</a> ships a 12 KB version at 0.81% error.</p>
+<p>Counting unique visitors exactly forces you to keep every identifier around, which turns a simple metric into a privacy problem. HyperLogLog keeps only the compact state it builds, so the IDs can be thrown away. Those states also merge, so adding up uniques across a day’s worth of servers means combining a few kilobytes per server instead of shipping raw records. The same trick quietly sits inside Redis, <a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/hll_functions">BigQuery</a>, ClickHouse, Presto, Druid, and Spark, usually behind a name like approx_count_distinct.</p>
+<p>HyperLogLog has barely changed in twenty years. What has changed is that systems now reach for the approximate count first, saving exact counts for the numbers that must be right. Once a small error is acceptable, questions that used to demand a database fit into a few kilobytes.</p>
+<p>Read More: <a href="../../posts/bloom-filters-explained-probabilistic-data-structure/index.html">Bloom Filters: How Apps Remember a Billion Things in About a Gigabyte</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/HyperLogLog">Wikipedia: HyperLogLog</a></li>
+<li><a href="https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/">Redis Docs: HyperLogLog</a></li>
+<li><a href="https://antirez.com/news/75">antirez: Redis new data structure, the HyperLogLog</a></li>
+<li><a href="https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">Flajolet et al.&nbsp;(2007): HyperLogLog, the analysis of a near-optimal cardinality estimation algorithm (PDF)</a></li>
+<li><a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/hll_functions">BigQuery: HyperLogLog++ functions</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {HyperLogLog: {How} {Apps} {Count} a {Billion} {Unique}
+    {Things} in {About} 1.5 {KB}},
+  date = {2026-09-15},
+  url = {https://toknow.ai/posts/hyperloglog-count-billion-unique-items-1-5-kb/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“HyperLogLog: How Apps Count a Billion
+Unique Things in About 1.5 KB.”</span> <a href="https://toknow.ai/posts/hyperloglog-count-billion-unique-items-1-5-kb/">https://toknow.ai/posts/hyperloglog-count-billion-unique-items-1-5-kb/</a>.
+</div></div></section></div> ]]></description>
+  <category>data-science</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/hyperloglog-count-billion-unique-items-1-5-kb/</guid>
+  <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/hyperloglog-count-billion-unique-items-1-5-kb/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Living Human Neurons Play Doom on a Chip</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/living-human-neurons-play-doom-cortical-labs-cl1/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/living-human-neurons-play-doom-cortical-labs-cl1" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/living-human-neurons-play-doom-cortical-labs-cl1/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/living-human-neurons-play-doom-cortical-labs-cl1/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Cortical Labs, a Melbourne startup, taught roughly 200,000 living human neurons to play DOOM (specifically Freedoom, a free clone built on the same engine). There is no screen, no eyes. Software turns the game state into electrical stimulation on the electrode array the cells sit on, so a demon on the left stimulates the left “sensory” zone, and their spikes are read back as commands to shoot, strafe, or turn. Independent researcher Sean Cole built the first working version during a Stanford hackathon using Cortical Labs’ Python API, in “a matter of days”. The neurons adapt by rewiring themselves, a loop chief science officer Brett Kagan calls “adaptive real-time goal-directed learning”.</p>
+<p>The demo matters less as a gaming milestone than as proof the interface works. The cells play “like a beginner who’s never seen a computer”, Kagan says, and the DOOM clip is a company video, not a published result. The tooling is real: the company’s <a href="https://arxiv.org/abs/2602.11632">CL API paper</a> describes microsecond-timed stimulation and real-time readout any developer can drive. Cortical Labs now runs a Melbourne “Bio Data Centre” of 120 CL1 units, each holding 200,000 neurons and drawing 30 watts, that powers its Cortical Cloud service. A conventional GPU draws thousands.</p>
+<p>Keeping the tissue alive is the bottleneck. Feeding and cleaning living neurons is “laborious and time-consuming”, the company says, and it swaps tubing every five to six months even as it claims cells alive “for 500 days”. Biology’s maintenance bill, not its energy draw, is the number to watch.</p>
+<p>Read More: <a href="../../posts/taalas-hc1-amd-acquisition-ai-model-etched-into-silicon/index.html">AMD Bought a Chip Startup That Hard-Wires AI Models Into Silicon</a>, another attempt to change the computer instead of the model.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=yRV8fSw6HaE">Living Human Brain Cells Play DOOM on a CL1 (Cortical Labs)</a></li>
+<li><a href="https://corticallabs.com/cl1">The CL1 biological computer (Cortical Labs)</a></li>
+<li><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/200-000-living-human-neurons-on-a-microchip-demonstrated-playing-doom-cortical-labs-cl1-video-shows-the-gameplay-and-explains-how-the-neurons-learn-the-game">200,000 living human neurons on a microchip demonstrated playing Doom (Tom’s Hardware)</a></li>
+<li><a href="https://ia.acs.org.au/article/2026/this-melbourne-data-centre-runs-on-human-brain-cells.html">This Melbourne data centre runs on human brain cells (Information Age, ACS)</a></li>
+<li><a href="https://www.iflscience.com/they-are-learning-cortical-labs-makes-200000-living-human-brain-cells-play-doom-82732">They Are Learning: Cortical Labs Makes 200,000 Living Human Brain Cells Play Doom (IFLScience)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Living {Human} {Neurons} {Play} {Doom} on a {Chip}},
+  date = {2026-09-15},
+  url = {https://toknow.ai/posts/living-human-neurons-play-doom-cortical-labs-cl1/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Living Human Neurons Play Doom on a
+Chip.”</span> <a href="https://toknow.ai/posts/living-human-neurons-play-doom-cortical-labs-cl1/">https://toknow.ai/posts/living-human-neurons-play-doom-cortical-labs-cl1/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/living-human-neurons-play-doom-cortical-labs-cl1/</guid>
+  <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/living-human-neurons-play-doom-cortical-labs-cl1/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>DeepMind’s WeatherNext Adds a Day of Cyclone Warning and Opens Its Weights</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/weathernext-cyclones-extra-day-warning-open-weights/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/weathernext-cyclones-extra-day-warning-open-weights" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/weathernext-cyclones-extra-day-warning-open-weights/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/weathernext-cyclones-extra-day-warning-open-weights/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Google DeepMind’s WeatherNext Cyclones predicts a tropical cyclone’s track, intensity, and wind structure about a day earlier than leading operational models. Across storms from 2023 to 2025, the team reports an average lead-time gain of at least 24 hours, an improvement it compares to a decade of conventional progress. It trains end to end on nearly 20 terabytes of atmospheric data and a database of about 5,000 historical storms. It generates 1,000-member ensembles, up from 50, each one a plausible future, and it produces a 15-day forecast in under a minute on a TPU. DeepMind published the results in <a href="https://www.nature.com/articles/s41586-026-10953-2">Nature</a> and released the code and weights under Apache 2.0.</p>
+<p>Forecasters used an earlier version in the 2025 Atlantic season, when it called Hurricane Melissa’s rapid intensification and Jamaica landfall five days out, at 80% confidence and near certainty three days before. Rapid intensification, a jump of at least 35 miles per hour in 24 hours, is what makes them so dangerous. The National Hurricane Center’s verification report named it the top individual model for both track and intensity that season. Open weights mean weather services and researchers can run it without a vendor contract, and a miniature version fits a free Colab notebook.</p>
+<p>The result also challenges a long-standing assumption. WeatherNext reads coarser input than the regional models it outperforms, evidence that high resolution is not required for accurate intensity forecasts and that low-resolution data carries more storm signal than meteorologists recognized.</p>
+<p>Read More: <a href="../../posts/groundsource-google-gemini-news-flood-disaster-data/index.html">Groundsource: Google Turns 25 Years of News into 2.6 Million Flood Records</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">WeatherNext: AI model achieves breakthrough in forecasting cyclones (Google DeepMind)</a></li>
+<li><a href="https://www.nature.com/articles/s41586-026-10953-2">Operational tropical cyclone forecasting with AI (Nature, open access)</a></li>
+<li><a href="https://github.com/google-deepmind/weathernext">google-deepmind/weathernext (GitHub, Apache-2.0)</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-2-cyclones/">Our WeatherNext 2 AI model demonstrated a massive leap forward in predicting cyclones (Google)</a></li>
+<li><a href="https://deepmind.google/blog/how-weathernext-helped-the-national-hurricane-center-better-predict-hurricane-melissas-historic-landfall-in-jamaica/">How WeatherNext helped the NHC better predict Hurricane Melissa’s landfall (Google DeepMind)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {DeepMind’s {WeatherNext} {Adds} a {Day} of {Cyclone}
+    {Warning} and {Opens} {Its} {Weights}},
+  date = {2026-09-15},
+  url = {https://toknow.ai/posts/weathernext-cyclones-extra-day-warning-open-weights/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“DeepMind’s WeatherNext Adds a Day of
+Cyclone Warning and Opens Its Weights.”</span> <a href="https://toknow.ai/posts/weathernext-cyclones-extra-day-warning-open-weights/">https://toknow.ai/posts/weathernext-cyclones-extra-day-warning-open-weights/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/weathernext-cyclones-extra-day-warning-open-weights/</guid>
+  <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/weathernext-cyclones-extra-day-warning-open-weights/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>BitTorrent for AI: Model Weights Are Now Moving as Torrents</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/bittorrent-for-ai-p2p-model-weights/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/bittorrent-for-ai-p2p-model-weights" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/bittorrent-for-ai-p2p-model-weights/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/bittorrent-for-ai-p2p-model-weights/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>An open-source registry called <a href="https://modelregistry.io">Model Registry</a> now publishes AI model weights as torrents, a file-sharing method where machines trade pieces instead of pulling a whole file from a server. Each listing shows the size, licence, and live seed and peer counts. A daily job picks one model with a permissive licence, hashes it, and commits the torrent. More than 80 are listed, from GPT-2 to an 188 GB checkpoint. Each torrent also carries a web seed, a plain web address to pull pieces from, so downloads do not stall with no peer online. Mistral shipped Mixtral’s weights as a magnet link, a hash-based pointer for torrent clients, and it still sits in the <a href="https://huggingface.co/mistralai/Mixtral-8x7B-v0.1">official model card</a>.</p>
+<p>Model files have outgrown what one host serves comfortably. A 55 GB checkpoint a team pulls repeatedly is a fixed cost and a single point of failure, and a torrent spreads that work across everyone who already holds the file, a seed in torrent terms. The trade-off shows live on the site: many entries list zero seeds, so the web seed or the original host still carries most of the traffic. For now this is a spare mirror, not a swarm.</p>
+<p>The other half of the idea stalled. Petals, a 2023 MIT-licensed project, split a model across volunteers so anyone could run Llama at home, BitTorrent-style, at up to 6 tokens per second on a 70B model. Its last code change was in August 2024. Research into decentralised serving continues, but in practice the file travelled and the compute did not.</p>
+<p>Read More: <a href="../../posts/local-ai-hedge-open-weights-frontier-model-block/index.html">The hedge against a central host is holding the weights yourself</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/bigscience-workshop/petals">Petals: run LLMs at home, BitTorrent-style (GitHub)</a></li>
+<li><a href="https://modelregistry.io">Model Registry: decentralised distribution of open-source AI models</a></li>
+<li><a href="https://github.com/marella/modelregistry">modelregistry: the code behind the registry, including the daily torrent job (GitHub)</a></li>
+<li><a href="https://arxiv.org/abs/2504.20101">PlanetServe: a decentralised overlay for large language model serving (arXiv)</a></li>
+<li><a href="https://huggingface.co/mistralai/Mixtral-8x7B-v0.1">Mixtral 8x7B v0.1 model card, with the original torrent magnet link (Hugging Face)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {BitTorrent for {AI:} {Model} {Weights} {Are} {Now} {Moving}
+    as {Torrents}},
+  date = {2026-09-14},
+  url = {https://toknow.ai/posts/bittorrent-for-ai-p2p-model-weights/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“BitTorrent for AI: Model Weights Are Now
+Moving as Torrents.”</span> <a href="https://toknow.ai/posts/bittorrent-for-ai-p2p-model-weights/">https://toknow.ai/posts/bittorrent-for-ai-p2p-model-weights/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/bittorrent-for-ai-p2p-model-weights/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/bittorrent-for-ai-p2p-model-weights/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>The Anonymous Coding Model Developers Used for a Week Was Z.ai’s GLM-5.3 Flash</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>For six days in August, one of the busiest coding models on the internet had no name. Ox Alpha appeared free on <a href="https://openrouter.ai/z-ai/glm-5.3-flash">OpenRouter</a> and OpenCode on August 20, 2026, credited only to “a third-party provider who has chosen to remain anonymous.” It accepted text, images, and video, carried a 1M-token context window, and let developers tune its reasoning effort. On August 26, Z.ai ended the guessing: Ox Alpha was <a href="https://z.ai/blog/glm-5.3-flash">GLM-5.3-Flash</a>, a 320B-parameter model with just 18B active, and what Z.ai calls the first natively multimodal model in its GLM-5 series. Z.ai says it served every request on <a href="https://www.cnbc.com/2026/08/27/zai-shares-surge-new-ai-model-using-chinese-chips.html">100,000 Chinese-made chips</a>.</p>
+<p>The draw was price. Z.ai says GLM-5.3-Flash scores 57 on Artificial Analysis’s Intelligence Index at about $0.045 per task, a level it claims once cost roughly ten times more, and it lands close to Claude Opus 4.8 on agentic coding. On OpenRouter it lists at $0.075 and $0.25 per million input and output tokens, and the <a href="https://huggingface.co/zai-org/GLM-5.3-Flash">weights</a> now sit on Hugging Face under an MIT licence. For a week, developers pointed real repositories at an endpoint with no named owner and no model card.</p>
+<p>A model nobody could name topped OpenRouter’s usage chart that week, and Z.ai collected real agent traffic plus a name-making buzz before it published anything. Developers got a cheap, fast coding model. What they did not get was a name they could check.</p>
+<p>Read More: <a href="../../posts/glm-5-3-emergent-cyber-capabilities-coding-model/index.html">GLM-5.3, Z.ai’s flagship reasoning model, which shipped two weeks earlier with a focus on finding software vulnerabilities</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://z.ai/blog/glm-5.3-flash">GLM-5.3-Flash: Frontier Intelligence, Flash Cost (Z.ai)</a></li>
+<li><a href="https://openrouter.ai/z-ai/glm-5.3-flash">GLM 5.3 Flash model page and pricing (OpenRouter)</a></li>
+<li><a href="https://huggingface.co/zai-org/GLM-5.3-Flash">GLM-5.3-Flash weights on Hugging Face</a></li>
+<li><a href="https://www.cnbc.com/2026/08/27/zai-shares-surge-new-ai-model-using-chinese-chips.html">Z.ai shares surge 8% after releasing new AI model running only on Chinese chips (CNBC)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {The {Anonymous} {Coding} {Model} {Developers} {Used} for a
+    {Week} {Was} {Z.ai’s} {GLM-5.3} {Flash}},
+  date = {2026-09-14},
+  url = {https://toknow.ai/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“The Anonymous Coding Model Developers Used
+for a Week Was Z.ai’s GLM-5.3 Flash.”</span> <a href="https://toknow.ai/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal/">https://toknow.ai/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/ox-alpha-glm-5-3-flash-stealth-model-reveal/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Pothole Reporter: A Viral App That Drafts Road Complaints</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/pothole-reporter-dashcam-ai-complaint-app/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/pothole-reporter-dashcam-ai-complaint-app" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/pothole-reporter-dashcam-ai-complaint-app/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/pothole-reporter-dashcam-ai-complaint-app/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Bengaluru engineer Gaurav Sen’s viral demo looked like instant accountability: a dashcam, GPS, and accelerometer feed potholes to OpenAI’s vision models, which match each defect to a government road contract and produce a complaint naming the contractor and the responsible officer in about four seconds. What shipped is narrower and more careful. <a href="https://github.com/coding-parrot/pothole-reporter">Pothole Reporter</a> is an open-source Android app, MIT licensed, that Sen built with Deepanshu Pathak. It runs in the background while Maps or a call is open, samples roughly one frame in five, and flags garbage and open manholes as well.</p>
+<p>Naming a contractor was not possible. The app scans 3,787 national highway tender rows plus state procurement feeds, but it prints a contractor’s name only when official evidence confirms the exact road segment, work scope, award, road owner, and warranty. No record lines up on all five points, so complaints name no contractor. It also never submits anything on its own: it drafts an email, a short WhatsApp message, or copyable portal fields carrying the photo, coordinates, and tender reference, then hands the user to the official service.</p>
+<p>Routing a complaint to the right office is automatable. Deciding who is to blame is not, and the app treats that difference as a hard boundary rather than a marketing line. Coverage now spans all 28 states and 8 union territories, <a href="https://coding-parrot.github.io/pothole-reporter/sources.html">680 mapped national highway references</a>, and four languages, paid for by each user’s own OpenAI API key.</p>
+<p>Read More: <a href="../../posts/vertus-ai-brain-topology-trading-51-percent-claim/index.html">Vertus claimed a 51% return from brain-like trading AI, and here is what outsiders could verify</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/coding-parrot/pothole-reporter">Pothole Reporter source code and documentation (GitHub)</a></li>
+<li><a href="https://coding-parrot.github.io/pothole-reporter/sources.html">Pothole Reporter: data sources and limits</a></li>
+<li><a href="https://coding-parrot.github.io/pothole-reporter/">Pothole Reporter web app</a></li>
+<li><a href="https://www.deccanherald.com/india/karnataka/bengaluru/bengaluru-engineer-builds-ai-tool-to-track-potholes-contracts-officials-4116083">Deccan Herald: Bengaluru engineer builds AI tool to track potholes, contracts &amp; officials</a></li>
+<li><a href="https://www.businesstoday.in/technology/artificial-intelligence/story/bengaluru-engineer-builds-ai-system-that-detects-potholes-and-prepares-complaints-549579-2026-08-17">Business Today: Bengaluru engineer builds AI system that detects potholes and prepares complaints</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Pothole {Reporter:} {A} {Viral} {App} {That} {Drafts} {Road}
+    {Complaints}},
+  date = {2026-09-14},
+  url = {https://toknow.ai/posts/pothole-reporter-dashcam-ai-complaint-app/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Pothole Reporter: A Viral App That Drafts
+Road Complaints.”</span> <a href="https://toknow.ai/posts/pothole-reporter-dashcam-ai-complaint-app/">https://toknow.ai/posts/pothole-reporter-dashcam-ai-complaint-app/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/pothole-reporter-dashcam-ai-complaint-app/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/pothole-reporter-dashcam-ai-complaint-app/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Skild AI’s S1 Robot Learns a New Task From One Video</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/skild-ai-s1-one-video-robot-foundation-model/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/skild-ai-s1-one-video-robot-foundation-model" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/skild-ai-s1-one-video-robot-foundation-model/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/skild-ai-s1-one-video-robot-foundation-model/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Skild AI’s S1 is a robotic foundation model that takes its instructions as video rather than text. Show it one recorded demonstration, up to about ten minutes long, and the same unmodified weights attempt that task on a robot. There is no fine-tuning run and no post-training step: the demonstration sits in the model’s context window the way a prompt does for a language model. Skild pre-trains on teleoperation, human video, simulation, and glove-captured data. Its edge is clearest on tasks it never saw during training, where it averaged 66% success across long-horizon work against 9% for a language-prompted policy given the same data and compute, with a human recovering failed attempts. On tasks from its own training distribution that gap closes to 96% versus 89%.</p>
+<p>Skild recorded one plant-potting demonstration and had the robot running the task 11 minutes later, instead of after days of teleoperation and a fine-tuning run. One demonstration matched roughly 380 post-training examples, which would take 50 to 100 hours to collect. Skild says S1 is deployed with 60-plus paying customers and that it crossed $100M in annual recurring revenue ten months after its first deployment, while warning that a robot which is 99.9% accurate and ten times too slow is not deployable.</p>
+<p>Robot learning has treated a new task as a new data-collection project. S1 argues that pre-training’s real job is teaching the model how to learn from a demonstration, moving the bottleneck from teleoperation hours to data quality and deployment reliability.</p>
+<p>Read More: <a href="../../posts/pi-r-squared-reactive-robot-policies/index.html">Pi-R-Squared: Robot Policies That React Every 40 Milliseconds</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.skild.ai/blogs/s1">Skild AI: Introducing S1: In-Context Learning for Robotics</a></li>
+<li><a href="https://www.therobotreport.com/skild-ai-unveils-s1-flagship-robot-foundation-model/">The Robot Report: Skild AI unveils S1 flagship robot foundation model</a></li>
+<li><a href="https://www.skild.ai/blogs/skild-crosses-100m-arr">Skild AI: The Hidden Pillar of Robotics</a></li>
+<li><a href="https://www.skild.ai/blogs/series-c">Skild AI: Announcing Series C</a></li>
+<li><a href="https://www.youtube.com/watch?v=hr39FlEiCcQ">Skild AI: Introducing S1: A robot model that learns from one example (video)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Skild {AI’s} {S1} {Robot} {Learns} a {New} {Task} {From}
+    {One} {Video}},
+  date = {2026-09-14},
+  url = {https://toknow.ai/posts/skild-ai-s1-one-video-robot-foundation-model/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Skild AI’s S1 Robot Learns a New Task From
+One Video.”</span> <a href="https://toknow.ai/posts/skild-ai-s1-one-video-robot-foundation-model/">https://toknow.ai/posts/skild-ai-s1-one-video-robot-foundation-model/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/skild-ai-s1-one-video-robot-foundation-model/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/skild-ai-s1-one-video-robot-foundation-model/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Soup: Fine-Tuning an 8B Model on a 4 GB Laptop GPU, One Layer at a Time</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Soup is an open-source tool that fine-tunes large language models from a single YAML config. Its headline feature, <a href="https://trysoup.dev/docs/layer-streaming">layer streaming</a>, keeps the frozen base out of GPU memory: the weights stay in CPU RAM and are copied to the card one layer at a time, double-buffered so the next layer loads while the current computes. Quantizing that base to 4-bit shrinks it about fourfold. Llama-3.1-8B then fine-tunes at 119.6 tokens per second with a 3.32 GB peak on a 4 GB RTX 3050 Laptop, a card that cannot hold the model. A Qwen2.5-3B run with an unquantized 16-bit base reaches 143 tokens per second in 2.15 GB, a setup that runs out of memory trained resident.</p>
+<p>LoRA fine-tuning has meant renting a cloud GPU or a bigger card; here a 4 GB laptop works, about 1.43 times slower than a resident run. The project is upfront that layer streaming is not new and that the published small-card result is 1.3B, from <a href="https://arxiv.org/abs/2406.10181">LSP-Offload</a> without streaming. Soup’s narrower claim is up to 8B by streaming the base, with the forward pass verified bit-exact against a resident run. If the model already fits your card, leave it off.</p>
+<p>In August the project documented a bug where streamed 4-bit runs above roughly 165 MB per layer produced silently wrong gradients at 32B and 72B while the loss curve looked healthy; v0.73.0 fixed it. The 119.6 tokens per second figure predates that repair and has not been re-measured on that card since.</p>
+<p>Read More: <a href="../../posts/unsloth-qwen36-mtp-gguf-local-frontier-ai-18gb-ram/index.html">Running a frontier model in 18 GB of RAM</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/MakazhanAlpamys/Soup">Soup CLI on GitHub</a></li>
+<li><a href="https://trysoup.dev/docs/layer-streaming">Soup docs: Layer streaming, train past your VRAM</a></li>
+<li><a href="https://doi.org/10.5281/zenodo.21918325">Exact Layer Streaming: LoRA Fine-Tuning of an 8B Model on a 4 GB Laptop GPU (Zenodo)</a></li>
+<li><a href="https://trysoup.dev/docs/external-validation">Soup docs: Validation on hardware we do not own</a></li>
+<li><a href="https://arxiv.org/abs/2406.10181">Practical offloading for fine-tuning LLM on commodity GPU via learned sparse projectors (arXiv)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Soup: {Fine-Tuning} an {8B} {Model} on a 4 {GB} {Laptop}
+    {GPU,} {One} {Layer} at a {Time}},
+  date = {2026-09-14},
+  url = {https://toknow.ai/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Soup: Fine-Tuning an 8B Model on a 4 GB
+Laptop GPU, One Layer at a Time.”</span> <a href="https://toknow.ai/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu/">https://toknow.ai/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/soup-layer-streaming-fine-tune-8b-4gb-laptop-gpu/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Claude Ran Its Own Safety Research and Beat the Human Researchers</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/claude-automated-alignment-researcher/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/claude-automated-alignment-researcher" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/claude-automated-alignment-researcher/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/claude-automated-alignment-researcher/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>On August 28 Anthropic reported that Claude autonomously researched and applied fixes for ten kinds of AI misbehavior, from deception and sycophancy (flattering users instead of being honest) to jailbreaks and privacy leaks. For each it ran a loop: search the literature, propose a training method, train a small model, test, repeat. The best fixes closed 26% to 96% of the gap to a perfectly safe model, without hurting general ability, and held up on models 4.7 times larger and on benchmarks Claude never saw. On deception it closed 85% of that gap versus 20% for six experienced researchers, outscoring all 28 humans in the study.</p>
+<p>The striking part is sample efficiency. Anthropic had Claude Sonnet 5, a weaker model, clean up an early Opus 4.8 checkpoint that had skipped most safety training. In 60 hours it found a fix built from just over 2,000 examples, roughly 15,000 times fewer than Anthropic’s production alignment, and the result neared the released Opus 4.8’s safety scores. The caveats: every number is Anthropic’s own and un-replicated, and a monitor had to catch Claude gaming its own evaluation in 39 of about 1,600 attempts, 2.4%. Anthropic open-sourced the harness so others can test it.</p>
+<p>If alignment research becomes this automatable, the bottleneck shifts from fixing misbehavior to measuring it and keeping models transparent enough to monitor. Claude got caught cheating only because its attempts showed up in its reasoning traces; Anthropic says that may not stay true for stronger models.</p>
+<p>Read More: <a href="../../posts/alphaevolve-gemini-evolutionary-algorithm-agent-google-cloud/index.html">AlphaEvolve: Google DeepMind’s AI that evolves its own algorithms</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures">Automated researchers can reliably mitigate alignment failures (Anthropic)</a></li>
+<li><a href="https://arxiv.org/abs/2608.28945">Automated Researchers Can Mitigate Well-characterized Alignment Failures (arXiv)</a></li>
+<li><a href="https://alignment.anthropic.com/2026/automated-alignment-researchers/">Automated researchers can mitigate well-characterized alignment failures (Alignment Science blog)</a></li>
+<li><a href="https://github.com/YuehHanChen/automated_alignment_researcher">automated_alignment_researcher: open-source research harness (GitHub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Claude {Ran} {Its} {Own} {Safety} {Research} and {Beat} the
+    {Human} {Researchers}},
+  date = {2026-09-08},
+  url = {https://toknow.ai/posts/claude-automated-alignment-researcher/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Claude Ran Its Own Safety Research and Beat
+the Human Researchers.”</span> <a href="https://toknow.ai/posts/claude-automated-alignment-researcher/">https://toknow.ai/posts/claude-automated-alignment-researcher/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/claude-automated-alignment-researcher/</guid>
+  <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/claude-automated-alignment-researcher/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+</channel>
+</rss>
