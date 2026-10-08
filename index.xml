@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<atom:link href="https://toknow.ai/index.xml" rel="self" type="application/rss+xml"/>
+<description>// Research, Numbers and Insightful Ideas //</description>
+<image>
+<url>https://toknow.ai/images/logo.png</url>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Thu, 08 Oct 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Gemini 4 Argon: A Million-Token Model That Ships to Cyber Defenders First</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/gemini-4-argon-million-token-cyber-defenders-first/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/gemini-4-argon-million-token-cyber-defenders-first" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/gemini-4-argon-million-token-cyber-defenders-first/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/gemini-4-argon-million-token-cyber-defenders-first/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Google released Gemini 4 Argon on September 30, the first model in its Gemini 4 line and its answer to OpenAI’s GPT-6 Astra. It is built for long, multi-step work such as software engineering, legal and financial research, and cybersecurity defense. The biggest change is its output limit, raised to a million tokens from 64,000, which lets the model write hundreds of thousands of tokens in one pass. Google reports 77.9% on DeepSWE v1.1, a long-horizon coding test, and 91.7% on LVBench for long video. Introductory pricing is $2 per million input tokens and $10 per million output, rising later to $4 and $20.</p>
+<p>Most people cannot use it yet. Google is giving Argon first to vetted cyber defenders through its Fairwind Program, which it says has over 650 partners, and to its own engineers. Security firm Wiz reports the model found a critical flaw in hospital software that earlier frontier models missed. Two outside checks agree it is frontier-class: Artificial Analysis scores it 53 on its Intelligence Index, level with GPT-6 Astra, and it ties for first on the CWE-bench security benchmark at 68%.</p>
+<p>Argon reasons in one long pass rather than exploring several reasoning paths at once, the approach some researchers call <a href="https://arxiv.org/abs/2509.04475">parallel thinking</a>. Google is also shipping it in an unusual order: defenders and governments get Argon first, while everyone else waits for a date the company has not named, beyond “as soon as possible.”</p>
+<p>Read More: <a href="../../posts/gemini-3-8-flash-cyber-defender-only/index.html">Google’s earlier defender-only model</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Introducing Gemini 4 Argon (Google)</a></li>
+<li><a href="https://deepmind.google/fairwind-program/">Fairwind Program (Google DeepMind)</a></li>
+<li><a href="https://cwe-bench.com/">CWE-bench v1 leaderboard (Collinear AI)</a></li>
+<li><a href="https://artificialanalysis.ai/models/gemini-4-argon">Gemini 4 Argon (Artificial Analysis)</a></li>
+<li><a href="https://www.digitaltrends.com/computing/gemini-4-argon-is-googles-most-ambitious-ai-model-yet-and-access-is-extremely-limited/">Gemini 4 Argon is Google’s most ambitious AI model yet (Digital Trends)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Gemini 4 {Argon:} {A} {Million-Token} {Model} {That} {Ships}
+    to {Cyber} {Defenders} {First}},
+  date = {2026-10-08},
+  url = {https://toknow.ai/posts/gemini-4-argon-million-token-cyber-defenders-first/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Gemini 4 Argon: A Million-Token Model That
+Ships to Cyber Defenders First.”</span> <a href="https://toknow.ai/posts/gemini-4-argon-million-token-cyber-defenders-first/">https://toknow.ai/posts/gemini-4-argon-million-token-cyber-defenders-first/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/gemini-4-argon-million-token-cyber-defenders-first/</guid>
+  <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/gemini-4-argon-million-token-cyber-defenders-first/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Hallucination Stations: Some AI Mistakes Are a Math Limit, Not a Bug</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/hallucination-stations-llm-complexity-limit/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/hallucination-stations-llm-complexity-limit" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/hallucination-stations-llm-complexity-limit/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/hallucination-stations-llm-complexity-limit/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Two researchers argue that some AI mistakes are not bugs but a hard ceiling on how much arithmetic a language model can do in one pass. <a href="https://arxiv.org/abs/2507.07505">Hallucination Stations</a> is a short paper by Varin Sikka, a Stanford student, and his father Vishal Sikka, a former Infosys chief executive. The claim comes from how a model works: each pass costs about the square of the input length, so every prompt gets the same fixed computation. They measured one. A small Llama model runs exactly 109,243,372,873 floating-point operations, the add-and-multiply steps a chip performs, on any 17-token prompt, whether it explains renewable energy or solves a puzzle. When a task needs more steps than that budget allows, the model cannot get it right.</p>
+<p>Listing every combination of a set of tokens, or multiplying two large matrices, needs far more steps than one pass supplies. The paper states it as a theorem: if a prompt contains a task more complex than the model’s fixed budget, the answer will be wrong, following a <a href="https://en.wikipedia.org/wiki/Time_hierarchy_theorem">1965 result</a> that says some problems need more steps than others. That matters for scheduling, routing, software verification and simulation, where teams now hand an agent a problem and trust the number it returns.</p>
+<p>Checking the work does not help: a second model hits the same ceiling, and verifying a hard answer can cost more than producing it. The bound covers one uninterrupted guess. A model that writes out a long <a href="https://arxiv.org/abs/2402.12875">chain of thought</a> or runs an offline review pass spends more computation and can reach further, though the authors say those extra tokens are far fewer than the task needs.</p>
+<p>Read More: <a href="../../posts/do-language-models-need-sleep-offline-recurrence-long-context-reasoning/index.html">Do AI Models Need Sleep? An Offline Pass That Boosts Reasoning</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2507.07505">Hallucination Stations: On Some Basic Limitations of Transformer-Based Language Models (arXiv)</a></li>
+<li><a href="https://gizmodo.com/ai-agents-are-poised-to-hit-a-mathematical-wall-study-finds-2000713493">AI Agents Are Poised to Hit a Mathematical Wall, Study Finds (Gizmodo)</a></li>
+<li><a href="https://www.wired.com/story/ai-agents-math-doesnt-add-up/">The Math on AI Agents Does Not Add Up (WIRED)</a></li>
+<li><a href="https://machinelearning.apple.com/research/illusion-of-thinking">The Illusion of Thinking (Apple Machine Learning Research)</a></li>
+<li><a href="https://arxiv.org/abs/2402.12875">Chain of Thought Empowers Transformers to Solve Inherently Serial Problems (arXiv)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Hallucination {Stations:} {Some} {AI} {Mistakes} {Are} a
+    {Math} {Limit,} {Not} a {Bug}},
+  date = {2026-10-08},
+  url = {https://toknow.ai/posts/hallucination-stations-llm-complexity-limit/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Hallucination Stations: Some AI Mistakes
+Are a Math Limit, Not a Bug.”</span> <a href="https://toknow.ai/posts/hallucination-stations-llm-complexity-limit/">https://toknow.ai/posts/hallucination-stations-llm-complexity-limit/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/hallucination-stations-llm-complexity-limit/</guid>
+  <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/hallucination-stations-llm-complexity-limit/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>SOMA Retargeter: One Human Walk In, Robot Joint Commands Out</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/nvidia-soma-retargeter-human-motion-to-robot-joints/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/nvidia-soma-retargeter-human-motion-to-robot-joints" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/nvidia-soma-retargeter-human-motion-to-robot-joints/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/nvidia-soma-retargeter-human-motion-to-robot-joints/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>SOMA Retargeter is an open NVIDIA tool that turns recorded human motion into joint commands a humanoid robot can play back. Give it a motion file built on NVIDIA’s SOMA skeleton and it returns a CSV listing the robot’s root pose and every joint angle, frame by frame. It ships with five humanoid robots ready to use, among them Unitree’s G1 and H2, Booster’s T1, and AgiBot’s X2 Ultra, plus 10 example walk clips. The September 15 release added a configurator that registers your own robot from a URDF or MJCF file, plus foot-plant correction and a tool that tunes how the joint angles are solved.</p>
+<p>Retargeting is the unglamorous step every humanoid robot project runs into. Motion is captured for people, and a robot has different proportions, joints, and limits, so a recorded walk has to be re-solved as joint angles the robot can follow. Putting that step in one open library, with the solving run on the GPU by NVIDIA’s Newton physics engine, removes work every robotics team was doing separately. ROBOTIS already uses it to build motion for its AI Sapiens humanoid. The tool reads motion capture, not video; a single camera enters one step earlier, where NVIDIA’s GEM-X estimates full-body motion from one clip.</p>
+<p>It is in beta, and the output is joint poses, not a ready controller, so NVIDIA says to validate safety and feasibility in simulation first. The pieces now chain: a body model, a video estimator, and a retargeter take a camera to robot commands.</p>
+<p>Read More: <a href="../../posts/skild-ai-s1-one-video-robot-foundation-model/index.html">Skild AI’s S1 turns a video demonstration into robot behaviour</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/NVIDIA/soma-retargeter">NVIDIA SOMA Retargeter</a></li>
+<li><a href="https://docs.robotis.com/docs/systems/aisapiens/motion_generation_retargeting/soma_retargeter/">ROBOTIS: Soma-retargeter for AI Sapiens</a></li>
+<li><a href="https://github.com/NVlabs/SOMA-X">NVIDIA SOMA body model (SOMA-X)</a></li>
+<li><a href="https://github.com/newton-physics/newton">Newton physics engine</a></li>
+<li><a href="https://github.com/NVlabs/GEM-X">NVIDIA GEM-X: whole-body motion from video</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {SOMA {Retargeter:} {One} {Human} {Walk} {In,} {Robot} {Joint}
+    {Commands} {Out}},
+  date = {2026-10-08},
+  url = {https://toknow.ai/posts/nvidia-soma-retargeter-human-motion-to-robot-joints/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“SOMA Retargeter: One Human Walk In, Robot
+Joint Commands Out.”</span> <a href="https://toknow.ai/posts/nvidia-soma-retargeter-human-motion-to-robot-joints/">https://toknow.ai/posts/nvidia-soma-retargeter-human-motion-to-robot-joints/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/nvidia-soma-retargeter-human-motion-to-robot-joints/</guid>
+  <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/nvidia-soma-retargeter-human-motion-to-robot-joints/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Social SDK: A Free Library Marketed as a Hootsuite Replacement</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/social-sdk-viral-hootsuite-pitch-library/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/social-sdk-viral-hootsuite-pitch-library" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/social-sdk-viral-hootsuite-pitch-library/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/social-sdk-viral-hootsuite-pitch-library/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Social SDK is a free, open-source library that lets a developer’s application publish to seven social networks, X, Instagram, LinkedIn, Threads, TikTok, YouTube and Bluesky, through one set of typed commands. It is built for programmers adding posting to their own product, not for anyone who just wants an app to open. The code is public, a <a href="https://github.com/opencoredev/social-sdk">TypeScript package</a> on GitHub and npm that runs on your own server, and it even ships a skill file so a coding agent can wire it in.</p>
+<p>The project’s own <a href="https://social-sdk.dev/docs/reference/faq">FAQ</a> says so plainly. Social SDK is a library: it provides no hosted service, no database, no queue and no scheduler worker. Among its direct adapters only YouTube accepts a future publish time; the other six reject scheduling because their platforms have no publish-later field, so a delayed post needs your own job runner. Reaching each network is gated rather than free, through app review and quotas at Meta, Google, TikTok and LinkedIn, usage billing at X, and paid plans on the four managed backends it advertises.</p>
+<p>Social SDK documents all of this itself: which operations each platform exposes, that only some routes schedule, and that its adapters are checked against mocks rather than live accounts. The reels sell a finished replacement, while what exists is integration code that spares a developer the plumbing, and only once a platform grants access.</p>
+<p>Read More: <a href="../../posts/pothole-reporter-dashcam-ai-complaint-app/index.html">Pothole Reporter, another viral demo that outran the app that shipped</a>.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/opencoredev/social-sdk">Social SDK source code (GitHub)</a></li>
+<li><a href="https://social-sdk.dev/">Social SDK documentation</a></li>
+<li><a href="https://social-sdk.dev/docs/reference/faq">Social SDK FAQ: hosting, pricing and scheduling</a></li>
+<li><a href="https://www.npmjs.com/package/@opencoredev/social-sdk">Social SDK on npm</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Social {SDK:} {A} {Free} {Library} {Marketed} as a
+    {Hootsuite} {Replacement}},
+  date = {2026-10-08},
+  url = {https://toknow.ai/posts/social-sdk-viral-hootsuite-pitch-library/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Social SDK: A Free Library Marketed as a
+Hootsuite Replacement.”</span> <a href="https://toknow.ai/posts/social-sdk-viral-hootsuite-pitch-library/">https://toknow.ai/posts/social-sdk-viral-hootsuite-pitch-library/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/social-sdk-viral-hootsuite-pitch-library/</guid>
+  <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/social-sdk-viral-hootsuite-pitch-library/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Claude Code Mods: TypeScript Plugins That Rewire the Coding Agent</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/claude-code-mods-typescript-plugins-customize-agent/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/claude-code-mods-typescript-plugins-customize-agent" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/claude-code-mods-typescript-plugins-customize-agent/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/claude-code-mods-typescript-plugins-customize-agent/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Anthropic’s coding tool Claude Code now runs small add-ons called mods that change how it behaves and looks. A mod is a few lines of JavaScript or TypeScript that hooks an event: a tool call, a submitted prompt, a permission request, or part of the screen being drawn. One function can rewrite a prompt before the model sees it, block or retry a tool call, approve or deny a permission request, redact secrets from tool output, or draw its own pane. Mods ship inside plugins and install with <code>/plugin</code> in the CLI or desktop app. Features like the <code>/diff</code> view are now mods themselves.</p>
+<p>Until now, customizing the agent meant waiting for Anthropic to ship a feature. Older hooks could run a script on an event, but they could not rewrite an event or redraw the interface; mods can. That lets a team enforce its own rules: hold any command touching production config for confirmation, log every tool call, or show a pipeline’s status in a pane. You can also ask Claude Code to write the mod and hot reload it live.</p>
+<p>Anthropic calls this turning the agent into a platform and says it will move more built-in features into mods so the core stays small. Mods run with Claude Code’s own access to your machine and are not sandboxed, so only install trusted ones. On Team and Enterprise plans, a security mod called sec-default loads first to stop other mods from overriding your permission deny rules.</p>
+<p>Read More: <a href="../../posts/claude-code-v2-plugins-agent-teams-native-binaries/index.html">Claude Code v2.1.126: Plugins, Agent Teams, and Native Binaries</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://claude.com/blog/claude-code-mods">Customize Claude Code with mods in TypeScript (Anthropic)</a></li>
+<li><a href="https://code.claude.com/docs/en/plugins/mods/overview">Mods overview (Claude Code documentation)</a></li>
+<li><a href="https://claude.dev/blog/getting-started-with-claude-code-mods/">Getting started with Claude Code mods (Claude Developer Blog)</a></li>
+<li><a href="https://the-decoder.com/claude-codes-new-mods-system-lets-developers-rewrite-the-ai-coding-tool-from-the-inside/">Claude Code’s new Mods system lets developers rewrite the AI coding tool from the inside (The Decoder)</a></li>
+<li><a href="https://github.com/anthropics/claude-code/tree/main/mods">Built-in mods source: agents-md, diff, sec-default (anthropics/claude-code on GitHub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Claude {Code} {Mods:} {TypeScript} {Plugins} {That} {Rewire}
+    the {Coding} {Agent}},
+  date = {2026-10-05},
+  url = {https://toknow.ai/posts/claude-code-mods-typescript-plugins-customize-agent/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Claude Code Mods: TypeScript Plugins That
+Rewire the Coding Agent.”</span> <a href="https://toknow.ai/posts/claude-code-mods-typescript-plugins-customize-agent/">https://toknow.ai/posts/claude-code-mods-typescript-plugins-customize-agent/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/claude-code-mods-typescript-plugins-customize-agent/</guid>
+  <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/claude-code-mods-typescript-plugins-customize-agent/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Mercury Voice: A Voice AI That Reasons Without the Awkward Pause</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/inception-mercury-voice-diffusion-llm-voice-agents/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/inception-mercury-voice-diffusion-llm-voice-agents" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/inception-mercury-voice-diffusion-llm-voice-agents/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/inception-mercury-voice-diffusion-llm-voice-agents/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Inception released Mercury Voice, a model built to power AI phone agents and voice assistants. It is a diffusion model, which means it does not write one word at a time the way most chatbots do. Instead it starts with a rough draft and refines the whole answer at once, so the first word is ready almost immediately. On real customer-service prompts, Inception measured a median 320 milliseconds to that first answer word, with the slowest 5% under 750 milliseconds, 5.9 times faster than GPT-6 Luna with reasoning turned off. The company says Mercury Voice also beats Gemma 4 31B, GLM-5.3-Flash, and Qwen3.5-397B across tool-use and conversation tests. It holds 128,000 tokens of context, runs at three reasoning levels, and ships as a drop-in, OpenAI-compatible API.</p>
+<p>In a voice agent, the pause after you stop talking is the whole product. Wait past about half a second and the call feels broken, so most voice bots use fast models that skip real reasoning. Mercury Voice reasons and still answers inside that window. Audivi AI runs drive-thru ordering on it, Altur handles bank payment calls, and OpenCall reported a median response near 170 milliseconds in production. Launch pricing is $0.20 per million input tokens and $0.75 per million output, about $0.009 per minute of conversation.</p>
+<p>The mechanism is architectural. Standard models write one word at a time, so more thinking means more waiting. Diffusion models generate many words in parallel, which is how Mercury Voice can reason and still stay fast.</p>
+<p>Read More: <a href="../../posts/gemini-3-8-live-extended-thinking-voice-agents/index.html">Gemini 3.8 Live: Voice Models That Think While They Talk</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.inceptionlabs.ai/blog/introducing-mercury-voice">Introducing Mercury Voice (Inception)</a></li>
+<li><a href="https://www.inceptionlabs.ai/blog/introducing-mercury-2-5">Introducing Mercury 2.5 (Inception)</a></li>
+<li><a href="https://www.inceptionlabs.ai/models">Our Models: Mercury pricing and specs (Inception)</a></li>
+<li><a href="https://www.businesswire.com/news/home/20260908593295/en/Inception-Launches-Mercury-2.5-the-Next-Tier-of-Intelligence-for-Diffusion-LLMs">Inception Launches Mercury 2.5, the Next Tier of Intelligence for Diffusion LLMs (Business Wire)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Mercury {Voice:} {A} {Voice} {AI} {That} {Reasons} {Without}
+    the {Awkward} {Pause}},
+  date = {2026-10-05},
+  url = {https://toknow.ai/posts/inception-mercury-voice-diffusion-llm-voice-agents/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Mercury Voice: A Voice AI That Reasons
+Without the Awkward Pause.”</span> <a href="https://toknow.ai/posts/inception-mercury-voice-diffusion-llm-voice-agents/">https://toknow.ai/posts/inception-mercury-voice-diffusion-llm-voice-agents/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/inception-mercury-voice-diffusion-llm-voice-agents/</guid>
+  <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/inception-mercury-voice-diffusion-llm-voice-agents/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Meta Opened the Code to Build Your Own Muse AI Gadget</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Meta published the code to build your own hardware for Muse, its AI agent. The project, Muse Gadgets, releases an ESP32 firmware and an SDK for Linux, so you can program an off-the-shelf board or a spare Raspberry Pi and connect Muse to “displays, buttons, sensors, actuators, and whatever else you’ve got lying on your workbench.” Meta’s suggested projects include a color e-ink screen for reminders, an HDMI stick for your TV, and a small touchscreen that looks like a home-made Muse Charm. Each gadget needs a token to pair, and it appears in the Muse app on iOS or Android once you turn on Developer mode. Meta’s page adds that “side effects of tinkering may include bricked boards, voided warranties, brownouts, or bankruptcies.”</p>
+<p>Meta built one too. Muse Home Link is a USB-C dongle that puts Muse on your home Wi-Fi, where it can switch on a light, control a TV, or send a document to a printer using community-made skills. Nat Friedman, who leads product for Meta Superintelligence Labs, said the company manufactured 5,000 and will ship them in a few weeks, free to U.S. Muse subscribers while supplies last.</p>
+<p>An ESP32 board or an old Raspberry Pi costs far less than a finished device, so the barrier to trying a personal AI gadget drops to parts you may already own. Muse is only weeks old, and Meta is opening just enough of it to grow an accessory community while keeping the agent itself closed.</p>
+<p>Read More: <a href="../../posts/openai-dots-always-on-agents-cloud-computer/index.html">OpenAI’s dots: Always-On Agents That Keep Working After You Close the Tab</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://gadgets.muse.ai/">Muse Gadgets (official site)</a></li>
+<li><a href="https://github.com/facebookincubator/muse-gadget-sdk">facebookincubator/muse-gadget-sdk (GitHub)</a></li>
+<li><a href="https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link">The Verge: Meta open sources code to let you make Muse AI gadgets</a></li>
+<li><a href="https://www.engadget.com/2276312/meta-muse-gadgets-open-source-smart-home-link/">Engadget: Meta wants people to build their own Muse gadgets, too</a></li>
+<li><a href="https://unite.ai/meta-open-sources-muse-gadget-sdks-for-diy-ai-hardware-devices/">Unite.AI: Meta Open-Sources Muse Gadget SDKs for DIY AI Hardware Devices</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Meta {Opened} the {Code} to {Build} {Your} {Own} {Muse} {AI}
+    {Gadget}},
+  date = {2026-10-05},
+  url = {https://toknow.ai/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Meta Opened the Code to Build Your Own Muse
+AI Gadget.”</span> <a href="https://toknow.ai/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware/">https://toknow.ai/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware/</guid>
+  <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/meta-muse-gadgets-open-source-sdk-diy-ai-hardware/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>STAIR: A Search Tool That Reads the Table of Contents</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/stair-table-of-contents-retrieval-ibm/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/stair-table-of-contents-retrieval-ibm" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/stair-table-of-contents-retrieval-ibm/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/stair-table-of-contents-retrieval-ibm/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Researchers at IBM have built a search tool that answers questions about a long document by reading its table of contents first, the way a person flips to the right chapter. Most systems that ground an AI’s answer in a document, called <a href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation">retrieval-augmented generation</a>, split the text into equal chunks and match them to a question, throwing away the document’s structure. STAIR, short for STructure Aware Information Retriever, fine-tunes a small language model to memorize the document, then asks it to pick the answering section from the full table of contents. Output is limited to section titles that exist, cutting invented citations to 0.05%. On <a href="https://arxiv.org/abs/2609.03874">SearchTome</a>, 18 open textbooks across six subjects, it named the right section first 82.6% of the time, against 76.9% for its closest baseline.</p>
+<p>That matters for anyone searching a long, organized document: a repair manual, a contract, or a company knowledge base. Instead of an opaque chunk id like chunk_0417, it returns a real heading that a person can verify and an agent can trace back to the text. There is no separate vector database, because the index lives inside the model’s weights. An independent developer who rebuilt it fit the whole thing into about five gigabytes of video memory, enough for one consumer graphics card.</p>
+<p>STAIR only works when the document already has a table of contents, and the IBM team has not yet tested messy, unstructured sources like web pages or chat logs.</p>
+<p>Read More: <a href="../../posts/synthdocbench-long-document-middle-blind-spot/index.html">SynthDocBench: The Middle of a Long Document Is Still a Blind Spot</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.03874">STAIR: A novel dataset and LLM based retriever for document structure augmentation (arXiv)</a></li>
+<li><a href="https://github.com/mithilai/stair-toc-retrieval">An open reimplementation of STAIR (GitHub)</a></li>
+<li><a href="https://huggingface.co/papers/2609.03874">Hugging Face paper page</a></li>
+<li><a href="https://www.cosmonet.info/stair-ibm-retriever-rag-senza-vector-database/">CosmoNet: STAIR di IBM, il retriever RAG senza vector database</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {STAIR: {A} {Search} {Tool} {That} {Reads} the {Table} of
+    {Contents}},
+  date = {2026-10-05},
+  url = {https://toknow.ai/posts/stair-table-of-contents-retrieval-ibm/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“STAIR: A Search Tool That Reads the Table
+of Contents.”</span> <a href="https://toknow.ai/posts/stair-table-of-contents-retrieval-ibm/">https://toknow.ai/posts/stair-table-of-contents-retrieval-ibm/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/stair-table-of-contents-retrieval-ibm/</guid>
+  <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/stair-table-of-contents-retrieval-ibm/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AI Models Stop Following References After Two Links, and a Tiny Add-On Fixes It</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/tiny-lora-unlocks-long-reference-chains/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/tiny-lora-unlocks-long-reference-chains" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/tiny-lora-unlocks-long-reference-chains/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/tiny-lora-unlocks-long-reference-chains/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Give a pretrained language model a chain of references to follow inside its prompt, with each line pointing to the one before it, and most models lose the thread after two or three links and start guessing. A Georgia Tech team tested thirteen open models from Qwen3, Llama, OLMo-3, and Gemma-3 and found they reliably follow only 1.4 to 3.6 links, a median of 2.2. More depth does not help: OLMo-3’s 32-layer and 64-layer versions both manage about 2.6. The fix is tiny. A rank-8 LoRA, a small add-on that adjusts one layer while every original weight stays frozen, raises Qwen3-8B from 15.5% to 99% exact accuracy on 24-line chains, using 65,537 new parameters, under 0.01% of the model.</p>
+<p>That suggests the ability is already inside the model, needing only a nudge to surface. The authors trace the effect to a relay: each line passes its chain identity down a short run of middle layers, letting the frozen attention heads read further up. On multi-hop questions built from invented facts, the same trick lifted exact-match accuracy from 41.2% to 97.4%, and handled six-hop questions it never trained on.</p>
+<p>The lesson is about timing, not size. The chains are a synthetic probe rather than a general reasoning test, but early-layer add-ons also added 9% to 18% exact-match accuracy on MuSiQue, a real multi-hop benchmark. Models stop extending a chain once it passes their middle layers, and placement matters: moving the fix one layer later in Qwen3-8B cut reach from 20.5 lines to 5.2.</p>
+<p>Read More: <a href="../../posts/attention-residuals-moonshot-ai-kimi-drop-in-fix-prenorm-dilution/index.html">Attention Residuals: A Drop-In Fix for How Every LLM Stacks Its Layers</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.36585">Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It (arXiv)</a></li>
+<li><a href="https://lunamos.github.io/stop-thinking-too-early/">Interactive demo: watch the relay move across the layers</a></li>
+<li><a href="https://github.com/Lunamos/stop-thinking-too-early">Project code (GitHub)</a></li>
+<li><a href="https://huggingface.co/papers/2609.36585">Hugging Face paper page</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AI {Models} {Stop} {Following} {References} {After} {Two}
+    {Links,} and a {Tiny} {Add-On} {Fixes} {It}},
+  date = {2026-10-05},
+  url = {https://toknow.ai/posts/tiny-lora-unlocks-long-reference-chains/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AI Models Stop Following References After
+Two Links, and a Tiny Add-On Fixes It.”</span> <a href="https://toknow.ai/posts/tiny-lora-unlocks-long-reference-chains/">https://toknow.ai/posts/tiny-lora-unlocks-long-reference-chains/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/tiny-lora-unlocks-long-reference-chains/</guid>
+  <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/tiny-lora-unlocks-long-reference-chains/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AMD Buys Fei-Fei Li’s World Labs for $8.2 Billion to Shape Its Next Chips</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>AMD agreed on September 28 to buy World Labs, the AI lab founded by computer-vision pioneer Fei-Fei Li, in an all-stock deal valued at about $8.2 billion. World Labs builds “world models”: software that learns how physical space behaves, then turns text, images, and video into interactive 3D scenes. Its first product, Marble, builds places you can walk through and edit from a few photos. Li, a Stanford professor who led work on the ImageNet dataset behind modern computer vision, becomes an executive vice president and chief scientist at AMD, reporting to chief executive Lisa Su. The two companies had already worked together for a year on training and running models on AMD chips. The deal should close by the end of 2026, pending regulatory approval.</p>
+<p>AMD makes the chips that data centers and AI companies buy, and it competes with Nvidia. Owning a model lab lets AMD see where AI work is heading and plan processors for it years ahead, which is hard to do from the outside. World models matter most for robots: a machine can rehearse a task inside a simulated 3D world before touching anything real, which helps because real robot data is scarce. It is AMD’s second-largest acquisition, after the roughly $50 billion it paid for chip designer Xilinx in 2022.</p>
+<p>Chipmakers are buying model teams to learn what to build next. Nvidia already offers its own world models, known as Cosmos, and AMD has now agreed to buy the team that builds them.</p>
+<p>Read More: <a href="../../posts/world-labs-atlas-omni-spatial-world-model/index.html">World Labs Atlas: One AI Model That Generates, Reconstructs, and Simulates 3D Worlds</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://newsroom.amd.com/news/amd-acquire-world-labs/">AMD to Acquire World Labs to Advance the Future of AI Compute (AMD Newsroom)</a></li>
+<li><a href="https://www.worldlabs.ai/blog/amd-announcement">World Labs is Joining AMD (World Labs)</a></li>
+<li><a href="https://drfeifei.substack.com/p/worldlabs-joining-amd">To Seek a Newer World (Fei-Fei Li)</a></li>
+<li><a href="https://techcrunch.com/2026/09/28/amd-will-acquire-fei-fei-lis-world-labs-for-8-2-billion/">AMD will acquire Fei-Fei Li’s World Labs for $8.2B (TechCrunch)</a></li>
+<li><a href="https://www.cnbc.com/2026/09/28/amd-fei-fei-li-world-labs.html">AMD acquiring Fei-Fei Li’s World Labs AI firm in deal worth $8.2B (CNBC)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AMD {Buys} {Fei-Fei} {Li’s} {World} {Labs} for \$8.2
+    {Billion} to {Shape} {Its} {Next} {Chips}},
+  date = {2026-10-04},
+  url = {https://toknow.ai/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AMD Buys Fei-Fei Li’s World Labs for $8.2
+Billion to Shape Its Next Chips.”</span> <a href="https://toknow.ai/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist/">https://toknow.ai/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist/</guid>
+  <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/amd-acquires-world-labs-fei-fei-li-chief-scientist/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Anthropic’s Red Team: An Open-Weight AI Model That Builds Cyber Exploits</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Anthropic’s Frontier Red Team published an analysis of GLM-5.3, an open-weight AI model from the Chinese lab Zhipu AI (Z.ai outside China), and says it can build working cyber exploits on its own. In Anthropic’s tests, GLM-5.3 wrote complete exploits against known Chrome bugs in 50 of 410 attempts, close to Claude Mythos Preview’s 56. Anthropic released Mythos Preview only to vetted defenders; anyone can download GLM-5.3. In one session it found unknown flaws in a browser’s JavaScript engine and chained them into a page that reads files off a visitor’s computer.</p>
+<p>GLM-5.3’s guardrails do not hold up. Asked plainly to attack a system, it refuses. But dressing the request up as a red-team exercise got it to engage 64% of the time in Anthropic’s simulations, and pre-filling its reasoning raised that to 92%. Because the weights are public, anyone can remove the refusals entirely using <a href="../../posts/heretic-automatic-censorship-removal-language-models-abliteration/index.html">abliteration</a>, a method that edits the weights. Anthropic’s team did it in 2,200 GPU hours, roughly $4,400 of computing, and estimates an experienced team could do it for $1,200. The edit dropped the refusal rate from above 90% to as low as 2%. None of the tricks worked on safeguarded Claude models.</p>
+<p>NIST’s CAISI, which tested GLM-5.3 separately, agrees it is the most cyber-capable open-weight model yet, about four months behind the US frontier. The analysis is Anthropic’s own, and The Decoder notes it also fits Anthropic’s business: its models stay closed. As open weights close on the frontier, refusal filters become something a user can remove.</p>
+<p>Read More: <a href="../../posts/glm-5-3-emergent-cyber-capabilities-coding-model/index.html">GLM-5.3, Z.ai’s flagship model, which shipped with a public vulnerability-disclosure ledger</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities">GLM-5.3 and the spread of advanced cyber capabilities (Anthropic)</a></li>
+<li><a href="https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities">CAISI’s assessment of Z.ai’s GLM-5.3 cyber capabilities (NIST)</a></li>
+<li><a href="https://the-decoder.com/anthropic-says-zhipus-open-weight-glm-5-3-nearly-matches-claude-mythos-preview-at-building-exploits/">Anthropic says Zhipu’s open-weight GLM-5.3 nearly matches Claude Mythos Preview at building exploits (The Decoder)</a></li>
+<li><a href="https://thenextweb.com/news/glm-5-3-cyber-exploits-mythos-anthropic-safeguards">Anthropic says China’s GLM-5.3 nearly matches Mythos at cyber exploits (The Next Web)</a></li>
+<li><a href="https://z.ai/blog/glm-5.3">GLM-5.3: Frontier Coding with Emergent Cyber Capabilities (Z.ai)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Anthropic’s {Red} {Team:} {An} {Open-Weight} {AI} {Model}
+    {That} {Builds} {Cyber} {Exploits}},
+  date = {2026-10-04},
+  url = {https://toknow.ai/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Anthropic’s Red Team: An Open-Weight AI
+Model That Builds Cyber Exploits.”</span> <a href="https://toknow.ai/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/">https://toknow.ai/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/</guid>
+  <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Clef: Cloudflare’s Model Returns a Decision, Not a Paragraph</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/cloudflare-clef-open-decision-models-workers-ai/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/cloudflare-clef-open-decision-models-workers-ai" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/cloudflare-clef-open-decision-models-workers-ai/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/cloudflare-clef-open-decision-models-workers-ai/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Clef is an AI model that answers with a probability instead of a sentence. Cloudflare released two versions, the 27-billion-parameter Clef and the faster 9-billion-parameter Clef-flash, both post-trained from <a href="../../posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/index.html">Alibaba’s Qwen family</a>. It is built for software that has to decide: is this support ticket urgent, which team should handle it, is this domain a phishing site. You send text, JSON, an image, or a video, plus a short list of typed questions and the allowed answers. Clef returns a probability for every option in a single pass, with no paragraphs to parse and no reasoning to wait for. Both are downloadable, run on Cloudflare’s Workers AI, and speak the same API as TypeSafe’s Jev, so teams can swap them in.</p>
+<p>Speed is the reason it exists. Clef-flash answers in a median 38.8 milliseconds, about 13 times faster than Jev’s 524 milliseconds, fast enough to sit inside an agent’s decision step rather than behind it. You pay only for input tokens, $0.24 per million for Clef and $0.09 for Clef-flash, because there is no generated text to bill. Cloudflare’s threat team pointed it at website domains, where a full fetch, render, and classify cycle took 2.2 seconds against 4.7 seconds for the general model it compared against.</p>
+<p>Six weeks ago the decision model was a startup’s pitch. Now a major cloud provider ships an open competitor, top on seven of the ten decision benchmarks it measured, with a fine-tuning service for training it on your own data.</p>
+<p>Read More: <a href="../../posts/jev-system-one-model-decisions-not-sentences/index.html">Jev: The AI Model That Answers in Decisions, Not Sentences</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blog.cloudflare.com/clef-decision-models/">Introducing Clef: our open-source decision models, and new RL fine-tuning platform (Cloudflare)</a></li>
+<li><a href="https://huggingface.co/Cloudflare/clef">Cloudflare/clef model card (Hugging Face)</a></li>
+<li><a href="https://developers.cloudflare.com/workers-ai/models/clef/">clef: model specs and pricing (Cloudflare Workers AI docs)</a></li>
+<li><a href="https://developers.cloudflare.com/changelog/post/2026-10-01-clef-workers-ai/">Introducing Clef: Cloudflare’s first open-source decision models, now on Workers AI (Cloudflare Changelog)</a></li>
+<li><a href="https://www.marktechpost.com/2026/10/01/cloudflare-releases-clef-and-clef-flash/">Cloudflare Releases Clef and Clef-flash: Open-Weight Decision Models That Return Typed Probabilities Instead of Text (MarkTechPost)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Clef: {Cloudflare’s} {Model} {Returns} a {Decision,} {Not} a
+    {Paragraph}},
+  date = {2026-10-04},
+  url = {https://toknow.ai/posts/cloudflare-clef-open-decision-models-workers-ai/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Clef: Cloudflare’s Model Returns a
+Decision, Not a Paragraph.”</span> <a href="https://toknow.ai/posts/cloudflare-clef-open-decision-models-workers-ai/">https://toknow.ai/posts/cloudflare-clef-open-decision-models-workers-ai/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/cloudflare-clef-open-decision-models-workers-ai/</guid>
+  <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/cloudflare-clef-open-decision-models-workers-ai/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>GPT-6.1 Sol: Nearly OpenAI’s Best Model at a Fifth of the Price</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/gpt-6-1-sol-near-astra-fifth-of-the-price/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/gpt-6-1-sol-near-astra-fifth-of-the-price" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/gpt-6-1-sol-near-astra-fifth-of-the-price/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/gpt-6-1-sol-near-astra-fifth-of-the-price/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>OpenAI released GPT-6.1 Sol on September 29, a cheaper follow-up to GPT-6 Sol that gets close to the company’s top model, GPT-6 Astra, on coding, computer use, and office work. It costs $2 per million input tokens, $0.10 for cached input, and $10 per million output, which OpenAI says is one-fifth of Astra’s standard price. Cached input, the reused context that AI agents rely on, is 95% below standard input. The model reaches Plus, Pro, Business, Enterprise, and Edu users in ChatGPT Work and Codex, not yet the main ChatGPT chat, and developers can call it as gpt-6.1-sol, with a faster Ultrafast tier promised soon.</p>
+<p>Independent tracker Artificial Analysis scores Sol 52 to Astra’s 53 on its Intelligence Index, a one-index-point gap, at $0.72 per task against $3.26. Near-flagship quality now sits at the market’s median token price. For teams running agents that reuse context, the cached-input rate is what moves the bill. OpenAI also reports a 7% gain over GPT-6 Sol on the OSWorld 2.0 computer-use tests, and a science-workflow task cost of $5.47 against Astra’s $23.80.</p>
+<p>OpenAI is now pricing its second-best model against its own best one, not a rival’s. When an older flagship gets a cheaper sibling that trails it by a single index point, the premium people pay for the very top model is what starts to shrink.</p>
+<p>Read More: <a href="../../posts/openai-gpt-6-astra-critical-cybersecurity/index.html">GPT-6 Astra Is the First OpenAI Model Rated ‘Critical’ for Cybersecurity</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/introducing-gpt-6-1-sol/">Introducing GPT-6.1 Sol (OpenAI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol">GPT-6.1 Sol model (OpenAI API docs)</a></li>
+<li><a href="https://artificialanalysis.ai/models/gpt-6-1-sol">GPT-6.1 Sol (max): intelligence, performance and price analysis (Artificial Analysis)</a></li>
+<li><a href="https://deploymentsafety.openai.com/gpt-6-1-sol">Addendum to GPT-6 Astra system card: GPT-6.1 Sol (OpenAI Deployment Safety Hub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {GPT-6.1 {Sol:} {Nearly} {OpenAI’s} {Best} {Model} at a
+    {Fifth} of the {Price}},
+  date = {2026-10-04},
+  url = {https://toknow.ai/posts/gpt-6-1-sol-near-astra-fifth-of-the-price/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“GPT-6.1 Sol: Nearly OpenAI’s Best Model at
+a Fifth of the Price.”</span> <a href="https://toknow.ai/posts/gpt-6-1-sol-near-astra-fifth-of-the-price/">https://toknow.ai/posts/gpt-6-1-sol-near-astra-fifth-of-the-price/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/gpt-6-1-sol-near-astra-fifth-of-the-price/</guid>
+  <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/gpt-6-1-sol-near-astra-fifth-of-the-price/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>OpenAI’s dots: Always-On Agents That Keep Working After You Close the Tab</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/openai-dots-always-on-agents-cloud-computer/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/openai-dots-always-on-agents-cloud-computer" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/openai-dots-always-on-agents-cloud-computer/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/openai-dots-always-on-agents-cloud-computer/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>OpenAI launched dots on September 29, always-on AI agents that keep working after you close the tab. Each dot runs on GPT-6 Astra, OpenAI’s most capable model, and works on its own cloud computer, a separate machine it uses to browse and run tools without touching your laptop. Through plugins it can reach more than 4,000 apps. You talk to a dot in ChatGPT on desktop, web, or mobile, or in Slack and Teams, and it can carry several projects at once. The first dot is included in Pro and Business Premium plans, though Pro users in the EEA, Switzerland, and the UK are left out for now.</p>
+<p>The change from a chatbot is that a dot keeps going without you. It learns your preferences and, between conversations, runs read-only background research, so it cannot send messages or change files on its own. Anything consequential, like sending an email, editing a file, or making a purchase, needs your approval, and changing a password stays with you. OpenAI warns dots can still make mistakes and asks you to review important work.</p>
+<p>Always-on agents are not new: Grok Bot and Perplexity’s agent memory got there first. The quieter shift is the Decisions API OpenAI previewed the same day, which returns one answer from a fixed list, not a paragraph, the same idea behind <a href="../../posts/jev-system-one-model-decisions-not-sentences/index.html">TypeSafe’s Jev</a>. Both point one way: an assistant that works while you are away, and a model that answers with a choice, not a sentence.</p>
+<p>Read More: <a href="../../posts/grok-4-6-grok-bot-always-on-agents-cloud-computer/index.html">Grok Bot: Agents That Live on a Cloud Computer</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/introducing-dots/">Introducing dots (OpenAI)</a></li>
+<li><a href="https://openai.com/index/how-we-build-safety-security-and-privacy-into-dots/">How we build safety, security, and privacy into dots (OpenAI)</a></li>
+<li><a href="https://openai.com/index/devday-2026-recap/">DevDay 2026 recap: dots, the Decisions API, and availability (OpenAI)</a></li>
+<li><a href="https://thenextweb.com/news/openai-dots-always-on-ai-agents-cloud-computers-devday">OpenAI launches dots, always-on AI agents with their own cloud computers (The Next Web)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {OpenAI’s Dots: {Always-On} {Agents} {That} {Keep} {Working}
+    {After} {You} {Close} the {Tab}},
+  date = {2026-10-04},
+  url = {https://toknow.ai/posts/openai-dots-always-on-agents-cloud-computer/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“OpenAI’s Dots: Always-On Agents That Keep
+Working After You Close the Tab.”</span> <a href="https://toknow.ai/posts/openai-dots-always-on-agents-cloud-computer/">https://toknow.ai/posts/openai-dots-always-on-agents-cloud-computer/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/openai-dots-always-on-agents-cloud-computer/</guid>
+  <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/openai-dots-always-on-agents-cloud-computer/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AI This Week: Cheaper Flagships, Always-On Agents, and a Fight Over Open Weights</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>The price of frontier intelligence fell this week. OpenAI released GPT-6.1 Sol, which it says nearly matches GPT-6 Astra on agentic coding, computer use, and professional work at one-fifth of Astra’s token prices: $2 per million input tokens, $10 per million output, and $0.10 for cached input. Google followed with Gemini 4 Argon, which lifts the output limit to one million tokens, up from 64K, and lands at the same $2 and $10, scoring 77.9% on DeepSWE v1.1.</p>
+<p>Agents went ambient. OpenAI launched dots, always-on assistants powered by GPT-6 Astra that each get their own cloud computer, learn your habits, and reach more than 4,000 apps across ChatGPT, Slack, and Teams. A companion Decisions API returns a choice from a fixed list instead of a sentence. Cloudflare open-sourced its own take, Clef, a 27-billion-parameter model that returns a probability for every allowed answer in a single pass and, by Cloudflare’s count, leads the Jev Decision Index.</p>
+<p>The fight over open weights sharpened. Anthropic’s red team reported that Zhipu AI’s GLM-5.3 builds working exploits at rates matching Anthropic’s own Mythos Preview, and that simple tricks bypass its safeguards 64% to 100% of the time. Abliterating the model cost about $4,400 and cut its refusals from over 90% to roughly 3%. The same week, Fei-Fei Li’s World Labs joined AMD, and six tech leaders signed a White House safety accord while an executive order told federal agencies to call AI “Super Intelligence.” Capability is getting cheaper and more autonomous just as its safeguards are proving easier to remove.</p>
+<p>Read More: <a href="../../posts/ai-weekly-agents-api-misalignment-voice-models/index.html">AI This Week: Agents Get an API, Models Get Audited, Voice Gets Smart</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/introducing-gpt-6-1-sol/">Introducing GPT-6.1 Sol (OpenAI)</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Introducing Gemini 4 Argon (Google)</a></li>
+<li><a href="https://openai.com/index/introducing-dots/">Introducing dots (OpenAI)</a></li>
+<li><a href="https://openai.com/index/devday-2026-recap/">DevDay 2026 Recap (OpenAI)</a></li>
+<li><a href="https://blog.cloudflare.com/clef-decision-models/">Introducing Clef: our open-source decision models, and new RL fine-tuning platform (Cloudflare)</a></li>
+<li><a href="https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities">GLM-5.3 and the spread of advanced cyber capabilities (Anthropic)</a></li>
+<li><a href="https://drfeifei.substack.com/p/worldlabs-joining-amd">To Seek a Newer World (Fei-Fei Li)</a></li>
+<li><a href="https://www.theverge.com/ai-artificial-intelligence/1002584/trump-us-ai-safety-deal-self-regulation-tech-execs">Here’s how tech leaders will self-police AI safety under Trump’s deal (The Verge)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AI {This} {Week:} {Cheaper} {Flagships,} {Always-On}
+    {Agents,} and a {Fight} {Over} {Open} {Weights}},
+  date = {2026-10-03},
+  url = {https://toknow.ai/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AI This Week: Cheaper Flagships, Always-On
+Agents, and a Fight Over Open Weights.”</span> <a href="https://toknow.ai/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights/">https://toknow.ai/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights/</guid>
+  <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/ai-weekly-cheaper-flagships-ambient-agents-open-weights/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Archify: Architecture Diagrams Built From Your Code, Not From a Prompt</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/archify-architecture-diagrams-built-from-code/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/archify-architecture-diagrams-built-from-code" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/archify-architecture-diagrams-built-from-code/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/archify-architecture-diagrams-built-from-code/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Archify is a plugin for coding agents such as Cursor, Claude Code, Codex CLI and OpenCode that turns a codebase or a one-line description into a single self-contained HTML diagram. Ask your agent to map a repository and it reads the code, then writes a small structured file listing components, boundaries and connections. A Node.js tool checks that file against the expected shape and layout rules and draws the result, so the model never draws the picture itself. Five types are covered: architecture, workflow, sequence, data flow and lifecycle. A failed check names the exact node to fix, and only a passing diagram replaces the last good one.</p>
+<p>Because each diagram is a file, two versions can be compared: one command sets a base and a head snapshot side by side as Before, Delta and After, listing what was added, removed, changed, moved and rerouted. That answers how a pull request changed a system. Archify states the comparison infers no impact, risk or merge safety. In the project’s own benchmark, ordinary coding models produced a first-pass-usable diagram in 8 of 15 runs (53%), so a person still reviews the result. Evidence badges link nodes to files and line ranges at one pinned commit.</p>
+<p>Archify also shows how developer tools now spread: as a skill installed with one command into the coding agent you already run, not as a separate app. Its split, a model for judgement and plain code for drawing, is the bet several coding tools now make.</p>
+<p>Read More: <a href="../../posts/codegraph-knowledge-graph-ai-coding-agents-fewer-tokens/index.html">Code graphs that help agents understand a codebase</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/tt-a1i/archify">Archify repository</a></li>
+<li><a href="https://tt-a1i.github.io/archify/">Archify project site</a></li>
+<li><a href="https://tt-a1i.github.io/archify/gallery.html">Archify Proof Lab</a></li>
+<li><a href="https://andrew.ooo/posts/archify-review-verified-architecture-diagrams-agent-skill/">Archify review: verified architecture diagrams for agents</a></li>
+<li><a href="https://www.qbitai.com/2026/09/482469.html">QbitAI: GitHub’s hottest architecture-diagram agent</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Archify: {Architecture} {Diagrams} {Built} {From} {Your}
+    {Code,} {Not} {From} a {Prompt}},
+  date = {2026-10-02},
+  url = {https://toknow.ai/posts/archify-architecture-diagrams-built-from-code/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Archify: Architecture Diagrams Built From
+Your Code, Not From a Prompt.”</span> <a href="https://toknow.ai/posts/archify-architecture-diagrams-built-from-code/">https://toknow.ai/posts/archify-architecture-diagrams-built-from-code/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/archify-architecture-diagrams-built-from-code/</guid>
+  <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/archify-architecture-diagrams-built-from-code/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Declarative Attention: A Model That Says Which Parts to Reread</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/declarative-attention-model-controls-own-attention/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/declarative-attention-model-controls-own-attention" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/declarative-attention-model-controls-own-attention/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/declarative-attention-model-controls-own-attention/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Researchers at KAIST AI and Google DeepMind have published a way to let a long-context language model decide, as it writes, which parts of its input it needs to reread. Chat models normally reread the entire conversation to produce each word, even when the answer sits in one paragraph. Their method, <a href="https://arxiv.org/abs/2609.02737">Declarative Attention</a>, has the model tag its own reasoning with one of three scopes: <code>&lt;global&gt;</code> for the full input, <code>&lt;focus&gt;</code> for named sections, or <code>&lt;local&gt;</code> for its recent output. The engine watches for those tags, parses them like tool calls, and skips the rest of the memory read. With no retraining, tested on two off-the-shelf models across 15 long-context tasks, it cut the context tokens read per reply by 52% on Gemma-4-31B and 31% on Qwen-3.6-27B.</p>
+<p>Accuracy fell 1.27% on Gemma-4-31B and 2.75% on Qwen-3.6-27B, and the loss shrinks as models get bigger. Because the method is mostly a prompt plus a smarter engine, an <a href="https://github.com/lucidrains/declarative-attention">independent PyTorch implementation</a> is already available. The authors estimate, from a hardware roofline rather than a real stopwatch, that decode time drops to about 0.71x of normal on Gemma. The models also take roughly a third more decode steps, and on a few tasks the tokens read go up.</p>
+<p>Most sparse-attention systems use a separate scorer to guess which tokens matter. Here the model is its own router, using a channel it already produces, its chain of thought. That makes an attention decision readable, and the savings grow with model size.</p>
+<p>Read More: <a href="../../posts/attention-residuals-moonshot-ai-kimi-drop-in-fix-prenorm-dilution/index.html">Attention Residuals</a> is another drop-in attention fix that works without retraining, while <a href="../../posts/triattention-trigonometric-kv-compression-10x-memory-reduction/index.html">TriAttention</a> attacks the same long-context cost bill by shrinking the memory itself.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.02737">Language Models Can Control Their Own Attention (arXiv)</a></li>
+<li><a href="https://arxiv.org/html/2609.02737v1">Full paper: results, protocol adherence and limitations (arXiv HTML)</a></li>
+<li><a href="https://huggingface.co/papers/2609.02737">Language Models Can Control Their Own Attention (Hugging Face Papers)</a></li>
+<li><a href="https://github.com/lucidrains/declarative-attention">Unofficial PyTorch implementation of Declarative Attention</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Declarative {Attention:} {A} {Model} {That} {Says} {Which}
+    {Parts} to {Reread}},
+  date = {2026-09-29},
+  url = {https://toknow.ai/posts/declarative-attention-model-controls-own-attention/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Declarative Attention: A Model That Says
+Which Parts to Reread.”</span> <a href="https://toknow.ai/posts/declarative-attention-model-controls-own-attention/">https://toknow.ai/posts/declarative-attention-model-controls-own-attention/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/declarative-attention-model-controls-own-attention/</guid>
+  <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/declarative-attention-model-controls-own-attention/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>God’s Eye View: A Live 3D Globe Built From Data That Was Already Public</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/gods-eye-view-live-3d-globe-public-data/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/gods-eye-view-live-3d-globe-public-data" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/gods-eye-view-live-3d-globe-public-data/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/gods-eye-view-live-3d-globe-public-data/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>God’s Eye View is a free, open-source web app that turns a browser tab into a live, photorealistic 3D globe for anyone curious about what planes, ships and satellites are doing right now. Built by <a href="https://github.com/bilawalsidhu">Bilawal Sidhu</a>, who spent years mapping the world at Google, it fuses 19 feeds: more than 11,000 aircraft, thousands of ships, an 838-object satellite catalog, the last day of earthquakes, and about 3,600 public traffic cameras projected into 3D cities. Seventeen of the 19 layers need no account or API key. You can ride a tracked flight down in cockpit view, switch the globe to night vision or thermal, and talk to it: an optional OpenAI voice layer answers questions like which ships are headed to Oakland.</p>
+<p>Flight transponders, ship beacons, orbital elements, seismographs and city camera feeds are all published; Sidhu just put them on one globe and made them explorable. It runs on your own machine, so the code is as inspectable as the feeds. The honesty matters too: traffic is simulated, camera angles are estimates, and the README says not to use it for navigation. The project also draws a line: it tracks aircraft and ships, not named people.</p>
+<p>The project reframes spy tech as a reminder that most of what looks classified is already public. The point is not a bigger model but cleaner fusion of open feeds, and a hosted version is already being built so anyone can open it without installing anything.</p>
+<p>Read More: <a href="../../posts/geolibre-browser-gis-ai-assistant/index.html">GeoLibre, the browser-native GIS with an AI assistant</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/bilawalsidhu/gods-eye-view">God’s Eye View repository and documentation (GitHub)</a></li>
+<li><a href="https://www.spatialintelligence.ai/p/i-open-sourced-gods-eye-view">I Open Sourced God’s Eye View (Bilawal Sidhu)</a></li>
+<li><a href="https://github.com/bilawalsidhu/gods-eye-view/blob/main/SECURITY.md">Security model and key handling (GitHub)</a></li>
+<li><a href="https://pinokio.co/apps/github-com-bilawalsidhu-gods-eye-view">God’s Eye View installer (Pinokio)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {God’s {Eye} {View:} {A} {Live} {3D} {Globe} {Built} {From}
+    {Data} {That} {Was} {Already} {Public}},
+  date = {2026-09-29},
+  url = {https://toknow.ai/posts/gods-eye-view-live-3d-globe-public-data/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“God’s Eye View: A Live 3D Globe Built From
+Data That Was Already Public.”</span> <a href="https://toknow.ai/posts/gods-eye-view-live-3d-globe-public-data/">https://toknow.ai/posts/gods-eye-view-live-3d-globe-public-data/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/gods-eye-view-live-3d-globe-public-data/</guid>
+  <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/gods-eye-view-live-3d-globe-public-data/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Jev: The AI Model That Answers in Decisions, Not Sentences</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/jev-system-one-model-decisions-not-sentences/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/jev-system-one-model-decisions-not-sentences" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/jev-system-one-model-decisions-not-sentences/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/jev-system-one-model-decisions-not-sentences/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Jev is an AI model built for software rather than conversation. You send it a block of text and a short set of questions; it answers with one of the options you predefined, or a probability between 0 and 1, and never a sentence. TypeSafe AI, founded by Diogo Almeida, who worked on the training method behind ChatGPT, <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">released it on September 15</a> and has since opened signups. Every question is scored in parallel against the same text, so asking five costs barely more time than asking one: <a href="https://docs.typesafe.ai/models">70 to 500 milliseconds</a> per call. Pricing is <a href="https://docs.typesafe.ai/models">$42 per billion input tokens</a> with output free.</p>
+<p>That buys a decision layer software can chain. A model right 95% of the time that cannot flag the other 5% cannot be left to act alone; Jev hands back a probability, so your code sets the threshold. Vercel replaced an OpenAI classifier with Jev and got results <a href="https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-a-chatgpt-inventor-is-thrilling-developers/">five to 18 times faster and more accurate</a>. The 193.6x faster and 444.6x cheaper figures come from workflows TypeSafe built itself, and on <a href="https://evals.typesafe.ai/">its own evals</a> Jev averages 67.8% accuracy against Opus 5’s 73.1%, at $0.0004 a case against $0.18. The weights are unpublished, and the docs list <a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13">nine known failure modes</a>, counting and arithmetic among them.</p>
+<p>Slow reasoners that explain themselves sit alongside fast judges that return a verdict with an error bar. Jev is not an assistant you talk to; it is closer to a smarter if-statement.</p>
+<p>Read More: <a href="../../posts/gpt-5-6-sol-ultrafast-cerebras-750-tokens-per-second/index.html">GPT-5.6 Sol Ultrafast: OpenAI’s New Tier Runs 750 Tokens a Second</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">Introducing System One Models and Jev (TypeSafe AI)</a></li>
+<li><a href="https://docs.typesafe.ai/models">Models: pricing, context limits and rate limits (TypeSafe AI docs)</a></li>
+<li><a href="https://evals.typesafe.ai/">Workflow evals: accuracy against cost and time (TypeSafe AI)</a></li>
+<li><a href="https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-a-chatgpt-inventor-is-thrilling-developers/">A new kind of AI model from a ChatGPT inventor is thrilling developers (TechCrunch)</a></li>
+<li><a href="https://siliconangle.com/2026/09/16/typesafe-ai-exits-stealth-with-40m-to-build-ai-for-use-by-software/">TypeSafe AI exits stealth with $40M to build AI for use by software (SiliconANGLE)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Jev: {The} {AI} {Model} {That} {Answers} in {Decisions,}
+    {Not} {Sentences}},
+  date = {2026-09-29},
+  url = {https://toknow.ai/posts/jev-system-one-model-decisions-not-sentences/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Jev: The AI Model That Answers in
+Decisions, Not Sentences.”</span> <a href="https://toknow.ai/posts/jev-system-one-model-decisions-not-sentences/">https://toknow.ai/posts/jev-system-one-model-decisions-not-sentences/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/jev-system-one-model-decisions-not-sentences/</guid>
+  <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/jev-system-one-model-decisions-not-sentences/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Lightpanda: A Headless Browser That Never Draws the Page</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/lightpanda-headless-browser-zig-for-agents/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/lightpanda-headless-browser-zig-for-agents" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/lightpanda-headless-browser-zig-for-agents/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/lightpanda-headless-browser-zig-for-agents/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Lightpanda is a headless browser written from scratch for machines rather than screens, aimed at teams running web scraping and AI agents at volume. It is not a Chromium fork or a WebKit patch: it is one binary written in Zig that keeps the parts automation reads and throws away the part that draws pixels. Pages are fetched over libcurl, parsed with html5ever from the Servo project, and run in V8, Chrome’s own JavaScript engine, against an in-memory DOM. It still speaks Chrome’s DevTools Protocol, so existing Puppeteer and Playwright scripts point at it unchanged. In the project’s crawler benchmark, 25 parallel workers crawled a 933-link demo store in 4.81 seconds using 123MB; headless Chrome took 46.70 seconds and 2.0GB.</p>
+<p>One load-and-extract cycle over the same kind of product page averaged 16 milliseconds against Chrome’s 185, at 21MB of peak memory against 402MB, so the same job fits on far fewer machines. Because the built-in agent runs inside the browser process, a finished session can be saved as <a href="https://lightpanda.io/blog/posts/introducing-lightpanda-agent-and-pandascript">PandaScript</a>, plain JavaScript that replays with no model involved; after that, every replay is token-free.</p>
+<p>About 82% of the Web Platform Tests suite passes, screenshots return placeholders instead of pixels, and in one agent benchmark text-only output lost a few points of accuracy where a rendered page would have shown more. Its licence blocks embedding it in a closed product, and telemetry is on by default.</p>
+<p>Read More: <a href="../../posts/pinchtab-browser-control-plane/index.html">PinchTab</a> takes the opposite approach, wrapping a full Chrome session instead of replacing the engine.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/lightpanda-io/browser">Lightpanda browser repository</a></li>
+<li><a href="https://lightpanda.io/docs/core-concepts/benchmarks">Benchmarks and methodology</a></li>
+<li><a href="https://lightpanda.io/docs/core-concepts/architecture-overview">Architecture overview</a></li>
+<li><a href="https://lightpanda.io/blog/posts/introducing-lightpanda-agent-and-pandascript">Introducing Lightpanda Agent and PandaScript</a></li>
+<li><a href="https://perf.lightpanda.io/wpt">Web Platform Tests dashboard</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Lightpanda: {A} {Headless} {Browser} {That} {Never} {Draws}
+    the {Page}},
+  date = {2026-09-29},
+  url = {https://toknow.ai/posts/lightpanda-headless-browser-zig-for-agents/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Lightpanda: A Headless Browser That Never
+Draws the Page.”</span> <a href="https://toknow.ai/posts/lightpanda-headless-browser-zig-for-agents/">https://toknow.ai/posts/lightpanda-headless-browser-zig-for-agents/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/lightpanda-headless-browser-zig-for-agents/</guid>
+  <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/lightpanda-headless-browser-zig-for-agents/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+</channel>
+</rss>
