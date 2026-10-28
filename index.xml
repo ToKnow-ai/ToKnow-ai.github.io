@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<atom:link href="https://toknow.ai/index.xml" rel="self" type="application/rss+xml"/>
+<description>// Research, Numbers and Insightful Ideas //</description>
+<image>
+<url>https://toknow.ai/images/logo.png</url>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Wed, 28 Oct 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Building software with AI is cheap. I think keeping it alive is not.</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>I think building software with AI is already cheap, and rebuilding it is cheap too. What I doubt is that anyone can keep it alive for years without paying a real cost. My guess is that the cost lands on people and money, not on the code.</p>
+<p>Nicholas Carlini at Anthropic had 16 Claude agents write a <a href="https://www.anthropic.com/engineering/building-c-compiler">100,000-line C compiler</a> over nearly 2,000 sessions, for just under $20,000. It builds Linux 6.9. But he wrote the tests himself, used GCC as a known-good reference, and said the checker has to be nearly perfect or Claude “will solve the wrong problem”.</p>
+<p>Copying works for the same reason. A developer used Claude Opus 5.5 to build <a href="https://decrypt.co/380741/gta-v-iphone-free-photoshop-ai-tool-rea-upending-software">ArtCraft</a>, free apps that mirror Photoshop and other Adobe tools, working from public documentation and observed behaviour. They are labelled early alpha, but they exist. A finished product holds still, so there is something to compare against.</p>
+<p>Keeping a product alive means dealing with things that are not in the code. An ISP throttles an endpoint. A user’s router is faulty. One API key is shared by so many people that it hits a global limit, so the product works for some and fails for others. A model treats every report as a bug to fix with code. It does not know the budget, or that a whole class of bugs is about to be dropped. Someone has to tell it, and that person must be skilled enough to judge.</p>
+<p>Here is a real case. The sync tool rclone ships a Google Drive client ID that all its users share. Its maintainer wrote that the project is many hundreds of times over the free quota, and that Google charging for it could cost <a href="https://forum.rclone.org/t/google-drive-and-google-photos-users-action-required/54005">“millions of dollars per year”</a>. No code fixes that, it is a bill and a negotiation.</p>
+<p>Even when the cause is in the code, I think an unsupervised agent patches the hole it can see. A person knows that if scenario “A” fails, then scenario “D” should fail too. If scenario “D” does not fail, then fixing scenario “A” did not reach the root cause. A study of 7,955 agent runs found that agents <a href="https://arxiv.org/abs/2610.23782">“may focus on surface-level symptoms”</a> when they locate a bug.</p>
+<p>Passing tests is not necesarily effective. In one study, the SWE-bench benchmark counted <a href="https://arxiv.org/abs/2503.15223">7.8% of all patches</a> as correct even though they failed the developers’ own tests. When <a href="https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/">METR</a> had maintainers review agent patches that passed the tests, their merge decisions came out about 24% below the automated score. Carlini hit the same wall: late in his project, new features kept breaking old ones until he built a continuous integration pipeline to stop it. And as <a href="https://addyosmani.com/blog/comprehension-debt/">Addy Osmani</a> puts it, you cannot write a test for behaviour that nobody thought to specify.</p>
+<p>I also think the patches pile up. The code gets bigger and messier, and the model spends more of its context window just reading it, so it has less left for understanding. In <a href="https://arxiv.org/abs/2603.24755">SlopCodeBench</a>, where agents keep extending their own code, structural erosion rose in 77% of runs. The agents’ code ended up about twice as eroded and 2.3 times as verbose as 473 open-source Python repositories.</p>
+<p>If AI wrote all the code, and no human ever held the design, then no human can supervise it. Peter <a href="https://pages.cs.wisc.edu/~remzi/Naur.pdf">Naur argued in 1985</a> that a program is really a theory held in the programmers’ heads. Someone who has that theory can explain why each part is what it is. He wrote that programs decay when they are modified “without a proper grasp of the underlying theory”. Osmani calls the gap between the code that exists and the code any person understands <a href="https://addyosmani.com/blog/comprehension-debt/">comprehension debt</a>.</p>
+<p>Writing is fast and reading is slow, so that gap widens. A <a href="https://fion.ac/jellyfish.pdf">Harvard study of 718 firms</a> found that AI agents raised lines of code by about 30%. Yet the time from opening a pull request to merging it rose 49%, and firm-level output did not rise by a significant amount.</p>
+<p>If a human cannot step in, the only thing left to edit AI-written code is another AI, and probably a smarter one. That makes the lab your landlord, and a landlord sets the terms. OpenAI told developers it will <a href="https://developers.openai.com/api/docs/deprecations">remove GPT-4o from its API on 14 January 2027</a>. GitHub <a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/">moved Copilot to usage-based billing</a> on 1 June, and said that agent-heavy use had made its old pricing unsustainable. So holding a cheap model still is not something an API customer decides. Only a model you host yourself stays cheap.</p>
+<p>If better code needs smarter models, and stronger models cost more, then I think code will eventually become a moat again. This is because only people with enough money can afford the strong models, and the gap in power and money grows larger. The people who can pay will have the best code. Eventually, ideas and skills will not be enough, and you may need money just to begin, because nobody wants a half-baked MVP. If a handful of assistants can make any small tool on request, there is less reason to install the other thirty apps on your phone, and an idea becomes one sentence in someone else’s prompt.</p>
+<p>In short, I expect job losses and the rise of super apps: users gain the freedom and convenience of shaping their experiences to their preferences in a single app, so they have no need to install or pay for any other app. Meanwhile, product owners whose apps are not already on users’ phones are shut out, which widens the gap in wealth and power.</p>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Building Software with {AI} Is Cheap. {I} Think Keeping It
+    Alive Is Not.},
+  date = {2026-10-28},
+  url = {https://toknow.ai/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Building Software with AI Is Cheap. I Think
+Keeping It Alive Is Not.”</span> <a href="https://toknow.ai/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not/">https://toknow.ai/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not/</guid>
+  <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/building-software-with-ai-is-cheap-keeping-it-alive-is-not/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Google’s New Work Assistant Can Run on a Rival’s AI Model</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/gemini-agent-universal-work-agent-claude-models/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/gemini-agent-universal-work-agent-claude-models" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/gemini-agent-universal-work-agent-claude-models/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/gemini-agent-universal-work-agent-claude-models/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Google announced a single assistant for whole office tasks on October 8, at its Gemini at Work event. The Gemini agent takes an outcome you describe, plans the steps, calls your company’s tools, and returns a finished document, deck or piece of code inside Gmail, Docs, Sheets, Slides, Chat and Calendar. It will come built into Gemini Enterprise, Google’s platform for company AI, at no extra charge. It runs in Google’s cloud, so a job keeps going for hours or days after you close the laptop, and one memory follows you across devices. Each task runs on whichever model fits, from the small Flash to the flagship Argon. Anthropic’s Claude models are already on the list.</p>
+<p>Google calls the model underneath a separate choice. Administrators choose which models staff may use, and routing picks among them by cost and difficulty, so simple tasks can skip the priciest model. Google also points to August cost controls, including hard project-level limits that pause an agent when the budget runs out. Nearly 90% of the Fortune 100 already use Gemini Enterprise, but that counts the existing product. The agent is in private preview, with no release date.</p>
+<p>The same agent runs Anthropic’s Claude or Google’s own models, and Google says more vendors’ models will follow. It says your context, skills and data stay put when the model changes, and every action goes to an audit trail. VentureBeat notes Google has supplied no independent benchmarks of how reliably these long, multi-app jobs finish.</p>
+<p>Read More: <a href="../../posts/anthropic-enterprise-agent-infrastructure-sandboxes-mcp-tunnels-pwc/index.html">Anthropic’s enterprise agent stack: sandboxes, MCP tunnels and a PwC deal</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026">Welcome to Gemini at Work 2026: introducing the Gemini agent</a></li>
+<li><a href="https://siliconangle.com/2026/10/08/google-cloud-introduces-gemini-agent-to-change-enterprise-work/">SiliconANGLE: Google Cloud introduces Gemini agent to change enterprise work</a></li>
+<li><a href="https://venturebeat.com/orchestration/google-cloud-unveils-persistent-gemini-agents-for-long-running-tasks-and-they-get-their-own-gmail-calendar-and-drive-storage">VentureBeat: Google Cloud unveils persistent Gemini agents for long-running tasks</a></li>
+<li><a href="https://www.cnbc.com/2026/10/08/google-cloud-introduces-gemini-agent-for-work-as-ai-race-heats-up.html">CNBC: Google Cloud introduces Gemini agent for work as AI race heats up</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Google’s {New} {Work} {Assistant} {Can} {Run} on a {Rival’s}
+    {AI} {Model}},
+  date = {2026-10-28},
+  url = {https://toknow.ai/posts/gemini-agent-universal-work-agent-claude-models/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Google’s New Work Assistant Can Run on a
+Rival’s AI Model.”</span> <a href="https://toknow.ai/posts/gemini-agent-universal-work-agent-claude-models/">https://toknow.ai/posts/gemini-agent-universal-work-agent-claude-models/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/gemini-agent-universal-work-agent-claude-models/</guid>
+  <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/gemini-agent-universal-work-agent-claude-models/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Kandinsky 6.0 Video: Picture and Sound in One Download</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/kandinsky-6-video-synchronized-audio/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/kandinsky-6-video-synchronized-audio" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/kandinsky-6-video-synchronized-audio/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/kandinsky-6-video-synchronized-audio/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Kandinsky Lab released <a href="https://arxiv.org/abs/2610.05608">Kandinsky 6.0 Video</a> on 6 October: a pair of downloadable models that make a five-second clip and its soundtrack in one pass. The small version has 3 billion parameters, the large one 29 billion. Both produce 44 kHz audio, about the rate of a music CD, with the lips timed to the speech. Picture and sound are trained together and exchange signals, so the model learns the timing. A second model upscales the output to 1920 by 1080. The weights are free to download.</p>
+<p>On <a href="https://arxiv.org/html/2610.05608v1">VABench</a>, which scores generated sound and picture, the large model beat LTX 2.5, another open model, on lip-sync and audio-video alignment. Training that rewards clear speech cut the share of mistranscribed words by 47%. It also runs on a 16 GB graphics card, slowly: a Full HD clip from the full large model takes 26 minutes on an RTX 5080 and 59 on an RTX 5060 Ti, against 14 on an RTX 5090, and that setting needs about 60 GB of system memory.</p>
+<p>In blind side-by-side tests, raters preferred it to LTX 2.5 on visuals and speech. Against paid systems the results are mixed: a split with Kling 2.6 and Veo 3.1 Fast, and MiniMax H3 and Seedance 2.0 ahead on visual quality. Clips stop at five seconds, against the 30 seconds <a href="../../posts/wan3-0-alibaba-30-second-video-from-any-input/index.html">Wan 3.0</a> manages. It can also start from an audio file or from a first and last frame.</p>
+<p>Read More: <a href="../../posts/davinci-magihuman-single-stream-audio-video-generation/index.html">daVinci-MagiHuman: One Model Generates Synchronized Video and Audio in 2 Seconds</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.05608">Kandinsky 6.0 Video: Foundation Models for Synchronized Video and Audio Generation (arXiv)</a></li>
+<li><a href="https://arxiv.org/html/2610.05608v1">Full paper with the VABench and human-evaluation tables (arXiv HTML)</a></li>
+<li><a href="https://github.com/kandinskylab/kandinsky-6">kandinskylab/kandinsky-6: code, checkpoints and generation modes</a></li>
+<li><a href="https://huggingface.co/kandinskylab/Kandinsky-6.0-Pro-distill-5s-Diffusers">Kandinsky 6.0 Pro distilled on Hugging Face, 10-step sampling</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Kandinsky 6.0 {Video:} {Picture} and {Sound} in {One}
+    {Download}},
+  date = {2026-10-28},
+  url = {https://toknow.ai/posts/kandinsky-6-video-synchronized-audio/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Kandinsky 6.0 Video: Picture and Sound in
+One Download.”</span> <a href="https://toknow.ai/posts/kandinsky-6-video-synchronized-audio/">https://toknow.ai/posts/kandinsky-6-video-synchronized-audio/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/kandinsky-6-video-synchronized-audio/</guid>
+  <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/kandinsky-6-video-synchronized-audio/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>OpenAI’s Invisible Text Watermark Finds 95% of Long Passages, 17% After Edits</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/openai-textgrain-text-watermarking-eu-ai-act/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/openai-textgrain-text-watermarking-eu-ai-act" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/openai-textgrain-text-watermarking-eu-ai-act/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/openai-textgrain-text-watermarking-eu-ai-act/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>OpenAI published its plan on October 5 for marking AI-written text, as the EU AI Act requires, so other systems can identify it. The mark is a watermark called textGrain: an invisible pattern in the model’s word choices that only a secret key can find. Because the pattern sits in the words, it survives copy and paste. API developers worldwide can opt in now, and it stays off unless they ask. OpenAI said eligible ChatGPT and Codex output in the EU would get the mark within weeks. The detector stays private, and OpenAI approves researchers and expert organisations one case at a time.</p>
+<p>Detection improves with length. At a 1% false-alarm rate, the detector found the mark in about 95% of 400-token passages (roughly 300 words) answering psychology questions. At half that length the rate was about 80%. Mathematics scored far lower, because there are fewer ways to word the same answer. Editing does more damage: in 400-token passages, swapping 10% of words for synonyms dropped detection from about 92% to 66%, and 25% dropped it to 17%. Anyone can upload an image or audio file to <a href="https://openai.com/verify/">OpenAI’s Verify tool</a>. For text there is no public equivalent at launch.</p>
+<p>Anthropic said in August it would watermark Claude text worldwide, using Google’s SynthID for text. OpenAI reports textGrain matched or exceeded SynthID. It also reports no meaningful change on its coding-agent tests with the mark on: DeepSWE moved from 72.80% to 71.68% and Terminal-Bench from 53.90% to 56.06%.</p>
+<p>Read More: <a href="../../posts/eu-ai-act-chatbot-transparency-rules-august-2026/index.html">The EU AI Act also requires chatbots to say they are machines</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://openai.com/index/eu-text-provenance/">Our approach to EU text provenance rules</a></li>
+<li><a href="https://cdn.openai.com/pdf/e9508624-d767-41b6-a26d-e34ca798ada6/textgrain-entropy-calibrated-watermarking-for-language-model-text.pdf">textGrain: Entropy-Calibrated Watermarking for Language Model Text (technical report, PDF)</a></li>
+<li><a href="https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/">TechCrunch: OpenAI will start watermarking ChatGPT’s text in the EU</a></li>
+<li><a href="https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act">The Verge: OpenAI is adding text watermarking in ChatGPT and Codex</a></li>
+<li><a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content">European Commission: Code of Practice on Transparency of AI-generated Content</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {OpenAI’s {Invisible} {Text} {Watermark} {Finds} 95\% of
+    {Long} {Passages,} 17\% {After} {Edits}},
+  date = {2026-10-28},
+  url = {https://toknow.ai/posts/openai-textgrain-text-watermarking-eu-ai-act/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“OpenAI’s Invisible Text Watermark Finds 95%
+of Long Passages, 17% After Edits.”</span> <a href="https://toknow.ai/posts/openai-textgrain-text-watermarking-eu-ai-act/">https://toknow.ai/posts/openai-textgrain-text-watermarking-eu-ai-act/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/openai-textgrain-text-watermarking-eu-ai-act/</guid>
+  <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/openai-textgrain-text-watermarking-eu-ai-act/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>A New Test Ranks 14 Video Models on Keeping Hidden Objects in Mind</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/training-object-permanence-world-models/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/training-object-permanence-world-models" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/training-object-permanence-world-models/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/training-object-permanence-world-models/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>A 31-author team built WROP, a test of whether video models keep track of an object while something hides it, as babies do by 3.5 months. It has 150 hand-built Blender scenes in six groups. Three hide objects behind screens, inside tunnels or under lids; three test solidity, like a car stopped by a barrier. Each scene randomises lighting, camera angle and speed, which yields 1.5 million clips and a 300-question exam. Every clip is cut at the physical event: the model sees 2.5 seconds and generates the next 2.5. Twenty people judged 14 systems in 361 blind pairs.</p>
+<p>Wan 3.0 Prime and MiniMax H3 took the top two places, tied at 1723.6 on an Elo rating (a head-to-head voting score). Both rebuild the scene from a reference clip rather than extend it, so they can drift from what the clip showed. The best model that truly continues a clip was the team’s own 16B fine-tune, PWM-WROP, built on <a href="../../posts/nvidia-cosmos-3-omnimodal-world-model-physical-ai/index.html">Cosmos 3 Nano</a> and trained for one pass over those clips. It scored 1679.5, more than 220 Elo above Grok Imagine’s video extend. No untrained Cosmos 3 Nano entered, so training alone cannot take the credit.</p>
+<p>The fine-tune placed first when a moving screen covers still objects and eighth when objects collide, and it outputs 320x192 video where rivals emit 720p. The paper says how a model takes its input explains the ranking better than model size, and calls the result preliminary. Clips, exam and weights are for non-commercial use.</p>
+<p>Read More: <a href="../../posts/trinity-of-consistency-general-world-models-framework/index.html">Trinity of Consistency</a>, a survey that measures where world models break across modal, spatial and temporal consistency.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.28654">Training Object Permanence in World Models (arXiv abstract)</a></li>
+<li><a href="https://arxiv.org/html/2609.28654v1">Full paper with result tables (arXiv HTML)</a></li>
+<li><a href="https://object-permanence.world/leaderboard">Human-preference leaderboard for the 300-question exam</a></li>
+<li><a href="https://huggingface.co/datasets/Hokin/object-permanence">WROP training corpus on Hugging Face</a></li>
+<li><a href="https://huggingface.co/Hokin/PWM-WROP">PWM-WROP model weights on Hugging Face</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {A {New} {Test} {Ranks} 14 {Video} {Models} on {Keeping}
+    {Hidden} {Objects} in {Mind}},
+  date = {2026-10-28},
+  url = {https://toknow.ai/posts/training-object-permanence-world-models/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“A New Test Ranks 14 Video Models on Keeping
+Hidden Objects in Mind.”</span> <a href="https://toknow.ai/posts/training-object-permanence-world-models/">https://toknow.ai/posts/training-object-permanence-world-models/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/training-object-permanence-world-models/</guid>
+  <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/training-object-permanence-world-models/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Windows 11 Gets an Agent Sandbox, and the New Surface Runs Big Models Locally</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/windows-11-agent-containment-surface-rtx-spark/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/windows-11-agent-containment-surface-rtx-spark" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/windows-11-agent-containment-surface-rtx-spark/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/windows-11-agent-containment-surface-rtx-spark/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Microsoft is selling Windows PCs built to run AI models on your own desk instead of in a data centre. The Surface Laptop Ultra starts at <a href="https://www.microsoft.com/en-us/store/configure/surface-laptop-ultra/8WG5VQP0X4B8">$2,599.99</a>. The Surface RTX Spark Dev Box, a small desktop, costs $5,999.99 and ships in November. Inside, NVIDIA’s RTX Spark chip shares up to 128 GB of memory between the processor and the graphics unit, which NVIDIA says holds models of up to 120 billion parameters. Microsoft Execution Containers, an agent sandbox, became generally available on October 7 and enforces a written list of files and network addresses an agent may reach.</p>
+<p>StorageReview ran a 35-billion and a 20-billion-parameter model on a 128 GB review unit, logging 58 to 89 tokens (word fragments) a second with 64 GB handed to the graphics chip. The $2,599.99 machine has 24 GB, so the largest models need the $5,899.99 build. On any model that fits in 24 GB, a laptop with a discrete RTX 5090 was 2.3 times faster. One test that loaded every core shut the Surface off three times; a second unit failed the same way.</p>
+<p>The containers enforce the list from outside the agent, so a model, plugin or code it writes cannot grant itself more access. A coding agent given edit rights on a repository still cannot rewrite the production server config. Four isolation options run from a light process sandbox to a still-experimental virtual machine. GitHub Copilot, Codex, Replit and LM Studio already work inside it; Claude Code and Perplexity are coming.</p>
+<p>Read More: <a href="../../posts/openai-dots-always-on-agents-cloud-computer/index.html">OpenAI’s dots: always-on agents that keep working after you close the tab</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/">Microsoft Execution Containers: policy-driven containment for AI agents</a></li>
+<li><a href="https://www.nvidia.com/en-us/products/rtx-spark/">NVIDIA RTX Spark</a></li>
+<li><a href="https://www.storagereview.com/review/microsoft-surface-laptop-ultra-for-business-review-rtx-spark-n1x">StorageReview: Microsoft Surface Laptop Ultra for Business review</a></li>
+<li><a href="https://videocardz.com/newz/microsoft-announces-6000-price-for-surface-rtx-spark-dev-box-with-128gb-memory-2000-more-than-amds-ryzen-ai-halo">VideoCardz: Microsoft announces $6,000 price for Surface RTX Spark Dev Box</a></li>
+<li><a href="https://www.infoworld.com/article/4215416/running-ai-agents-in-sandboxes-with-microsoft-execution-containers.html">InfoWorld: Running AI agents in sandboxes with Microsoft Execution Containers</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Windows 11 {Gets} an {Agent} {Sandbox,} and the {New}
+    {Surface} {Runs} {Big} {Models} {Locally}},
+  date = {2026-10-28},
+  url = {https://toknow.ai/posts/windows-11-agent-containment-surface-rtx-spark/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Windows 11 Gets an Agent Sandbox, and the
+New Surface Runs Big Models Locally.”</span> <a href="https://toknow.ai/posts/windows-11-agent-containment-surface-rtx-spark/">https://toknow.ai/posts/windows-11-agent-containment-surface-rtx-spark/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/windows-11-agent-containment-surface-rtx-spark/</guid>
+  <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/windows-11-agent-containment-surface-rtx-spark/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>A Free Course Builds an AI Research Assistant That Checks Its Own Search</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/free-agentic-rag-course-seven-weeks/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/free-agentic-rag-course-seven-weeks" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/free-agentic-rag-course-seven-weeks/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/free-agentic-rag-course-seven-weeks/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>A <a href="https://github.com/jamwithai/production-agentic-rag-course">free seven-week course</a> on GitHub walks you through building one working AI research assistant over arXiv papers, from an empty folder to a Telegram bot. It is for programmers who can read Python and run Docker. Weeks 1 and 2 set up the database and search servers, then pull in and parse the papers. Week 3 adds keyword search using <a href="https://en.wikipedia.org/wiki/Okapi_BM25">BM25</a>, a classic ranking formula. Week 4 adds embeddings, numeric vectors that capture meaning, then merges both rankings. Weeks 5 and 6 add a local model that streams answers as they form, then saved answers for repeat questions and tracing of every request.</p>
+<p>Most tutorials jump straight to a vector database, which the course calls the AI-first path that ignores search fundamentals. Keyword search first hands you a score you can read. The course’s own numbers: trimming redundant metadata from the prompt cut it about 80% and made answers roughly 6x faster, and caching repeat questions returned them 150 to 400 times faster. Everything runs locally for nothing, or $2 to $5 with cloud APIs.</p>
+<p>Week 7 turns the pipeline into an agent. A first check rejects questions outside computer science and machine learning. A grader scores each retrieved passage for relevance. When the grade is poor, a rewriter restates the query and searches again. A second interface runs the plain pipeline and the agent side by side. The course dates from 2025, and its main branch last changed in April 2026.</p>
+<p>Read More: <a href="../../posts/rag-agents-mcp/index.html">RAG Agents and MCP: Teaching a Retriever to Decide When to Search</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/jamwithai/production-agentic-rag-course">The course repository and README</a></li>
+<li><a href="https://jamwithai.substack.com/p/the-complete-rag-system">Week 5: the complete RAG system with a local model</a></li>
+<li><a href="https://jamwithai.substack.com/p/production-ready-rag-monitoring-and">Week 6: monitoring and caching</a></li>
+<li><a href="https://jamwithai.substack.com/p/agentic-rag-with-langgraph-and-telegram">Week 7: agentic RAG with LangGraph and Telegram</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {A {Free} {Course} {Builds} an {AI} {Research} {Assistant}
+    {That} {Checks} {Its} {Own} {Search}},
+  date = {2026-10-24},
+  url = {https://toknow.ai/posts/free-agentic-rag-course-seven-weeks/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“A Free Course Builds an AI Research
+Assistant That Checks Its Own Search.”</span> <a href="https://toknow.ai/posts/free-agentic-rag-course-seven-weeks/">https://toknow.ai/posts/free-agentic-rag-course-seven-weeks/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/free-agentic-rag-course-seven-weeks/</guid>
+  <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/free-agentic-rag-course-seven-weeks/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>REA Gives Your Coding Agent a Reverse-Engineering Toolkit</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/rea-coding-agent-reverse-engineering-mcp/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/rea-coding-agent-reverse-engineering-mcp" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/rea-coding-agent-reverse-engineering-mcp/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/rea-coding-agent-reverse-engineering-mcp/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>REA is an open-source tool that lets a coding agent take apart software on your disk. It plugs into Claude Code, Codex, Cursor or any assistant that speaks MCP, the protocol that connects a model to outside tools. After one setup command, the agent can open a program in a disassembler such as Hopper, Ghidra or IDA (tools that turn machine code back into readable instructions), or read the packaged code of a desktop or Android app. It covers 36 kinds of targets. Each finding comes with its evidence: the instructions, the callers, the bytes behind a constant, and what could not be resolved.</p>
+<p>Reverse engineering usually means an expert reading a disassembler line by line. In REA’s DX-Ball case study, one prompt asked how a 1996 Windows game turns a brick’s position on screen into a left or right sound pan. REA showed the agent that function’s instructions and the constants it reads from memory: multiply by 1.5625, subtract 500, then scale. The agent’s rewrite in C returned the same values as the original across 3,205 test inputs, and compiling it with the game’s own 1996 compiler produced the same 63 bytes of machine code. Across 55 rewritten functions so far, 33 compile to identical bytes.</p>
+<p>The Hacker News thread on it mixed delight with talk of lawsuits. The project allows security research, interoperability and software you own or are authorised to examine, but not cheats or getting around copy protection and licence checks.</p>
+<p>Read More: <a href="../../posts/artcraft-vectorcraft-clean-room-adobe-rust/index.html">VectorCraft Rebuilds Illustrator in Rust, and Scores Itself 62% Ready</a>, where VectorCraft’s own rules bar anyone from launching or screenshotting Illustrator (other apps in the family set different rules).</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/morluto/rea">REA repository</a></li>
+<li><a href="https://rea.tools/">REA website</a></li>
+<li><a href="https://rea.tools/showcase/dx-ball/">DX-Ball case study</a></li>
+<li><a href="https://dev.to/leemie8848/ai-reverse-engineering-tools-compared-rea-ida-mcp-ghidramcp-and-friends-oct-2026-3hfl">Comparison of six agent-to-disassembler bridges</a></li>
+<li><a href="https://news.ycombinator.com/item?id=50028275">Hacker News discussion</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {REA {Gives} {Your} {Coding} {Agent} a {Reverse-Engineering}
+    {Toolkit}},
+  date = {2026-10-24},
+  url = {https://toknow.ai/posts/rea-coding-agent-reverse-engineering-mcp/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“REA Gives Your Coding Agent a
+Reverse-Engineering Toolkit.”</span> <a href="https://toknow.ai/posts/rea-coding-agent-reverse-engineering-mcp/">https://toknow.ai/posts/rea-coding-agent-reverse-engineering-mcp/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/rea-coding-agent-reverse-engineering-mcp/</guid>
+  <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/rea-coding-agent-reverse-engineering-mcp/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Amazon Review Tone Predicted Sales, and Negative Reviews Did the Work</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/review-tone-predicts-firm-fundamentals/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/review-tone-predicts-firm-fundamentals" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/review-tone-predicts-firm-fundamentals/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/review-tone-predicts-firm-fundamentals/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>The tone of Amazon review headlines predicted a company’s sales for that quarter, in a 2023 study of 18.8 million reviews covering 292 public companies between 1996 and 2014. Shunyao (Cynthia) Jin scored each headline, the short summary line above the review text, with <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">a simple text classifier</a> that marked it positive, negative or neutral, then averaged the scores per company per quarter. Amazon reviews run positive, so she measured the change from the previous four quarters instead of the level. A move from the 25th to the 75th percentile of that change came with 9.6% higher sales in the same quarter and earnings 13.9% further above analyst forecasts. Star rating, review count and how widely the ratings varied were all controlled for.</p>
+<p>Less negative headlines went with higher sales; positive wording showed no relationship at all. For companies in the more competitive half of the sample, the same tone move lined up with 15.2% higher sales, and in the less competitive half the estimate was indistinguishable from zero. A portfolio that bought the top quarter of companies by tone change and sold the bottom quarter earned 0.60% a quarter. Improving tone also lowered measured stock risk.</p>
+<p>Jiekun Huang’s 2018 study found the star rating pays by itself: a portfolio buying high-rated and selling low-rated stocks earned 0.56% to 0.73% a month. Jin kept the rating in every model, so the 9.6% sales difference is what the text adds on top of the number.</p>
+<p>Read More: <a href="../../posts/vertus-ai-brain-topology-trading-51-percent-claim/index.html">Vertus Says Its Brain-Like AI Returned 51% Trading. What Can You Verify?</a>, on what to check before trusting a trading return.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jbfa.12680">More than words: Can tone of consumer product reviews help predict firms’ fundamentals? (Journal of Business Finance &amp; Accounting, open access)</a></li>
+<li><a href="https://ideas.repec.org/a/bla/jbfnac/v50y2023i9-10p1910-1942.html">RePEc record for Jin (2023)</a></li>
+<li><a href="https://ideas.repec.org/a/eee/jfinec/v128y2018i1p164-182.html">RePEc record for Huang (2018), Journal of Financial Economics</a></li>
+<li><a href="https://rpc.cfainstitute.org/research/cfa-digest/2018/07/dig-v48-n7-3">CFA Institute digest: The Customer Knows Best</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Amazon {Review} {Tone} {Predicted} {Sales,} and {Negative}
+    {Reviews} {Did} the {Work}},
+  date = {2026-10-24},
+  url = {https://toknow.ai/posts/review-tone-predicts-firm-fundamentals/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Amazon Review Tone Predicted Sales, and
+Negative Reviews Did the Work.”</span> <a href="https://toknow.ai/posts/review-tone-predicts-firm-fundamentals/">https://toknow.ai/posts/review-tone-predicts-firm-fundamentals/</a>.
+</div></div></section></div> ]]></description>
+  <category>data-science</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/review-tone-predicts-firm-fundamentals/</guid>
+  <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/review-tone-predicts-firm-fundamentals/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>VisionHOPE Rewrites Its Own Learning Rule for Every Image</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/visionhope-self-modifying-vision-backbone/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/visionhope-self-modifying-vision-backbone" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/visionhope-self-modifying-vision-backbone/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/visionhope-self-modifying-vision-backbone/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Most image models learn once, in training, and then apply the same fixed rules to every photo. VisionHOPE changes one rule. It is a vision backbone, the part of an image model that turns pixels into features, and inside each block five small memories track what the model has seen and set how big each learning step is and how much of the past to keep. Because the memories also drive their own updates, the learning step shifts as the model scans an image. It ports <a href="https://arxiv.org/abs/2512.24695">Nested Learning</a>, a way of stacking learning loops inside one network, from language to images. At 27 million parameters it names the right category for 84.1% of ImageNet photos on its first guess, best or joint best at all three sizes tested.</p>
+<p>On ADE20K, where a model labels every pixel of a scene as wall, floor or chair, the smallest version averages 49.4% overlap with the correct labels, against 48.0% for the best model of its size. On COCO, which asks a model to box each object in a photo, it scores 47.9% average precision. Its cost grows in step with the number of image tiles, where a transformer’s grows with the square of it, so a 1280 pixel input stays affordable.</p>
+<p>The closest rival that also adapts while it looks at an image scores 84.0% on ImageNet, so the lead there is 0.1%. The authors have not yet tried it as the vision part of a model that reads both pictures and text.</p>
+<p>Read More: <a href="../../posts/dinov3-label-free-vision-pretraining/index.html">DINOv3: Label-Free Vision Pretraining on 1.7 Billion Images</a>, which changes what goes into a vision backbone rather than how it updates.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.33325">VisionHOPE paper (arXiv abstract)</a></li>
+<li><a href="https://arxiv.org/html/2609.33325v1">VisionHOPE full paper with result tables</a></li>
+<li><a href="https://github.com/PSRben/VisionHOPE">VisionHOPE code and checkpoints</a></li>
+<li><a href="https://arxiv.org/abs/2512.24695">Nested Learning: The Illusion of Deep Learning Architectures</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {VisionHOPE {Rewrites} {Its} {Own} {Learning} {Rule} for
+    {Every} {Image}},
+  date = {2026-10-24},
+  url = {https://toknow.ai/posts/visionhope-self-modifying-vision-backbone/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“VisionHOPE Rewrites Its Own Learning Rule
+for Every Image.”</span> <a href="https://toknow.ai/posts/visionhope-self-modifying-vision-backbone/">https://toknow.ai/posts/visionhope-self-modifying-vision-backbone/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/visionhope-self-modifying-vision-backbone/</guid>
+  <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/visionhope-self-modifying-vision-backbone/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Free Rust Versions of Word, Excel and AutoCAD Open Your Files</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>WordCraft is a free word processor for Windows, macOS, Linux and the browser that opens and saves the <code>.docx</code> files Word produces. It comes from the team behind <a href="../../posts/artcraft-vectorcraft-clean-room-adobe-rust/index.html">VectorCraft</a>, a free rebuild of Illustrator, is written from scratch in Rust, a programming language built for speed, using published file formats, and shipped installers in October. <a href="https://office-watch.com/2026/free-microsoft-office-clones-wordcraft-gridcraft-deckcraft/">Office Watch</a> tried the Windows builds on its own Microsoft 365 documents and reported that, apart from some spreadsheet functions, every <code>.docx</code>, <code>.xlsx</code> and <code>.pptx</code> file it opened edited without trouble.</p>
+<p>The same team’s other apps cover the other formats. GridCraft reads and writes <code>.xlsx</code> with pivot tables, seventeen chart types and more than 500 worksheet functions, DeckCraft handles <code>.pptx</code>, and CADCraft reads and writes AutoCAD’s DXF drawing files and opens its DWG files. None of them needs an account or a subscription. Every button is also a command with an id, so an AI agent can fill a template one command at a time, then read the document back as JSON, a structured text format, to check its own work instead of taking screenshots.</p>
+<p>WordCraft’s <a href="https://github.com/storytold/wordcraft/blob/main/ROADMAP.md">roadmap</a> wires a command to 493 of the 508 menu and toolbar buttons (97%), and still rates the app about 60% ready for real work. Getting to beta is estimated at 150 to 230 hours of work by an AI coding agent, Claude Opus 5.5. Of 120 issues filed by people outside the project, none came from someone who had replaced Word.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/storytold/wordcraft">WordCraft on GitHub</a></li>
+<li><a href="https://github.com/storytold/wordcraft/blob/main/ROADMAP.md">WordCraft roadmap: command coverage, readiness and agent hours</a></li>
+<li><a href="https://office-watch.com/2026/free-microsoft-office-clones-wordcraft-gridcraft-deckcraft/">Office Watch: can the free Office clones replace Microsoft 365?</a></li>
+<li><a href="https://github.com/storytold/gridcraft">GridCraft on GitHub</a></li>
+<li><a href="https://github.com/storytold/cadcraft/blob/main/ROADMAP.md">CADCraft roadmap</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Free {Rust} {Versions} of {Word,} {Excel} and {AutoCAD}
+    {Open} {Your} {Files}},
+  date = {2026-10-24},
+  url = {https://toknow.ai/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Free Rust Versions of Word, Excel and
+AutoCAD Open Your Files.”</span> <a href="https://toknow.ai/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/">https://toknow.ai/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/</guid>
+  <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AnyPS5 Turns a PS5 Game File Into a Normal PC Program</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/anyps5-port-ps5-binaries-without-emulation/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/anyps5-port-ps5-binaries-without-emulation" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/anyps5-port-ps5-binaries-without-emulation/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/anyps5-port-ps5-binaries-without-emulation/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>AnyPS5 is a free tool that turns a PlayStation 5 game file into an ordinary Windows or Linux program. Rather than emulating the console, it rewrites the game’s executable into a native .exe or .elf and supplies open-source stand-ins for the system libraries a game calls for files, memory, controllers and sound. The PS5’s processor speaks the same x86-64 language as a desktop PC, so most of the game’s own code runs unchanged. The console’s graphics shaders, the short programs that draw each frame, are recompiled into the format Vulkan drivers accept. A browser converter does the work locally, files never leave your device, and the input is an already decrypted game file rather than a disc.</p>
+<p>Because nothing is emulated, a game you already own can run on hardware you already have, with no PS5 underneath it. Few games get far yet. All 1,166 AMD shader instructions the project tracks are decoded, its tracker counts 4,588 of 10,791 system functions as done, and a community compatibility map lists 315 games, of which 58 reach a menu or further and five play from start to finish.</p>
+<p>The main number moved backwards this week. On 17 October the tracker reported 89.65% of system functions done; today it reports 42.52%, because the team declared almost three times as many PS5 functions in four days. Over the same four days the finished count rose from 3,368 to 4,588.</p>
+<p>Read More: <a href="../../posts/artcraft-vectorcraft-clean-room-adobe-rust/index.html">VectorCraft Rebuilds Illustrator in Rust, and Scores Itself 62% Ready</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/boykopovar/AnyPS5">AnyPS5 on GitHub</a></li>
+<li><a href="https://boykopovar.github.io/AnyPS5/">AnyPS5 browser converter</a></li>
+<li><a href="https://boykopovar.github.io/AnyPS5/history.html">AnyPS5 progress history</a></li>
+<li><a href="https://alxcbtw.github.io/anyps5-roadmap/">AnyPS5 compatibility map</a></li>
+<li><a href="https://www.tomshardware.com/video-games/playstation/anyps5-reaches-critical-gpu-milestone-with-100-percent-shader-instruction-coverage-ps5-games-running-natively-on-pc-still-far-off">Tom’s Hardware: AnyPS5 reaches 100% shader instruction coverage</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AnyPS5 {Turns} a {PS5} {Game} {File} {Into} a {Normal} {PC}
+    {Program}},
+  date = {2026-10-21},
+  url = {https://toknow.ai/posts/anyps5-port-ps5-binaries-without-emulation/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AnyPS5 Turns a PS5 Game File Into a Normal
+PC Program.”</span> <a href="https://toknow.ai/posts/anyps5-port-ps5-binaries-without-emulation/">https://toknow.ai/posts/anyps5-port-ps5-binaries-without-emulation/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/anyps5-port-ps5-binaries-without-emulation/</guid>
+  <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/anyps5-port-ps5-binaries-without-emulation/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>VectorCraft Rebuilds Illustrator in Rust, and Scores Itself 62% Ready</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/artcraft-vectorcraft-clean-room-adobe-rust/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/artcraft-vectorcraft-clean-room-adobe-rust" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/artcraft-vectorcraft-clean-room-adobe-rust/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/artcraft-vectorcraft-clean-room-adobe-rust/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>VectorCraft is a free vector drawing app for macOS, Windows, Linux and the browser, and one of thirteen free Rust programs built by the Atlanta developer Brandon Thomas as replacements for Adobe’s Creative Suite and other paid design tools. Its roadmap, reviewed on 10 October, is blunt: about 88% of Adobe Illustrator’s menu items, tools, effects and formats exist, feature depth is about 75%, and readiness for an ordinary illustrator’s real work is about 62%. The repository is three weeks old, at version 0.14.0, and still labelled alpha. Gizmodo reports Thomas built them with Claude Opus 5.5, and the roadmap budgets the rest in “agent hours”: 170 to 270 to reach beta.</p>
+<p>The apps are small: Tedium’s reviewer noted they load in tens of megabytes rather than hundreds, and the README claims 20,000 shapes render in about 27 milliseconds while the interface holds 120 frames per second. It also targets files, not just tools: documents from Serif’s Affinity suite open natively, legacy Illustrator 7 files keep their layers, and it writes PDF-compatible <code>.ai</code>, SVG and EPS. Adobe’s terms forbid reverse engineering, so VectorCraft’s own rules bar anyone from launching or even screenshotting Illustrator, and behaviour comes only from public specifications. Sibling apps in the family set their own rules. A Gizmodo reviewer said the Photoshop sibling feels like “glitchy, but real, Photoshop”.</p>
+<p>On Hacker News, Thomas said the apps are “not anywhere close to ready” and offered to pay bug bounties.</p>
+<p>Read More: <a href="../../posts/figma-capture-webpage-editable-design-layers/index.html">Figma: Turn Any Live Webpage Into Editable Design Layers</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/storytold/vectorcraft">VectorCraft on GitHub</a></li>
+<li><a href="https://github.com/storytold/vectorcraft/blob/main/ROADMAP.md">VectorCraft roadmap and readiness numbers</a></li>
+<li><a href="https://getartcraft.com/apps">The Crafting Apps: thirteen free tools from ArtCraft</a></li>
+<li><a href="https://gizmodo.com/someone-vibe-coded-a-free-knockoff-of-adobe-creative-suite-2000823322">Gizmodo: Someone Vibe Coded a Free Knockoff of Adobe Creative Suite</a></li>
+<li><a href="https://tedium.co/2026/10/08/artcraft-vibe-coding-creative-cloud-remake/">Tedium: What ArtCraft’s Vibe-Coded Apps Say About Adobe</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {VectorCraft {Rebuilds} {Illustrator} in {Rust,} and {Scores}
+    {Itself} 62\% {Ready}},
+  date = {2026-10-21},
+  url = {https://toknow.ai/posts/artcraft-vectorcraft-clean-room-adobe-rust/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“VectorCraft Rebuilds Illustrator in Rust,
+and Scores Itself 62% Ready.”</span> <a href="https://toknow.ai/posts/artcraft-vectorcraft-clean-room-adobe-rust/">https://toknow.ai/posts/artcraft-vectorcraft-clean-room-adobe-rust/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/artcraft-vectorcraft-clean-room-adobe-rust/</guid>
+  <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/artcraft-vectorcraft-clean-room-adobe-rust/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Models That Read Raw Bytes Are Projected to Overtake Token-Based Models</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/byte-vocabulary-beats-token-vocabulary-distillation/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/byte-vocabulary-beats-token-vocabulary-distillation" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/byte-vocabulary-beats-token-vocabulary-distillation/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/byte-vocabulary-beats-token-vocabulary-distillation/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Researchers at Meta FAIR and the University of Washington trained matched 1-billion-parameter models on two alphabets to see which ends up smarter. Almost every model reads text in <a href="https://en.wikipedia.org/wiki/Large_language_model#Tokenization">tokens</a>, chunks from a vocabulary of 100,000 pieces. Their byte models read raw <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8 bytes</a> instead, 256 values, so no vocabulary decides where a chunk ends. Fitted curves project the byte version ahead: 52.4% average accuracy over eight benchmarks against 48.4% for the token model.</p>
+<p>Token models win at small training budgets, then level off. Byte models start behind and keep improving. The best setup used distillation, where a small model learns by copying a bigger model’s predictions. A <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B">Llama 3-8B</a> teacher predicts the next token, and the paper converts that into a next-byte prediction in one pass. Its exact version, End-Of-Token, adds a marker after every 4.5 bytes to hold the leftover probability, so nothing the teacher knew is lost. It reaches the byte model’s peak with 6.33e22 FLOPs (a count of arithmetic operations), about a third of the approximate method, and with one-sixth of the training text. Stored teacher output also shrinks to roughly a fifth, since each step saves 256 scores instead of 100,000.</p>
+<p>The byte model passes the token model near 6.7 trillion byte units, seven times the largest run in the study, so that lead is extrapolated, not measured. A byte model also takes one step per byte, so it is slower to run at equal quality. Vocabulary size becomes a cost traded against sequence length, not a fixed part of building a model.</p>
+<p>Read More: <a href="../../posts/cohere-tiny-aya-3b-multilingual-70-languages-on-device/index.html">Cohere Tiny Aya</a> took the opposite bet, a 262,000-token vocabulary sized for 70 languages.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.12303">Breaking the Token Ceiling: Distilling Smaller, Stronger Byte Models (arXiv)</a></li>
+<li><a href="https://arxiv.org/html/2609.12303v1">Full paper with scaling tables (arXiv HTML)</a></li>
+<li><a href="https://arxiv.org/abs/2412.09871">Byte Latent Transformer: Patches Scale Better Than Tokens (arXiv)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8 encoding reference</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Models {That} {Read} {Raw} {Bytes} {Are} {Projected} to
+    {Overtake} {Token-Based} {Models}},
+  date = {2026-10-21},
+  url = {https://toknow.ai/posts/byte-vocabulary-beats-token-vocabulary-distillation/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Models That Read Raw Bytes Are Projected to
+Overtake Token-Based Models.”</span> <a href="https://toknow.ai/posts/byte-vocabulary-beats-token-vocabulary-distillation/">https://toknow.ai/posts/byte-vocabulary-beats-token-vocabulary-distillation/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/byte-vocabulary-beats-token-vocabulary-distillation/</guid>
+  <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/byte-vocabulary-beats-token-vocabulary-distillation/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Kenya Says AI Can Help You Invent, but It Cannot Be the Inventor</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/kenya-intellectual-property-bill-2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/kenya-intellectual-property-bill-2026" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/kenya-intellectual-property-bill-2026/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/kenya-intellectual-property-bill-2026/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Kenya is folding its intellectual property law into a single statute, and the patent section draws a line between inventions a person made with AI and inventions AI made alone. The Kenya Intellectual Property Bill, 2026 replaces the Industrial Property Act, the Copyright Act and the Anti-Counterfeit Act, and merges the patent office, the copyright board and the anti-counterfeit authority into one regulator, the Kenya Intellectual Property Authority. Section 18 defines an “AI-assisted invention” as one where a person supplies the “essential inventive concept” by framing the problem, overseeing the AI or interpreting its results. An “AI-generated invention” is one the AI produces “without direct human involvement in the inventive act”. Section 19 then lists AI-generated inventions among the things that are not inventions, next to discoveries and business methods, so they cannot be patented at all.</p>
+<p>For a team building with models, that turns a research workflow into a paperwork problem. Applications must name a human inventor, so if a model drafted the molecule or the architecture, someone has to show what the person actually contributed. Copyright goes the other way: computer-generated works get a 50-year term counted from the year the work was made, even though the bill defines an author as a natural person.</p>
+<p>The bill had its first reading on 2 July, and Parliament’s tracker for 15 October still shows the second reading blank. It never says how an applicant proves the human share; its 257 sections leave that detail to regulations.</p>
+<p>Read More: <a href="../../posts/kenya-artificial-intelligence-strategy-2025-2030/index.html">Kenya National Artificial Intelligence Strategy 2025-2030</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://new.kenyalaw.org/akn/ke/bill/na/2026-06-19/the-kenya-intellectual-property-bill-2026/eng@2026-06-19">The Kenya Intellectual Property Bill, 2026 - Kenya Law</a></li>
+<li><a href="https://www.parliament.go.ke/the-national-assembly/house-business/bill-tracker">National Assembly Bills Tracker - Parliament of Kenya</a></li>
+<li><a href="https://wamaeallen.com/kenya-intellectual-property-bill-2026/">Wamae and Allen: The Kenya Intellectual Property Bill, 2026</a></li>
+<li><a href="https://www.adams.africa/rebone-setati/key-takeaways-from-kenyas-new-intellectual-property-bill/">Adams and Adams: Key takeaways from Kenya’s new Intellectual Property Bill</a></li>
+<li><a href="https://techtrendske.co.ke/2026/08/22/kipa-bill-parliament-public-scrutiny/">TechTrendsKE: KIPA Bill reaches Parliament for public scrutiny</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Kenya {Says} {AI} {Can} {Help} {You} {Invent,} but {It}
+    {Cannot} {Be} the {Inventor}},
+  date = {2026-10-21},
+  url = {https://toknow.ai/posts/kenya-intellectual-property-bill-2026/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Kenya Says AI Can Help You Invent, but It
+Cannot Be the Inventor.”</span> <a href="https://toknow.ai/posts/kenya-intellectual-property-bill-2026/">https://toknow.ai/posts/kenya-intellectual-property-bill-2026/</a>.
+</div></div></section></div> ]]></description>
+  <category>entrepreneurship</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/kenya-intellectual-property-bill-2026/</guid>
+  <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/kenya-intellectual-property-bill-2026/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>OpenSRE: An Open-Source Agent That Works Out Why Production Broke</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/opensre-ai-sre-agent-framework/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/opensre-ai-sre-agent-framework" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/opensre-ai-sre-agent-framework/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/opensre-ai-sre-agent-framework/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>OpenSRE is an open-source command-line agent that tells on-call engineers why a production system broke. Point it at the tools you already run, about 60 of them from Grafana and Datadog to Kubernetes, AWS and PagerDuty, and when an alert fires it reads logs, metrics, traces and recent deploys, tests a few explanations, then posts its answer to Slack. It runs on a laptop or your own server, accepts Claude, GPT, Gemini or a local Ollama model, and masks pod, cluster and account IDs before anything reaches an outside model. It is at version 0.1, a self-described public alpha, and ships the training rig alongside the agent because the team argues incident response has no shared benchmark yet.</p>
+<p>One2N, an SRE consultancy, spent three months running that build against a small Kubernetes stack, killing Postgres, Redis and the backend one at a time and then all at once. It marked five abilities as pass (+1), partial (0) or fail (-1). OpenSRE failed three, partly passed two and totalled minus three. It blamed a rollback of a Kubernetes release that never happened. It could not read the alert format from the team’s monitoring tool without a hand-written conversion step, and it treated an alert storm as separate incidents. With no runbooks or past incidents to draw on, every page started cold. The verdict was defer, not reject.</p>
+<p>Since then the project has added long-term memory, runbook-aware reasoning and lessons carried between sessions, which is the area where One2N scored it a fail.</p>
+<p>Read More: <a href="../../posts/secrespond-post-compromise-incident-response-benchmark/index.html">SecRespond: AI Agents Spot Security Alerts but Miss Silent Intrusions</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/Tracer-Cloud/opensre">OpenSRE repository and README</a></li>
+<li><a href="https://one2n.io/blog/how-to-evaluate-ai-sre-agents-for-production">How to evaluate AI SRE agents for production (One2N)</a></li>
+<li><a href="https://github.com/one2nc/ai_sre">The One2N test rig and reproduction kit</a></li>
+<li><a href="https://opensre.com/docs/getting-started/features">OpenSRE feature list and documentation</a></li>
+<li><a href="https://opensre.com/docs/platform/masking">Reversible identifier masking docs</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {OpenSRE: {An} {Open-Source} {Agent} {That} {Works} {Out}
+    {Why} {Production} {Broke}},
+  date = {2026-10-21},
+  url = {https://toknow.ai/posts/opensre-ai-sre-agent-framework/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“OpenSRE: An Open-Source Agent That Works
+Out Why Production Broke.”</span> <a href="https://toknow.ai/posts/opensre-ai-sre-agent-framework/">https://toknow.ai/posts/opensre-ai-sre-agent-framework/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/opensre-ai-sre-agent-framework/</guid>
+  <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/opensre-ai-sre-agent-framework/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Anthropic’s Free Open-Source Bug Scanner Skips the Human Review</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/anthropic-oss-scanner-cyber-mission/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/anthropic-oss-scanner-cyber-mission" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/anthropic-oss-scanner-cyber-mission/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/anthropic-oss-scanner-cyber-mission/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>OSS Scanner is a free service from Anthropic that hunts for security bugs in open-source software and emails what it finds to the people who maintain that code. Maintainers opt in by opening a pull request on GitHub. Each report includes a working proof of concept, an explanation of the flaw, and a suggested fix. Every report is written by AI models, with no human checking it first. Anthropic built it after a similar scan during Project Glasswing, and says Google’s OSS-Fuzz inspired the design.</p>
+<p>The reason for skipping the human check is volume. Anthropic’s models found over 29,000 candidate vulnerabilities in widely used software over six months, and its team could only manually review about 6,000. On <a href="https://arxiv.org/abs/2506.02548">CyberGym</a>, a public test, the models went from finding under 20% of the vulnerabilities at the start of last year to over 85% this year. Finding bugs is now easier than checking them. Of the findings an outside security firm reviewed, 92.7% turned out to be real. The software library wolfSSL said 72 of the 74 reports it received were valid, and five became official security advisories.</p>
+<p>Some of the unreviewed reports will be wrong, like an inflated severity rating, so Anthropic is not imposing a 90-day disclosure deadline by default. Anthropic frames the push as a race, since capable models are <a href="../../posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/index.html">now widely available to attackers too</a>. The same launch created a program to protect power grids, water systems and transport, with 11 partners including CrowdStrike, Palo Alto Networks and Rockwell Automation.</p>
+<p>Read More: <a href="../../posts/openai-daybreak-cybersecurity-platform-vs-anthropic-mythos/index.html">OpenAI Daybreak vs.&nbsp;Anthropic Mythos: two rival visions for AI cybersecurity</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/news/anthropic-cyber-mission">Introducing the Anthropic Cyber Mission (Anthropic)</a></li>
+<li><a href="https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source">Launching an opt-in vulnerability-finding service for open-source software (Anthropic Frontier Red Team)</a></li>
+<li><a href="https://red.anthropic.com/oss-scanner/">OSS Scanner (Anthropic)</a></li>
+<li><a href="https://red.anthropic.com/2026/cvd/">Coordinated vulnerability disclosure dashboard (Anthropic)</a></li>
+<li><a href="https://thehackernews.com/2026/10/anthropic-launches-free-ai.html">Anthropic Launches Free AI Vulnerability Scanner for Open-Source Projects (The Hacker News)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Anthropic’s {Free} {Open-Source} {Bug} {Scanner} {Skips} the
+    {Human} {Review}},
+  date = {2026-10-13},
+  url = {https://toknow.ai/posts/anthropic-oss-scanner-cyber-mission/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Anthropic’s Free Open-Source Bug Scanner
+Skips the Human Review.”</span> <a href="https://toknow.ai/posts/anthropic-oss-scanner-cyber-mission/">https://toknow.ai/posts/anthropic-oss-scanner-cyber-mission/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/anthropic-oss-scanner-cyber-mission/</guid>
+  <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/anthropic-oss-scanner-cyber-mission/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>An AI Workbench Built the First Complete Map of the Sky in Ultraviolet</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/claude-science-uv-sky-map/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/claude-science-uv-sky-map" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/claude-science-uv-sky-map/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/claude-science-uv-sky-map/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>An astrophysicist has built the first complete map of the sky in ultraviolet light, filling the roughly one third that no UV telescope has ever photographed. Brice Ménard, who works at Johns Hopkins University and at Anthropic, made it with Claude Science, Anthropic’s workbench for scientists, which runs a lead agent that spins up helper agents and a reviewer that checks their work. Ultraviolet light is blocked by the ozone layer, so it can only be measured from space. NASA’s GALEX telescope imaged about two thirds of the sky in 38,000 visits between 2003 and 2013, but skipped the brightest regions, including most of the Milky Way’s plane, to protect its detectors. Ménard’s map merges GALEX with Swift, FIMS/SPEAR, TD-1, Planck and Gaia.</p>
+<p>To fill the gaps, Claude used inpainting, where a model learns how the parts of an image relate and estimates what is missing. It learned how UV brightness tracks other wavelengths across the measured two thirds, then applied that to the unobserved third. Tested by hiding real UV patches, its guesses landed within about 10% of the actual measurements, a difference the eye cannot see. The finished map labels every pixel as measured or predicted, with an uncertainty estimate.</p>
+<p>Ménard is careful about it. Filled sky cannot hold a discovery, and the validation reports come from the same system that built the map, so nothing here has had human peer review yet. What the project does show, and what echoes Anthropic’s earlier <a href="../../posts/anthropic-claude-chemist-nmr-spectroscopy/index.html">chemistry work with Claude</a>, is a pattern: an AI assistant absorbing the slow calibration that keeps useful scientific projects from ever shipping.</p>
+<p>Read More: <a href="../../posts/medical-ai-scientist-autonomous-clinical-research-peer-review/index.html">An AI Scientist That Runs Its Own Clinical Research</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/the-missing-map-of-the-sky">Using Claude Science to produce the first complete map of the sky in UV light (Anthropic)</a></li>
+<li><a href="https://menard.pha.jhu.edu/uvmap/">The full sky in the ultraviolet (map and technical paper, Brice Ménard, Johns Hopkins University)</a></li>
+<li><a href="https://www.anthropic.com/news/claude-science-ai-workbench">Claude Science, an AI workbench for scientists (Anthropic)</a></li>
+<li><a href="https://the-decoder.com/anthropics-claude-science-creates-the-first-complete-ultraviolet-map-of-the-sky/">Anthropic’s Claude Science creates the first complete ultraviolet map of the sky (The Decoder)</a></li>
+<li><a href="https://physics-astronomy.jhu.edu/2026/10/09/brice-menard-works-with-anthropics-claude-science-to-produce-first-complete-uv-light-map-of-the-sky/">Ménard works with Claude Science to produce first complete UV light map of the sky (Johns Hopkins Physics &amp; Astronomy)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {An {AI} {Workbench} {Built} the {First} {Complete} {Map} of
+    the {Sky} in {Ultraviolet}},
+  date = {2026-10-13},
+  url = {https://toknow.ai/posts/claude-science-uv-sky-map/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“An AI Workbench Built the First Complete
+Map of the Sky in Ultraviolet.”</span> <a href="https://toknow.ai/posts/claude-science-uv-sky-map/">https://toknow.ai/posts/claude-science-uv-sky-map/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/claude-science-uv-sky-map/</guid>
+  <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/claude-science-uv-sky-map/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Linear Superposition: One AI Model Can Answer Two Prompts at Once</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/linear-superposition-transformers-two-thoughts/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/linear-superposition-transformers-two-thoughts" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/linear-superposition-transformers-two-thoughts/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/linear-superposition-transformers-two-thoughts/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>A team of researchers has found that a normal language model can hold two different texts at once. Average the <a href="https://en.wikipedia.org/wiki/Word_embedding">word embeddings</a>, the number lists a model uses for words, from two documents, feed the blend through an unchanged model, and the output keeps the right next word alive for both texts. They call it the <a href="https://arxiv.org/abs/2609.29845">Superposition Linearity Hypothesis</a>. Across the Pythia, Qwen, Llama, OLMo and Gemma models, each stream’s correct next word often lands in the top 10.</p>
+<p>The effect is strongest before training and fades as a model learns, pointing to the architecture, not to learning. A short fine-tuning run brings it back using under 0.025% of the original training data. On Pythia-2.8B that cut the gap between the blend and the true mix, measured as KL divergence, a score for how far apart two distributions sit, from 1.86 to 0.27. On Qwen2.5-3B, harder words moved from a median rank of 284 to 5. Two answers from one pass could double throughput and roughly halve memory per conversation.</p>
+<p>Sampling straight from the blend hops between the two texts, because averaging the raw next-word scores pushes probability toward words both streams share. The team’s Joint Contrastive decoder, using a small helper model to steer the streams apart, partly separates them, scoring 0.43 on LAMBADA against a 0.54 single-stream baseline. Mixing streams to get several outputs is <a href="https://arxiv.org/abs/2405.18400">prior art</a>, but this work ties the effect to the architecture and shows it can be trained back. Tests stop at 512-token contexts, English text only.</p>
+<p>Read More: <a href="../../posts/thinking-to-recall-reasoning-unlocks-parametric-knowledge-llms-google/index.html">Thinking to Recall: How Reasoning Unlocks Parametric Knowledge</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.29845">Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs (arXiv)</a></li>
+<li><a href="https://arxiv.org/html/2609.29845v1">Full paper (arXiv HTML)</a></li>
+<li><a href="https://huggingface.co/papers/2609.29845">Paper page (Hugging Face)</a></li>
+<li><a href="https://arxiv.org/abs/2405.18400">Superposed Decoding: Multiple Generations from a Single Autoregressive Inference Pass (arXiv)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Linear {Superposition:} {One} {AI} {Model} {Can} {Answer}
+    {Two} {Prompts} at {Once}},
+  date = {2026-10-13},
+  url = {https://toknow.ai/posts/linear-superposition-transformers-two-thoughts/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Linear Superposition: One AI Model Can
+Answer Two Prompts at Once.”</span> <a href="https://toknow.ai/posts/linear-superposition-transformers-two-thoughts/">https://toknow.ai/posts/linear-superposition-transformers-two-thoughts/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/linear-superposition-transformers-two-thoughts/</guid>
+  <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/linear-superposition-transformers-two-thoughts/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Lot Vulture Turns Existing Security Cameras Into a Live Parking Map</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/lot-vulture-parking-occupancy-existing-cameras/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/lot-vulture-parking-occupancy-existing-cameras" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/lot-vulture-parking-occupancy-existing-cameras/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/lot-vulture-parking-occupancy-existing-cameras/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Lot Vulture is on-premise software that turns an ordinary security camera into a per-space parking sensor. Point an existing IP camera at a lot, trace a box around each space in the browser dashboard, and it runs computer vision on the site to mark every spot occupied or free in real time. It targets parking operators who want live occupancy without the hardware bill: a magnetic sensor runs $200 to $500 per space, and a 200-space lot can cost $40,000 to instrument.</p>
+<p>Rather than cropping each space and classifying it separately, the engine makes a single pass over the whole frame and reads features inside the zones you drew, so processing time stays flat whether a camera watches five spaces or 150. That avoids a common failure, where a tall SUV’s detection box bleeds into the empty spot beside it. A two-threshold rule holds each state steady through headlight glare and shifting shadows. Everything runs on local hardware, so the video never leaves the property.</p>
+<p>The free Community edition runs on CPU with a model the maker rates around 89% accurate; the paid tier adds a GPU and a 98% model for $25 a month per camera. The code is source-available, not open source: you may run and modify it, but not sell a competing product. The project is only weeks old, so the numbers are the developer’s own. Cameras elsewhere are taking on judgement calls too, like <a href="../../posts/vinci2-egoserve-camera-assistant-interruption/index.html">Vinci2</a>, which decides when a wearable assistant should speak up.</p>
+<p>Read More: <a href="../../posts/ruview-wifi-sensing-breathing-pose-no-camera/index.html">RuView: Sensing People With WiFi, Not Cameras</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/lotvulture/lotvulture">Lot Vulture (GitHub)</a></li>
+<li><a href="https://www.lotvulture.com/">Lot Vulture: Intelligent Parking Lot Management &amp; Occupancy AI (official site)</a></li>
+<li><a href="https://dev.to/matthill/show-dev-i-built-an-on-prem-ai-parking-spot-monitor-to-replace-400-in-ground-sensors-59i3">Show Dev: I built an on-prem AI parking spot monitor to replace $400 in-ground sensors (DEV Community)</a></li>
+<li><a href="https://news.ycombinator.com/item?id=49550503">Lot Vulture - Turn existing RTSP cameras into live parking occupancy maps (Hacker News)</a></li>
+<li><a href="https://github.com/blakeblackshear/frigate/discussions/24207">Dedicated parking space &amp; driveway occupancy from RTSP feeds (Frigate discussion #24207)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Lot {Vulture} {Turns} {Existing} {Security} {Cameras} {Into}
+    a {Live} {Parking} {Map}},
+  date = {2026-10-13},
+  url = {https://toknow.ai/posts/lot-vulture-parking-occupancy-existing-cameras/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Lot Vulture Turns Existing Security Cameras
+Into a Live Parking Map.”</span> <a href="https://toknow.ai/posts/lot-vulture-parking-occupancy-existing-cameras/">https://toknow.ai/posts/lot-vulture-parking-occupancy-existing-cameras/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/lot-vulture-parking-occupancy-existing-cameras/</guid>
+  <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/lot-vulture-parking-occupancy-existing-cameras/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+</channel>
+</rss>
