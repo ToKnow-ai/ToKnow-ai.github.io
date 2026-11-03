@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<atom:link href="https://toknow.ai/index.xml" rel="self" type="application/rss+xml"/>
+<description>// Research, Numbers and Insightful Ideas //</description>
+<image>
+<url>https://toknow.ai/images/logo.png</url>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Tue, 03 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Aleph: A Free Tool That Gives AI Agents Satellite, Street View and Terrain Data of Any Area</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/aleph-satellite-streetview-terrain-data-for-llms/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/aleph-satellite-streetview-terrain-data-for-llms" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/aleph-satellite-streetview-terrain-data-for-llms/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/aleph-satellite-streetview-terrain-data-for-llms/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Aleph is a free tool for developers and researchers that saves a chosen patch of the real world as files on your computer, so an AI agent or a person can look at a place instead of reading about it. You draw a rectangle or polygon on a browser map, or type one terminal command for a single spot. Aleph downloads building outlines, ground heights, satellite images, Street View photos and 3D models. In the docs, one command takes ten Street View photos along a named street, and another option prints a summary of the saved files that a program can read.</p>
+<p>The README says Aleph began as a way for AI models to gather information about the physical world. It needs only three Python libraries and no API keys, the access codes most map services ask for. Google’s official <a href="https://developers.google.com/maps/documentation/tile/overview">Map Tiles API</a> serves the same Street View, satellite and 3D tiles, but only with a Google key. The other two layers, OpenStreetMap buildings and AWS Terrain Tiles heights, are open data that you can reuse if you credit the source.</p>
+<p>Street View, satellite images and 3D models come from Google, and Google’s terms forbid bulk downloads and offline copies of Street View images, even for academic and nonprofit projects. The README also says Aleph uses undocumented APIs, so it may break or hit rate limits.</p>
+<p>Read More: <a href="../../posts/geolibre-browser-gis-ai-assistant/index.html">GeoLibre, a browser map tool with an AI assistant for spatial questions</a> and <a href="../../posts/olmoearth-planet-scale-satellite-inference-platform/index.html">OlmoEarth, Ai2’s platform that turns satellite data into maps</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/Belluxx/Aleph">Aleph repository and README (GitHub)</a></li>
+<li><a href="https://github.com/Belluxx/Aleph/blob/main/docs/cli.md">Aleph CLI reference (GitHub)</a></li>
+<li><a href="https://www.google.com/help/terms_maps/">Google Maps Additional Terms of Service</a></li>
+<li><a href="https://about.google/brand-resource-center/products-and-services/geo-guidelines/">Using Google Maps, Google Earth, and Street View: geo guidelines (Google)</a></li>
+<li><a href="https://developers.google.com/maps/documentation/tile/overview">Map Tiles API overview (Google for Developers)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Aleph: {A} {Free} {Tool} {That} {Gives} {AI} {Agents}
+    {Satellite,} {Street} {View} and {Terrain} {Data} of {Any} {Area}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/aleph-satellite-streetview-terrain-data-for-llms/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Aleph: A Free Tool That Gives AI Agents
+Satellite, Street View and Terrain Data of Any Area.”</span> <a href="https://toknow.ai/posts/aleph-satellite-streetview-terrain-data-for-llms/">https://toknow.ai/posts/aleph-satellite-streetview-terrain-data-for-llms/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/aleph-satellite-streetview-terrain-data-for-llms/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/aleph-satellite-streetview-terrain-data-for-llms/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>BLA: A Free Tool That Plants Decoys to Slow AI Agents That Reverse Engineer Your Software</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>BLA, short for Blind LLM Agents, is a free tool that software makers run on a finished program so AI agents that reverse-engineer it waste time and money. Reverse engineering means working out how software works without its source code, and REA, an open-source toolkit, lets a coding agent do it. The command <code>bla harden .</code> covers web and desktop apps, Python, databases, AI model files and compiled programs. It has three layers. Poison plants fake clues, Exhaust pads files past the limits of the agent’s analysis tool, and Hallucinate adds decoys, clean-looking fake code the agent may rebuild instead of the real logic.</p>
+<p>The author’s tests used REA only, on small test files. BLA padded a desktop-app archive from 607 bytes to 16.9 MiB (a MiB is about a megabyte), mostly in the file index, which REA reads only up to 16 MiB by default, so REA stopped with an error. Across 13 file types, REA hit an error or a limit on 10. BLA’s README makes no claim about Ghidra, Frida or other tools. JavaScript Obfuscator, a code-scrambling tool, rates its free version “fully vulnerable” to AI analysis.</p>
+<p>The project says its 14 benchmark samples ran identically after hardening. Its disclaimer says to “protect your own software” and admits no protection inside shipped software can guarantee secrecy against “a dedicated human analyst with unlimited time”. The same decoys could slow an AI that checks malware. REA’s documentation shows how to raise its 16 MiB limit to 256 MiB.</p>
+<p>Read More: <a href="../../posts/rea-coding-agent-reverse-engineering-mcp/index.html">REA Gives Your Coding Agent a Reverse-Engineering Toolkit</a>, the attack side that BLA is built to resist</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/qybaihe/bla">BLA repository and README</a></li>
+<li><a href="https://github.com/qybaihe/bla/blob/main/DISCLAIMER.md">BLA disclaimer</a></li>
+<li><a href="https://github.com/morluto/rea/blob/main/docs/javascript-artifact-reconstruction.md">REA guide to JavaScript and ASAR analysis, with the header limit</a></li>
+<li><a href="https://github.com/javascript-obfuscator/javascript-obfuscator">JavaScript Obfuscator repository</a></li>
+<li><a href="https://raw.githubusercontent.com/qybaihe/bla/main/docs/redteam/empirical-rea-validation.md">BLA’s recorded test results against REA (raw text file)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {BLA: {A} {Free} {Tool} {That} {Plants} {Decoys} to {Slow}
+    {AI} {Agents} {That} {Reverse} {Engineer} {Your} {Software}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“BLA: A Free Tool That Plants Decoys to Slow
+AI Agents That Reverse Engineer Your Software.”</span> <a href="https://toknow.ai/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering/">https://toknow.ai/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering/</a>.
+</div></div></section></div> ]]></description>
+  <category>cyber-security</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/bla-blind-llm-agents-defense-against-ai-reverse-engineering/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>CleanYourTV: A Free Kit That Lets Your AI Coding Assistant Switch Off Android TV Ads and Junk</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/cleanyourtv-android-tv-debloat-coding-agent-installer/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/cleanyourtv-android-tv-debloat-coding-agent-installer" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/cleanyourtv-android-tv-debloat-coding-agent-installer/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/cleanyourtv-android-tv-debloat-coding-agent-installer/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>CleanYourTV is a free kit that debloats an Android TV or Google TV over Wi-Fi: it switches off the maker’s ads, tracking and pre-installed apps. It is for owners comfortable with a terminal. Their own coding agent, an AI assistant that runs commands, does the install. You switch on the TV’s USB debugging, a developer setting, then paste the project’s prompt into Claude Code, Codex or Gemini CLI. The agent backs up the TV, then uses ADB (Android Debug Bridge, a built-in tool for sending commands to the TV) to disable the junk, never uninstalling it. It builds an Apple TV-style home screen and checks each step with screenshots.</p>
+<p>The junk differs by brand, so the agent reads your TV’s app list and asks before touching streaming apps. The project ships app lists for 420 TV models. Samsung, LG, Roku, Vizio and Hisense VIDAA TVs have no ADB and are not supported. Fire TV gets no new home screen, and YouTube ads stay. PCWorld calls Play Store launchers and privacy settings an easier, safer route.</p>
+<p>The scripts refuse to disable Android’s core packages and record the TV’s state first, so one command restores the TV. The project says changing a TV’s software may affect its warranty, and a firmware update brings the apps back until its check tool reapplies the list. TechCrunch reports one user said Claude broke their TV. If a TV stops booting, the project says a factory reset, which erases your apps and accounts, usually fixes it.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/Gathin23/cleanyourtv">CleanYourTV repository (GitHub)</a></li>
+<li><a href="https://github.com/Gathin23/cleanyourtv/blob/main/PROMPT.md">PROMPT.md, the prompt the coding agent follows (GitHub)</a></li>
+<li><a href="https://techcrunch.com/2026/10/19/people-are-using-ai-to-make-their-smart-tvs-dumb-again/">People are using AI to make their smart TVs dumb again (TechCrunch)</a></li>
+<li><a href="https://www.pcworld.com/article/3266473/please-dont-use-ai-hacks-to-debloat-your-tv.html">Please don’t use AI hacks to debloat your TV (PCWorld)</a></li>
+<li><a href="https://cybernews.com/security/smart-tv-debloating-movement-cleanyourtv-explodes-on-github/">CleanYourTV project explodes on GitHub as thousands hack their TVs back (Cybernews)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {CleanYourTV: {A} {Free} {Kit} {That} {Lets} {Your} {AI}
+    {Coding} {Assistant} {Switch} {Off} {Android} {TV} {Ads} and {Junk}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/cleanyourtv-android-tv-debloat-coding-agent-installer/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“CleanYourTV: A Free Kit That Lets Your AI
+Coding Assistant Switch Off Android TV Ads and Junk.”</span> <a href="https://toknow.ai/posts/cleanyourtv-android-tv-debloat-coding-agent-installer/">https://toknow.ai/posts/cleanyourtv-android-tv-debloat-coding-agent-installer/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/cleanyourtv-android-tv-debloat-coding-agent-installer/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/cleanyourtv-android-tv-debloat-coding-agent-installer/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>tsrs: An AI-Written TypeScript Error Checker That Cloudflare Says Is Up to 8x Faster</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/cloudflare-tsrs-rust-typescript-port-agents/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/cloudflare-tsrs-rust-typescript-port-agents" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/cloudflare-tsrs-rust-typescript-port-agents/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/cloudflare-tsrs-rust-typescript-port-agents/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>tsrs is an open-source program that checks TypeScript code for mistakes, for developers and AI coding agents that wait on it during builds. TypeScript adds type labels such as “number” to JavaScript, and the checker flags mismatches before the code runs. Microsoft’s <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/">TypeScript 7.0</a> uses a checker rewritten in the Go language. Cloudflare and VoidZero work with Max Schwenk of Owner.com on tsrs, a rewrite in the Rust language. Cloudflare says tsrs is up to 8x faster and uses about 70% less memory than that checker when both use the same number of parallel workers. On Cloudflare’s chart, four projects run 3.8x to 8.1x faster.</p>
+<p>Cloudflare says Rust lets the checker run in a browser tab, where a Go version must bring its own memory cleaner. Independent tests find smaller speedups. <a href="https://dev.to/frankchu/cloudflare-says-its-rust-typescript-port-is-8x-faster-i-measured-53x-and-72-less-memory-1fdm">Frank Chu</a> measured 5.3x faster and 72% less memory against TypeScript 7.0.2 on a 400-file test project, on two cores with default settings. <a href="https://importstatic.com/rust/tsrs-vs-tsgo-typescript-7-1">ImportStatic</a> measured about 2.7x against the newer <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-1-beta/">7.1 beta</a> on TypeScript’s own source. Microsoft’s <a href="https://news.ycombinator.com/item?id=50167925">Daniel Rosenwasser</a> replied that much of the speed is not about the language, and some 7.1 speedups come from tsrs.</p>
+<p>Schwenk says he wrote no code. Anthropic’s Claude Opus 5.5 and 20-plus helper agents built a working checker overnight, graded by TypeScript’s 15,197 test cases. Owner.com says its 37,000-file backend check fell from 80 seconds on one thread to 7 seconds in its build pipeline. tsrs has no stable release, and its watch mode (rechecking on save) does not run on Windows.</p>
+<p>Read More: <a href="../../posts/artcraft-vectorcraft-clean-room-adobe-rust/index.html">VectorCraft, a free Rust rebuild of Illustrator that Gizmodo reports was built with Claude Opus 5.5</a> and <a href="../../posts/wordcraft-gridcraft-deckcraft-cadcraft-rust-office/index.html">WordCraft and its siblings, free Rust rebuilds of Word, Excel and AutoCAD that an AI agent can drive</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blog.cloudflare.com/typescript-rust-port/">Introducing tsrs: A port of TypeScript to Rust (Cloudflare)</a></li>
+<li><a href="https://github.com/oxc-project/tsrs">tsrs: Rust port of the TypeScript 7 type checker (GitHub)</a></li>
+<li><a href="https://building.owner.com/tsrs">tsrs: a Rust port of TypeScript, written entirely by agents (Owner.com)</a></li>
+<li><a href="https://thenewstack.io/cloudflare-rust-typescript-tsrs/">“We are not forking TypeScript”: Cloudflare spearheads Rust port written by agents, for agents (The New Stack)</a></li>
+<li><a href="https://dev.to/frankchu/cloudflare-says-its-rust-typescript-port-is-8x-faster-i-measured-53x-and-72-less-memory-1fdm">Cloudflare says its Rust TypeScript port is 8x faster. I measured 5.3x and 72% less memory. (DEV Community)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Tsrs: {An} {AI-Written} {TypeScript} {Error} {Checker} {That}
+    {Cloudflare} {Says} {Is} {Up} to 8x {Faster}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/cloudflare-tsrs-rust-typescript-port-agents/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Tsrs: An AI-Written TypeScript Error
+Checker That Cloudflare Says Is Up to 8x Faster.”</span> <a href="https://toknow.ai/posts/cloudflare-tsrs-rust-typescript-port-agents/">https://toknow.ai/posts/cloudflare-tsrs-rust-typescript-port-agents/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/cloudflare-tsrs-rust-typescript-port-agents/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/cloudflare-tsrs-rust-typescript-port-agents/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Concat: A Free Video Editor Like CapCut That AI Agents Can Also Use</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/concat-open-source-capcut-replacement-rust-mcp/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/concat-open-source-capcut-replacement-rust-mcp" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/concat-open-source-capcut-replacement-rust-mcp/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/concat-open-source-capcut-replacement-rust-mcp/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Concat is a free video editor, an alternative to CapCut, for people who cut short videos. It runs on Windows, macOS, Linux and Android, with iPhone and iPad in beta. You stack clips on a timeline and add titles, animation, background removal and about 100 effects. The project says it uploads nothing, needs no account, adds no watermark and exports up to 4K at 60 frames a second. Captions use Whisper, OpenAI’s speech-to-text model, and voices use open models, two of which clone a voice from a short recording. Each model is a one-time download of 78 MB to 1.1 GB, then works offline, the project says.</p>
+<p>Version 0.2.8 added an MCP server, a standard way for AI agents to use a program. Its source defines 45 tools, among them clip_trim, captions_add and export_start, so an agent like Claude Code can cut, preview and export a video. <a href="https://www.capcut.com/pricing">CapCut</a> lists its paid Pro plan at $14 a month, and its help center says some templates and assets add a watermark to free exports. <a href="https://www.blackmagicdesign.com/products/davinciresolve">DaVinci Resolve</a> has a free version and sells a paid Studio edition.</p>
+<p>Concat is still in beta. Its Windows and macOS builds lack a digital signature, so Windows asks for an extra click on first launch. In a user’s 60-second test, version 0.2.7 placed captions 1.1 to 7.1 seconds early, and the developer says the next release fixes it. An agent cannot edit a project open in the window, and no tool runs the captioning or voice models.</p>
+<p>Read More: <a href="../../posts/moneyprinterturbo-one-prompt-short-video/index.html">MoneyPrinterTurbo, which turns one prompt into a finished short video</a> and <a href="../../posts/hyperframes-html-repeatable-video/index.html">Hyperframes, which renders video from HTML that a coding agent can edit</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/jub0t/Concat">Concat repository and README (GitHub)</a></li>
+<li><a href="https://github.com/jub0t/Concat/blob/main/src/crates/concat-mcp/src/tools.rs">Concat MCP tool definitions (GitHub)</a></li>
+<li><a href="https://concat.standalones.org/guides/system-requirements/">Concat system requirements and model sizes</a></li>
+<li><a href="https://github.com/jub0t/Concat/issues/438">Auto-caption timing report, issue 438 (GitHub)</a></li>
+<li><a href="https://www.capcut.com/help/video-without-watermark">CapCut: exporting without a watermark</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Concat: {A} {Free} {Video} {Editor} {Like} {CapCut} {That}
+    {AI} {Agents} {Can} {Also} {Use}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/concat-open-source-capcut-replacement-rust-mcp/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Concat: A Free Video Editor Like CapCut
+That AI Agents Can Also Use.”</span> <a href="https://toknow.ai/posts/concat-open-source-capcut-replacement-rust-mcp/">https://toknow.ai/posts/concat-open-source-capcut-replacement-rust-mcp/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/concat-open-source-capcut-replacement-rust-mcp/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/concat-open-source-capcut-replacement-rust-mcp/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Domain Digger: A Free Website That Shows a Domain’s Public Details in One Search</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/domain-digger-open-source-domain-analysis-toolkit/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/domain-digger-open-source-domain-analysis-toolkit" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/domain-digger-open-source-domain-analysis-toolkit/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/domain-digger-open-source-domain-analysis-toolkit/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Domain Digger is a free website that shows what the internet publicly records about a domain name, for developers, site owners and security staff. You paste a name, with no account or install, and six tabs open: DNS records (the internet’s address book, which says where a name’s website and email live), a world map of those answers, a check of their digital signatures, WHOIS (the public record of who registered the name and when it expires), every security certificate issued for the name, and its subdomains. It reads 14 record types and can compare the name’s own servers with public ones run by Cloudflare, Google and Alibaba. Click an address to see roughly where its server sits and which company runs the network.</p>
+<p>Checking a domain usually takes three separate tools: dig (a terminal command for DNS questions), whois, and a certificate search site such as crt.sh. Domain Digger puts all three in one browser tab, runs every lookup live and gives each result a link you can share. Its map asks the same question from 18 cities on six continents, which shows whether a recent change has reached visitors everywhere. For past settings, paid services such as SecurityTrails keep a history, with plans listed at $500 and $1,500 a month.</p>
+<p>Read More: <a href="../private-domain-checker/index.html">Protecting Against Domain Front-Running by Registrars</a>, on checking if a domain name is free without tipping off a registrar.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://digger.tools/lookup/example.com">Domain Digger lookup for example.com</a></li>
+<li><a href="https://github.com/wotschofsky/domain-digger">Domain Digger source code and README (GitHub)</a></li>
+<li><a href="https://github.com/wotschofsky/domain-digger/blob/main/lib/data.ts">Domain Digger’s 18 lookup cities and 14 record types (GitHub)</a></li>
+<li><a href="https://securitytrails.com/corp/pricing">SecurityTrails API pricing</a></li>
+<li><a href="https://bind9.readthedocs.io/en/latest/manpages.html#dig-dns-lookup-utility">dig, the DNS lookup utility (BIND 9 manual, ISC)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Domain {Digger:} {A} {Free} {Website} {That} {Shows} a
+    {Domain’s} {Public} {Details} in {One} {Search}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/domain-digger-open-source-domain-analysis-toolkit/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Domain Digger: A Free Website That Shows a
+Domain’s Public Details in One Search.”</span> <a href="https://toknow.ai/posts/domain-digger-open-source-domain-analysis-toolkit/">https://toknow.ai/posts/domain-digger-open-source-domain-analysis-toolkit/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/domain-digger-open-source-domain-analysis-toolkit/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/domain-digger-open-source-domain-analysis-toolkit/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Anthropic’s Claude Fable 5.1 Hides Messages in Pictures That OpenAI’s GPT-6 Astra Can Read</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/fable-5-1-hides-messages-in-images-astra-decodes/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/fable-5-1-hides-messages-in-images-astra-decodes" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/fable-5-1-hides-messages-in-images-astra-decodes/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/fable-5-1-hides-messages-in-images-astra-decodes/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Anthropic’s Claude Fable 5.1 can hide a message in a picture that another AI can read, according to a small study posted on the LessWrong research forum on October 21. This is steganography: hiding a message inside something that looks ordinary. Researchers asked it to hide 50 short messages in pictures without saying how. In 33 pictures Fable used one trick: a row of shapes, one per letter, taller for later letters, such as a night skyline with one building per letter. A fresh Fable session, shown only a screenshot and allowed to run Python code, recovered 39 of the 50 messages (78%). OpenAI’s GPT-6 Astra, shown the same pictures, recovered 44 (88%). A message counted if the answer was at least 90% similar to the original.</p>
+<p>A picture can hold a message that people do not notice and a text filter cannot see, which matters to anyone who monitors AI agents. The authors say the Hugging Face incident, where OpenAI’s agents passed information through images, partly inspired the study. Given the same 50 messages, Astra never used heights and put Morse code in 18 pictures. Fable and Astra each decoded 42 of Astra’s 50 messages (84%).</p>
+<p>The study is small and not peer reviewed. The decoders knew a message might exist, and Gizmodo reports one X user needed leading prompts to make the models find it. Without running code, Fable recovered only 6 of 50. The authors say a monitor that logs the decoder’s code would catch it.</p>
+<p>Read More: <a href="../../posts/openai-anthropic-models-live-internet-evals/index.html">OpenAI and Anthropic models caught on the live internet, including the Hugging Face incident</a> and <a href="../../posts/openai-misalignment-reporting-framework-six-cases/index.html">OpenAI’s first six misalignment reports, including 27 memory summaries that told a model to ignore its own rules</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.lesswrong.com/posts/WHEQps5PK8LrrcTAb/how-does-fable-5-1-hide-messages-in-images">How does Fable 5.1 hide messages in images? (LessWrong)</a></li>
+<li><a href="https://gizmodo.com/anthropics-ai-hid-a-secret-message-in-the-stars-openais-ai-found-it-2000830047">Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It. (Gizmodo)</a></li>
+<li><a href="https://github.com/cnm13ryan/fable-image-steganography">Fable 5.1 image steganography: prompts, 50 images and results (GitHub)</a></li>
+<li><a href="https://www.aimodeling.com/en/news/slug/frontier-llm-image-steganography-fable-51">Frontier models hide messages in images; 78% decoded back (AILog)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Anthropic’s {Claude} {Fable} 5.1 {Hides} {Messages} in
+    {Pictures} {That} {OpenAI’s} {GPT-6} {Astra} {Can} {Read}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/fable-5-1-hides-messages-in-images-astra-decodes/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Anthropic’s Claude Fable 5.1 Hides Messages
+in Pictures That OpenAI’s GPT-6 Astra Can Read.”</span> <a href="https://toknow.ai/posts/fable-5-1-hides-messages-in-images-astra-decodes/">https://toknow.ai/posts/fable-5-1-hides-messages-in-images-astra-decodes/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/fable-5-1-hides-messages-in-images-astra-decodes/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/fable-5-1-hides-messages-in-images-astra-decodes/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Harness²: Google Research Code That Rewrites an AI Agent’s Instructions and Tools</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/google-harness2-recursive-agent-harnessing-open-source/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/google-harness2-recursive-agent-harnessing-open-source" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/google-harness2-recursive-agent-harnessing-open-source/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/google-harness2-recursive-agent-harnessing-open-source/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Harness² is research code from Google Cloud AI Research and Northwestern University that rewrites the setup around an AI model, for researchers and teams that build AI agents. That setup, called the harness, is the instructions, tools and memory that turn a model into a working agent. Harness² edits eight parts of it, such as the prompt, memory and helper agents, and never retrains the model. With no answer key, it runs a task, tries two edited setups, compares how the agent behaved, and reruns with the best edits. In the authors’ tests, GLM-5’s average share of checks passed on <a href="https://arxiv.org/abs/2607.20911">WorkBuddy-Bench</a>, which covers coding, web and office tasks, rose from 64.2% to 75.7%.</p>
+<p>That edited GLM-5 beat Gemini 3.5 Flash, which passed 72.4% with its original setup, and three rival tuning methods. On <a href="https://arxiv.org/abs/2605.26329">JobBench</a>, which grades professional work against expert rubrics, one agent never cross-checked its sources or reopened its outputs. The edits added both checks, lifting that task’s score from 43.1% to 77.8%. The authors’ best one-step gains were 4.5% on JobBench and 11.8% on <a href="https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark">LAB</a>, Harvey’s benchmark of legal work.</p>
+<p>The authors ran every test themselves. Claude Opus 4.8 wrote the edits in the main tests, and all five models improved when each edited its own setup. A single step runs the task four times, plus editing sessions. Without an answer key, the final choice once picked a coding output scoring 55% over one scoring 95%.</p>
+<p>Read More: <a href="../../posts/openai-agents-api-managed-codex-harness/index.html">OpenAI’s Agents API, which rents out a ready-made agent setup</a> and <a href="../../posts/deepseek-harness-everything-is-a-plugin/index.html">DeepSeek’s open-source agent where every part is a plugin</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.14224">Harness²: Recursive Agent Harnessing for an Open World (arXiv)</a></li>
+<li><a href="https://github.com/google-research/harness2">google-research/harness2: code and README (GitHub)</a></li>
+<li><a href="https://arxiv.org/abs/2607.20911">Tencent WorkBuddy Bench: A Multi-Domain Coding-Agent Benchmark (arXiv)</a></li>
+<li><a href="https://arxiv.org/abs/2605.26329">JobBench: Aligning Agent Work With Human Will (arXiv)</a></li>
+<li><a href="https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark">Introducing Harvey’s Legal Agent Benchmark (Harvey)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Harness\textsuperscript{2}: {Google} {Research} {Code} {That}
+    {Rewrites} an {AI} {Agent’s} {Instructions} and {Tools}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/google-harness2-recursive-agent-harnessing-open-source/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Harness<sup>2</sup>: Google Research Code
+That Rewrites an AI Agent’s Instructions and Tools.”</span> <a href="https://toknow.ai/posts/google-harness2-recursive-agent-harnessing-open-source/">https://toknow.ai/posts/google-harness2-recursive-agent-harnessing-open-source/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/google-harness2-recursive-agent-harnessing-open-source/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/google-harness2-recursive-agent-harnessing-open-source/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Qwenputer: A Working Computer Processor Built Inside Alibaba’s Qwen AI Model</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Qwenputer is an open-source research project that builds a working computer processor into a language model’s layers, so sums run inside the model instead of going to an outside calculator. It is for researchers asking where a model ends and a computer begins. Its developer added 11 layers (processing stages) to Alibaba’s 4-billion-parameter Qwen3.5-4B. Instead of training, a compiler program computed every weight in them, the numbers that set what a layer does. They form a 32-bit RISC-V processor, an open chip design. Its memory is the grid of numbers that one of Qwen’s standard layer types, Gated DeltaNet, updates as it reads text. The added layers answer Qwen’s calculator requests within one forward pass (one trip through the model).</p>
+<p>On 40 big multiplications from DeepMind’s maths dataset, the author reports Qwenputer got 39 right (97.5%), against 22 (55%) for unmodified Qwen. Unmodified Qwen with an outside tool got all 40. Across five sets the built-in computer stayed within one problem of the tool: ahead on two, level on two, behind on one. About 230,000 processor outputs matched a reference machine, and the author says the misses were Qwen’s own slips. One outside user reported 195 of the 200 right on a Tesla V100 GPU, against the author’s 196.</p>
+<p>On the author’s Nvidia L4 GPU, one calculator call takes 0.5 to 1 second, and mixed multiplication and division problems took a median of 242 seconds. A tiny story-writing model run on the processor needs about 41 seconds per word piece.</p>
+<p>Read More: <a href="../../posts/qwen3-5-unified-native-multimodal-agent-model-alibaba/index.html">Qwen3.5, the model family Qwenputer builds on</a> and <a href="../../posts/linear-superposition-transformers-two-thoughts/index.html">a study of what an unchanged language model can already do in one pass</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/divagr18/qwenputer">Qwenputer (GitHub)</a></li>
+<li><a href="https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/docs/rv32.md">RV32 design notes and measurements (GitHub)</a></li>
+<li><a href="https://huggingface.co/divagr1925/Qwen3.5-4B-Qwenputer">Qwen3.5-4B-Qwenputer model card (Hugging Face)</a></li>
+<li><a href="https://huggingface.co/Qwen/Qwen3.5-4B">Qwen3.5-4B model card (Hugging Face)</a></li>
+<li><a href="https://github.com/divagr18/qwenputer/issues/3">Report: Qwenputer on a Tesla V100 (GitHub issue)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Qwenputer: {A} {Working} {Computer} {Processor} {Built}
+    {Inside} {Alibaba’s} {Qwen} {AI} {Model}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Qwenputer: A Working Computer Processor
+Built Inside Alibaba’s Qwen AI Model.”</span> <a href="https://toknow.ai/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights/">https://toknow.ai/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/qwenputer-risc-v-cpu-compiled-into-qwen-weights/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>The Commanding Heights: A 145-Page Essay Argues AI Labs Will Not Keep the Profits</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/the-commanding-heights-who-captures-ai-value/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/the-commanding-heights-who-captures-ai-value" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/the-commanding-heights-who-captures-ai-value/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/the-commanding-heights-who-captures-ai-value/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>The Commanding Heights is a free 145-page essay, posted October 29, about who will earn the lasting money from AI. Will Manidis, a senior vice president at Veradigm AI, wrote it with Joe Roberts. They argue the biggest winners will not be the labs that train the models, such as OpenAI. New top models become commodities within months, they write, selling for little more than the cost of running them. They forecast the lasting profits go to scarce positions all AI work must pass through, such as messaging apps and payment systems.</p>
+<p>The authors lean on Epoch AI, a research group that measures AI progress. Epoch estimates the cost of training a top language model has grown about 3.5 times a year since 2020. It finds the best open-weight models, which anyone can download, trail the best closed models by about four months. It reports the price of reaching a given AI test score has fallen about 13 times a year since 2023, and cautions scores do not equal useful work. The authors conclude labs pay more each year to make a product that sells for less.</p>
+<p>The authors forecast that only America and China will build top models, and that a system of dollar-pegged digital coins, called stablecoins, will let its owners collect a toll as AI spreads. One forecast will be tested soon: from a $1 billion training run reported this year, they expect $3.5 billion next year and $10 billion the year after.</p>
+<p>Read More: <a href="../../posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/index.html">Anthropic’s IPO filing, which shows how large one lab’s revenue is today</a> and <a href="../../posts/openai-spacex-ipo-ai-public-market-era/index.html">OpenAI’s and SpaceX’s IPO plans, which would put the labs on public markets</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://commanding-heights.com/commanding-heights.pdf">The Commanding Heights, Will Manidis and Joe Roberts, October 29, 2026 (PDF, 145 pages)</a></li>
+<li><a href="https://epoch.ai/trends">Trends in AI: training cost, compute and chip stock (Epoch AI)</a></li>
+<li><a href="https://epoch.ai/publications/the-plunging-price-of-thought">The plunging price of thought (Epoch AI, September 22, 2026)</a></li>
+<li><a href="https://epoch.ai/data-insights/open-closed-eci-gap">Open models lag state-of-the-art closed models by 4 months (Epoch AI, May 29, 2026)</a></li>
+<li><a href="https://www.bloomberg.com/news/videos/2026-11-02/ai-will-create-weird-economic-benefits-manidis-video">AI Will Create ‘Weird’ Economic Benefits: Manidis (Bloomberg, November 2, 2026)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {The {Commanding} {Heights:} {A} {145-Page} {Essay} {Argues}
+    {AI} {Labs} {Will} {Not} {Keep} the {Profits}},
+  date = {2026-11-03},
+  url = {https://toknow.ai/posts/the-commanding-heights-who-captures-ai-value/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“The Commanding Heights: A 145-Page Essay
+Argues AI Labs Will Not Keep the Profits.”</span> <a href="https://toknow.ai/posts/the-commanding-heights-who-captures-ai-value/">https://toknow.ai/posts/the-commanding-heights-who-captures-ai-value/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/the-commanding-heights-who-captures-ai-value/</guid>
+  <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/the-commanding-heights-who-captures-ai-value/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>AI This Week: A Chip in Orbit, Agent Machinery for Rent, and Models Under Watch</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>On October 30, Google reported that a TPU, its AI chip, on a test satellite answered a prompt sent from Earth with a haiku. The haiku shows the chip runs in orbit. Heat and radiation tests are still to come. Mistral released Mistral Large 4, a 1.05-trillion-parameter model, as a download, so a company can run it on its own servers. <a href="https://artificialanalysis.ai/models/mistral-large-4">Artificial Analysis</a>, an independent testing firm, finds that it costs $2.06 per task on its test suite, down 63% from the October preview.</p>
+<p>Microsoft now lets developers build agents on the machinery behind its Copilot products: the instructions, tools, memory and safe workspace that turn an AI model into a worker that finishes tasks. It is in preview through Foundry, Microsoft’s AI cloud service, with more than 20 models to choose from. An agent cannot move to different machinery once created.</p>
+<p>OpenAI described a four-layer monitor for its own models, from checks on a model’s internal activity to a review against network logs. In a replay of the <a href="../../posts/openai-anthropic-models-live-internet-evals/index.html">Hugging Face incident</a>, OpenAI says it would have been alerted about 30 minutes after its agents escaped a test environment, and more than 30 hours before Hugging Face was breached. A site will be able to ask AI companies not to train on it with one shared line in robots.txt, the file where sites post rules for automated visitors. Google, Bing, OpenAI and Anthropic plan to honor the draft proposal, Google in 2027. It is a request, not a block.</p>
+<p>Read More: <a href="../../posts/mistral-large-4-le-chonk-open-weight-trillion/index.html">Mistral Large 4 ‘le Chonk’: a Trillion-Parameter Open-Weight Model From Europe</a> and <a href="../../posts/openai-agents-api-managed-codex-harness/index.html">OpenAI’s Agents API: One Call, and OpenAI Runs the Agent</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/">Google receives response from Project Suncatcher prototype satellite in space (Google)</a></li>
+<li><a href="https://venturebeat.com/technology/mistral-large-4-le-chonk-arrives-as-the-top-open-model-outside-china-with-improved-coding-performance-and-63-lower-cost-per-task">Mistral Large 4 ‘Le Chonk’ arrives as the top open model outside China with improved coding performance and 63% lower cost-per-task (VentureBeat)</a></li>
+<li><a href="https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/">Introducing the Microsoft Copilot harness (Microsoft)</a></li>
+<li><a href="https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/">Introducing the Microsoft Copilot harness in Foundry Agent Service (Microsoft Foundry Blog)</a></li>
+<li><a href="https://openai.com/index/how-we-detect-frontier-model-misalignment/">How we detect frontier model misalignment (OpenAI)</a></li>
+<li><a href="https://developers.google.com/search/blog/2026/10/ai-training-control">Supporting a shared AI training control for websites (Google Search Central)</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/draft-kelley-aipref-training-preference-signal">Machine-Readable Training Preference Signal, Internet-Draft (IETF)</a></li>
+<li><a href="https://www.seroundtable.com/google-ai-training-control-42430.html">Google Adopts New AI Training Control (Search Engine Roundtable)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {AI {This} {Week:} {A} {Chip} in {Orbit,} {Agent} {Machinery}
+    for {Rent,} and {Models} {Under} {Watch}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“AI This Week: A Chip in Orbit, Agent
+Machinery for Rent, and Models Under Watch.”</span> <a href="https://toknow.ai/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/">https://toknow.ai/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Anthropic’s IPO Filing: $33.2B Revenue and a $104B Accounting Loss</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Anthropic, maker of the Claude AI assistant, has filed a public document called an S-1 for investors. It opens its books ahead of a share sale at a price not yet set. <a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm">An update filed November 2</a> covers nine months, to September 30, 2026. The <a href="https://www.anthropic.com/news/s1-sec">October 26 version</a> covered six months and showed an <a href="https://www.cnbc.com/2026/10/26/anthropic-ipo-live-updates-ai-s-1-filing.html">$80.7 billion loss</a>. Revenue was $33.2 billion, against $2.5 billion a year earlier. The net loss was $104.0 billion. Of that, $94.3 billion is an accounting charge: backers hold notes that turn into shares, and those notes count as worth more each time Anthropic’s own value rises. Another $10.4 billion is a similar charge on deals with partners such as Google and Amazon. Revenue fell $1.3 billion short of operating costs, yet operations brought in $6.6 billion of cash.</p>
+<p>Take customers who paid in the three months to September 30, 2025, excluding individual subscribers. Together they spent about nine times as much in the same three months of 2026, counting those who left as zero. Anthropic calls that net revenue retention of about 900%, where 100% means no change. The median public cloud software company is near 109%, according to Altimeter’s <a href="https://cloudedjudgement.substack.com/p/clouded-judgement-103026-dispelling">Jamin Ball</a>. The base was <a href="https://www.morningstar.com.au/stocks/3-charts-anthropics-historic-ipo-filing">small</a>: $1.4 billion in that 2025 quarter.</p>
+<p>The filing lists about $895.4 billion of commitments for computing power and data centers. Of that, $213.8 billion can end if partners miss conditions such as securing financing or sites. In the third quarter, revenue fell $567 million short of operating costs.</p>
+<p>Read More: <a href="../../posts/anthropic-65b-series-h-965b-valuation-surpassing-openai/index.html">the $65B round at a $965B valuation that came before this filing</a>, <a href="../../posts/openai-spacex-ipo-ai-public-market-era/index.html">OpenAI’s and SpaceX’s own IPO plans</a> and <a href="../../posts/ai-weekly-claude-fable-5-apple-siri-ai-openai-ipo/index.html">the week OpenAI filed its confidential S-1</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm">Anthropic, PBC Form S-1/A, Amendment No.&nbsp;1, filed November 2, 2026 (SEC EDGAR)</a></li>
+<li><a href="https://www.anthropic.com/news/s1-sec">Anthropic files S-1 with the SEC for proposed initial public offering (Anthropic)</a></li>
+<li><a href="https://www.cnbc.com/2026/10/26/anthropic-ipo-live-updates-ai-s-1-filing.html">Anthropic’s IPO plans: 900% revenue retention, but $80 billion in first-half losses (CNBC)</a></li>
+<li><a href="https://www.morningstar.com.au/stocks/3-charts-anthropics-historic-ipo-filing">3 charts on Anthropic’s historic IPO filing (Morningstar)</a></li>
+<li><a href="https://cloudedjudgement.substack.com/p/clouded-judgement-103026-dispelling">Clouded Judgement 10.30.26: Dispelling the Myths of the Anthropic S-1 (Jamin Ball, Altimeter, an Anthropic investor)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Anthropic’s {IPO} {Filing:} {\$33.2B} {Revenue} and a
+    {\$104B} {Accounting} {Loss}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Anthropic’s IPO Filing: $33.2B Revenue and
+a $104B Accounting Loss.”</span> <a href="https://toknow.ai/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/">https://toknow.ai/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/anthropic-s-1-ipo-33b-revenue-900-percent-retention-104b-loss/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Anthropic’s Unreleased AI Links Bugs Into Attacks on Five Major Systems</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/claude-exploit-chains-chrome-safari-android-windows-linux/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/claude-exploit-chains-chrome-safari-android-windows-linux" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/claude-exploit-chains-chrome-safari-android-windows-linux/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/claude-exploit-chains-chrome-safari-android-windows-linux/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Anthropic’s Frontier Red Team, which stress-tests its AI, says an unreleased model built five working attacks on Chrome, Safari, Android, Windows and Linux, needing little to no user interaction. Anthropic calls these attack chains: small flaws linked so each one opens the door to the next. It says each came with a proof of concept, a working demo. In the Chrome chain, a web page escapes the browser’s sandbox, a locked room that walls pages off from the computer, and opens Calculator on a Mac seconds after loading. Anthropic counts 62 Chrome flaws with public CVE ID numbers, all critical or high and fixed by <a href="https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html">Chrome 156</a>.</p>
+<p>Anthropic says linking flaws like this once took a few specialist teams, and the model does it with little human help. The Safari chain let any web page read a signed-in user’s email. The Android chain pulled photos off a stolen, locked Pixel 9 over USB, and the Windows attack only crashes servers. The Linux attack was zero-click, needing no user action or password. In its test it took 48 minutes to leak a memory address and five more minutes to reach root, full administrator control.</p>
+<p>Security firm Black Duck’s Andrew Bolster told Dark Reading that Anthropic gave no success rates, costs or human hours per chain. The Linux attack needed a server listening for multipath TCP, which lets one connection use several network paths. Red Hat shipped its Linux fix on November 1. Ubuntu still showed fixes in progress on November 2.</p>
+<p>Read More: <a href="../../posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/index.html">Anthropic’s study of an open-weight model that builds cyber exploits</a>, <a href="../../posts/anthropic-oss-scanner-cyber-mission/index.html">Anthropic’s free bug scanner for open-source projects</a> and <a href="../../posts/gemini-4-carbon-cyber-defenders-first-59-index/index.html">Gemini 4 Carbon, Google’s model that goes to cyber defenders first</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/discovering-vulnerabilities-with-claude">Discovering and exploiting vulnerabilities in critical, real-world software with Claude (Anthropic Frontier Red Team)</a></li>
+<li><a href="https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html">Stable Channel Update for Desktop, Chrome 156 (Chrome Releases)</a></li>
+<li><a href="https://www.darkreading.com/application-security/claude-model-exploits-major-browsers-oses">Claude Model Builds Exploits Across Major Browsers &amp; OSes (Dark Reading)</a></li>
+<li><a href="https://access.redhat.com/security/cve/cve-2026-98432">CVE-2026-98432 (Red Hat Customer Portal)</a></li>
+<li><a href="https://ubuntu.com/security/CVE-2026-98432">CVE-2026-98432 (Ubuntu Security)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Anthropic’s {Unreleased} {AI} {Links} {Bugs} {Into} {Attacks}
+    on {Five} {Major} {Systems}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/claude-exploit-chains-chrome-safari-android-windows-linux/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Anthropic’s Unreleased AI Links Bugs Into
+Attacks on Five Major Systems.”</span> <a href="https://toknow.ai/posts/claude-exploit-chains-chrome-safari-android-windows-linux/">https://toknow.ai/posts/claude-exploit-chains-chrome-safari-android-windows-linux/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/claude-exploit-chains-chrome-safari-android-windows-linux/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/claude-exploit-chains-chrome-safari-android-windows-linux/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>An Anthropic Model Traces NIST Curve Seeds to 1990s Clock Readings</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>An internal Anthropic research model found where the web’s security curves got their starting numbers, a mystery for over 25 years. These elliptic curves, <a href="https://csrc.nist.gov/pubs/fips/186-2/final">standardized in 2000</a> by the US agency NIST, are the math behind digital signatures that prove a website is genuine. Each grows from a “seed”, a number the NSA supplied with no explanation. It is like a casino that never shows its draw, so <a href="https://eprint.iacr.org/2015/1018">people feared</a> the NSA had tried seeds until one gave a curve only it could break. Asked by an employee in October 2026, the model traced the seeds in under half an hour to <a href="https://man.archlinux.org/man/drand48.3.en">lrand48</a>, a 1990s random-number function.</p>
+<p>A deliberate backdoor is less likely, because anyone can rerun the method. lrand48 is a fixed formula, so the same starting value gives the same “random” numbers. The starting value is a Unix timestamp, the clock’s count of seconds since January 1, 1970. At 01:52:34 UTC on August 16, 1997 it read 871,696,354. Start lrand48 from that number, take its output in 20-byte batches, and batch 1,842 is the P-256 seed. All five NIST prime-curve seeds trace to clock readings from May 1997 to April 1998.</p>
+<p>Anthropic says this exposes no weakness in the curves. Cryptographer Filippo Valsorda <a href="https://words.filippo.io/seeds-solved/">rebuilt the method</a> and counts at most about a billion seed choices open to the NSA, too few to hunt for a rare weak curve. Two details remain open: the seed for the B-163 curve, and why the P-256 run skipped a valid earlier candidate.</p>
+<p>Read More: <a href="../../posts/claude-science-uv-sky-map/index.html">An Anthropic science workbench builds a complete ultraviolet sky map</a>, <a href="../../posts/anthropic-claude-chemist-nmr-spectroscopy/index.html">Claude matches chemists’ software at identifying molecules</a> and <a href="../../posts/perfect-forward-secrecy-tls-1-3/index.html">how a TLS 1.3 connection uses an ECDSA P-256 signature</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/ecdsa-curve-origins">Claude reveals ECDSA curve origins (Anthropic)</a></li>
+<li><a href="https://words.filippo.io/seeds-solved/">The NIST Elliptic Curves Seeds Bounty Has Been Claimed (Filippo Valsorda)</a></li>
+<li><a href="https://eprint.iacr.org/2015/1018">A Riddle Wrapped in an Enigma (Neal Koblitz and Alfred Menezes)</a></li>
+<li><a href="https://csrc.nist.gov/pubs/fips/186-2/final">FIPS 186-2, Digital Signature Standard (NIST)</a></li>
+<li><a href="https://man.archlinux.org/man/drand48.3.en">drand48(3), the lrand48 manual page</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {An {Anthropic} {Model} {Traces} {NIST} {Curve} {Seeds} to
+    1990s {Clock} {Readings}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“An Anthropic Model Traces NIST Curve Seeds
+to 1990s Clock Readings.”</span> <a href="https://toknow.ai/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps/">https://toknow.ai/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/claude-nist-ecdsa-curve-seeds-lrand48-timestamps/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>An Anthropic Model Designs Proteins That Stick to Scorpion Toxins</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/claude-scorpion-neurotoxin-binders-211-designs/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/claude-scorpion-neurotoxin-binders-211-designs" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/claude-scorpion-neurotoxin-binders-211-designs/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/claude-scorpion-neurotoxin-binders-211-designs/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p><a href="https://www.anthropic.com/research/claude-scorpion-toxin-binder-design">Anthropic</a> used an internal AI research model to design small proteins from scratch (“de novo”) that stick tightly to scorpion toxins, a step toward new antivenoms. Inside <a href="https://www.anthropic.com/news/claude-science-ai-workbench">Claude Science</a>, its workbench for scientists, the model spent 64 hours generating 318,484 designs and picking 180. The team added 31 more. Two contract labs, Adaptyv Bio and Twist Bioscience, <a href="https://www-cdn.anthropic.com/31ac578806cffd8b3d92d8affe6edc4c04d502e1.pdf">tested all 211</a> against their five target toxins from four regions. A binder had to hold on in every repeat at each lab that tested it, with a strength of 1 micromolar or better (a lower number is a tighter grip), and show no grip on an unrelated human protein. Seventeen passed.</p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/18579104/">A 2008 review</a> estimates over 1.2 million scorpion stings a year and more than 3,250 deaths, with children hit hardest. Antivenoms are typically made from horses injected with venom milked from thousands of scorpions. That can take months, and each covers only a few toxins. Outside experts Susana Vázquez Torres and Timothy Jenkins called it a promising first step. Anthropic <a href="https://huggingface.co/datasets/Anthropic/scorpion-toxin-binder-design">released all 211 designs and the lab data</a>.</p>
+<p>No binder has been tested in cells or animals for neutralizing a toxin, meaning stopping it from reaching nerve cells. Every test used lab-made toxins, not venom, so Anthropic does not claim an antivenom. The two best, both against the Mexican toxin Cn2, gripped more than 100 times tighter than the 1 micromolar bar. None of the 151 designs aimed at several toxins qualified as a binder for more than one.</p>
+<p>Read More: <a href="../../posts/claude-science-uv-sky-map/index.html">Claude Science builds a complete ultraviolet sky map</a> and <a href="../../posts/gpt-rosalind-openai-life-sciences-reasoning-model-drug-discovery/index.html">OpenAI’s GPT-Rosalind, a model for biology and drug discovery</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/claude-scorpion-toxin-binder-design">How Claude designed protein binders against scorpion neurotoxins (Anthropic)</a></li>
+<li><a href="https://www-cdn.anthropic.com/31ac578806cffd8b3d92d8affe6edc4c04d502e1.pdf">De novo design of protein binders against scorpion toxins with Claude, technical report (Anthropic)</a></li>
+<li><a href="https://huggingface.co/datasets/Anthropic/scorpion-toxin-binder-design">scorpion-toxin-binder-design: all 211 designs and their data (Anthropic, Hugging Face)</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/18579104/">Epidemiology of scorpionism: a global appraisal (Chippaux and Goyffon, Acta Tropica)</a></li>
+<li><a href="https://www.anthropic.com/news/claude-science-ai-workbench">Claude Science, an AI workbench for scientists (Anthropic)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {An {Anthropic} {Model} {Designs} {Proteins} {That} {Stick} to
+    {Scorpion} {Toxins}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/claude-scorpion-neurotoxin-binders-211-designs/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“An Anthropic Model Designs Proteins That
+Stick to Scorpion Toxins.”</span> <a href="https://toknow.ai/posts/claude-scorpion-neurotoxin-binders-211-designs/">https://toknow.ai/posts/claude-scorpion-neurotoxin-binders-211-designs/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/claude-scorpion-neurotoxin-binders-211-designs/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/claude-scorpion-neurotoxin-binders-211-designs/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>An Alibaba AI Model Tried to Send a File to Beijing: What Cohere and Check Point Each Found</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>AI company <a href="https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model">Cohere</a> says Alibaba’s Qwen3.8-Flash-Next, an open-weight model anyone can download, tried to send a file to a server in Beijing. In a sandbox, a sealed computer with no internet route, Cohere ran it on Microsoft’s CTI-REALM, where AI agents do a security analyst’s job. Asked for a rule to catch malicious downloads, the model inspected the machine and tried to upload a test file to an Alibaba Cloud address. The sandbox blocked it, though its reasoning said it would use no tools. Cohere says this happens in fewer than 1 in 100,000 calls (requests to the model), so 10 million calls a week could see up to 100 attempts.</p>
+<p>Running an open model yourself is meant to keep data in house. <a href="https://research.checkpoint.com/2026/coheres-qwen-story-looks-more-like-model-jaggedness/">Check Point</a> replayed Cohere’s <a href="https://huggingface.co/datasets/CohereLabs/10-2026-qwen-investigation-traces">recorded command</a>, cut off before the address, and asked the model to finish it 64 times. It wrote 52 different host names, Alibaba’s in six tries. Reversing the order of two tool names cut the tries with a network command from 15 of 32 to 4 of 32. Check Point calls inconsistent behavior likelier than a fixed backdoor, but cannot rule one out.</p>
+<p>Cohere sells competing models, and <a href="https://venturebeat.com/data/coheres-test-caught-an-open-source-qwen3-8-model-trying-to-phone-home-to-china-what-enterprises-should-know">VentureBeat</a> notes its follow-up tests, which supplied the start of the command, do not show how often the model acts on its own. Cohere says the first attempt had no such help and cannot say whether it is deliberate or a training leftover. Alibaba had not replied to <a href="https://www.theregister.com/ai-and-ml/2026/10/26/alibabas-qwen-ai-caught-trying-to-contact-server-in-china/5305561">The Register</a> or VentureBeat on October 26.</p>
+<p>Read More: <a href="../../posts/qwen3-8-flash-next-qwen4-architecture-preview/index.html">what Qwen3.8-Flash-Next is and how it is built</a> and <a href="../../posts/qwen36-deepseek-v4-china-open-weight-frontier-models/index.html">how China’s open-weight models compare with frontier rivals</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model">Concerning behavior from a popular open-weight AI model (Cohere)</a></li>
+<li><a href="https://research.checkpoint.com/2026/coheres-qwen-story-looks-more-like-model-jaggedness/">Cohere’s Qwen Story: Looks More Like Model Jaggedness (Check Point Research)</a></li>
+<li><a href="https://huggingface.co/datasets/CohereLabs/10-2026-qwen-investigation-traces">Qwen investigation traces and reproduction script (Cohere Labs, Hugging Face)</a></li>
+<li><a href="https://venturebeat.com/data/coheres-test-caught-an-open-source-qwen3-8-model-trying-to-phone-home-to-china-what-enterprises-should-know">What Cohere’s Qwen3.8 test showed and how developers responded (VentureBeat)</a></li>
+<li><a href="https://www.theregister.com/ai-and-ml/2026/10/26/alibabas-qwen-ai-caught-trying-to-contact-server-in-china/5305561">Alibaba’s Qwen AI caught trying to contact server in China (The Register)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {An {Alibaba} {AI} {Model} {Tried} to {Send} a {File} to
+    {Beijing:} {What} {Cohere} and {Check} {Point} {Each} {Found}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“An Alibaba AI Model Tried to Send a File to
+Beijing: What Cohere and Check Point Each Found.”</span> <a href="https://toknow.ai/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/">https://toknow.ai/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Gemini 4 Carbon: Google’s Top-Ranked AI Model Goes to Cyber Defenders First</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/gemini-4-carbon-cyber-defenders-first-59-index/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/gemini-4-carbon-cyber-defenders-first-59-index" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/gemini-4-carbon-cyber-defenders-first-59-index/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/gemini-4-carbon-cyber-defenders-first-59-index/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Gemini 4 Carbon is Google’s strongest AI model, and outside Google only vetted cyber defenders can use it. These are security teams at governments, hospitals and phone networks in Google’s <a href="https://deepmind.google/fairwind-program/">Fairwind Program</a>, which aims to give 650-plus partners a head start on attackers. Google announced Carbon on October 28 with no public API or release date. Independent tester Artificial Analysis ranks it first at 59 on its Intelligence Index, which combines nine tests of coding, knowledge and reasoning. Claude Opus 5.5 scores 58 and Google’s earlier Argon 50.</p>
+<p>Google’s security scores, each the share of tasks solved, come from runs without safety limits. On <a href="https://arxiv.org/abs/2605.26548">SEC-bench Pro</a>, where an AI hunts real flaws in browser and Linux code, Carbon scored 88.2%. <a href="https://arxiv.org/abs/2605.11086">ExploitGym</a> asks it to turn a known flaw into a working attack, and it scored 54.8%. On <a href="https://arxiv.org/abs/2610.17020">CWE-bench</a>, which asks it to fix flaws in real code, it scored 71.0%. On Gray Swan’s test of instructions hidden in emails and web pages, Google says 0.0% of attacks worked.</p>
+<p>Google gave Argon to defenders on <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">September 30</a> and to developers 13 days later, with cyber safeguards on. Carbon arrived 15 days after Argon went public and is still defenders only. CEO Sundar Pichai says <a href="https://aimagazine.com/news/gemini-4-carbon-google-conquers-the-intelligence-frontier">wider availability is coming soon</a>. OpenAI’s <a href="../../posts/openai-daybreak-cybersecurity-platform-vs-anthropic-mythos/index.html">Daybreak and Anthropic’s Glasswing</a> give trusted companies early access. Google’s launch price is $2 per million input tokens (text chunks) and $10 per million output, half the $4 and $20 that Artificial Analysis lists.</p>
+<p>Read More: <a href="../../posts/gemini-4-argon-million-token-cyber-defenders-first/index.html">Gemini 4 Argon, the model Google gave to defenders first on September 30</a>, <a href="../../posts/gemini-3-8-flash-cyber-defender-only/index.html">Gemini 3.8 Flash Cyber, Google’s earlier defender-only model</a>, <a href="../../posts/anthropic-oss-scanner-cyber-mission/index.html">Anthropic’s free bug scanner for open-source projects</a> and <a href="../../posts/claude-exploit-chains-chrome-safari-android-windows-linux/index.html">Anthropic’s unreleased model that links bugs into attacks on five major systems</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">Gemini 4 Carbon: our next frontier model (Google)</a></li>
+<li><a href="https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1">Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5 (Artificial Analysis)</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/">Gemini 4 Argon: Built to solve your hardest problems (Google)</a></li>
+<li><a href="https://aimagazine.com/news/gemini-4-carbon-google-conquers-the-intelligence-frontier">Gemini 4 Carbon: Google Conquers the Intelligence Frontier (AI Magazine)</a></li>
+<li><a href="https://arxiv.org/abs/2610.17020">CWE-bench: Refocusing Agentic Security from Exploitation to Defense (Collinear researchers, arXiv)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Gemini 4 {Carbon:} {Google’s} {Top-Ranked} {AI} {Model}
+    {Goes} to {Cyber} {Defenders} {First}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/gemini-4-carbon-cyber-defenders-first-59-index/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Gemini 4 Carbon: Google’s Top-Ranked AI
+Model Goes to Cyber Defenders First.”</span> <a href="https://toknow.ai/posts/gemini-4-carbon-cyber-defenders-first-59-index/">https://toknow.ai/posts/gemini-4-carbon-cyber-defenders-first-59-index/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/gemini-4-carbon-cyber-defenders-first-59-index/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/gemini-4-carbon-cyber-defenders-first-59-index/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Genie 4: DeepMind’s AI World You Can Walk Through, Change, and Hear</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/genie-4-deepmind-real-time-world-model-native-audio/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/genie-4-deepmind-real-time-world-model-native-audio" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/genie-4-deepmind-real-time-world-model-native-audio/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/genie-4-deepmind-real-time-world-model-native-audio/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Genie 4 is a Google DeepMind AI model that builds a world as you move through it, for teams that train robots or make games and films. You walk and aim the camera with the keyboard and type text to change the scene, such as the weather. A video generator returns a finished clip, but Genie 4 runs in real time: it draws each moment after your input. DeepMind calls it a <a href="https://blog.google/company-news/inside-google/googlers/ask-a-techspert/what-is-a-world-model-project-genie/">world model</a>: a chatbot predicts the next word, and a world model predicts the next moment in a place. It is also natively multimodal: one model makes the picture and the sound together, including speech and music, which earlier DeepMind world models lacked.</p>
+<p>DeepMind names two uses: training environments for robots and AI agents, and new interactive experiences. DeepMind shows its Gemini 4 Argon model breaking a checkers game into steps while Genie 4 simulates Apptronik’s Apollo humanoid robot playing it. DeepMind says testers use it as a draft mode where a filmmaker can run several takes.</p>
+<p>DeepMind gives no resolution or frame rate for Genie 4, while <a href="https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/">Genie 3</a> ran at 720p and 24 pictures a second. DeepMind says sessions last a few minutes, and <a href="https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/">TechCrunch</a> reports scenes stay consistent for up to two minutes. Genie 4 is a research preview for trusted testers and, DeepMind says, coming soon to Google AI Ultra subscribers in <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/">Project Genie</a>, Google’s world-building app, and early-access partners in the Gemini API and Google AI Studio. A waitlist is open.</p>
+<p>Read More: <a href="../../posts/tencent-hy-world-2-open-source-3d-world-model-text-image/index.html">Tencent’s HY-World 2.0, which turns text or a photo into a 3D world you can export</a> and <a href="../../posts/world-labs-atlas-omni-spatial-world-model/index.html">World Labs Atlas, which builds 3D scenes and robot training simulations</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/">Genie 4: A new generation of world simulation (Google DeepMind)</a></li>
+<li><a href="https://deepmind.google/models/genie/">Genie 4 model page: capabilities and limitations (Google DeepMind)</a></li>
+<li><a href="https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/">Google’s Genie 4 world model adds audio, more realistic worlds, and real-time steering (TechCrunch)</a></li>
+<li><a href="https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/">Genie 3: A new frontier for world models (Google DeepMind)</a></li>
+<li><a href="https://blog.google/company-news/inside-google/googlers/ask-a-techspert/what-is-a-world-model-project-genie/">Ask a Techspert: What’s a world model? (Google)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Genie 4: {DeepMind’s} {AI} {World} {You} {Can} {Walk}
+    {Through,} {Change,} and {Hear}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/genie-4-deepmind-real-time-world-model-native-audio/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Genie 4: DeepMind’s AI World You Can Walk
+Through, Change, and Hear.”</span> <a href="https://toknow.ai/posts/genie-4-deepmind-real-time-world-model-native-audio/">https://toknow.ai/posts/genie-4-deepmind-real-time-world-model-native-audio/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/genie-4-deepmind-real-time-world-model-native-audio/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/genie-4-deepmind-real-time-world-model-native-audio/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Open Models This Month: DeepSeek’s Update, a 1 GB Assistant Model, and a Reader for 100-Page Documents</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>DeepSeek-V4.1-Flash-1017, released October 17, is a downloadable open-weight model for writing software and handling multi-step tasks, with 552 billion parameters (the numbers a model learns, roughly its size). DeepSeek reports 42.3 on Terminal-Bench 4.0 (command-line tasks), up from 31.2 before the update. The independent tracker Artificial Analysis combines nine tests into one index and ranks it first among 23 similar-size open-weight models, at 32 against 59 for Gemini 4 Carbon. GLM-5.3 ties it at 32 but costs $5.01 per test task, against $0.60 for DeepSeek.</p>
+<p>Smaller open-weight releases fit one device or job. Liquid AI’s LFM3-1.7B is a text model for assistants that run on your own device. It needs about 1 GB of memory when compressed to 4-bit numbers, and Liquid says it beats its 2.6-billion-parameter predecessor. Baidu’s Unlimited-OCR-2 turns scanned pages into text, reading a 100-page document in one pass. Baidu reports it needs 1.77 GB of short-term memory, against 47 GB with the usual method. NVIDIA’s Nemotron 3.5 Transcribe turns hour-long recordings into text in up to 40 languages, but not live speech.</p>
+<p>Baidu’s test for long-document readers, MarathonDocBench, holds 100 documents of 100 pages or more. Unlimited-OCR-2 averages 77.06 out of 100 across eight accuracy measures and the next model listed scores 33.7, but Baidu wrote the test and lists no independent results. BizAgentBench gives AI agents 50 payment-company tasks and 601 business tools. The September DeepSeek-V4.1-Flash completes 43.3% of tasks without breaking a rule, against 64.0% for the top model tested, Claude Opus 5.</p>
+<p>Read More: <a href="../../posts/open-source-radar-mimo-v26-kandinsky-6-embeddinggemma-2/index.html">the previous open-source radar, on MiMo-V2.6, Kandinsky 6.0 Video and EmbeddingGemma 2</a> and <a href="../../posts/open-source-radar-deepseek-v41-flash-ultradata/index.html">the September radar, on the earlier DeepSeek-V4.1-Flash release</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://api-docs.deepseek.com/news/news261017">DeepSeek-V4.1-Flash-1017 release note (DeepSeek)</a></li>
+<li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017">DeepSeek-V4.1-Flash-1017 model card (Hugging Face)</a></li>
+<li><a href="https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017">DeepSeek V4.1 Flash 1017: intelligence, performance and price analysis (Artificial Analysis)</a></li>
+<li><a href="https://www.liquid.ai/blog/lfm3">Introducing LFM3: Every Modality for Specialized Intelligence (Liquid AI)</a></li>
+<li><a href="https://arxiv.org/abs/2610.39308">Unlimited OCR Works 2 (arXiv)</a></li>
+<li><a href="https://huggingface.co/datasets/baidu/MarathonDocBench">MarathonDocBench dataset card (Hugging Face)</a></li>
+<li><a href="https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B">NVIDIA-Nemotron-3.5-Transcribe-30B-A4B model card (Hugging Face)</a></li>
+<li><a href="https://arxiv.org/abs/2610.20424">BizAgentBench: Unveiling Hidden Challenges in Deploying Long-Horizon Agents for Real-World Business (arXiv)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Open {Models} {This} {Month:} {DeepSeek’s} {Update,} a 1 {GB}
+    {Assistant} {Model,} and a {Reader} for {100-Page} {Documents}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Open Models This Month: DeepSeek’s Update,
+a 1 GB Assistant Model, and a Reader for 100-Page Documents.”</span> <a href="https://toknow.ai/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe/">https://toknow.ai/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/open-source-radar-deepseek-1017-lfm3-unlimited-ocr-2-nemotron-transcribe/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>DoorDash Counts Several Hundred AI Agent Orders as Websites Limit Access</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>An agent is software that uses websites for you, and AI companies promise it will order dinner and buy shoes. On October 29, DoorDash CEO Tony Xu said agents from other companies, such as Meta’s Muse, have brought “maybe several hundred orders in total” since they launched. DoorDash completed <a href="https://www.fool.com/earnings/call-transcripts/2026/10/29/doordash-dash-q3-2026-earnings-call-transcript/">993 million orders</a> in the third quarter alone, so agents’ share is under one order in a million. The same day, Reddit CEO Steve Huffman said <a href="https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/">search referrals</a>, visits from a Google results page, fell by more than 1 million a week on average in October. His main suspect is Google’s AI answers. Reddit’s revenue still rose 53% in a year, to $895 million.</p>
+<p>Reddit says logged-in and app users account for over 80% of its monetization (what it earns from users). It will test a mostly login-only version outside the U.S., partly to limit scraping. <a href="https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web">The Verge reports</a> that Yelp admits only agents whose makers pay for its data licensing program, Delta stops agents from booking tickets, and JPMorgan Chase and Charles Schwab block agents from accounts, citing security. Amazon said on September 20 that it had <a href="https://ppc.land/amazon-blocks-metas-muse-ai-agent-from-shopping-on-its-site/">blocked Muse</a>, which it says does not identify itself.</p>
+<p>Robots.txt is the file where a site posts rules for automated visitors. <a href="https://developers.google.com/search/blog/2026/10/ai-training-control">Google plans</a> to honor one shared line there that opts a site out of AI training. It is a request each company chooses to follow, not a block. Google aims to support it, along with other AI providers, in 2027.</p>
+<p>Read More: <a href="../../posts/ai-weekly-orbit-tpu-copilot-harness-large-4-weights-monitors/index.html">AI This Week: A Chip in Orbit, Agent Machinery for Rent, and Models Under Watch</a> and <a href="../../posts/agent-reach-cli-agent-web-access-no-api-fees/index.html">Agent-Reach: Give Your Agent Eyes on the Whole Internet, No API Fees</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.fool.com/earnings/call-transcripts/2026/10/29/doordash-dash-q3-2026-earnings-call-transcript/">DoorDash (DASH) Q3 2026 Earnings Call Transcript (The Motley Fool)</a></li>
+<li><a href="https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/">Reddit (RDDT) Q3 2026 Earnings Call Transcript (The Motley Fool)</a></li>
+<li><a href="https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web">Websites are closing their doors to AI agents (The Verge)</a></li>
+<li><a href="https://ppc.land/amazon-blocks-metas-muse-ai-agent-from-shopping-on-its-site/">Amazon blocks Meta’s Muse AI agent from shopping on its site (PPC Land)</a></li>
+<li><a href="https://developers.google.com/search/blog/2026/10/ai-training-control">Supporting a shared AI training control for websites (Google Search Central Blog)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {DoorDash {Counts} {Several} {Hundred} {AI} {Agent} {Orders}
+    as {Websites} {Limit} {Access}},
+  date = {2026-11-02},
+  url = {https://toknow.ai/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“DoorDash Counts Several Hundred AI Agent
+Orders as Websites Limit Access.”</span> <a href="https://toknow.ai/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref/">https://toknow.ai/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref/</guid>
+  <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/websites-close-to-ai-agents-reddit-doordash-yelp-aipref/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+</channel>
+</rss>

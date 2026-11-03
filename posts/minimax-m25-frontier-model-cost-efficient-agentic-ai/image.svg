@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a4e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7b2fff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <text x="400" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="url(#accent)">MiniMax-M2.5</text>
+  <text x="400" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#aaaacc">229B Parameters | Frontier Performance</text>
+  <text x="400" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#8888aa">$1/hour continuous operation</text>
+  <rect x="200" y="300" width="400" height="4" rx="2" fill="url(#accent)" opacity="0.6"/>
+</svg>
