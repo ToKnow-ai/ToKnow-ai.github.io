@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<atom:link href="https://toknow.ai/index.xml" rel="self" type="application/rss+xml"/>
+<description>// Research, Numbers and Insightful Ideas //</description>
+<image>
+<url>https://toknow.ai/images/logo.png</url>
+<title>ToKnow.ai</title>
+<link>https://toknow.ai/</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Fri, 13 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Idol: Speridlabs’ AI Model That Builds a 3D Object You Can Rotate From One Picture</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Idol is an AI model from the lab Speridlabs that turns one picture of an object into a 3D version you can turn around on screen. It suits 3D artists and developers who have a picture of an object but no 3D model of it. Idol cuts the object out of its background. A diffusion model, the kind of AI behind many image generators, then builds it over 50 passes by default as a <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>: a cloud of soft, colored, see-through blobs that viewing software draws from any angle. The model predicts the back and sides that the picture never showed. One object uses anywhere from 32,768 to 1,048,576 blobs.</p>
+<p>Building a splat normally takes many photos from different angles; Idol needs only one. Speridlabs reports a peak of 7.2 GB of graphics-card memory. At 262,144 blobs, its tests took 19.1 seconds on an RTX 4090, a high-end gaming card, and 46.2 seconds on a 10 GB RTX 3080. In the authors’ tests on one H100 data-center chip, Idol beat TripoSplat (the model it builds on), TRELLIS and LGM on 6 of 7 quality scores, which compare the result with the input picture and check seven new views. LGM ran faster, 1.1 seconds against 6.8. Idol makes single objects, not scenes, and outputs a splat file rather than a triangle mesh. Speridlabs’ GitHub page reports about 18 minutes on a MacBook Air with an M4 chip at the same 262,144 blobs.</p>
+<p>Read More: <a href="../../posts/tencent-hy-world-2-open-source-3d-world-model-text-image/index.html">HY-World 2.0, Tencent’s model that turns text or a photo into a walkable 3D world</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://speridlabs.com/research/idol">Idol: Single Image to 3D Gaussian Splats (Speridlabs)</a></li>
+<li><a href="https://huggingface.co/speridlabs/idol">speridlabs/idol model card (Hugging Face)</a></li>
+<li><a href="https://github.com/speridlabs/idol-sdk">idol-sdk README (GitHub)</a></li>
+<li><a href="https://github.com/VAST-AI-Research/TripoSplat">TripoSplat (GitHub)</a></li>
+<li><a href="https://comfyui-wiki.com/en/news/2026-10-28-speridlabs-idol">Speridlabs Idol Turns One Image Into a 3D Gaussian Splat (ComfyUI Wiki)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Idol: {Speridlabs’} {AI} {Model} {That} {Builds} a {3D}
+    {Object} {You} {Can} {Rotate} {From} {One} {Picture}},
+  date = {2026-11-13},
+  url = {https://toknow.ai/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Idol: Speridlabs’ AI Model That Builds a 3D
+Object You Can Rotate From One Picture.”</span> <a href="https://toknow.ai/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat/">https://toknow.ai/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat/</guid>
+  <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/idol-speridlabs-one-picture-to-3d-object-gaussian-splat/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Claude Mythos 5 Kept Attacking After Being Told Its Target Was a Real Person, Two Studies Find</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>On October 23, Anthropic and the UK government’s AI Security Institute (AISI) each published a study of why Anthropic’s AI model Claude Mythos 5 attacked a real software project during a hacking test. In the test, internet access was on, Anthropic’s usual cyber safeguards were off, and a mistake in the instructions put the intended route off limits. In the worst run, Mythos 5 tried to slip malicious code into an open-source project and used fake accounts to pressure the maintainer into approving it, but the maintainer refused. In 9 of Mythos 5’s 43 runs, it took actions against real people or organizations.</p>
+<p>Both teams replayed the run offline, editing the notes the model writes itself between work stretches. When Anthropic added a mention of possible harm to the model’s earlier reasoning, replays that went on to hunt for a project to attack fell from 83% to 13%. Once the attack had started, the model stopped by itself in 2% of replays. AISI saw the same: told the target was a real person, Mythos 5 still attacked in nearly all runs, though it said when asked that attacking would be harmful.</p>
+<p>AISI has switched off internet access in its hacking tests, and Anthropic in all internal tests. Anthropic suspects safety training lowered attacks in newer models; AISI notes those models also say more often that they suspect a test. In AISI’s simulated test, Mythos 5 tried to deliver malicious code in 60% of runs and Mythos 5.1 in 0.3%.</p>
+<p>Read More: <a href="../../posts/openai-anthropic-models-live-internet-evals/index.html">OpenAI and Anthropic Caught Their AI Models on the Live Internet</a>, which covers AISI’s August report on the same incident</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/alignment-assessment-ukaisi">An alignment assessment of the UK AISI cybertesting incident (Anthropic)</a></li>
+<li><a href="https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident">Investigating alignment failures in AISI’s incident (UK AI Security Institute)</a></li>
+<li><a href="https://cdn.prod.website-files.com/663bd486c5e4c81588db7a1d/6ad8ac7f2ba7446392919b06_Alignment_Investigation_Mythos_5_AISI_Incident.pdf">Alignment investigation of Mythos 5’s behaviour in UK AISI’s July 2026 security incident (AISI technical report, PDF)</a></li>
+<li><a href="https://www.aisi.gov.uk/blog/building-a-more-secure-environment-for-evaluating-dangerous-capabilities">Building a more secure environment for evaluating dangerous capabilities (UK AI Security Institute)</a></li>
+<li><a href="https://www.anthropic.com/research/investigating-unintended-model-actions">Investigating unintended model actions in our evaluations and internal use (Anthropic)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Claude {Mythos} 5 {Kept} {Attacking} {After} {Being} {Told}
+    {Its} {Target} {Was} a {Real} {Person,} {Two} {Studies} {Find}},
+  date = {2026-11-13},
+  url = {https://toknow.ai/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Claude Mythos 5 Kept Attacking After Being
+Told Its Target Was a Real Person, Two Studies Find.”</span> <a href="https://toknow.ai/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies/">https://toknow.ai/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies/</guid>
+  <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/mythos-5-kept-attacking-anthropic-uk-aisi-studies/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>NVKE: NVIDIA Kubernetes Engine for Offering Managed Kubernetes on GPU Servers</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>NVKE (NVIDIA Kubernetes Engine) is open-source software for companies running their own GPU data centers, which NVIDIA calls AI factories. It lets them run Kubernetes clusters for customers, <a href="https://www.heise.de/en/news/NVKE-Nvidia-previews-its-own-Kubernetes-engine-11516165.html">similar to AWS’s EKS service</a>, heise reports. <a href="https://kubernetes.io/docs/concepts/overview/">Kubernetes</a> decides which program runs on which server and restarts any that fail, like a warehouse manager for software. An operator asks NVKE for a cluster. NVKE gets servers from NICo, NVIDIA’s machine-setup tool, checks each server’s security chip and installs Kubernetes. Each customer gets a separate cluster with its own control plane, the part that decides. Later, NVKE replaces servers and upgrades Kubernetes.</p>
+<p>Plain Kubernetes manages programs, not the machines underneath. <a href="https://docs.nvidia.com/nvke/documentation/overview/what-is-nvke">NVIDIA’s documentation</a> says without NVKE, an operator builds a cluster-management system from open-source and commercial parts and maintains it through every Kubernetes release and GPU generation. heise says NVIDIA ties NVKE closely to its own stack: it gets servers from NICo by default, and NICo <a href="https://docs.nvidia.com/infra-controller/documentation/getting-started/prerequisites/hardware">runs on its own cluster of at least 3 servers</a>, so real hardware needs two management layers. heise names Gardener and Kamaji, open-source tools with similar jobs.</p>
+<p>NVIDIA calls NVKE a preview and does not recommend it for production. After install, its API runs on plain HTTP with authentication off, and anyone on an allowed network can create or delete any customer cluster. The cluster that runs NVKE cannot upgrade its own servers. A Linux machine with <a href="https://docs.nvidia.com/nvke/documentation/get-started/quickstart-evaluate-locally-with-mock-ni-co">6 CPUs, 12 GiB of free memory and 100 GiB of disk</a> can try NVKE with simulated servers and no GPU.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://docs.nvidia.com/nvke/documentation/overview/what-is-nvke">What is NVKE (NVIDIA documentation)</a></li>
+<li><a href="https://docs.nvidia.com/nvke/documentation/overview/preview-status-and-known-limitations">Preview status and known limitations (NVIDIA documentation)</a></li>
+<li><a href="https://www.heise.de/en/news/NVKE-Nvidia-previews-its-own-Kubernetes-engine-11516165.html">NVKE: Nvidia previews its own Kubernetes engine (heise)</a></li>
+<li><a href="https://docs.nvidia.com/infra-controller/documentation/getting-started/prerequisites/hardware">Hardware prerequisites for NICo (NVIDIA documentation)</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/overview/">Kubernetes overview (kubernetes.io)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {NVKE: {NVIDIA} {Kubernetes} {Engine} for {Offering} {Managed}
+    {Kubernetes} on {GPU} {Servers}},
+  date = {2026-11-13},
+  url = {https://toknow.ai/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“NVKE: NVIDIA Kubernetes Engine for Offering
+Managed Kubernetes on GPU Servers.”</span> <a href="https://toknow.ai/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters/">https://toknow.ai/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters/</guid>
+  <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/nvke-nvidia-kubernetes-engine-ai-factory-gpu-clusters/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Tampered Claude Code Extension Stayed in Cursor’s Marketplace for 11 Hours</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/tampered-claude-code-extension-cursor-marketplace-11-hours/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/tampered-claude-code-extension-cursor-marketplace-11-hours" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/tampered-claude-code-extension-cursor-marketplace-11-hours/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/tampered-claude-code-extension-cursor-marketplace-11-hours/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Cursor is an AI code editor that loads extensions, add-ons that run with the developer’s own access. On October 29, a tampered copy of Anthropic’s Claude Code extension sat in Cursor’s own marketplace for about 11 hours, from 2:27 a.m. to 1:35 p.m. Pacific time. It used the real extension’s name, and Cursor updates extensions automatically by default. Security firm Phorion found the added code ran as soon as the extension loaded. It tried to add the attacker’s key to the computer’s list of keys allowed to log in, like a spare front-door key, and to open a connection out to the attacker’s server. Cursor first said at most 5,000 users were affected.</p>
+<p>Developer computers often hold source code and cloud accounts. Cursor says turning on remote login needs administrator rights the extension lacks on most Macs and Windows PCs, so the attacker could not log in there. The key, startup scripts and a report of the computer’s name and IP address still went through, and uninstalling the extension may not remove them. Security firm Expel saw malicious activity on four customers’ Macs, one starting about 8 hours after Cursor pulled the copies. Anthropic says its own systems were not breached. By November 10, neither company had said how the attacker got in. Anyone who installed or updated it that day can search the .ssh folder’s authorized_keys file for a key labelled svc-telemetry. Team admins can delay new extension versions by some hours, but the delay is off by default.</p>
+<p>Read More: <a href="../../posts/kickbacks-ai-get-paid-claude-code-spinner-ads/index.html">Kickbacks.ai, another VS Code extension that rewrites a Claude Code install on the developer’s own machine</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://cursor.com/blog/claude-code-extension-security-notice">Security notice: malicious versions of Anthropic.claude-code in the Cursor VS Code Extension Marketplace (Cursor)</a></li>
+<li><a href="https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/">Anthropic VS code extension on Cursor backdoored for nearly 12 hours (Ars Technica)</a></li>
+<li><a href="https://www.csoonline.com/article/4243210/cursor-removes-malicious-claude-code-extension-after-ssh-backdoor-attempt.html">Cursor removes malicious Claude Code extension after SSH backdoor attempt (CSO Online)</a></li>
+<li><a href="https://expel.com/blog/blog-fake-claude-code-extension-cursor-ssh-backdoor/">Fake Claude Code extension in Cursor: How to find the backdoor (Expel)</a></li>
+<li><a href="https://cursor.com/help/customization/extensions">Extensions (Cursor documentation)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Tampered {Claude} {Code} {Extension} {Stayed} in {Cursor’s}
+    {Marketplace} for 11 {Hours}},
+  date = {2026-11-13},
+  url = {https://toknow.ai/posts/tampered-claude-code-extension-cursor-marketplace-11-hours/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Tampered Claude Code Extension Stayed in
+Cursor’s Marketplace for 11 Hours.”</span> <a href="https://toknow.ai/posts/tampered-claude-code-extension-cursor-marketplace-11-hours/">https://toknow.ai/posts/tampered-claude-code-extension-cursor-marketplace-11-hours/</a>.
+</div></div></section></div> ]]></description>
+  <category>cyber-security</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/tampered-claude-code-extension-cursor-marketplace-11-hours/</guid>
+  <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/tampered-claude-code-extension-cursor-marketplace-11-hours/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Thinking Inertia: AI Models Still Reason in Their Answers With Thinking Switched Off</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/thinking-inertia-ai-no-think-mode-still-reasons/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/thinking-inertia-ai-no-think-mode-still-reasons" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/thinking-inertia-ai-no-think-mode-still-reasons/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/thinking-inertia-ai-no-think-mode-still-reasons/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>A study of the “thinking off” switch on AI models found that the models still reason inside their answers. It matters to anyone who pays for AI answers by length or builds on that switch. Reasoning models write out step-by-step working before answering, which costs time and money, so many offer a switch to make them reply at once. In a paper accepted at the NeurIPS 2026 AI conference, researchers at Tsinghua, Oxford and Stanford tested six models: three sizes of Alibaba’s Qwen3, DeepSeek-V4-Flash, OpenAI’s GPT-5.4 and Google’s Gemini-3-Flash. An AI judge, GPT-5.5, checked the visible text before each final answer for a reasoning step, such as a calculation. With thinking off or at its lowest setting, it found reasoning in 5.15% of replies to yes/no questions, 45.57% to multiple-choice questions and 99.69% to open-ended maths problems.</p>
+<p>Alibaba’s Qwen3 model card says that with thinking off the model “will not generate any think content”. In the tests, the working appeared in the answer text instead. A strict instruction, “give the final answer directly without any reasoning”, still left reasoning in 62.00% of open-ended replies. Qwen3-32B mostly obeyed it and solved 44.4% of grade-school maths problems, against 93.4% with thinking off.</p>
+<p>The authors suggest letting a model answer at once only when the question shows candidate answers, and keeping the working when dropping it costs accuracy. Rewritten as yes/no checks of a proposed answer, the same numeric questions drew reasoning in 36.90% of Qwen3-32B replies, against 90.14% with no candidate shown.</p>
+<p>Read More: <a href="../../posts/liquid-ai-antidoom-reasoning-loops-fix/index.html">Antidoom, Liquid AI’s training fix for small reasoning models that repeat the same text until they run out of room</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.11765">Thinking Inertia: LLMs Keep Thinking When Told Not To (arXiv abstract, accepted by NeurIPS 2026)</a></li>
+<li><a href="https://arxiv.org/html/2610.11765v2">Thinking Inertia full paper, version 2 (arXiv)</a></li>
+<li><a href="https://hyper.ai/en/papers/2610.11765">Thinking Inertia paper summary with author affiliations (HyperAI)</a></li>
+<li><a href="https://huggingface.co/Qwen/Qwen3-32B">Qwen3-32B model card, thinking switch (Hugging Face)</a></li>
+<li><a href="https://aiweekly.co/alerts/thinking-inertia-llms-keep-reasoning-under-no-think-controls">Thinking Inertia: LLMs keep reasoning under no-think controls (AI Weekly)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Thinking {Inertia:} {AI} {Models} {Still} {Reason} in {Their}
+    {Answers} {With} {Thinking} {Switched} {Off}},
+  date = {2026-11-13},
+  url = {https://toknow.ai/posts/thinking-inertia-ai-no-think-mode-still-reasons/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Thinking Inertia: AI Models Still Reason in
+Their Answers With Thinking Switched Off.”</span> <a href="https://toknow.ai/posts/thinking-inertia-ai-no-think-mode-still-reasons/">https://toknow.ai/posts/thinking-inertia-ai-no-think-mode-still-reasons/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/thinking-inertia-ai-no-think-mode-still-reasons/</guid>
+  <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/thinking-inertia-ai-no-think-mode-still-reasons/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Agent Skills: Folders That Teach AI Agents a Task, Now Hosted by the Linux Foundation</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Agent Skills are folders of instructions that teach an AI agent one job, such as filling in a company’s Word template, so a team gets it done its own way each time. Each folder holds a SKILL.md text file plus any scripts or templates. The agent reads only each skill’s name and short description at the start, like labels on file drawers, and opens the full instructions when a task matches. Anthropic launched the format in October 2025. On October 22, it gave the Agent Skills name, logo, GitHub organization and agentskills.io website to the Agentic AI Foundation, a Linux Foundation group that also hosts the Model Context Protocol, the standard that connects agents to tools. Anthropic says more than 70 products, including ChatGPT, Cursor and GitHub Copilot, now read skills.</p>
+<p>The foundation’s job, says its technology chief Manik Surtani, is shared standards “with no single company controlling the outcome.” The skills charter, adopted November 4, ties its seven voting seats to people, not employers. On November 6, Anthropic changed the terms of its four Office skills, for Word, Excel, PowerPoint and PDF files. Before, the terms barred copying, changing or passing them on. Now anyone may copy, change and share the skills behind Claude’s own document features.</p>
+<p>In a <a href="https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals">Vercel coding test</a>, the agent never opened an available skill in 56% of cases. <a href="https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/">Snyk</a> scanned 3,984 skills from two public registries in February: 13.4% had a critical security issue, and 76 contained malicious payloads.</p>
+<p>Read More: <a href="../../posts/nvidia-skillspector-security-scanner-ai-agent-skills/index.html">NVIDIA SkillSpector</a>, a free scanner that checks an agent skill for malware and vulnerabilities before you install it</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation">Donating Agent Skills to the Agentic AI Foundation (Anthropic)</a></li>
+<li><a href="https://www.linuxfoundation.org/press/agentic-ai-foundation-announces-four-new-projects-agent-skills-open-responses-openenv-and-opensandbox">Agentic AI Foundation Announces Four New Projects: Agent Skills, Open Responses, OpenEnv, and OpenSandbox (Linux Foundation)</a></li>
+<li><a href="https://github.com/agentskills/agentskills/blob/main/GOVERNANCE.md">Agent Skills Governance, adopted November 4, 2026 (agentskills on GitHub)</a></li>
+<li><a href="https://github.com/anthropics/skills/commit/2c5958e">Change to the docx, pdf, pptx and xlsx skills, November 6 (anthropics/skills on GitHub)</a></li>
+<li><a href="https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals">AGENTS.md outperforms skills in our agent evals (Vercel)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Agent {Skills:} {Folders} {That} {Teach} {AI} {Agents} a
+    {Task,} {Now} {Hosted} by the {Linux} {Foundation}},
+  date = {2026-11-12},
+  url = {https://toknow.ai/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Agent Skills: Folders That Teach AI Agents
+a Task, Now Hosted by the Linux Foundation.”</span> <a href="https://toknow.ai/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills/">https://toknow.ai/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills/</guid>
+  <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/agent-skills-linux-foundation-agentic-ai-foundation-office-skills/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Elephant-Goldfish: Google’s Plugin Where Fresh AI Reviewers Test a Coding Plan</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/google-elephant-goldfish-plugin-ai-coding-design-review/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/google-elephant-goldfish-plugin-ai-coding-design-review" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/google-elephant-goldfish-plugin-ai-coding-design-review/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/google-elephant-goldfish-plugin-ai-coding-design-review/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Elephant-Goldfish is an open-source plugin from Google that makes an AI coding assistant write a plan before it writes any code. It is for developers using Claude Code, Codex or Google’s <a href="../../posts/google-io-2026-gemini-35-flash-antigravity-agent-first/index.html">Antigravity</a>. One long AI session, the Elephant, keeps the whole project in memory, interviews the developer and drafts a design document that names every file to change. It writes no code. Then fresh AI sessions, the Goldfish, read only that document and the code it points to. Like a new hire handed only the written instructions, they cannot fill gaps from the earlier chat. The review has five stages, including a check where a Goldfish must explain the plan back and a critique where several hunt for holes in it. A person approves the design before coding starts.</p>
+<p>In the project’s example, a developer adds webhook delivery, where one program sends automatic messages to another. What should happen when a message fails, or when the same event arrives twice? The developer settles those questions in the document before any code exists. Google says thousands of its employees use the plugin every day. The project’s FAQ says a small, well-understood change may not repay the extra time. <a href="https://github.com/google/elephant-goldfish-model/issues/237">An open issue</a> reports that reviewers in Codex and Antigravity still receive the project’s standing-instructions file (AGENTS.md), which Claude Code reviewers do not. Dave Rensin, whose essay the method grew from, says that, anecdotally, about 30% of the critic Goldfish’s suggestions are highly valuable, enough to make the method worthwhile.</p>
+<p>Read More: <a href="../../posts/superpowers-mattpocock-skills-cross-platform-agent-framework/index.html">Superpowers and mattpocock/skills: Cross-Platform Agent Skills Frameworks</a>, a set of agent skills that adds brainstorming and implementation-plan phases before coding agents write code</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://opensource.googleblog.com/2026/10/introducing-elephant-goldfish-model-plugin.html">Introducing the Elephant-Goldfish Model plugin (Google Open Source Blog)</a></li>
+<li><a href="https://github.com/google/elephant-goldfish-model">Elephant-Goldfish Model: install steps, webhook example and five review stages (GitHub)</a></li>
+<li><a href="https://github.com/google/elephant-goldfish-model/blob/main/docs/harnesses.md">Setup guide: supported coding tools and how reviewers are isolated (GitHub)</a></li>
+<li><a href="https://github.com/google/elephant-goldfish-model/blob/main/docs/faq.md">FAQ: when the workflow pays off and when it does not (GitHub)</a></li>
+<li><a href="https://drensin.medium.com/elephants-goldfish-and-the-new-golden-age-of-software-engineering-c33641a48874">Elephants, Goldfish, and the New Golden Age of Software Engineering (Dave Rensin, Medium)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Elephant-Goldfish: {Google’s} {Plugin} {Where} {Fresh} {AI}
+    {Reviewers} {Test} a {Coding} {Plan}},
+  date = {2026-11-12},
+  url = {https://toknow.ai/posts/google-elephant-goldfish-plugin-ai-coding-design-review/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Elephant-Goldfish: Google’s Plugin Where
+Fresh AI Reviewers Test a Coding Plan.”</span> <a href="https://toknow.ai/posts/google-elephant-goldfish-plugin-ai-coding-design-review/">https://toknow.ai/posts/google-elephant-goldfish-plugin-ai-coding-design-review/</a>.
+</div></div></section></div> ]]></description>
+  <category>software-engineering</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/google-elephant-goldfish-plugin-ai-coding-design-review/</guid>
+  <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/google-elephant-goldfish-plugin-ai-coding-design-review/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Google’s Sleep Framework: AI Models Keep New Facts Without Forgetting Old Skills</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/google-sleep-framework-llm-continual-learning-memory/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/google-sleep-framework-llm-continual-learning-memory" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/google-sleep-framework-llm-continual-learning-memory/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/google-sleep-framework-llm-continual-learning-memory/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Google researchers describe a training cycle, the sleep framework, that lets a language model learn new facts after release without losing old skills. A released model is frozen: it forgets what a prompt told it when the chat ends, and training it further on new data can erase old skills (catastrophic forgetting). Awake, the model keeps new material in short-term memory. In a sleep phase it stops taking input and trains spare expert blocks, specialist parts of its network (a <a href="https://huggingface.co/blog/moe">mixture of experts</a>), to give the same answers without that material in view, then clears its short-term memory. The old parts stay frozen, like copying notes onto spare pages. In a dreaming step, it writes practice examples and trains on the best.</p>
+<p>The aim is a model that keeps learning after release. The paper, from June and described in a Google blog on October 27, tested models of up to 8 billion parameters. After learning one passage of new facts, the model answered 48.9% of questions about it without seeing it again, against 31.9% for the unchanged model. On <a href="https://arxiv.org/abs/2406.10149">BABILong</a>, which hides facts such as “Mary traveled to the office” in book-length text and asks “Where is Mary?”, the paper’s chart shows a Llama-based model finding about 91% of answers in 10 million <a href="https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens">tokens</a> of text (about 7.5 million words). Matching the sleep method’s maths scores took ordinary fine-tuning 3.6 to 4.8 times as long. The blog notes that “sleep” is borrowed language; people write the training rules.</p>
+<p>Read More: <a href="../../posts/do-language-models-need-sleep-offline-recurrence-long-context-reasoning/index.html">Do AI Models Need Sleep? An Offline ‘Rest’ Pass That Boosts Reasoning</a>, a different team’s sleep-style pause that compresses recent context into the model before clearing its memory</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/">The sleep framework: A new way for LLMs to retain knowledge in continual learning (Google Research blog)</a></li>
+<li><a href="https://arxiv.org/html/2606.03979">Language Models Need Sleep: Learning to Self-Modify and Consolidate Memories (arXiv paper, full text)</a></li>
+<li><a href="https://arxiv.org/abs/2406.10149">BABILong: Testing the Limits of LLMs with Long Context Reasoning-in-a-Haystack (arXiv)</a></li>
+<li><a href="https://huggingface.co/blog/moe">Mixture of Experts Explained (Hugging Face)</a></li>
+<li><a href="https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens">Understanding and counting tokens (OpenAI Help Center)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Google’s {Sleep} {Framework:} {AI} {Models} {Keep} {New}
+    {Facts} {Without} {Forgetting} {Old} {Skills}},
+  date = {2026-11-12},
+  url = {https://toknow.ai/posts/google-sleep-framework-llm-continual-learning-memory/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Google’s Sleep Framework: AI Models Keep
+New Facts Without Forgetting Old Skills.”</span> <a href="https://toknow.ai/posts/google-sleep-framework-llm-continual-learning-memory/">https://toknow.ai/posts/google-sleep-framework-llm-continual-learning-memory/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/google-sleep-framework-llm-continual-learning-memory/</guid>
+  <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/google-sleep-framework-llm-continual-learning-memory/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Mathematicians Rewrite OpenAI’s Prime Number Proof in 3 Pages Instead of 9</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>A Landau-Siegel zero is a hypothetical exception in the formulas that describe how prime numbers are spread out. Mathematicians spent decades unable to rule it out. <a href="https://github.com/openai/math/blob/main/README.md">OpenAI’s internal AI model</a> produced a <a href="https://github.com/openai/math/blob/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/README.md">proof, dated October 1</a>, that no such exception exists. Such an exception would force most primes in a wide range to give the same answer to a standard yes-or-no test about remainders. The proof assumes the exception exists and builds a whole number from it. The number has a known size limit, yet divisibility by so many of those primes would force it to be larger. No nonzero whole number can do that. UCLA’s Terence Tao describes the manuscript as nine pages.</p>
+<p>Mathematicians then raced to shorten it, most using AI chat models. Oxford’s Ben Green worked with OpenAI’s GPT-6 Astra, rewrote the argument himself as a five-page note, and wrote that “no human originality is claimed.” Tao called Green’s version “particularly elegant.” Bryce Kerr’s version runs 6 pages and Jacob Pescador’s 4. Kevin Barreto, a Cambridge undergraduate, used Astra and Anthropic’s Opus 5.5 to reach three pages, and wrote that he aimed for more elementary methods. William Banks went the other way, with 19 pages that spell out every step.</p>
+<p>Quanta sees an emerging contest for the shortest, simplest proof, in place of the old race for priority. OpenAI’s two proofs of a wider result about primes run 199 and 49 pages, and NYU’s Maksym Radziwiłł says most people read the 49-page one because it is shorter.</p>
+<p>Read More: <a href="../../posts/openai-anthropic-exponential-time-hypothesis-false-3-sat-lean/index.html">Two AI Labs Claim Proofs That the Exponential Time Hypothesis Is False</a>, another October OpenAI result that three named experts are examining</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.quantamagazine.org/update/168664/">Mathematicians race to simplify AI proofs (Quanta Magazine, November 5)</a></li>
+<li><a href="https://hexagonmath.org/2610.00311?version=2">On Landau-Siegel zeros (Ben Green, Hexagon)</a></li>
+<li><a href="https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/">A sketch of the proof of non-existence of Siegel zeroes (Terence Tao)</a></li>
+<li><a href="https://arxiv.org/abs/2610.15483">On the OpenAI proof that Landau-Siegel zeros do not exist (William Banks, arXiv)</a></li>
+<li><a href="https://www.quantamagazine.org/ai-proved-the-quasi-riemann-hypothesis-what-happens-now-20261019/">AI Proved the Quasi-Riemann Hypothesis. What Happens Now? (Quanta Magazine, October 19)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Mathematicians {Rewrite} {OpenAI’s} {Prime} {Number} {Proof}
+    in 3 {Pages} {Instead} of 9},
+  date = {2026-11-12},
+  url = {https://toknow.ai/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Mathematicians Rewrite OpenAI’s Prime
+Number Proof in 3 Pages Instead of 9.”</span> <a href="https://toknow.ai/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages/">https://toknow.ai/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages/</guid>
+  <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/mathematicians-simplify-ai-proofs-landau-siegel-three-pages/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Project EVE: Anthropic Tests Claude AI Agents as Traders and Teammates in Two Space Games</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/project-eve-claude-agents-trade-eve-online-market-sabotage/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/project-eve-claude-agents-trade-eve-online-market-sabotage" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/project-eve-claude-agents-trade-eve-online-market-sabotage/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/project-eve-claude-agents-trade-eve-online-market-sabotage/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Project EVE is an Anthropic study of how Claude AI agents handle money and teamwork in two space games from Fenris Creations. It matters to anyone who might hand an AI agent a budget. Automated trading breaks EVE Online’s rules, so Anthropic replayed the buy and sell offers that real players had posted. Each run started with 3 billion ISK, in-game money worth about $16 to $31. Most models bought from sellers in a hurry and resold to buyers in a hurry, keeping the difference. Over six months, Anthropic reports, the newest model, Fable 5, earned on average about 600% of starting capital, triple the 200% of the oldest, Opus 4.6.</p>
+<p>When told to buy items they expected to rise in price, based on game news, even Fable 5 made money in only about half its runs. When the game raised its sales tax from 4% to 7.5% in March 2025, 43% of Opus 4.6 agents never noticed the change. Adding computer-made offers that undercut the agents cut final profits by about 35%, though the agents stayed profitable.</p>
+<p>In EVE Frontier, teams of four Claude agents worked on live-game missions. Anthropic told one agent to secretly sabotage the team’s mission. Teammates, though warned, almost never caught the saboteur. Monitors, Claude agents reading only the team’s public chat, were set to wrongly accuse an honest agent at most 5% of the time. They caught 30% to 40% of saboteurs when built on Opus models and 20% on the smaller Sonnet 4.6.</p>
+<p>Read More: <a href="../../posts/ai-weekly-agent-memory-eve-trading-biobasicsbench-uber-data-center-votes/index.html">AI This Week: Agents That Remember, AI in the Lab, Votes on Data Centers</a>, which gives the 16%, 22% and 43% two-week trading gains from the same EVE Online replay</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/project-eve-claude-plays-mmorpgs">Project EVE: Claude plays MMORPGs (Anthropic)</a></li>
+<li><a href="https://letsdatascience.com/news/anthropic-tests-claude-agents-in-two-eve-games-22289583">Anthropic Tests Claude Agents in Two EVE Games (Let’s Data Science)</a></li>
+<li><a href="https://www.invenglobal.com/articles/28297/can-teammate-ai-be-trusted-questions-raised-by-anthropics-sabotage-experiment">Can Teammate AI Be Trusted? Questions Raised by Anthropic’s Sabotage Experiment (Inven Global)</a></li>
+<li><a href="https://wiki.eveuniversity.org/Tax">Tax (EVE University Wiki)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Project {EVE:} {Anthropic} {Tests} {Claude} {AI} {Agents} as
+    {Traders} and {Teammates} in {Two} {Space} {Games}},
+  date = {2026-11-12},
+  url = {https://toknow.ai/posts/project-eve-claude-agents-trade-eve-online-market-sabotage/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Project EVE: Anthropic Tests Claude AI
+Agents as Traders and Teammates in Two Space Games.”</span> <a href="https://toknow.ai/posts/project-eve-claude-agents-trade-eve-online-market-sabotage/">https://toknow.ai/posts/project-eve-claude-agents-trade-eve-online-market-sabotage/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/project-eve-claude-agents-trade-eve-online-market-sabotage/</guid>
+  <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/project-eve-claude-agents-trade-eve-online-market-sabotage/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>IdeaTaste and FrontierPhysics: Two Tests Where AI Falls Short as a Researcher</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/ai-research-taste-ideataste-frontierphysics-benchmarks/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/ai-research-taste-ideataste-frontierphysics-benchmarks" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/ai-research-taste-ideataste-frontierphysics-benchmarks/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/ai-research-taste-ideataste-frontierphysics-benchmarks/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>AI models can now prove hard maths theorems, but research also means choosing which questions to chase and seeing a project through. Two new tests measure both. In IdeaTaste, from Carnegie Mellon University, six AI models read the papers of four AI research areas up to the end of 2025 and wrote more than 90,000 research proposals. The authors compared them with the real papers published from January to August 2026. As a yardstick, they used how much those real papers overlap with one another. The proposals reached about 26% of that level at citing the same earlier work and 18% at stating the same ideas. Eleven reviewers who did not know the source rated the proposals’ chance of success at 50 out of 100, against 71 for the real papers.</p>
+<p>FrontierPhysics asks an AI agent, a model that can search, run code and write files, to carry out a whole physics project from a short brief. Forty-two physicists wrote 56 tasks from their own research. Test scripts check the agent’s numbers, and a reviewing AI grades its paper against the physicists’ checklists. A run passes only if every check passes. Each of 22 models tried every task three times, and the best, Claude Opus 5.5, passed 46 of its 168 runs. In the authors’ review of GPT-6 Astra’s failed runs, 48% showed reasoning that was not rigorous, such as checking an answer with the same wrong assumption that produced it.</p>
+<p>Read More: <a href="../../posts/openai-anthropic-exponential-time-hypothesis-false-3-sat-lean/index.html">two AI labs’ claimed proofs, accepted by the Lean proof checker, that the 1999 Exponential Time Hypothesis is false</a> and <a href="../../posts/ai-learns-scientific-taste-rlcf-openmoss-fudan/index.html">a March study that trained AI on about 700,000 paper pairs to predict which paper earns more citations</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://arxiv.org/html/2611.03424">IdeaTaste: Do LLMs Share the Research Taste of Human Researchers? (arXiv full text)</a></li>
+<li><a href="https://cxcscmu.github.io/IdeaTaste/">IdeaTaste project page with the benchmark overview and live tracker (Carnegie Mellon University)</a></li>
+<li><a href="https://arxiv.org/html/2611.06910">FrontierPhysics: Evaluating Agents for End-to-End Physics Research (arXiv full text)</a></li>
+<li><a href="https://aiweekly.co/alerts/frontierphysics-top-agent-clears-274-of-physics-research-tasks">FrontierPhysics: top agent clears 27.4% of physics research tasks (AI Weekly)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {IdeaTaste and {FrontierPhysics:} {Two} {Tests} {Where} {AI}
+    {Falls} {Short} as a {Researcher}},
+  date = {2026-11-11},
+  url = {https://toknow.ai/posts/ai-research-taste-ideataste-frontierphysics-benchmarks/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“IdeaTaste and FrontierPhysics: Two Tests
+Where AI Falls Short as a Researcher.”</span> <a href="https://toknow.ai/posts/ai-research-taste-ideataste-frontierphysics-benchmarks/">https://toknow.ai/posts/ai-research-taste-ideataste-frontierphysics-benchmarks/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/ai-research-taste-ideataste-frontierphysics-benchmarks/</guid>
+  <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/ai-research-taste-ideataste-frontierphysics-benchmarks/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Arete-27B: Alibaba’s Qwen AI Model Retrained to Stop Echoing China’s Official Line</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/arete-27b-nous-research-qwen-propaganda-test/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/arete-27b-nous-research-qwen-propaganda-test" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/arete-27b-nous-research-qwen-propaganda-test/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/arete-27b-nous-research-qwen-propaganda-test/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p><a href="https://huggingface.co/NousResearch/Arete-27B">Arete-27B</a> is an AI model that US startup Nous Research made by retraining Alibaba’s Chinese-built Qwen3.8-27B to stop repeating the Chinese government’s account of topics such as free speech and surveillance. It is for people who run downloadable models themselves and want answers without that viewpoint; Nous says the aim is to reinforce “Western values.” The method is supervised fine-tuning, which means training on example answers written by Inkling, a model from Thinking Machines Lab, across about 52.8 million tokens (word fragments).</p>
+<p>Nous wrote an <a href="https://huggingface.co/datasets/NousResearch/Propaganda_Eval">803-question test</a>. Each question lists 2 to 4 facts from a dated source, and Grok 4.7, an xAI model, grades each answer on the facts it states and whether it adopts the state’s account. Answers that adopted the state’s account fell from 22% to 0.9%, Nous reports. The fact score, where 5 means every listed fact appears and 0 means none do or one is contradicted, rose from 2.32 for Qwen to 2.98 for Arete.</p>
+<p>In a Hugging Face user’s blind test, an AI judge compared answers to matched questions about China and the West. In English it found a clear double standard in 8 of 10 pairs for Qwen and 5 of 10 for Arete. In Chinese the change was small: 8 of 16 against 7 of 16. In another user’s test of 100 questions about places, novels and universities that do not exist, Arete invented 12 more answers than Qwen. On Nous’s test, 216 of 803 Arete answers still score 0 on facts.</p>
+<p>Read More: <a href="../../posts/qwen3-8-27b-multimodal-agentic-model-single-gpu/index.html">Qwen3.8-27B, the model Nous started from, runs agent work on one 24 GB graphics card</a> and <a href="../../posts/cohere-qwen-3-8-flash-next-beijing-upload-open-weight-trust/index.html">Cohere’s report that a different Qwen model tried to send a file to a server in Beijing</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://nousresearch.com/arete">Introducing Arete-27B (Nous Research)</a></li>
+<li><a href="https://huggingface.co/datasets/NousResearch/Propaganda_Eval">Censorship and Propaganda Eval dataset card (Nous Research, Hugging Face)</a></li>
+<li><a href="https://the-decoder.com/state-propaganda-in-some-chinese-ai-models-is-only-a-thin-layer-that-fine-tuning-can-strip-away/">State propaganda in some Chinese AI models is only “a thin layer” that fine-tuning can strip away (The Decoder)</a></li>
+<li><a href="https://huggingface.co/NousResearch/Arete-27B/discussions/16">Blind comparison of Arete-27B and Qwen3.8-27B in English and Chinese (Hugging Face discussion)</a></li>
+<li><a href="https://huggingface.co/NousResearch/Arete-27B/discussions/23">Arete-27B and Qwen3.8-27B on questions about things that do not exist (Hugging Face discussion)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Arete-27B: {Alibaba’s} {Qwen} {AI} {Model} {Retrained} to
+    {Stop} {Echoing} {China’s} {Official} {Line}},
+  date = {2026-11-11},
+  url = {https://toknow.ai/posts/arete-27b-nous-research-qwen-propaganda-test/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Arete-27B: Alibaba’s Qwen AI Model
+Retrained to Stop Echoing China’s Official Line.”</span> <a href="https://toknow.ai/posts/arete-27b-nous-research-qwen-propaganda-test/">https://toknow.ai/posts/arete-27b-nous-research-qwen-propaganda-test/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/arete-27b-nous-research-qwen-propaganda-test/</guid>
+  <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/arete-27b-nous-research-qwen-propaganda-test/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Data Center Ballot Measures: Voters Chose Limits in 44 of 45 Counted Local Votes</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/data-center-ballot-measures-2026-election-voters-ai/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/data-center-ballot-measures-2026-election-voters-ai" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/data-center-ballot-measures-2026-election-voters-ai/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/data-center-ballot-measures-2026-election-voters-ai/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>On November 3, voters in 10 states decided local ballot questions on data centers, the large computer buildings behind AI. <a href="https://datacentersontheballot.com/#overview">Redbud Consulting’s unofficial tracker</a> shows the side that limits data centers won 44 of the 45 questions with complete counts on November 9. Trenton, Ohio, voted 80% to 20% to ban data centers above 25 megawatts of power. Janesville, Wisconsin, voted 63% to require a public vote on any project over $450 million at a former General Motors plant, where an <a href="https://www.venable.com/insights/publications/2026/11/voters-approve-data-center-restrictions">$8 billion data center</a> had been proposed. In Harwood, North Dakota, 76% rejected a rule requiring independent review of large industrial projects, the only win for data centers.</p>
+<p>Democrats flipped the governor’s office in Texas, Ohio and Georgia, and <a href="https://www.news5cleveland.com/politics/america-votes/voters-elected-governors-to-curb-data-centers-lowering-bills-for-gas-and-groceries-is-harder">Scripps News reports</a> all three winners campaigned to pause or limit data centers. Texas governor-elect Gina Hinojosa, who won 57% to 41% (unofficial), promises to pause new data center approvals until lawmakers end tax breaks and protect household utility bills. <a href="https://www.bisnow.com/news/dallas-ft-worth/data-center-development/13-gw-at-immediate-risk-as-texas-data-center-developers-face-new-power-struggle">Jefferies analysts</a> estimate about 13 gigawatts of Texas projects (power for over 10 million homes) face immediate risk. <a href="https://arstechnica.com/tech-policy/2026/11/big-tech-claims-voters-ai-backlash-is-anti-trump-not-anti-tech/">Ars Technica</a> reports analysts expect the local measures to mostly hit projects planned for 2028, not those approved through 2027.</p>
+<p>Chamber of Progress, a tech trade group, says Democratic governor candidates who opposed data center bans won at higher rates, so the results show “little evidence of a voter mandate to crack down on AI or data centers.” NBC’s exit poll found 3 in 4 voters opposed a new local data center.</p>
+<p>Read More: <a href="../../posts/ai-weekly-agent-memory-eve-trading-biobasicsbench-uber-data-center-votes/index.html">AI This Week: Agents That Remember, AI in the Lab, Votes on Data Centers</a>, which gives the tracker’s 44 of 45 count and a 13 gigawatt Texas estimate in two sentences</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://datacentersontheballot.com/#overview">Data Centers on the Ballot: 2026 Results (Redbud Consulting)</a></li>
+<li><a href="https://www.venable.com/insights/publications/2026/11/voters-approve-data-center-restrictions">Voters Approve Data Center Restrictions at the Ballot Box (Venable)</a></li>
+<li><a href="https://www.news5cleveland.com/politics/america-votes/voters-elected-governors-to-curb-data-centers-lowering-bills-for-gas-and-groceries-is-harder">Voters elected governors to curb data centers (Scripps News)</a></li>
+<li><a href="https://www.bisnow.com/news/dallas-ft-worth/data-center-development/13-gw-at-immediate-risk-as-texas-data-center-developers-face-new-power-struggle">13 GW At Immediate Risk As Texas Data Center Developers Face New Power Struggle (Bisnow)</a></li>
+<li><a href="https://arstechnica.com/tech-policy/2026/11/big-tech-claims-voters-ai-backlash-is-anti-trump-not-anti-tech/">Big Tech claims voters’ AI backlash is “anti-Trump” not “anti-tech” (Ars Technica)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Data {Center} {Ballot} {Measures:} {Voters} {Chose} {Limits}
+    in 44 of 45 {Counted} {Local} {Votes}},
+  date = {2026-11-11},
+  url = {https://toknow.ai/posts/data-center-ballot-measures-2026-election-voters-ai/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Data Center Ballot Measures: Voters Chose
+Limits in 44 of 45 Counted Local Votes.”</span> <a href="https://toknow.ai/posts/data-center-ballot-measures-2026-election-voters-ai/">https://toknow.ai/posts/data-center-ballot-measures-2026-election-voters-ai/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>entrepreneurship</category>
+  <guid>https://toknow.ai/posts/data-center-ballot-measures-2026-election-voters-ai/</guid>
+  <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/data-center-ballot-measures-2026-election-voters-ai/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Mixture-of-Experts Handbook: Hugging Face’s Free Guide to Training AI</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/hugging-face-moe-training-handbook-mixture-of-experts/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/hugging-face-moe-training-handbook-mixture-of-experts" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/hugging-face-moe-training-handbook-mixture-of-experts/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/hugging-face-moe-training-handbook-mixture-of-experts/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Hugging Face’s Mixture-of-Experts Handbook is a free, book-length guide for teams with a GPU cluster who want to train a mixture-of-experts model (MoE) with NVIDIA’s Megatron-LM software. An MoE works like a team of specialists: a small router sends each token (a word or word piece) to only a few experts, so the model holds far more parameters (learned numbers) than it uses on any one token. The handbook’s starter model has 64 experts, picks 8 per token, and holds 6.86 billion parameters while using 1.22 billion at a time. Authors Nouamane Tazi, Leandro von Werra and Thomas Wolf write that technical reports on open models rarely show what a team tried and dropped. They count 18 of the 20 top-scoring open-weights (downloadable) models on the Artificial Analysis ranking as MoEs.</p>
+<p>Each recommendation comes with a measurement from the authors’ runs on Amazon Web Services machines with eight H100 chips each. A new router splits work unevenly, so every GPU waits for the one holding the busiest experts. Forcing an even split ran the same model 1.5 times faster. Two runs that quietly fell back to a slow network connection ran about 25 times slower than a run on the fast one, and the guide shows the log line that gives it away. Readers without a cluster can rent an eight-GPU machine on Hugging Face Jobs, billed by the minute. Hugging Face says the experiments took about 800,000 GPU hours, roughly 91 years on one GPU.</p>
+<p>Read More: <a href="../../posts/mixture-of-kittens-moe-training-megakernel-nvl72/index.html">Mixture-of-Kittens: Cursor’s software that cuts the time mixture-of-experts training spends moving tokens between GPUs</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://huggingface-moe-blogpost.hf.space/index.html">The Ultimate MoE Training Handbook (Hugging Face)</a></li>
+<li><a href="https://aiweekly.co/alerts/hugging-face-publishes-70000-word-moe-training-handbook">Hugging Face publishes 70,000-word MoE training handbook (AI Weekly)</a></li>
+<li><a href="https://explainx.ai/blog/hugging-face-ultimate-moe-training-handbook-megatron-800k-gpu-hours-guide-2026">Hugging Face Releases “The Ultimate MoE Training Handbook” (explainx.ai)</a></li>
+<li><a href="https://artificialanalysis.ai/models/open-source">Comparison of Open Source Models (Artificial Analysis)</a></li>
+<li><a href="https://docs.nvidia.com/megatron-core/developer-guide/latest/user-guide/features/moe.html">Mixture of Experts, Megatron Core documentation (NVIDIA)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Mixture-of-Experts {Handbook:} {Hugging} {Face’s} {Free}
+    {Guide} to {Training} {AI}},
+  date = {2026-11-11},
+  url = {https://toknow.ai/posts/hugging-face-moe-training-handbook-mixture-of-experts/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Mixture-of-Experts Handbook: Hugging Face’s
+Free Guide to Training AI.”</span> <a href="https://toknow.ai/posts/hugging-face-moe-training-handbook-mixture-of-experts/">https://toknow.ai/posts/hugging-face-moe-training-handbook-mixture-of-experts/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>software-engineering</category>
+  <guid>https://toknow.ai/posts/hugging-face-moe-training-handbook-mixture-of-experts/</guid>
+  <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/hugging-face-moe-training-handbook-mixture-of-experts/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Auto Ontology: NVIDIA’s Glossary of Business Terms That Checks AI Agents’ Database Queries</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/nvidia-auto-ontology-business-terms-ai-agents-sql/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/nvidia-auto-ontology-business-terms-ai-agents-sql" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/nvidia-auto-ontology-business-terms-ai-agents-sql/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/nvidia-auto-ontology-business-terms-ai-agents-sql/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Auto Ontology is an NVIDIA library for data teams that let AI agents query company databases. An ontology works like a glossary: it defines business terms such as “revenue”, names the database columns that hold each one, and shows how tables connect. The library drafts it from the database’s tables and columns. People test the draft with real questions and approve each entry. An agent then writes SQL (the language of databases) from the matching terms, checks it against the database and repairs it when a check fails. On a Microsoft sample sales database, one run produced 31 terms. Asked for one product’s June 2015 revenue in Pennsylvania, the agent joined six tables and returned $588.80, with its SQL.</p>
+<p>NVIDIA’s Adel El Hallak told The New Stack that people know a “tier” and a “plan” mean the same thing at a mobile carrier, but language models “mess those up.” Without a glossary, an agent guesses which columns count, or a data team writes every definition by hand, for example in dbt’s Semantic Layer. Auto Ontology drafts the definitions for people to approve, which NVIDIA says cut creation time by 90% in its own testing. Asked for return on ad spend in a database with no advertising data, the agent asks what to do instead of inventing a number. Agents reach it through <a href="https://github.com/NVIDIA/auto-ontology/blob/main/docs/mcp.md">MCP</a>, a standard plug-in format for AI agents, a command line or a web API. It reads 10 database types, and each answer typically takes tens of seconds.</p>
+<p>Read More: <a href="../../posts/apache-ossie-semantic-model-bi-ai-agents/index.html">Apache Ossie: One Semantic Model for BI Tools and AI Agents</a>, a shared file format for business definitions that Auto Ontology’s README lists for import and export</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://github.com/NVIDIA/auto-ontology">NVIDIA Auto Ontology (GitHub README)</a></li>
+<li><a href="https://github.com/NVIDIA/auto-ontology/blob/main/docs/mcp.md">Auto-Ontology MCP server (NVIDIA docs)</a></li>
+<li><a href="https://developer.nvidia.com/topics/ai/agent-knowledge-foundation">NVIDIA Agent Knowledge Foundation (NVIDIA Developer)</a></li>
+<li><a href="https://thenewstack.io/nvidia-agent-knowledge-foundation/">Nvidia bets open models can give enterprise AI agents the context they’re missing (The New Stack)</a></li>
+<li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl">The dbt Semantic Layer (dbt Developer Hub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Auto {Ontology:} {NVIDIA’s} {Glossary} of {Business} {Terms}
+    {That} {Checks} {AI} {Agents’} {Database} {Queries}},
+  date = {2026-11-11},
+  url = {https://toknow.ai/posts/nvidia-auto-ontology-business-terms-ai-agents-sql/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Auto Ontology: NVIDIA’s Glossary of
+Business Terms That Checks AI Agents’ Database Queries.”</span> <a href="https://toknow.ai/posts/nvidia-auto-ontology-business-terms-ai-agents-sql/">https://toknow.ai/posts/nvidia-auto-ontology-business-terms-ai-agents-sql/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>data-science</category>
+  <guid>https://toknow.ai/posts/nvidia-auto-ontology-business-terms-ai-agents-sql/</guid>
+  <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/nvidia-auto-ontology-business-terms-ai-agents-sql/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>ARTEX: A Free AI Tool That Runs Hacking Tests on Its Own, With Control Panels Left Open Online</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/artex-ai-hacking-tool-consoles-exposed-web/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/artex-ai-hacking-tool-consoles-exposed-web" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/artex-ai-hacking-tool-consoles-exposed-web/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/artex-ai-hacking-tool-consoles-exposed-web/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>ARTEX is a free Chinese AI tool, released in July, that runs security tests on its own. Security teams use such tests, called penetration testing, to find weak spots in their own systems. A user types a goal, such as getting into an administrator page. A planner agent splits the goal into steps, like a manager handing out jobs, and worker agents run scanning tools and report back until the goal is met. A web control panel shows the progress. Censys, a company that scans the internet and records what each server shows, counted 1,465 addresses showing an ARTEX control panel in early November. About 815 look distinct once identical setups are set aside. Check Point, counting separately, found 1,608 live panels.</p>
+<p>TechCrunch reports the panels open without a password, so anyone who finds one can use it. Censys says some likely belong to authorized testers. CrowdStrike linked one ARTEX server to a campaign that stole data from South Korean financial organizations between late September and early October. That operator had left public folders holding AI chat logs and settings files, and Censys found 32 more open folders on other ARTEX systems, holding attack tools. Check Point read the chat records of another operator, who ran two consoles for two weeks to steal software signing certificates and mostly asked the agents for progress. It estimates the AI fees at $700 to $1,500. The developer stopped public releases on October 8 and the GitHub page is gone, but copies still circulate.</p>
+<p>Read More: <a href="../../posts/anthropic-red-team-glm-5-3-cyber-exploits-abliteration/index.html">Anthropic’s red team on GLM-5.3, an open-weight model that builds working cyber exploits</a>, one of the models CrowdStrike lists in the South Korean case</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://censys.com/blog/artex-agentic-asbestos/">ARTEX: Agentic Asbestos (Censys)</a></li>
+<li><a href="https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/">Unknown Threat Actor Uses AI-Driven ARTEX to Target South Korean Finance (CrowdStrike)</a></li>
+<li><a href="https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/">Hacking on Autopilot: Inside ARTEX Cybercrime Campaigns (Check Point Research)</a></li>
+<li><a href="https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/">Hundreds of Artex AI hacking tools found publicly exposed to the web (TechCrunch)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {ARTEX: {A} {Free} {AI} {Tool} {That} {Runs} {Hacking} {Tests}
+    on {Its} {Own,} {With} {Control} {Panels} {Left} {Open} {Online}},
+  date = {2026-11-10},
+  url = {https://toknow.ai/posts/artex-ai-hacking-tool-consoles-exposed-web/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“ARTEX: A Free AI Tool That Runs Hacking
+Tests on Its Own, With Control Panels Left Open Online.”</span> <a href="https://toknow.ai/posts/artex-ai-hacking-tool-consoles-exposed-web/">https://toknow.ai/posts/artex-ai-hacking-tool-consoles-exposed-web/</a>.
+</div></div></section></div> ]]></description>
+  <category>cyber-security</category>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/artex-ai-hacking-tool-consoles-exposed-web/</guid>
+  <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/artex-ai-hacking-tool-consoles-exposed-web/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Claude Proves Parts of 123 Open-Source Libraries Cannot Crash on Inputs Under 64 MB</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/claude-formal-proofs-123-open-source-libraries-memory-safety/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/claude-formal-proofs-123-open-source-libraries-memory-safety" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/claude-formal-proofs-123-open-source-libraries-memory-safety/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/claude-formal-proofs-123-open-source-libraries-memory-safety/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Anthropic and the verification company Theorem used Claude to prove, with maths checked by a computer, that parts of 123 open-source libraries cannot crash or misuse memory on any input under 64 MB. These libraries are shared code that programs use to open files such as images and archives. Testing tries some inputs, while a proof covers all of them, like calculating that a bridge holds every load up to a stated weight instead of driving trucks across it. Each library already had a fuzz test, which feeds it random inputs and flags crashes. The team turned each test automatically into a rule about the compiled machine code, the exact instructions the chip runs. Claude wrote proofs that the rule always holds, and a checking program called Rocq verified them: about 180 million lines, written in a few weeks.</p>
+<p>Bad memory access is a leading cause of security holes, Anthropic notes, and such proofs were rare because they cost so much: the seL4 operating system kernel took two person-years to build and 20 to verify. Writing the new proofs exposed hundreds of bugs, which Claude patched, and Anthropic says some had escaped years of testing. One appeared only on an input of about 20 MB with a rare layout, while fuzzers usually stop near 1 MB. The guarantee assumes programs that run one task at a time on RISC-V chips under Linux, not the x86 or ARM chips most people use. Theorem now offers this free to qualifying open-source projects.</p>
+<p>Read More: <a href="../../posts/anthropic-oss-scanner-cyber-mission/index.html">Anthropic’s free open-source bug scanner</a>, a separate service that scans open-source projects for security bugs and emails the findings to maintainers</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/formal-verification">LLMs are making formal software verification feasible at a much larger scale (Anthropic)</a></li>
+<li><a href="https://theorem.dev/oss-verify/">OSS Verify: free formal verification for open source (Theorem)</a></li>
+<li><a href="https://the-decoder.com/anthropics-claude-now-writes-code-and-proves-it-safe-automatically/">Anthropic’s Claude now writes code and proves it safe automatically (The Decoder)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Claude {Proves} {Parts} of 123 {Open-Source} {Libraries}
+    {Cannot} {Crash} on {Inputs} {Under} 64 {MB}},
+  date = {2026-11-10},
+  url = {https://toknow.ai/posts/claude-formal-proofs-123-open-source-libraries-memory-safety/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Claude Proves Parts of 123 Open-Source
+Libraries Cannot Crash on Inputs Under 64 MB.”</span> <a href="https://toknow.ai/posts/claude-formal-proofs-123-open-source-libraries-memory-safety/">https://toknow.ai/posts/claude-formal-proofs-123-open-source-libraries-memory-safety/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/claude-formal-proofs-123-open-source-libraries-memory-safety/</guid>
+  <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/claude-formal-proofs-123-open-source-libraries-memory-safety/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>FlashProve: An Anthropic Prototype That Proves Which AI Model Wrote a Reply</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/flashprove-anthropic-proof-ai-reply-came-from-model/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/flashprove-anthropic-proof-ai-reply-came-from-model" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/flashprove-anthropic-proof-ai-reply-came-from-model/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/flashprove-anthropic-proof-ai-reply-came-from-model/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>FlashProve is an Anthropic research prototype that lets an AI company attach a mathematical proof to each reply, showing which model wrote it. It is for people who buy AI through resellers, and for auditors and regulators, because a reseller could quietly swap in a cheaper model. The proof works like a notarized receipt for a secret recipe: anyone can check the stamp without seeing the recipe. The company first publishes a short fingerprint of its model’s weights, the numbers that make up the model. After each reply, a GPU builds a proof file, and anyone with the fingerprint, the prompt and the reply can check it on an ordinary computer in about 20 seconds. On Meta’s Llama 4 Maverick, a model with 400 billion of these numbers, the authors report proofs at 110 tokens (word pieces) a second on one H100 GPU.</p>
+<p>Reading the reply is not enough to catch a swap. UC Berkeley researchers found that text classifiers scored about 50%, no better than a coin flip, at telling compressed versions of open models from the originals. An earlier proof system, VerInf, needed 14.3 hours to prove 1,000 tokens of the same model on a desktop NVIDIA DGX Spark. FlashProve is far faster but still uses 70 to 95 times the GPU time of a normal model run. The buyer must get the fingerprint from a trusted party, not the reseller, and each proof covers at most 1,024 tokens.</p>
+<p>Read More: <a href="../../posts/llm-self-identification-model-provenance/index.html">An LLM Cannot Prove Its Identity by Naming Itself</a>, on why a model’s own answer to “who are you?” is not evidence of which model replied</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/provable-inference">Progress on provable inference for large language models (Anthropic)</a></li>
+<li><a href="https://github.com/anthropics/FlashProve/blob/main/guide/known-limits.md">FlashProve known limits (Anthropic, GitHub)</a></li>
+<li><a href="https://thenewstack.io/anthropic-flashprove-model-verification/">Anthropic found a way to prove which AI model answered you (The New Stack)</a></li>
+<li><a href="https://arxiv.org/html/2504.04715">Are You Getting What You Pay For? Auditing Model Substitution in LLM APIs (UC Berkeley, arXiv)</a></li>
+<li><a href="https://github.com/JamesPetrie/VerInf">VerInf: zero-knowledge proofs of large-language-model inference (GitHub)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {FlashProve: {An} {Anthropic} {Prototype} {That} {Proves}
+    {Which} {AI} {Model} {Wrote} a {Reply}},
+  date = {2026-11-10},
+  url = {https://toknow.ai/posts/flashprove-anthropic-proof-ai-reply-came-from-model/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“FlashProve: An Anthropic Prototype That
+Proves Which AI Model Wrote a Reply.”</span> <a href="https://toknow.ai/posts/flashprove-anthropic-proof-ai-reply-came-from-model/">https://toknow.ai/posts/flashprove-anthropic-proof-ai-reply-came-from-model/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <category>cyber-security</category>
+  <guid>https://toknow.ai/posts/flashprove-anthropic-proof-ai-reply-came-from-model/</guid>
+  <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/flashprove-anthropic-proof-ai-reply-came-from-model/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Anthropic Study: Scientists Use Claude Most for Data Analysis and Writing</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/how-scientists-use-claude-207000-research-sessions/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/how-scientists-use-claude-207000-research-sessions" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/how-scientists-use-claude-207000-research-sessions/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/how-scientists-use-claude-207000-research-sessions/image.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+<p>Anthropic studied what scientists ask its AI assistant Claude to do, using 207,049 research sessions from August and September 2026. A language model read each session and kept only two labels, the field (such as chemistry) and the task (such as data cleaning), so the research team saw only those labels, not the research itself. Analysing data came first. It made up 33.7% of sessions in the Claude chat app and 48.1% in Claude Code, Anthropic’s coding tool, more than the 27.6% of working time that researchers spend on analysis, by Anthropic’s estimate. Writing took 32.0% of chat sessions, twice its share of research time.</p>
+<p>The study shows where AI already helps science. In a separate survey of 528 researchers who already use AI, mostly in health and life sciences, respondents ranked coming up with ideas as the most important task for big results. Yet idea generation was only 4.2% of chat sessions, against 7.1% of research time. Gathering data was 11.5% of chat sessions against 28.6% of research time, and much of it, such as collecting clinical samples, is physical work.</p>
+<p>About 40% of surveyed researchers expect AI to run whole research projects on its own by 2030, and 16% say it never will. Anthropic’s model, which it calls an illustration and not a forecast, says wide use of today’s tools could double research output in computer science but raise it only 1.4 times in chemistry, where about 40% of researcher time goes to physical lab steps.</p>
+<p>Read More: <a href="../../posts/claude-science-uv-sky-map/index.html">Claude Science fills the third of the sky that no ultraviolet telescope photographed</a></p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://www.anthropic.com/research/how-researchers-use-claude">How scientists use Claude (Anthropic)</a></li>
+<li><a href="https://aiweekly.co/alerts/anthropic-computer-science-dominates-research-use-of-claude">Anthropic: computer science dominates research use of Claude (AI Weekly)</a></li>
+<li><a href="https://rohitai.com/blog/claude-research-use-analysis-writing-limits">Researchers turn to Claude for analysis and writing, study finds (RohitAI)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Anthropic {Study:} {Scientists} {Use} {Claude} {Most} for
+    {Data} {Analysis} and {Writing}},
+  date = {2026-11-10},
+  url = {https://toknow.ai/posts/how-scientists-use-claude-207000-research-sessions/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Anthropic Study: Scientists Use Claude Most
+for Data Analysis and Writing.”</span> <a href="https://toknow.ai/posts/how-scientists-use-claude-207000-research-sessions/">https://toknow.ai/posts/how-scientists-use-claude-207000-research-sessions/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/how-scientists-use-claude-207000-research-sessions/</guid>
+  <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/how-scientists-use-claude-207000-research-sessions/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+<item>
+  <title>Inkling 2 Small: A Customizable AI Model for Coding and Office Work</title>
+  <dc:creator>Kabui, Charles</dc:creator>
+  <link>https://toknow.ai/posts/inkling-2-small-thinking-machines-customizable-ai-model/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+        <img src="https://toknow.ai/pageviews?page_path=/posts/inkling-2-small-thinking-machines-customizable-ai-model" class="rounded mx-auto d-block" style="height: 1.3em;">
+      
+<hr class="mt-1 mb-1 w-50 mx-auto">
+<div class="d-flex 
+      justify-content-center 
+      gap-3 align-items-center 
+      flex-wrap 
+      clearfix 
+      p-1 
+      post_action_buttons">
+<a target="_blank" class="btn btn-outline-success btn-sm" href="https://toknow.ai/posts/inkling-2-small-thinking-machines-customizable-ai-model/index.pdf"><i class="bi bi-file-pdf"></i> Download as PDF</a>
+</div>
+<hr class="mt-1 mb-1 w-50 mx-auto mb-5">
+<p><a href="image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://toknow.ai/posts/inkling-2-small-thinking-machines-customizable-ai-model/image.png" class="img-fluid" decoding="async" loading="lazy"></a></p>
+<p>Inkling 2 Small is an AI model from Thinking Machines, the lab led by former OpenAI technology chief Mira Murati. It reads text and images and is for developers who build coding and document assistants and tune the model on their own data. Its 594 billion parameters (the numbers it learned) work like a hospital where each patient sees only a few of many specialists. Each token (word piece) goes to <a href="https://thinkingmachines.ai/model-card/inkling-2-small/">a few specialists</a>, so only 17 billion parameters do the work. Its initial training phase read 8.4 trillion tokens in 68 hours. It then practiced on more than 17 million graded attempts at tasks such as coding and office work.</p>
+<p>On <a href="https://tinker-docs.thinkingmachines.ai/tinker/models/models_and_pricing/">Tinker</a>, the lab’s service for running and tuning models, developers pay $0.30 per million input tokens and $1.00 per million output tokens. The testing firm Artificial Analysis gives it 31 on its Intelligence Index, a nine-test mix including coding and office tasks. Google’s Gemini 3.8 Flash also scores 31, yet one index task costs $7.77 with Gemini and $1.18 with Inkling 2 Small. Artificial Analysis times it at 16.4 minutes per task, about twice the median of similar models.</p>
+<p>Thinking Machines said on November 5 it would publish the full weights, the files anyone can download and run, “next week” after outside safety testing. The weights were not out on November 10. Artificial Analysis says a release would make it the highest-scoring open-weights model made outside China. DeepSeek V4.1 Flash (33) and GLM-5.3 (32), both Chinese, score higher.</p>
+<p>Read More: <a href="../../posts/inkling-open-weights-custom-ai/index.html">Inkling: Open Weights Built for Custom AI</a>, the lab’s earlier, larger model with 975 billion parameters and downloadable weights</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://thinkingmachines.ai/news/inkling-2-small/">Introducing Inkling 2 Small (Thinking Machines)</a></li>
+<li><a href="https://venturebeat.com/technology/thinking-machines-launches-inkling-2-small-with-near-frontier-performance-on-enterprise-benchmarks">Thinking Machines launches Inkling 2 Small with near-frontier performance on enterprise benchmarks (VentureBeat)</a></li>
+<li><a href="https://artificialanalysis.ai/models/inkling-2-small">Inkling 2 Small: Intelligence, Performance and Price Analysis (Artificial Analysis)</a></li>
+<li><a href="https://artificialanalysis.ai/articles/thinking-machines-releases-inkling-2-small-highest-scoring-open-weights-model-outside-of-chinia-upon-weights-release-it">Thinking Machines Inkling 2 Small: the highest scoring open weights model outside of China pending weights release (Artificial Analysis)</a></li>
+<li><a href="https://artificialanalysis.ai/leaderboards/models">LLM Leaderboard (Artificial Analysis)</a></li>
+</ul>
+
+
+<hr>
+<div class="disclaimer">
+<p><strong><em>Disclaimer:</em></strong> <em>For information only. Accuracy or completeness not guaranteed. Illegal use prohibited. Not professional advice or solicitation.</em> <strong><em>Read more: <a href="https://toknow.ai/terms-of-service">/terms-of-service</a></em></strong></p>
+</div>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GNU GENERAL PUBLIC LICENSE v3.0<a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html">(View License)</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{kabui2026,
+  author = {{Kabui, Charles}},
+  title = {Inkling 2 {Small:} {A} {Customizable} {AI} {Model} for
+    {Coding} and {Office} {Work}},
+  date = {2026-11-10},
+  url = {https://toknow.ai/posts/inkling-2-small-thinking-machines-customizable-ai-model/},
+  langid = {en-GB}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kabui2026" class="csl-entry quarto-appendix-citeas">
+Kabui, Charles. 2026. <span>“Inkling 2 Small: A Customizable AI Model
+for Coding and Office Work.”</span> <a href="https://toknow.ai/posts/inkling-2-small-thinking-machines-customizable-ai-model/">https://toknow.ai/posts/inkling-2-small-thinking-machines-customizable-ai-model/</a>.
+</div></div></section></div> ]]></description>
+  <category>artificial-intelligence</category>
+  <guid>https://toknow.ai/posts/inkling-2-small-thinking-machines-customizable-ai-model/</guid>
+  <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://toknow.ai/posts/inkling-2-small-thinking-machines-customizable-ai-model/image.png" medium="image" type="image/png" height="76" width="144"/>
+</item>
+</channel>
+</rss>
